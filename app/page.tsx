@@ -1,3 +1,4 @@
+import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { SocialLinks } from "@/components/SocialLinks";
 import {
@@ -55,6 +56,8 @@ export default function Home() {
         <DocumentaryFrame label="Approved participation image or brand video" slot={siteStory.takePart.mediaSlot} />
         <div className="choices">{participationRoutes.map(({ index, label, action, href }) => <a href={href} key={index}><span>{index}</span><strong>{label}</strong><em>{action}</em></a>)}</div>
       </section>
+
+      <CommunitySignup />
 
       <footer className="footer">
         <div className="shell footer-inner">

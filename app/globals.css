@@ -20,7 +20,7 @@ h1, h2, h3, p, blockquote { margin-top: 0; }
 .masthead { min-height: 84px; display: flex; align-items: center; justify-content: space-between; }
 .wordmark { font-weight: 800; letter-spacing: .06em; text-decoration: none; }
 .nav { display: flex; gap: 28px; }
-.nav a { font-size: 13px; font-weight: 700; text-decoration: none; }
+.nav a { min-height: 44px; display: inline-flex; align-items: center; font-size: 13px; font-weight: 700; text-decoration: none; }
 
 .hero { min-height: min(860px, calc(100svh - 84px)); display: grid; align-content: center; padding: 8vh 0 12vh; text-align: center; }
 .hero h1 { margin-bottom: 30px; font-size: clamp(4rem, 9vw, 9.5rem); line-height: .9; text-wrap: balance; }
@@ -37,7 +37,7 @@ h1, h2, h3, p, blockquote { margin-top: 0; }
 
 .impact { background: var(--field); color: var(--paper); }
 .impact-intro { padding-top: clamp(110px, 14vw, 210px); }
-.impact-intro h2, .pathways h2, .take-part h2, .story h2, .footer h2 { max-width: 1100px; margin-bottom: 36px; font-size: clamp(3.2rem, 7vw, 7.4rem); line-height: .92; text-wrap: balance; }
+.impact-intro h2, .pathways h2, .take-part h2, .story h2, .footer h2, .community-signup h2 { max-width: 1100px; margin-bottom: 36px; font-size: clamp(3.2rem, 7vw, 7.4rem); line-height: .92; text-wrap: balance; }
 .roll { display: grid; grid-template-columns: 130px 1fr; gap: clamp(40px, 7vw, 110px); padding: clamp(70px, 9vw, 140px) 0 clamp(120px, 15vw, 240px); }
 .roll-index { position: sticky; top: 28px; align-self: start; }
 .roll-index ol { display: grid; gap: 14px; margin: 18px 0 0; padding: 0; list-style: none; color: rgba(245,242,232,.58); font-size: 11px; line-height: 1.4; text-transform: uppercase; }
@@ -61,15 +61,32 @@ blockquote { margin: 34px 0 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height:
 .pathway p { max-width: 450px; margin: 4px 0 0 auto; line-height: 1.55; }
 .pathway small { display: inline-block; margin-left: 4px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 
-.choices a { display: grid; grid-template-columns: 64px 1fr auto; gap: 28px; align-items: center; padding: clamp(28px, 3.5vw, 48px) 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.choices a { display: grid; grid-template-columns: 64px 1fr auto; gap: 28px; align-items: center; min-height: 70px; padding: clamp(28px, 3.5vw, 48px) 0; border-bottom: 1px solid var(--line); text-decoration: none; }
 .choices strong { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 4.2rem); font-weight: 400; letter-spacing: -.035em; }
 .choices em { font-size: 13px; font-style: normal; font-weight: 700; }
+
+.community-signup { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: clamp(48px, 9vw, 150px); align-items: start; padding: clamp(110px, 15vw, 220px) 0; border-top: 1px solid var(--line); }
+.community-signup-copy > p:last-child { max-width: 590px; font-size: 1.08rem; line-height: 1.65; }
+.community-signup-form { display: grid; gap: 24px; padding-top: 42px; }
+.community-signup-form label:not(.signup-consent):not(.signup-honeypot) { display: grid; gap: 10px; }
+.community-signup-form label > span { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.community-signup-form input[type="text"], .community-signup-form input[type="email"] { width: 100%; min-height: 54px; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1rem; }
+.community-signup-form input:focus { outline: none; border-bottom-width: 2px; }
+.signup-consent { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+.signup-consent input { width: 18px; height: 18px; margin: 1px 0 0; }
+.signup-consent span { font-size: 12px !important; font-weight: 400 !important; letter-spacing: 0 !important; line-height: 1.55; text-transform: none !important; }
+.community-signup-form button { min-height: 52px; width: fit-content; padding: 0 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.community-signup-form button:disabled { cursor: wait; opacity: .6; }
+.signup-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.signup-status { min-height: 22px; margin: 0; font-size: 12px; line-height: 1.5; }
+.signup-status-error { font-weight: 700; }
+.signup-status-success { font-weight: 700; }
 
 .footer { background: var(--ink); color: var(--paper); }
 .footer-inner { min-height: 88svh; display: grid; align-content: space-between; padding: clamp(80px, 10vw, 140px) 0 48px; }
 .footer-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; }
 .footer-meta nav { display: grid; gap: 6px; }
-.footer-meta nav a { width: fit-content; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 4.4rem); letter-spacing: -.035em; text-decoration: none; }
+.footer-meta nav a { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 4.4rem); letter-spacing: -.035em; text-decoration: none; }
 .footer-meta p { color: rgba(245,242,232,.62); font-size: 11px; line-height: 1.7; }
 .social-links { display: grid; gap: 8px; margin-bottom: 28px; }
 .social-links a { min-height: 44px; display: grid; grid-template-columns: 24px 1fr auto; gap: 12px; align-items: center; width: min(100%, 330px); padding: 10px 0; border-bottom: 1px solid rgba(245,242,232,.2); color: var(--paper); font-size: 13px; font-weight: 700; text-decoration: none; }
@@ -100,6 +117,8 @@ blockquote { margin: 34px 0 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height:
   .pathway p { grid-column: 2; margin-left: 0; }
   .choices a { grid-template-columns: 42px 1fr; }
   .choices em { grid-column: 2; }
+  .community-signup { grid-template-columns: 1fr; }
+  .community-signup-form { padding-top: 0; }
   .footer-meta { grid-template-columns: 1fr; }
   .social-links a { width: 100%; }
 }

@@ -29,7 +29,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
 
       <footer className="footer interior-footer">
         <div className="shell interior-footer-inner">
-          <p className="eyebrow">ASC3ND — with a three.</p>
+          <p className="eyebrow">ASC3ND, with a three.</p>
           <nav aria-label="Footer navigation">
             <a href="/">Home</a>
             <a href="/impact">Impact</a>

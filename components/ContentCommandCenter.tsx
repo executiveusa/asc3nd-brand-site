@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Check, RefreshCw, Users } from "lucide-react";
+import { Check, RefreshCw, Send, Users } from "lucide-react";
 import { createAsc3ndBrowserClient } from "@/lib/supabase-client";
 import styles from "@/app/staff/staff.module.css";
 
@@ -34,6 +34,8 @@ type Delivery = {
   approved_at: string | null;
   sent_at: string | null;
   replied_at: string | null;
+  outbox_status: string | null;
+  outbox_provider: string | null;
 };
 
 const routes = ["family", "updates", "volunteer", "mentor", "supplies", "sponsor", "partner"];
@@ -125,7 +127,19 @@ export function ContentCommandCenter() {
   async function approveDelivery(delivery: Delivery) {
     setLoading(true);
     const { error } = await supabase.rpc("asc3nd_approve_content_delivery", { p_delivery_id: delivery.id });
-    setMessage(error ? error.message : "Recipient approved for delivery. Sending remains disabled until a provider adapter is connected.");
+    setMessage(error ? error.message : "Recipient approved. Consent will be checked again when this delivery is queued.");
+    if (selected) await loadDeliveries(selected.id);
+    await loadDrops();
+    setLoading(false);
+  }
+
+  async function queueDelivery(delivery: Delivery) {
+    setLoading(true);
+    const { error } = await supabase.rpc("asc3nd_queue_approved_delivery", {
+      p_delivery_id: delivery.id,
+      p_provider: "unconfigured",
+    });
+    setMessage(error ? error.message : "Queued after a fresh consent check. No network send will occur until an email provider is configured.");
     if (selected) await loadDeliveries(selected.id);
     await loadDrops();
     setLoading(false);
@@ -228,13 +242,20 @@ export function ContentCommandCenter() {
                   </div>
                   <div>
                     <small>{delivery.eligibility_reason || "—"}</small>
+                    {delivery.outbox_status ? <small>Outbox: {delivery.outbox_status} · {delivery.outbox_provider || "unconfigured"}</small> : null}
                   </div>
                   <div>
                     {delivery.status === "proposed" ? (
                       <button type="button" className={styles.outlineButton} onClick={() => approveDelivery(delivery)} disabled={loading}>
                         <Check size={14} aria-hidden="true" /> Approve recipient
                       </button>
-                    ) : <span>{delivery.status}</span>}
+                    ) : null}
+                    {delivery.status === "approved" ? (
+                      <button type="button" className={styles.outlineButton} onClick={() => queueDelivery(delivery)} disabled={loading}>
+                        <Send size={14} aria-hidden="true" /> Queue after consent recheck
+                      </button>
+                    ) : null}
+                    {delivery.status !== "proposed" && delivery.status !== "approved" ? <span>{delivery.status}</span> : null}
                   </div>
                 </div>
               );

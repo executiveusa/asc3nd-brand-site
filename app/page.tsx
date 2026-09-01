@@ -139,7 +139,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-inner">
           <div>
-            <p className="eyebrow">ASC3ND — with a three.</p>
+            <p className="eyebrow">ASC3ND, with a three.</p>
             <h2>Empower youth.<br />Elevate futures.<br />Build community.</h2>
           </div>
           <div className="footer-meta">

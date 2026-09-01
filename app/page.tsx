@@ -5,6 +5,8 @@ import {
   pathways,
 } from "@/lib/site-content";
 
+const rollSlots = ["arrival", "service", "connection", "next"] as const;
+
 export default function Home() {
   return (
     <main>
@@ -40,7 +42,10 @@ export default function Home() {
         className="cinematic shell"
         aria-label="Community Cuts documentary media"
       >
-        <DocumentaryFrame label="Approved Community Cuts documentary image or ambient film" />
+        <DocumentaryFrame
+          label="Approved Community Cuts documentary image or ambient film"
+          slot="hero"
+        />
         <div className="media-caption">
           <span>Community Cuts for Kids</span>
           <span>Everett · August 2026</span>
@@ -64,10 +69,11 @@ export default function Home() {
             </ol>
           </aside>
           <div>
-            {communityRoll.map(({ index, title, copy }) => (
+            {communityRoll.map(({ index, title, copy }, itemIndex) => (
               <article className="roll-frame" key={index}>
                 <DocumentaryFrame
                   label={`Approved event media · ${title}`}
+                  slot={rollSlots[itemIndex]}
                   variant="dark"
                 />
                 <div className="frame-copy">
@@ -85,6 +91,7 @@ export default function Home() {
       <section className="story shell" id="story">
         <DocumentaryFrame
           label="Approved founder portrait"
+          slot="founder"
           className="portrait-placeholder"
         />
         <div className="story-copy">

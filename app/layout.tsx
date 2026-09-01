@@ -4,9 +4,9 @@ import "./interior.css";
 import "./gauntlet.css";
 
 export const metadata: Metadata = {
-  title: "ASC3ND — Community came through. Now we build forward.",
+  title: "ASC3ND | Community came through. Now we build forward.",
   description:
-    "The ASC3ND Collective builds practical pathways around trusted guidance, life skills, and community-built opportunity for young people.",
+    "ASC3ND is building ways for young people to find trusted guidance, practice life skills, and connect with community opportunity.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

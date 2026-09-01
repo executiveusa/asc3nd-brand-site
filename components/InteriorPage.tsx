@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SocialLinks } from "@/components/SocialLinks";
 
 type InteriorPageProps = {
   eyebrow: string;
@@ -29,13 +30,14 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
 
       <footer className="footer interior-footer">
         <div className="shell interior-footer-inner">
-          <p className="eyebrow">ASC3ND — with a three.</p>
+          <p className="eyebrow">ASC3ND, with a three.</p>
           <nav aria-label="Footer navigation">
             <a href="/">Home</a>
             <a href="/impact">Impact</a>
             <a href="/story">Story</a>
             <a href="/take-part">Take part</a>
           </nav>
+          <SocialLinks />
         </div>
       </footer>
     </main>

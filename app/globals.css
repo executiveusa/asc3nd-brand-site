@@ -71,6 +71,10 @@ blockquote { margin: 34px 0 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height:
 .footer-meta nav { display: grid; gap: 6px; }
 .footer-meta nav a { width: fit-content; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 4.4rem); letter-spacing: -.035em; text-decoration: none; }
 .footer-meta p { color: rgba(245,242,232,.62); font-size: 11px; line-height: 1.7; }
+.social-links { display: grid; gap: 8px; margin-bottom: 28px; }
+.social-links a { min-height: 44px; display: grid; grid-template-columns: 24px 1fr auto; gap: 12px; align-items: center; width: min(100%, 330px); padding: 10px 0; border-bottom: 1px solid rgba(245,242,232,.2); color: var(--paper); font-size: 13px; font-weight: 700; text-decoration: none; }
+.social-links svg:first-child { width: 20px; height: 20px; fill: currentColor; }
+.social-links a:hover span { text-decoration: underline; text-underline-offset: 4px; }
 
 :focus-visible { outline: 2px solid var(--marker); outline-offset: 5px; }
 
@@ -97,6 +101,7 @@ blockquote { margin: 34px 0 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height:
   .choices a { grid-template-columns: 42px 1fr; }
   .choices em { grid-column: 2; }
   .footer-meta { grid-template-columns: 1fr; }
+  .social-links a { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -137,9 +137,27 @@ export function ContentCommandCenter() {
     setLoading(true);
     const { error } = await supabase.rpc("asc3nd_queue_approved_delivery", {
       p_delivery_id: delivery.id,
-      p_provider: "unconfigured",
+      p_provider: "resend",
     });
-    setMessage(error ? error.message : "Queued after a fresh consent check. No network send will occur until an email provider is configured.");
+    setMessage(error ? error.message : "Queued for the Resend outbox after a fresh consent check. Queueing is not sending.");
+    if (selected) await loadDeliveries(selected.id);
+    await loadDrops();
+    setLoading(false);
+  }
+
+  async function runEmailWorker() {
+    setLoading(true);
+    setMessage("");
+    const { data, error } = await supabase.functions.invoke("asc3nd-email-worker", {
+      body: { limit: 10 },
+    });
+    if (error) {
+      setMessage(`Email worker did not run: ${error.message}`);
+    } else if (data?.configured === false) {
+      setMessage(`Email worker is safely disabled until these secrets are configured: ${(data.missing || []).join(", ")}.`);
+    } else {
+      setMessage(`Email worker complete: ${data?.sent || 0} sent, ${data?.failed || 0} failed.`);
+    }
     if (selected) await loadDeliveries(selected.id);
     await loadDrops();
     setLoading(false);
@@ -161,9 +179,14 @@ export function ContentCommandCenter() {
           <span className={styles.sectionEyebrow}>ICM Memory · communications</span>
           <h2 id="content-command-title">Content Command Center</h2>
         </div>
-        <button type="button" className={styles.outlineButton} onClick={loadDrops} disabled={loading}>
-          <RefreshCw size={16} aria-hidden="true" /> Refresh
-        </button>
+        <div className={styles.actions}>
+          <button type="button" className={styles.outlineButton} onClick={loadDrops} disabled={loading}>
+            <RefreshCw size={16} aria-hidden="true" /> Refresh
+          </button>
+          <button type="button" className={styles.outlineButton} onClick={runEmailWorker} disabled={loading}>
+            <Send size={16} aria-hidden="true" /> Run approved outbox
+          </button>
+        </div>
       </div>
 
       <div className={styles.commandGrid}>

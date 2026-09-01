@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./interior.css";
+import "./gauntlet.css";
 
 export const metadata: Metadata = {
   title: "ASC3ND — Community came through. Now we build forward.",
@@ -11,7 +12,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        {children}
+      </body>
     </html>
   );
 }

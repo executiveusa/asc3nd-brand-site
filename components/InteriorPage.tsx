@@ -9,7 +9,7 @@ type InteriorPageProps = {
 
 export function InteriorPage({ eyebrow, title, intro, children }: InteriorPageProps) {
   return (
-    <main>
+    <main id="main-content">
       <header className="masthead shell">
         <a className="wordmark" href="/" aria-label="ASC3ND home">ASC3ND</a>
         <nav className="nav" aria-label="Primary navigation">

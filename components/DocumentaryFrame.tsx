@@ -36,6 +36,9 @@ export function DocumentaryFrame({
             muted={media.autoplay || media.muted}
             aria-label={media.alt}
           >
+            {media.mobileSrc ? (
+              <source media="(max-width: 820px)" src={media.mobileSrc} />
+            ) : null}
             <source src={media.src} />
           </video>
         ) : (

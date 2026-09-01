@@ -2,16 +2,17 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-export async function POST(request: Request) {
-  const url = process.env.SUPABASE_URL;
-  const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY;
+const CANONICAL_SUPABASE_URL = "https://cyxdevcjycmffhmwxojh.supabase.co";
+const CANONICAL_SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_PoqI-3PsCqewtJWJ0Z73Ag_5hIE0oKI";
 
-  if (!url || !publishableKey) {
-    return NextResponse.json(
-      { ok: false, message: "Community signup is temporarily unavailable." },
-      { status: 503 },
-    );
-  }
+export async function POST(request: Request) {
+  // Environment variables remain the preferred deployment override. The checked-in
+  // fallback is the public/publishable key for ASC3ND's locked canonical project,
+  // so a fresh Vercel deployment cannot silently point at a different database.
+  const url = process.env.SUPABASE_URL ?? CANONICAL_SUPABASE_URL;
+  const publishableKey =
+    process.env.SUPABASE_PUBLISHABLE_KEY ?? CANONICAL_SUPABASE_PUBLISHABLE_KEY;
 
   let body: Record<string, unknown>;
   try {

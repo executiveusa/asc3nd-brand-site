@@ -24,7 +24,7 @@ h1, h2, h3, p, blockquote { margin-top: 0; }
 
 .hero { min-height: min(860px, calc(100svh - 84px)); display: grid; align-content: center; padding: 8vh 0 12vh; text-align: center; }
 .hero h1 { margin-bottom: 30px; font-size: clamp(4rem, 9vw, 9.5rem); line-height: .9; text-wrap: balance; }
-.hero-copy { max-width: 620px; margin: 0 auto 34px; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.55; }
+.hero-copy { max-width: 680px; margin: 0 auto 34px; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.55; }
 .text-link { display: inline-block; width: fit-content; margin: 0 auto; padding-bottom: 6px; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 700; text-decoration: none; }
 
 .cinematic { padding-bottom: clamp(100px, 13vw, 200px); }
@@ -54,6 +54,7 @@ h1, h2, h3, p, blockquote { margin-top: 0; }
 blockquote { margin: 34px 0 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height: 1.02; }
 
 .pathways, .take-part { padding: clamp(110px, 15vw, 240px) 0; }
+.pathways > .media-placeholder, .take-part > .media-placeholder { margin-top: clamp(54px, 7vw, 96px); min-height: min(56vw, 760px); }
 .pathway-list, .choices { border-top: 1px solid var(--line); margin-top: clamp(60px, 8vw, 110px); }
 .pathway { display: grid; grid-template-columns: 64px 1fr 1fr; gap: 28px; align-items: start; padding: clamp(30px, 3.5vw, 52px) 0; border-bottom: 1px solid var(--line); }
 .pathway h3 { margin-bottom: 0; font-size: clamp(2rem, 3.6vw, 4.1rem); line-height: 1; }
@@ -90,6 +91,7 @@ blockquote { margin: 34px 0 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height:
   .frame-copy { grid-template-columns: 1fr; gap: 8px; }
   .story { grid-template-columns: 1fr; }
   .portrait-placeholder { min-height: 125vw; order: -1; }
+  .pathways > .media-placeholder, .take-part > .media-placeholder { min-height: 112vw; }
   .pathway { grid-template-columns: 42px 1fr; }
   .pathway p { grid-column: 2; margin-left: 0; }
   .choices a { grid-template-columns: 42px 1fr; }

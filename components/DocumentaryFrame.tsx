@@ -1,8 +1,8 @@
-import { getApprovedMedia, type DocumentaryMedia } from "@/lib/media-registry";
+import { getApprovedMedia, type MediaSlot } from "@/lib/media-registry";
 
 type DocumentaryFrameProps = {
   label: string;
-  slot?: DocumentaryMedia["slot"];
+  slot?: MediaSlot;
   variant?: "light" | "dark";
   className?: string;
 };
@@ -28,9 +28,12 @@ export function DocumentaryFrame({
       <figure className={[classes, "media-live"].join(" ")}>
         {media.kind === "video" ? (
           <video
-            controls
+            controls={!media.autoplay}
             playsInline
             poster={media.poster}
+            autoPlay={media.autoplay}
+            loop={media.loop}
+            muted={media.autoplay || media.muted}
             aria-label={media.alt}
           >
             <source src={media.src} />

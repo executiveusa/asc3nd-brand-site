@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { StaffQueueDashboard } from "@/components/StaffQueueDashboard";
+import { RecoveryReview } from "@/components/RecoveryReview";
 import { ContentCommandCenter } from "@/components/ContentCommandCenter";
 import styles from "./staff.module.css";
 
@@ -24,6 +25,7 @@ export default function StaffPage() {
         </p>
       </section>
       <StaffQueueDashboard />
+      <RecoveryReview />
       <ContentCommandCenter />
     </main>
   );

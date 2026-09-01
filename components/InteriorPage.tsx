@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SocialLinks } from "@/components/SocialLinks";
 
 type InteriorPageProps = {
   eyebrow: string;
@@ -36,6 +37,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
             <a href="/story">Story</a>
             <a href="/take-part">Take part</a>
           </nav>
+          <SocialLinks />
         </div>
       </footer>
     </main>

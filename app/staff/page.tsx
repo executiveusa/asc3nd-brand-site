@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { StaffQueueDashboard } from "@/components/StaffQueueDashboard";
+import { ContentCommandCenter } from "@/components/ContentCommandCenter";
 import styles from "./staff.module.css";
 
 export const metadata = {
-  title: "ASC3ND Staff · ICM Queues",
+  title: "ASC3ND Staff · ICM Operations",
   robots: { index: false, follow: false },
 };
 
@@ -19,10 +20,11 @@ export default function StaffPage() {
       </header>
       <section className={styles.intro}>
         <p>
-          One person record. Multiple operational routes. Access is limited by the role assigned to your authenticated ASC3ND account.
+          One person record. Multiple operational routes. Content and follow-up are gated by verified context, consent, and human approval.
         </p>
       </section>
       <StaffQueueDashboard />
+      <ContentCommandCenter />
     </main>
   );
 }

@@ -25,7 +25,7 @@
 .signIn p,
 .notice,
 .queueHeader span,
-td small {
+.tableWrap td small {
   color: rgba(18, 15, 11, .6);
 }
 
@@ -115,12 +115,15 @@ td small {
 .queueHeader strong { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
 
 .tableWrap { overflow-x: auto; border-top: 1px solid rgba(18, 15, 11, .24); }
-table { width: 100%; border-collapse: collapse; min-width: 980px; }
-th, td { padding: 18px 14px 18px 0; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(18, 15, 11, .14); }
-th { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
-td { font-size: 13px; line-height: 1.45; }
-td strong, td span, td small { display: block; }
-td small { margin-top: 4px; font-size: 11px; }
+.tableWrap table { width: 100%; border-collapse: collapse; min-width: 980px; }
+.tableWrap th,
+.tableWrap td { padding: 18px 14px 18px 0; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(18, 15, 11, .14); }
+.tableWrap th { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.tableWrap td { font-size: 13px; line-height: 1.45; }
+.tableWrap td strong,
+.tableWrap td span,
+.tableWrap td small { display: block; }
+.tableWrap td small { margin-top: 4px; font-size: 11px; }
 .pill { width: fit-content; padding: 4px 7px; border: 1px solid rgba(18, 15, 11, .18); border-radius: 999px; font-size: 10px; text-transform: uppercase; }
 .empty { padding: 42px 0; color: rgba(18, 15, 11, .55); }
 

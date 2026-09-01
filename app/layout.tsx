@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./interior.css";
+import "./gauntlet.css";
 
 export const metadata: Metadata = {
   title: "ASC3ND — Community came through. Now we build forward.",

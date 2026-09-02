@@ -21,6 +21,10 @@ A release is not considered current until all of the following are proven:
 6. one synthetic community signup reaches canonical ASC3ND Supabase and is removed after verification;
 7. the legacy event production deployment remains available as rollback until the new site passes cutover proof.
 
+## Git reconnect release trigger
+
+Git integration was reconnected by the owner on 2026-09-02. This commit is the deliberate post-reconnect release trigger for the locked project. Do not create a replacement Vercel project if deployment does not fire; diagnose the existing Git integration and project binding instead.
+
 ## Current connector limitation
 
 The connected deployment action currently exposes a no-argument interface while its backend requires `target`, `name`, and `files`. Do not work around this by creating a different Vercel project. Preferred recovery is to restore Git integration for this locked project or use a corrected deployment action targeting this exact project.

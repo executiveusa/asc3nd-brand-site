@@ -13,7 +13,7 @@ export default function ImpactPage() {
     >
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="Approved Community Cuts image or brand film"
+          label="CLIENT CONTENT NEEDED — Add the strongest Community Cuts hero photo or short brand film here. This should immediately show real people, energy, and community participation."
           slot="hero"
         />
       </section>
@@ -24,7 +24,7 @@ export default function ImpactPage() {
           {communityRoll.map(({ index, title, copy }, itemIndex) => (
             <article key={index}>
               <DocumentaryFrame
-                label={`Approved event image or video · ${title}`}
+                label={`CLIENT CONTENT NEEDED — Add a real event photo or short clip that best represents “${title}.”`}
                 slot={slots[itemIndex]}
               />
               <div className="interior-row-copy">
@@ -41,11 +41,10 @@ export default function ImpactPage() {
         <p className="eyebrow">What we know</p>
         <h2>People came together around something useful.</h2>
         <p>
-          We will add attendance totals, outcomes, and testimonials only after
-          they are verified and approved.
+          CLIENT PROOF NEEDED — Add verified attendance totals, outcomes, a short testimonial, or another concrete result here once the numbers and quotes are approved.
         </p>
         <DocumentaryFrame
-          label="Approved Community Cuts closing image or brand film"
+          label="CLIENT CONTENT NEEDED — Add a closing Community Cuts image or short film here. Use a strong final moment that communicates connection, gratitude, or what comes next."
           slot="impact-closing"
         />
       </section>

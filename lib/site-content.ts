@@ -15,7 +15,7 @@ export const siteStory = {
     eyebrow: "Why ASC3ND exists",
     headline: "Keep showing up after the event ends.",
     body: "ASC3ND starts with a simple belief: young people need trusted adults, useful experiences, and a community that stays involved. Community Cuts gave us a place to begin. The work now is to keep building.",
-    founderBelief: "Founder-authored belief goes here.",
+    founderBelief: "CLIENT COPY NEEDED — Add a short founder quote here (1–3 sentences) explaining why ASC3ND exists and what you want young people to feel, learn, or gain.",
     mediaSlot: "founder",
   },
   pathways: {

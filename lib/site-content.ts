@@ -86,19 +86,19 @@ export const participationRoutes = [
   {
     index: "01",
     label: "Families",
-    action: "Stay connected →",
-    href: "mailto:hello@asc3nd.org?subject=Family interest",
+    action: "Tell us what your family needs →",
+    href: "/take-part/family",
   },
   {
     index: "02",
     label: "Mentors + volunteers",
     action: "Tell us how you want to help →",
-    href: "mailto:hello@asc3nd.org?subject=Mentor or volunteer interest",
+    href: "/take-part/mentor-volunteer",
   },
   {
     index: "03",
     label: "Community partners",
-    action: "Start a conversation →",
-    href: "mailto:hello@asc3nd.org?subject=Community partnership",
+    action: "Choose partnership, sponsorship, or supplies →",
+    href: "/take-part/partner",
   },
 ] as const;

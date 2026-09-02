@@ -11,7 +11,7 @@ export default function TakePartPage() {
     >
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="Approved participation image or brand video"
+          label="CLIENT CONTENT NEEDED — Add a welcoming photo or short video here showing families, mentors, volunteers, or community partners participating in the work."
           slot="take-part"
         />
       </section>

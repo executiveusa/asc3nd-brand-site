@@ -7,16 +7,23 @@ export const siteStory = {
     actionHref: "#impact",
     mediaSlot: "hero",
   },
+  founders: [
+    {
+      name: "Otha",
+      role: "FOUNDER",
+      quote: "It’s powerful when you have someone that can sit down and talk to a young youth and just build off of what they want to have in life, and just let them know what it is that they can be a part of, which is the future.",
+      mediaSlot: "founder-otha",
+    },
+    {
+      name: "Elisha",
+      role: "FOUNDER",
+      quote: "I want any youth that comes even close to me, like, to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
+      mediaSlot: "founder-elisha",
+    },
+  ],
   impact: {
     eyebrow: "Where it started",
     headline: "It started with Community Cuts for Kids.",
-  },
-  story: {
-    eyebrow: "Why ASC3ND exists",
-    headline: "Keep showing up after the event ends.",
-    body: "ASC3ND starts with a simple belief: young people need trusted adults, useful experiences, and a community that stays involved. Community Cuts gave us a place to begin. The work now is to keep building.",
-    founderBelief: "CLIENT COPY NEEDED — Add a short founder quote here (1–3 sentences) explaining why ASC3ND exists and what you want young people to feel, learn, or gain.",
-    mediaSlot: "founder",
   },
   pathways: {
     eyebrow: "What comes next",

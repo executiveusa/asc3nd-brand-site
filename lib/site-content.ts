@@ -1,34 +1,34 @@
 export const siteStory = {
   hero: {
-    eyebrow: "ASC3ND Collective · Everett, Washington",
-    headline: ["Empower youth.", "Elevate futures.", "Build community."],
-    action: "Meet ASC3ND ↓",
+    eyebrow: "EMPOWER YOUTH. ELEVATE FUTURES. BUILD COMMUNITY.",
+    headline: ["ASC3ND.ORG"],
+    action: "↓",
     actionHref: "#story",
     mediaSlot: "hero",
   },
   story: {
-    eyebrow: "The founders",
-    headline: "Why ASC3ND exists.",
-    body: "FOUNDER STORY PLACEHOLDER — Use the founders’ own words from the recorded interviews and reels. Keep this section short: origin, belief, and what they want young people to gain.",
-    founderBelief: "FOUNDER QUOTE PLACEHOLDER",
+    eyebrow: "WHY WE STARTED",
+    headline: "Not having the right mentors around me.",
+    body: "Just growing up in life, not having. Not having the right mentors around me to lead me to the success where I feel like I needed to be, I wanted to be.",
+    founderBelief: "It’s powerful when you have someone that can sit down and talk to a young youth and just build off of what they want to have in life, and just let them know what it is that they can be a part of, which is the future.",
     mediaSlot: "founder",
   },
   firstChapter: {
-    eyebrow: "A first chapter",
-    headline: "Community Cuts for Kids",
+    eyebrow: "COMMUNITY CUTS FOR KIDS",
+    headline: "A big event to reach the community.",
     meta: "Everett · August 2026",
     mediaSlot: "community-cuts",
   },
   next: {
-    eyebrow: "What comes next",
-    headline: "Define the next chapter together.",
+    eyebrow: "THE NEXT GENERATION",
+    headline: "What we live by and stand by and what we believe.",
   },
   takePart: {
-    eyebrow: "Take part",
-    headline: "Stay close to the work.",
+    eyebrow: "TAKE PART",
+    headline: "We’re here.",
   },
   footer: {
-    eyebrow: "ASC3ND, with a three.",
+    eyebrow: "ASC3ND.ORG",
     lines: ["Empower youth.", "Elevate futures.", "Build community."],
   },
 } as const;
@@ -36,18 +36,18 @@ export const siteStory = {
 export const nextChapter = [
   {
     index: "01",
-    title: "Youth programs",
-    copy: "TO DEFINE WITH ASC3ND",
+    title: "LOVE ON YOU.",
+    copy: "we’re here to love on you",
   },
   {
     index: "02",
-    title: "Mentorship",
-    copy: "TO DEFINE WITH ASC3ND",
+    title: "MENTOR YOU.",
+    copy: "we’re here to help mentor you",
   },
   {
     index: "03",
-    title: "Community partnerships",
-    copy: "TO DEFINE WITH ASC3ND",
+    title: "GUIDE YOU.",
+    copy: "guide you",
   },
 ] as const;
 

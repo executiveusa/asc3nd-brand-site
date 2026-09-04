@@ -1,84 +1,53 @@
 export const siteStory = {
   hero: {
-    eyebrow: "The ASC3ND Collective · Everett, Washington",
-    headline: ["Community came through.", "Now we build forward."],
-    body: "Community Cuts for Kids brought young people, families, volunteers, and local supporters into the same space. ASC3ND is building from that day with more ways for young people to find guidance, practice life skills, and connect with opportunity.",
-    action: "Start with Community Cuts ↓",
-    actionHref: "#impact",
+    eyebrow: "EMPOWER YOUTH. ELEVATE FUTURES. BUILD COMMUNITY.",
+    headline: ["ASC3ND.ORG"],
+    action: "↓",
+    actionHref: "#story",
     mediaSlot: "hero",
   },
-  impact: {
-    eyebrow: "Where it started",
-    headline: "It started with Community Cuts for Kids.",
-  },
   story: {
-    eyebrow: "Why ASC3ND exists",
-    headline: "Keep showing up after the event ends.",
-    body: "ASC3ND starts with a simple belief: young people need trusted adults, useful experiences, and a community that stays involved. Community Cuts gave us a place to begin. The work now is to keep building.",
-    founderBelief: "CLIENT COPY NEEDED — Add a short founder quote here (1–3 sentences) explaining why ASC3ND exists and what you want young people to feel, learn, or gain.",
+    eyebrow: "WHY WE STARTED",
+    headline: "Not having the right mentors around me.",
+    body: "Just growing up in life, not having. Not having the right mentors around me to lead me to the success where I feel like I needed to be, I wanted to be.",
+    founderBelief: "It’s powerful when you have someone that can sit down and talk to a young youth and just build off of what they want to have in life, and just let them know what it is that they can be a part of, which is the future.",
     mediaSlot: "founder",
   },
-  pathways: {
-    eyebrow: "What comes next",
-    headline: "Three areas we are building now.",
-    mediaSlot: "pathways",
+  firstChapter: {
+    eyebrow: "COMMUNITY CUTS FOR KIDS",
+    headline: "A big event to reach the community.",
+    meta: "Everett · August 2026",
+    mediaSlot: "community-cuts",
+  },
+  next: {
+    eyebrow: "THE NEXT GENERATION",
+    headline: "What we live by and stand by and what we believe.",
   },
   takePart: {
-    eyebrow: "Take part",
-    headline: "Want to be part of what comes next?",
-    mediaSlot: "take-part",
+    eyebrow: "TAKE PART",
+    headline: "We’re here.",
   },
   footer: {
-    eyebrow: "ASC3ND, with a three.",
+    eyebrow: "ASC3ND.ORG",
     lines: ["Empower youth.", "Elevate futures.", "Build community."],
   },
 } as const;
 
-export const communityRoll = [
+export const nextChapter = [
   {
     index: "01",
-    title: "Arrival",
-    copy: "Young people, families, volunteers, and local supporters showed up in the same place.",
-    mediaSlot: "arrival",
+    title: "LOVE ON YOU.",
+    copy: "we’re here to love on you",
   },
   {
     index: "02",
-    title: "Service",
-    copy: "Community Cuts for Kids centered the day on something useful: haircuts for kids.",
-    mediaSlot: "service",
+    title: "MENTOR YOU.",
+    copy: "we’re here to help mentor you",
   },
   {
     index: "03",
-    title: "Connection",
-    copy: "The event gave families, volunteers, and supporters a reason to spend time together.",
-    mediaSlot: "connection",
-  },
-  {
-    index: "04",
-    title: "What comes next",
-    copy: "ASC3ND is building from that day instead of treating it like a one-time event.",
-    mediaSlot: "next",
-  },
-] as const;
-
-export const pathways = [
-  {
-    index: "01",
-    title: "Trusted guidance",
-    copy: "We want young people to have adults who listen, stay present, and help them sort out what comes next.",
-    status: "In development",
-  },
-  {
-    index: "02",
-    title: "Leadership + life skills",
-    copy: "We are developing experiences where young people can practice confidence, responsibility, and everyday problem-solving.",
-    status: "In development",
-  },
-  {
-    index: "03",
-    title: "Community-built opportunity",
-    copy: "We want families, schools, mentors, and local partners to open more doors together.",
-    status: "In development",
+    title: "GUIDE YOU.",
+    copy: "guide you",
   },
 ] as const;
 
@@ -86,19 +55,19 @@ export const participationRoutes = [
   {
     index: "01",
     label: "Families",
-    action: "Tell us what your family needs →",
+    action: "Stay connected →",
     href: "/take-part/family",
   },
   {
     index: "02",
     label: "Mentors + volunteers",
-    action: "Tell us how you want to help →",
+    action: "Get involved →",
     href: "/take-part/mentor-volunteer",
   },
   {
     index: "03",
     label: "Community partners",
-    action: "Choose partnership, sponsorship, or supplies →",
+    action: "Talk with ASC3ND →",
     href: "/take-part/partner",
   },
 ] as const;

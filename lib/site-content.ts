@@ -1,9 +1,9 @@
 export const siteStory = {
   hero: {
-    eyebrow: "The ASC3ND Collective · Everett, Washington",
-    headline: ["Community came through.", "Now we build forward."],
-    body: "Community Cuts for Kids brought young people, families, volunteers, and local supporters into the same space. ASC3ND is building from that day with more ways for young people to find guidance, practice life skills, and connect with opportunity.",
-    action: "Start with Community Cuts ↓",
+    eyebrow: "EMPOWER YOUTH. ELEVATE FUTURES. BUILD COMMUNITY.",
+    headline: ["ASC3ND.ORG"],
+    body: "",
+    action: "",
     actionHref: "#impact",
     mediaSlot: "hero",
   },

@@ -1,35 +1,23 @@
 export const siteStory = {
   hero: {
-    eyebrow: "The ASC3ND Collective · Everett, Washington",
-    headline: ["Community came through.", "Now we build forward."],
-    body: "Community Cuts for Kids brought young people, families, volunteers, and local supporters into the same space. ASC3ND is building from that day with more ways for young people to find guidance, practice life skills, and connect with opportunity.",
-    action: "Start with Community Cuts ↓",
-    actionHref: "#impact",
-    mediaSlot: "hero",
+    headline: "ASC3ND.ORG",
+    lines: ["EMPOWER YOUTH.", "ELEVATE FUTURES.", "BUILD COMMUNITY."],
   },
-  impact: {
-    eyebrow: "Where it started",
-    headline: "It started with Community Cuts for Kids.",
-  },
-  story: {
-    eyebrow: "Why ASC3ND exists",
-    headline: "Keep showing up after the event ends.",
-    body: "ASC3ND starts with a simple belief: young people need trusted adults, useful experiences, and a community that stays involved. Community Cuts gave us a place to begin. The work now is to keep building.",
-    founderBelief: "CLIENT COPY NEEDED — Add a short founder quote here (1–3 sentences) explaining why ASC3ND exists and what you want young people to feel, learn, or gain.",
-    mediaSlot: "founder",
-  },
-  pathways: {
-    eyebrow: "What comes next",
-    headline: "Three areas we are building now.",
-    mediaSlot: "pathways",
-  },
-  takePart: {
-    eyebrow: "Take part",
-    headline: "Want to be part of what comes next?",
-    mediaSlot: "take-part",
-  },
+  founders: [
+    {
+      name: "Otha",
+      role: "FOUNDER",
+      quote: "It’s powerful when you have someone that can sit down and talk to a young youth and just build off of what they want to have in life, and just let them know what it is that they can be a part of, which is the future.",
+      mediaSlot: "founder-otha",
+    },
+    {
+      name: "Elisha",
+      role: "FOUNDER",
+      quote: "I want any youth that comes even close to me, like, to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
+      mediaSlot: "founder-elisha",
+    },
+  ],
   footer: {
-    eyebrow: "ASC3ND, with a three.",
     lines: ["Empower youth.", "Elevate futures.", "Build community."],
   },
 } as const;
@@ -37,26 +25,26 @@ export const siteStory = {
 export const communityRoll = [
   {
     index: "01",
-    title: "Arrival",
-    copy: "Young people, families, volunteers, and local supporters showed up in the same place.",
+    title: "Approved event image",
+    copy: "CONTENT PLACEHOLDER — Add an approved Community Cuts image and a verified caption.",
     mediaSlot: "arrival",
   },
   {
     index: "02",
-    title: "Service",
-    copy: "Community Cuts for Kids centered the day on something useful: haircuts for kids.",
+    title: "Verified outcome",
+    copy: "CONTENT PLACEHOLDER — Add only a verified event outcome or service fact.",
     mediaSlot: "service",
   },
   {
     index: "03",
-    title: "Connection",
-    copy: "The event gave families, volunteers, and supporters a reason to spend time together.",
+    title: "Founder reflection",
+    copy: "CONTENT PLACEHOLDER — Add a founder-approved post-event reflection or participant testimony.",
     mediaSlot: "connection",
   },
   {
     index: "04",
     title: "What comes next",
-    copy: "ASC3ND is building from that day instead of treating it like a one-time event.",
+    copy: "CONTENT PLACEHOLDER — Add the next confirmed activity in approved founder language.",
     mediaSlot: "next",
   },
 ] as const;
@@ -64,21 +52,21 @@ export const communityRoll = [
 export const pathways = [
   {
     index: "01",
-    title: "Trusted guidance",
-    copy: "We want young people to have adults who listen, stay present, and help them sort out what comes next.",
-    status: "In development",
+    title: "Program / activity 01",
+    copy: "CONTENT PLACEHOLDER — Add a confirmed program or activity after founder approval.",
+    status: "Needs approval",
   },
   {
     index: "02",
-    title: "Leadership + life skills",
-    copy: "We are developing experiences where young people can practice confidence, responsibility, and everyday problem-solving.",
-    status: "In development",
+    title: "Program / activity 02",
+    copy: "CONTENT PLACEHOLDER — Add a confirmed program or activity after founder approval.",
+    status: "Needs approval",
   },
   {
     index: "03",
-    title: "Community-built opportunity",
-    copy: "We want families, schools, mentors, and local partners to open more doors together.",
-    status: "In development",
+    title: "Program / activity 03",
+    copy: "CONTENT PLACEHOLDER — Add only if a third confirmed program or activity is needed.",
+    status: "Needs approval",
   },
 ] as const;
 
@@ -86,19 +74,19 @@ export const participationRoutes = [
   {
     index: "01",
     label: "Families",
-    action: "Tell us what your family needs →",
+    action: "Stay connected →",
     href: "/take-part/family",
   },
   {
     index: "02",
     label: "Mentors + volunteers",
-    action: "Tell us how you want to help →",
+    action: "Get involved →",
     href: "/take-part/mentor-volunteer",
   },
   {
     index: "03",
     label: "Community partners",
-    action: "Choose partnership, sponsorship, or supplies →",
+    action: "Talk with ASC3ND →",
     href: "/take-part/partner",
   },
 ] as const;

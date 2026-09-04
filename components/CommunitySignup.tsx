@@ -38,18 +38,16 @@ export function CommunitySignup() {
     }
 
     setState("success");
-    setMessage(data.message || "Thank you. You are on the ASC3ND community updates list.");
+    setMessage(data.message || "You are signed up for ASC3ND updates.");
     form.reset();
   }
 
   return (
     <section className="community-signup shell" aria-labelledby="community-signup-title">
       <div className="community-signup-copy">
-        <p className="eyebrow">Stay connected</p>
-        <h2 id="community-signup-title">The event ends. The relationship should not.</h2>
-        <p>
-          Get occasional ASC3ND updates about community work, ways to participate, and what we are building next.
-        </p>
+        <p className="eyebrow">STAY CONNECTED</p>
+        <h2 id="community-signup-title">ASC3ND updates.</h2>
+        <p>FUNCTIONAL COPY — Email updates from ASC3ND. Final public wording can be approved with the founders.</p>
       </div>
 
       <form className="community-signup-form" onSubmit={submit}>
@@ -63,14 +61,14 @@ export function CommunitySignup() {
         </label>
         <label className="signup-consent">
           <input name="consent" type="checkbox" required />
-          <span>I agree to receive ASC3ND community updates by email. I can unsubscribe at any time.</span>
+          <span>I agree to receive ASC3ND updates by email. I can unsubscribe at any time.</span>
         </label>
         <label className="signup-honeypot" aria-hidden="true">
           <span>Website</span>
           <input name="website" type="text" tabIndex={-1} autoComplete="off" />
         </label>
         <button type="submit" disabled={state === "submitting"}>
-          {state === "submitting" ? "Joining…" : "Join the community"}
+          {state === "submitting" ? "Joining…" : "Join updates"}
         </button>
         <p className={`signup-status signup-status-${state}`} role="status" aria-live="polite">
           {message}

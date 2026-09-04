@@ -9,6 +9,8 @@ export type MediaSlot =
   | "connection"
   | "next"
   | "founder"
+  | "founder-otha"
+  | "founder-elisha"
   | "pathways"
   | "take-part"
   | "impact-closing"
@@ -82,6 +84,22 @@ export const documentaryMedia: DocumentaryMedia[] = [
     slot: "founder",
     kind: "image",
     alt: "ASC3ND founder portrait pending approval",
+    status: "pending",
+    consent: "unknown",
+  },
+  {
+    id: "otha-founder-portrait",
+    slot: "founder-otha",
+    kind: "image",
+    alt: "Otha founder portrait pending approval",
+    status: "pending",
+    consent: "unknown",
+  },
+  {
+    id: "elisha-founder-portrait",
+    slot: "founder-elisha",
+    kind: "image",
+    alt: "Elisha founder portrait pending approval",
     status: "pending",
     consent: "unknown",
   },

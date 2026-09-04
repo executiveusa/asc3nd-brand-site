@@ -1,7 +1,7 @@
 export const siteStory = {
   hero: {
-    eyebrow: "EMPOWER YOUTH. ELEVATE FUTURES. BUILD COMMUNITY.",
     headline: "ASC3ND.ORG",
+    lines: ["EMPOWER YOUTH.", "ELEVATE FUTURES.", "BUILD COMMUNITY."],
   },
   founders: [
     {

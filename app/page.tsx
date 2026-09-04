@@ -22,9 +22,7 @@ export default function Home() {
 
       <section className="hero shell" id="top">
         <p className="eyebrow">{siteStory.hero.eyebrow}</p>
-        <h1>{siteStory.hero.headline[0]}<br />{siteStory.hero.headline[1]}</h1>
-        <p className="hero-copy">{siteStory.hero.body}</p>
-        <a className="text-link" href={siteStory.hero.actionHref}>{siteStory.hero.action}</a>
+        <h1>{siteStory.hero.headline[0]}</h1>
       </section>
 
       <section className="cinematic shell" aria-label="Community Cuts documentary media">

@@ -18,8 +18,25 @@ export default function Home() {
 
       <section className="hero shell" id="top">
         <h1>{siteStory.hero.headline}</h1>
-        <div className="hero-statements" aria-label="ASC3ND mission statements">
-          {siteStory.hero.lines.map((line) => <p key={line}>{line}</p>)}
+        <div
+          className="hero-statements"
+          aria-label="ASC3ND mission statements"
+          style={{ display: "grid", gap: "0.08em", marginTop: "clamp(28px, 5vw, 72px)" }}
+        >
+          {siteStory.hero.lines.map((line) => (
+            <p
+              key={line}
+              style={{
+                margin: 0,
+                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontSize: "clamp(2.25rem, 5.2vw, 6.2rem)",
+                lineHeight: 0.95,
+                letterSpacing: "-0.045em",
+              }}
+            >
+              {line}
+            </p>
+          ))}
         </div>
       </section>
 

@@ -112,6 +112,7 @@ export default function Home() {
               <a href="#story">Founders</a>
               <a href="#community">Community</a>
               <a href="#take-part">Take part</a>
+              <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
             </nav>
             <div><SocialLinks /><p>asc3nd.org<br />Privacy · Youth safety · Contact</p></div>
           </div>

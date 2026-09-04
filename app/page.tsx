@@ -25,6 +25,11 @@ export default function Home() {
         <h1>{siteStory.hero.headline[0]}</h1>
       </section>
 
+      <section className="story shell" id="story">
+        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add a founder portrait or short founder video here. Use a warm, credible image that helps visitors understand who is behind ASC3ND." slot={siteStory.story.mediaSlot} className="portrait-placeholder" />
+        <div className="story-copy"><p className="eyebrow">{siteStory.story.eyebrow}</p><h2>{siteStory.story.headline}</h2><p>{siteStory.story.body}</p><blockquote>{siteStory.story.founderBelief}</blockquote></div>
+      </section>
+
       <section className="cinematic shell" aria-label="Community Cuts documentary media">
         <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add the strongest Community Cuts photo or a short brand film here. This should be the first visual proof of the event and the people ASC3ND serves." slot={siteStory.hero.mediaSlot} />
         <div className="media-caption"><span>Community Cuts for Kids</span><span>Everett · August 2026</span></div>
@@ -36,11 +41,6 @@ export default function Home() {
           <aside className="roll-index" aria-label="Community Roll index"><span className="eyebrow">Community Roll</span><ol>{communityRoll.map(({ index, title }) => <li key={index}>{index} · {title}</li>)}</ol></aside>
           <div>{communityRoll.map(({ index, title, copy, mediaSlot }) => <article className="roll-frame" key={index}><DocumentaryFrame label={`CLIENT CONTENT NEEDED — Add a real photo or short video showing the “${title}” moment from Community Cuts.`} slot={mediaSlot} variant="dark" /><div className="frame-copy"><span>{index} · {title}</span><p>{copy}</p></div></article>)}</div>
         </div>
-      </section>
-
-      <section className="story shell" id="story">
-        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add a founder portrait or short founder video here. Use a warm, credible image that helps visitors understand who is behind ASC3ND." slot={siteStory.story.mediaSlot} className="portrait-placeholder" />
-        <div className="story-copy"><p className="eyebrow">{siteStory.story.eyebrow}</p><h2>{siteStory.story.headline}</h2><p>{siteStory.story.body}</p><blockquote>{siteStory.story.founderBelief}</blockquote></div>
       </section>
 
       <section className="pathways shell" id="pathways">

@@ -17,8 +17,10 @@ export default function Home() {
       </header>
 
       <section className="hero shell" id="top">
-        <p className="eyebrow hero-eyebrow">{siteStory.hero.eyebrow}</p>
         <h1>{siteStory.hero.headline}</h1>
+        <div className="hero-statements" aria-label="ASC3ND mission statements">
+          {siteStory.hero.lines.map((line) => <p key={line}>{line}</p>)}
+        </div>
       </section>
 
       <MotionReveal>

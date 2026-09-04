@@ -25,9 +25,23 @@ export default function Home() {
         <h1>{siteStory.hero.headline[0]}</h1>
       </section>
 
-      <section className="story shell" id="story">
-        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add a founder portrait or short founder video here. Use a warm, credible image that helps visitors understand who is behind ASC3ND." slot={siteStory.story.mediaSlot} className="portrait-placeholder" />
-        <div className="story-copy"><p className="eyebrow">{siteStory.story.eyebrow}</p><h2>{siteStory.story.headline}</h2><p>{siteStory.story.body}</p><blockquote>{siteStory.story.founderBelief}</blockquote></div>
+      <section className="founders shell" id="story" aria-labelledby="founders-title">
+        <p className="eyebrow" id="founders-title">FOUNDERS</p>
+        <div className="founder-grid">
+          {siteStory.founders.map((founder) => (
+            <article className="founder-profile" key={founder.name}>
+              <DocumentaryFrame
+                label={`CLIENT CONTENT NEEDED — Add ${founder.name}'s approved founder portrait here.`}
+                slot={founder.mediaSlot}
+                className="portrait-placeholder"
+              />
+              <div className="founder-copy">
+                <p className="eyebrow">{founder.name} · {founder.role}</p>
+                <blockquote>“{founder.quote}”</blockquote>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="cinematic shell" aria-label="Community Cuts documentary media">

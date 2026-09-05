@@ -1,12 +1,8 @@
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
+import { MotionReveal } from "@/components/MotionReveal";
 import { SocialLinks } from "@/components/SocialLinks";
-import {
-  communityRoll,
-  participationRoutes,
-  pathways,
-  siteStory,
-} from "@/lib/site-content";
+import { participationRoutes, siteStory } from "@/lib/site-content";
 
 export default function Home() {
   return (
@@ -14,56 +10,110 @@ export default function Home() {
       <header className="masthead shell">
         <a className="wordmark" href="#top" aria-label="ASC3ND home">ASC3ND</a>
         <nav className="nav" aria-label="Primary navigation">
-          <a href="#impact">Impact</a>
-          <a href="#story">Story</a>
+          <a href="#story">Founders</a>
+          <a href="#community">Community</a>
           <a href="#take-part">Take part</a>
         </nav>
       </header>
 
       <section className="hero shell" id="top">
-        <p className="eyebrow">{siteStory.hero.eyebrow}</p>
-        <h1>{siteStory.hero.headline[0]}<br />{siteStory.hero.headline[1]}</h1>
-        <p className="hero-copy">{siteStory.hero.body}</p>
-        <a className="text-link" href={siteStory.hero.actionHref}>{siteStory.hero.action}</a>
-      </section>
-
-      <section className="cinematic shell" aria-label="Community Cuts documentary media">
-        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add the strongest Community Cuts photo or a short brand film here. This should be the first visual proof of the event and the people ASC3ND serves." slot={siteStory.hero.mediaSlot} />
-        <div className="media-caption"><span>Community Cuts for Kids</span><span>Everett · August 2026</span></div>
-      </section>
-
-      <section className="impact" id="impact">
-        <div className="shell impact-intro"><p className="eyebrow">{siteStory.impact.eyebrow}</p><h2>{siteStory.impact.headline}</h2></div>
-        <div className="shell roll">
-          <aside className="roll-index" aria-label="Community Roll index"><span className="eyebrow">Community Roll</span><ol>{communityRoll.map(({ index, title }) => <li key={index}>{index} · {title}</li>)}</ol></aside>
-          <div>{communityRoll.map(({ index, title, copy, mediaSlot }) => <article className="roll-frame" key={index}><DocumentaryFrame label={`CLIENT CONTENT NEEDED — Add a real photo or short video showing the “${title}” moment from Community Cuts.`} slot={mediaSlot} variant="dark" /><div className="frame-copy"><span>{index} · {title}</span><p>{copy}</p></div></article>)}</div>
+        <h1>{siteStory.hero.headline}</h1>
+        <div
+          className="hero-statements"
+          aria-label="ASC3ND mission statements"
+          style={{ display: "grid", gap: "0.08em", marginTop: "clamp(28px, 5vw, 72px)" }}
+        >
+          {siteStory.hero.lines.map((line) => (
+            <p
+              key={line}
+              style={{
+                margin: 0,
+                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontSize: "clamp(2.25rem, 5.2vw, 6.2rem)",
+                lineHeight: 0.95,
+                letterSpacing: "-0.045em",
+              }}
+            >
+              {line}
+            </p>
+          ))}
         </div>
       </section>
 
-      <section className="story shell" id="story">
-        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add a founder portrait or short founder video here. Use a warm, credible image that helps visitors understand who is behind ASC3ND." slot={siteStory.story.mediaSlot} className="portrait-placeholder" />
-        <div className="story-copy"><p className="eyebrow">{siteStory.story.eyebrow}</p><h2>{siteStory.story.headline}</h2><p>{siteStory.story.body}</p><blockquote>{siteStory.story.founderBelief}</blockquote></div>
-      </section>
+      <MotionReveal>
+        <section className="founders shell" id="story" aria-labelledby="founders-title">
+          <p className="eyebrow" id="founders-title">FOUNDERS</p>
+          <div className="founder-grid">
+            {siteStory.founders.map((founder) => (
+              <article className="founder-profile" key={founder.name}>
+                <DocumentaryFrame
+                  label={`PORTRAIT PLACEHOLDER — Add ${founder.name}'s approved founder photograph here.`}
+                  slot={founder.mediaSlot}
+                  className="portrait-placeholder"
+                />
+                <div className="founder-copy">
+                  <p className="eyebrow">{founder.name} · {founder.role}</p>
+                  <blockquote>“{founder.quote}”</blockquote>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </MotionReveal>
 
-      <section className="pathways shell" id="pathways">
-        <p className="eyebrow">{siteStory.pathways.eyebrow}</p><h2>{siteStory.pathways.headline}</h2>
-        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add an image or short video that represents ASC3ND in action: mentoring, youth development, leadership, or community opportunity." slot={siteStory.pathways.mediaSlot} />
-        <div className="pathway-list">{pathways.map(({ index, title, copy, status }) => <article className="pathway" key={index}><span>{index}</span><h3>{title}</h3><p>{copy} <small>{status}</small></p></article>)}</div>
-      </section>
+      <MotionReveal>
+        <section className="community-proof shell" id="community" aria-labelledby="community-title">
+          <div className="section-heading">
+            <p className="eyebrow">COMMUNITY CUTS FOR KIDS</p>
+            <h2 id="community-title">Proof goes here.</h2>
+            <p className="placeholder-note">CONTENT PLACEHOLDER — Add only approved Community Cuts photography, video, verified outcomes, partner names, or participant testimony.</p>
+          </div>
+          <DocumentaryFrame
+            label="MEDIA PLACEHOLDER — Add one approved Community Cuts photo or short documentary clip here."
+            slot="hero"
+          />
+        </section>
+      </MotionReveal>
 
-      <section className="take-part shell" id="take-part">
-        <p className="eyebrow">{siteStory.takePart.eyebrow}</p><h2>{siteStory.takePart.headline}</h2>
-        <DocumentaryFrame label="CLIENT CONTENT NEEDED — Add a welcoming participation photo or short video here. Show families, mentors, volunteers, or partners engaging with the work." slot={siteStory.takePart.mediaSlot} />
-        <div className="choices">{participationRoutes.map(({ index, label, action, href }) => <a href={href} key={index}><span>{index}</span><strong>{label}</strong><em>{action}</em></a>)}</div>
-      </section>
+      <MotionReveal>
+        <section className="future shell" id="next" aria-labelledby="future-title">
+          <p className="eyebrow">WHAT COMES NEXT</p>
+          <h2 id="future-title">Next program or activity goes here.</h2>
+          <p className="placeholder-note">CONTENT PLACEHOLDER — Add the next confirmed 90-day activity in the founders’ approved words. No speculative programs or impact claims.</p>
+        </section>
+      </MotionReveal>
 
-      <CommunitySignup />
+      <MotionReveal>
+        <section className="take-part shell" id="take-part" aria-labelledby="take-part-title">
+          <p className="eyebrow">TAKE PART</p>
+          <h2 id="take-part-title">Choose how you want to connect.</h2>
+          <div className="choices">
+            {participationRoutes.map(({ index, label, action, href }) => (
+              <a href={href} key={index}>
+                <span>{index}</span><strong>{label}</strong><em>{action}</em>
+              </a>
+            ))}
+          </div>
+        </section>
+      </MotionReveal>
+
+      <MotionReveal>
+        <CommunitySignup />
+      </MotionReveal>
 
       <footer className="footer">
         <div className="shell footer-inner">
-          <div><p className="eyebrow">{siteStory.footer.eyebrow}</p><h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2></div>
+          <div>
+            <p className="eyebrow">ASC3ND.ORG</p>
+            <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
+          </div>
           <div className="footer-meta">
-            <nav aria-label="Footer navigation"><a href="#impact">Impact</a><a href="#story">Story</a><a href="#take-part">Take part</a></nav>
+            <nav aria-label="Footer navigation">
+              <a href="#story">Founders</a>
+              <a href="#community">Community</a>
+              <a href="#take-part">Take part</a>
+              <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
+            </nav>
             <div><SocialLinks /><p>asc3nd.org<br />Privacy · Youth safety · Contact</p></div>
           </div>
         </div>

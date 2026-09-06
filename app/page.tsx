@@ -17,7 +17,7 @@ export default function Home() {
       </header>
 
       <section className="hero shell" id="top">
-        <h1 aria-label={siteStory.hero.headline}>ASC<span aria-hidden="true" style={{ position: "relative", top: "-0.055em" }}>3</span>ND.ORG</h1>
+        <h1 aria-label={siteStory.hero.headline}>ASC<span aria-hidden="true" style={{ position: "relative", top: "-0.11em" }}>3</span>ND.ORG</h1>
         <div
           className="hero-statements"
           aria-label="ASC3ND mission statements"

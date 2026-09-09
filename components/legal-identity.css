@@ -1,0 +1,8 @@
+.legal-identity { display: grid; gap: 12px; min-width: 0; }
+.legal-identity p { margin: 0; color: inherit; font-size: 11px; line-height: 1.7; }
+.legal-identity-name { font-weight: 700; letter-spacing: .08em; }
+.legal-identity a { display: inline-flex; align-items: center; gap: 12px; width: fit-content; min-height: 44px; color: inherit; font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.legal-identity--compact { padding-top: 24px; border-top: 1px solid rgba(245,242,232,.2); }
+.legal-identity--compact p { color: rgba(245,242,232,.72); }
+.legal-identity--compact a { color: var(--paper); }
+@media(max-width:820px) { .legal-identity--compact { margin-top: 8px; } }

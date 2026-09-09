@@ -1,3 +1,4 @@
+import { BrandWordmark } from "@/components/BrandWordmark";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <main id="main-content">
       <header className="masthead shell">
-        <a className="wordmark" href="#top" aria-label="ASC3ND home">ASC3ND</a>
+        <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">
           <a href="#story">Founders</a>
           <a href="#community">Community</a>
@@ -17,7 +18,7 @@ export default function Home() {
       </header>
 
       <section className="hero shell" id="top">
-        <h1>{siteStory.hero.headline}</h1>
+        <h1><BrandWordmark text={siteStory.hero.headline} /></h1>
         <div
           className="hero-statements"
           aria-label="ASC3ND mission statements"
@@ -104,7 +105,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-inner">
           <div>
-            <p className="eyebrow">ASC3ND.ORG</p>
+            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" /></p>
             <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
           </div>
           <div className="footer-meta">
@@ -114,7 +115,7 @@ export default function Home() {
               <a href="#take-part">Take part</a>
               <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
             </nav>
-            <div><SocialLinks /><p>asc3nd.org<br />Privacy · Youth safety · Contact</p></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · Contact</p></div>
           </div>
         </div>
       </footer>

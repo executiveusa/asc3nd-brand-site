@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { BrandWordmark } from "@/components/BrandWordmark";
 import { SocialLinks } from "@/components/SocialLinks";
 
 type InteriorPageProps = {
@@ -12,7 +13,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
   return (
     <main id="main-content">
       <header className="masthead shell">
-        <a className="wordmark" href="/" aria-label="ASC3ND home">ASC3ND</a>
+        <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">
           <a href="/impact">Impact</a>
           <a href="/story">Story</a>
@@ -30,7 +31,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
 
       <footer className="footer interior-footer">
         <div className="shell interior-footer-inner">
-          <p className="eyebrow">ASC3ND, with a three.</p>
+          <p className="eyebrow"><BrandWordmark />, with a three.</p>
           <nav aria-label="Footer navigation">
             <a href="/">Home</a>
             <a href="/impact">Impact</a>

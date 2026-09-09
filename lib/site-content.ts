@@ -5,13 +5,13 @@ export const siteStory = {
   },
   founders: [
     {
-      name: "Otha",
+      name: "Otha Minnifield",
       role: "FOUNDER",
       quote: "It’s powerful when you have someone that can sit down and talk to a young youth and just build off of what they want to have in life, and just let them know what it is that they can be a part of, which is the future.",
       mediaSlot: "founder-otha",
     },
     {
-      name: "Elisha",
+      name: "Elisha Minnifield",
       role: "FOUNDER",
       quote: "I want any youth that comes even close to me, like, to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
       mediaSlot: "founder-elisha",

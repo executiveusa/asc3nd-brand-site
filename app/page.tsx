@@ -1,4 +1,5 @@
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
@@ -115,7 +116,7 @@ export default function Home() {
               <a href="#take-part">Take part</a>
               <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · Contact</p></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · Contact</p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

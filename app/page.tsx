@@ -45,7 +45,10 @@ export default function Home() {
                 />
                 <div className="founder-copy">
                   <p className="eyebrow">{founder.name} · {founder.role}</p>
-                  <blockquote>“{founder.quote}”</blockquote>
+                  <blockquote>
+                    “{founder.quote}”
+                    <cite className="founder-attribution">— {founder.name}</cite>
+                  </blockquote>
                 </div>
               </article>
             ))}

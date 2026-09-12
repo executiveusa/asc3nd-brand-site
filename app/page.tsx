@@ -46,7 +46,7 @@ export default function Home() {
             {siteStory.founders.map((founder) => (
               <article className="founder-profile" key={founder.name}>
                 <DocumentaryFrame
-                  label={`PORTRAIT PLACEHOLDER — Add ${founder.name}'s approved founder photograph here.`}
+                  label={`PORTRAIT PLACEHOLDER — ${founder.name}`}
                   slot={founder.mediaSlot}
                   className="portrait-placeholder"
                 />
@@ -67,11 +67,10 @@ export default function Home() {
         <section className="community-proof shell" id="community" aria-labelledby="community-title">
           <div className="section-heading">
             <p className="eyebrow">COMMUNITY CUTS FOR KIDS</p>
-            <h2 id="community-title">Proof goes here.</h2>
-            <p className="placeholder-note">CONTENT PLACEHOLDER — Add only approved Community Cuts photography, video, verified outcomes, partner names, or participant testimony.</p>
+            <h2 id="community-title">Community Cuts.</h2>
           </div>
           <DocumentaryFrame
-            label="MEDIA PLACEHOLDER — Add one approved Community Cuts photo or short documentary clip here."
+            label="COMMUNITY CUTS — PHOTO / VIDEO"
             slot="hero"
           />
         </section>
@@ -80,8 +79,7 @@ export default function Home() {
       <MotionReveal>
         <section className="future shell" id="next" aria-labelledby="future-title">
           <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">Next program or activity goes here.</h2>
-          <p className="placeholder-note">CONTENT PLACEHOLDER — Add the next confirmed 90-day activity in the founders’ approved words. No speculative programs or impact claims.</p>
+          <h2 id="future-title">Next ASC3ND program.</h2>
         </section>
       </MotionReveal>
 

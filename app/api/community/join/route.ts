@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { guardPublicIntake, invalidIntake } from "@/lib/public-intake-guard";
 
 export const runtime = "nodejs";
 
@@ -7,6 +8,9 @@ const CANONICAL_SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_PoqI-3PsCqewtJWJ0Z73Ag_5hIE0oKI";
 
 export async function POST(request: Request) {
+  const blocked = guardPublicIntake(request);
+  if (blocked) return blocked;
+
   // Environment variables remain the preferred deployment override. The checked-in
   // fallback is the public/publishable key for ASC3ND's locked canonical project,
   // so a fresh Vercel deployment cannot silently point at a different database.
@@ -33,6 +37,10 @@ export async function POST(request: Request) {
     consent_accepted: body.consent_accepted === true,
     source_page: typeof body.source_page === "string" ? body.source_page : "asc3nd.org/home",
   };
+
+  if (!payload.name || payload.name.length > 100 || !payload.email || payload.email.length > 254) {
+    return invalidIntake("Please check your name and email address.");
+  }
 
   const response = await fetch(`${url}/rest/v1/rpc/asc3nd_join_community`, {
     method: "POST",

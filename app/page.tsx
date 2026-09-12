@@ -8,6 +8,7 @@ import { ProjectProofGallery } from "@/components/ProjectProofGallery";
 import { SocialLinks } from "@/components/SocialLinks";
 import { communityCutsProject } from "@/lib/projects";
 import { participationRoutes, siteStory } from "@/lib/site-content";
+import "./community-proof.css";
 
 export default function Home() {
   return (

@@ -11,20 +11,20 @@ export default function StoryPage() {
     >
       <section className="story shell interior-story">
         <DocumentaryFrame
-          label="CLIENT CONTENT NEEDED — Add the founder portrait or a short founder video here. The goal is to make the person behind ASC3ND feel visible, credible, and human."
+          label="APPROVED CLIENT CONTENT — Founder portrait / short video"
           slot="founder"
           className="portrait-placeholder"
         />
         <div className="story-copy">
           <p className="eyebrow">Founder belief</p>
-          <blockquote>CLIENT COPY NEEDED — Add a short founder quote here (1–3 sentences) explaining why ASC3ND exists and what you want young people to feel, learn, or gain.</blockquote>
-          <p>Client note: this should sound like the founder speaking naturally, not like organizational marketing copy.</p>
+          <blockquote>CLIENT CONTENT — Short founder quote</blockquote>
+          <p>Founder speaking.</p>
         </div>
       </section>
 
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="CLIENT CONTENT NEEDED — Add a short founder, community, or brand-story video here. Use this space to deepen the story after the founder introduction."
+          label="APPROVED CLIENT CONTENT — Short founder / community video"
           slot="story-context"
         />
       </section>

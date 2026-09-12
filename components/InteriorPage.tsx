@@ -37,6 +37,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
             <a href="/impact">Impact</a>
             <a href="/story">Story</a>
             <a href="/take-part">Take part</a>
+            <a href="mailto:main@asc3nd.org">Contact</a>
           </nav>
           <SocialLinks />
         </div>

@@ -11,7 +11,7 @@ export default function TakePartPage() {
     >
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="CLIENT CONTENT NEEDED — Add a welcoming photo or short video here showing families, mentors, volunteers, or community partners participating in the work."
+          label="WELCOMING PHOTO / SHORT VIDEO — Families, volunteers, community partners"
           slot="take-part"
         />
       </section>
@@ -31,7 +31,7 @@ export default function TakePartPage() {
       <section className="interior-statement shell">
         <p className="eyebrow">Direct contact</p>
         <h2>Start with a conversation.</h2>
-        <p><a className="text-link" href="mailto:hello@asc3nd.org">hello@asc3nd.org</a></p>
+        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
       </section>
     </InteriorPage>
   );

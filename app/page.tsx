@@ -1,4 +1,5 @@
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { CrownMark } from "@/components/CrownMark";
 import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
@@ -19,6 +20,7 @@ export default function Home() {
       </header>
 
       <section className="hero shell" id="top">
+        <div className="hero-mark"><CrownMark /></div>
         <h1><BrandWordmark text={siteStory.hero.headline} /></h1>
         <div
           className="hero-statements"
@@ -30,6 +32,11 @@ export default function Home() {
             </p>
           ))}
         </div>
+        <p className="hero-explainer">ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.</p>
+        <div className="hero-actions" aria-label="Start here">
+          <a className="hero-action hero-action-primary" href="#take-part">Take part <span aria-hidden="true">→</span></a>
+          <a className="hero-action" href="#community">See the work <span aria-hidden="true">↓</span></a>
+        </div>
       </section>
 
       <MotionReveal>
@@ -39,7 +46,7 @@ export default function Home() {
             {siteStory.founders.map((founder) => (
               <article className="founder-profile" key={founder.name}>
                 <DocumentaryFrame
-                  label={`PORTRAIT PLACEHOLDER — Add ${founder.name}'s approved founder photograph here.`}
+                  label={`PORTRAIT PLACEHOLDER — ${founder.name}`}
                   slot={founder.mediaSlot}
                   className="portrait-placeholder"
                 />
@@ -60,11 +67,10 @@ export default function Home() {
         <section className="community-proof shell" id="community" aria-labelledby="community-title">
           <div className="section-heading">
             <p className="eyebrow">COMMUNITY CUTS FOR KIDS</p>
-            <h2 id="community-title">Proof goes here.</h2>
-            <p className="placeholder-note">CONTENT PLACEHOLDER — Add only approved Community Cuts photography, video, verified outcomes, partner names, or participant testimony.</p>
+            <h2 id="community-title">Community Cuts.</h2>
           </div>
           <DocumentaryFrame
-            label="MEDIA PLACEHOLDER — Add one approved Community Cuts photo or short documentary clip here."
+            label="COMMUNITY CUTS — PHOTO / VIDEO"
             slot="hero"
           />
         </section>
@@ -73,8 +79,7 @@ export default function Home() {
       <MotionReveal>
         <section className="future shell" id="next" aria-labelledby="future-title">
           <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">Next program or activity goes here.</h2>
-          <p className="placeholder-note">CONTENT PLACEHOLDER — Add the next confirmed 90-day activity in the founders’ approved words. No speculative programs or impact claims.</p>
+          <h2 id="future-title">Next ASC3ND program.</h2>
         </section>
       </MotionReveal>
 
@@ -99,7 +104,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-inner">
           <div>
-            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" digitNudgeEm={-0.045} /></p>
+            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" /></p>
             <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
           </div>
           <div className="footer-meta">
@@ -109,7 +114,7 @@ export default function Home() {
               <a href="#take-part">Take part</a>
               <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" digitNudgeEm={-0.045} /><br />Privacy · Youth safety · Contact</p><LegalIdentity compact /></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

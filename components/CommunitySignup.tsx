@@ -47,7 +47,6 @@ export function CommunitySignup() {
       <div className="community-signup-copy">
         <p className="eyebrow">STAY CONNECTED</p>
         <h2 id="community-signup-title">ASC3ND updates.</h2>
-        <p>FUNCTIONAL COPY — Email updates from ASC3ND. Final public wording can be approved with the founders.</p>
       </div>
 
       <form className="community-signup-form" onSubmit={submit}>

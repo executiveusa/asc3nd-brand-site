@@ -13,7 +13,7 @@ export const siteStory = {
     {
       name: "Elisha Minnifield",
       role: "FOUNDER",
-      quote: "I want any youth that comes even close to me, like, to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
+      quote: "I want any youth that comes even close to me to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
       mediaSlot: "founder-elisha",
     },
   ],
@@ -53,20 +53,20 @@ export const pathways = [
   {
     index: "01",
     title: "Program / activity 01",
-    copy: "CONTENT PLACEHOLDER — Add a confirmed program or activity after founder approval.",
-    status: "Needs approval",
+    copy: "Program / activity item.",
+    status: "Placeholder",
   },
   {
     index: "02",
     title: "Program / activity 02",
-    copy: "CONTENT PLACEHOLDER — Add a confirmed program or activity after founder approval.",
-    status: "Needs approval",
+    copy: "Program / activity item.",
+    status: "Placeholder",
   },
   {
     index: "03",
     title: "Program / activity 03",
-    copy: "CONTENT PLACEHOLDER — Add only if a third confirmed program or activity is needed.",
-    status: "Needs approval",
+    copy: "Program / activity item.",
+    status: "Placeholder",
   },
 ] as const;
 

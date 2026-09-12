@@ -2,14 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type BrandWordmarkProps = {
-  text?: string;
-  /** Small optical correction, in em, applied after ink-bound alignment. Negative values raise the 3. */
-  digitNudgeEm?: number;
-};
-
 /** Match the numeral's ink bounds to the surrounding letters in the inherited font. */
-export function BrandWordmark({ text = "ASC3ND", digitNudgeEm = 0 }: BrandWordmarkProps) {
+export function BrandWordmark({ text = "ASC3ND" }: { text?: string }) {
   const root = useRef<HTMLSpanElement>(null);
   const [metrics, setMetrics] = useState<{ size: number; top: number } | null>(null);
 
@@ -50,27 +44,10 @@ export function BrandWordmark({ text = "ASC3ND", digitNudgeEm = 0 }: BrandWordma
 
   const index = text.indexOf("3");
   if (index < 0) return <span>{text}</span>;
-  const top = metrics
-    ? digitNudgeEm === 0
-      ? `${metrics.top}px`
-      : `calc(${metrics.top}px + ${digitNudgeEm}em)`
-    : digitNudgeEm === 0
-      ? undefined
-      : `${digitNudgeEm}em`;
-
   return (
-    <span ref={root} aria-label={text}>
+    <span ref={root} className="brand-wordmark" aria-label={text}>
       <span aria-hidden="true">{text.slice(0, index)}</span>
-      <span
-        aria-hidden="true"
-        style={{
-          position: "relative",
-          fontSize: metrics ? `${metrics.size}em` : undefined,
-          top,
-        }}
-      >
-        {text[index]}
-      </span>
+      <span className="brand-wordmark-digit" aria-hidden="true" style={{ fontSize: metrics ? `${metrics.size}em` : undefined, top: metrics ? `${metrics.top}px` : undefined }}>{text[index]}</span>
       <span aria-hidden="true">{text.slice(index + 1)}</span>
     </span>
   );

@@ -13,7 +13,7 @@ export const siteStory = {
     {
       name: "Elisha Minnifield",
       role: "FOUNDER",
-      quote: "I want any youth that comes even close to me, like, to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
+      quote: "I want any youth that comes even close to me to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
       mediaSlot: "founder-elisha",
     },
   ],

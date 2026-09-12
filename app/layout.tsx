@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./interior.css";
 import "./gauntlet.css";
@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   title: "ASC3ND | Community came through. Now we build forward.",
   description:
     "ASC3ND is building ways for young people to find trusted guidance, practice life skills, and connect with community opportunity.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

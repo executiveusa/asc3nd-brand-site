@@ -99,7 +99,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-inner">
           <div>
-            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" /></p>
+            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" digitNudgeEm={-0.045} /></p>
             <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
           </div>
           <div className="footer-meta">
@@ -109,7 +109,7 @@ export default function Home() {
               <a href="#take-part">Take part</a>
               <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · Contact</p><LegalIdentity compact /></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" digitNudgeEm={-0.045} /><br />Privacy · Youth safety · Contact</p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

@@ -44,6 +44,6 @@ export default function TransparencyPage() {
       <div className="transparency-intro"><p className="eyebrow">03 / GIVING</p><h2 id="giving-title">Giving,<br />with clarity.</h2></div>
       <div className="transparency-details"><p>Before making a contribution, please confirm the legal recipient and any tax-deductibility information directly with the organization. We will publish verified federal tax and Washington charitable-registration information here when available.</p><p>Our nonprofit corporate status alone is not a representation that a contribution is tax-deductible.</p><a className="transparency-cta" href="/take-part">Explore ways to take part <span aria-hidden="true">↗</span></a></div>
     </section>
-    <footer className="footer interior-footer"><div className="shell transparency-footer"><LegalIdentity /><nav aria-label="Footer navigation"><a href="/">Home</a><a href="/story">Story</a><a href="/take-part">Take part</a></nav><SocialLinks /></div></footer>
+    <footer className="footer interior-footer"><div className="shell transparency-footer"><LegalIdentity /><nav aria-label="Footer navigation"><a href="/">Home</a><a href="/story">Story</a><a href="/take-part">Take part</a><a href="mailto:main@asc3nd.org">Contact</a></nav><SocialLinks /></div></footer>
   </main>;
 }

@@ -4,8 +4,11 @@ import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
+import { ProjectProofGallery } from "@/components/ProjectProofGallery";
 import { SocialLinks } from "@/components/SocialLinks";
+import { communityCutsProject } from "@/lib/projects";
 import { participationRoutes, siteStory } from "@/lib/site-content";
+import "./community-proof.css";
 
 export default function Home() {
   return (
@@ -66,12 +69,17 @@ export default function Home() {
       <MotionReveal>
         <section className="community-proof shell" id="community" aria-labelledby="community-title">
           <div className="section-heading">
-            <p className="eyebrow">COMMUNITY CUTS FOR KIDS</p>
+            <p className="eyebrow">COMMUNITY CUTS FOR KIDS · PROJECT 001</p>
             <h2 id="community-title">Community Cuts.</h2>
+            <div className="community-project-meta">
+              <p>{communityCutsProject.location} · {communityCutsProject.dateLabel}</p>
+              <a href="/projects/community-cuts">View the project <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
-          <DocumentaryFrame
-            label="COMMUNITY CUTS — PHOTO / VIDEO"
-            slot="hero"
+          <ProjectProofGallery
+            items={communityCutsProject.media}
+            compact
+            emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
           />
         </section>
       </MotionReveal>
@@ -108,11 +116,11 @@ export default function Home() {
             <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
           </div>
           <div className="footer-meta">
-            <nav aria-label="Footer navigation">
-              <a href="#story">Founders</a>
-              <a href="#community">Community</a>
-              <a href="#take-part">Take part</a>
-              <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
+            <nav className="footer-links" aria-label="Footer navigation">
+              <a href="#story"><span>Founders</span><span aria-hidden="true">↗</span></a>
+              <a href="#community"><span>Community</span><span aria-hidden="true">↗</span></a>
+              <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
+              <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer"><span>Donate</span><span aria-hidden="true">↗</span></a>
             </nav>
             <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>

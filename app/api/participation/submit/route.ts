@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { guardPublicIntake, invalidIntake } from "@/lib/public-intake-guard";
 
 export const runtime = "nodejs";
 
@@ -7,6 +8,9 @@ const CANONICAL_SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_PoqI-3PsCqewtJWJ0Z73Ag_5hIE0oKI";
 
 export async function POST(request: Request) {
+  const blocked = guardPublicIntake(request);
+  if (blocked) return blocked;
+
   const url = process.env.SUPABASE_URL ?? CANONICAL_SUPABASE_URL;
   const publishableKey =
     process.env.SUPABASE_PUBLISHABLE_KEY ?? CANONICAL_SUPABASE_PUBLISHABLE_KEY;
@@ -42,6 +46,10 @@ export async function POST(request: Request) {
     source_page:
       typeof body.source_page === "string" ? body.source_page : "asc3nd.org/take-part",
   };
+
+  if (!payload.name || payload.name.length > 100 || !payload.email || payload.email.length > 254 || payload.phone.length > 40) {
+    return invalidIntake("Please check the contact details you entered.");
+  }
 
   const response = await fetch(`${url}/rest/v1/rpc/asc3nd_submit_participation`, {
     method: "POST",

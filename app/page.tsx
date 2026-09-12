@@ -1,4 +1,5 @@
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { CrownMark } from "@/components/CrownMark";
 import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
@@ -19,6 +20,7 @@ export default function Home() {
       </header>
 
       <section className="hero shell" id="top">
+        <div className="hero-mark"><CrownMark /></div>
         <h1><BrandWordmark text={siteStory.hero.headline} /></h1>
         <div
           className="hero-statements"
@@ -29,6 +31,11 @@ export default function Home() {
               {line}
             </p>
           ))}
+        </div>
+        <p className="hero-explainer">ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.</p>
+        <div className="hero-actions" aria-label="Start here">
+          <a className="hero-action hero-action-primary" href="#take-part">Take part <span aria-hidden="true">→</span></a>
+          <a className="hero-action" href="#community">See the work <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
@@ -99,7 +106,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-inner">
           <div>
-            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" digitNudgeEm={-0.045} /></p>
+            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" /></p>
             <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
           </div>
           <div className="footer-meta">
@@ -109,7 +116,7 @@ export default function Home() {
               <a href="#take-part">Take part</a>
               <a href="https://www.zeffy.com/home/online-donation-platform-nonprofits" target="_blank" rel="noreferrer">Donate ↗</a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" digitNudgeEm={-0.045} /><br />Privacy · Youth safety · Contact</p><LegalIdentity compact /></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

@@ -31,7 +31,7 @@ export default function TakePartPage() {
       <section className="interior-statement shell">
         <p className="eyebrow">Direct contact</p>
         <h2>Start with a conversation.</h2>
-        <p><a className="text-link" href="mailto:hello@asc3nd.org">hello@asc3nd.org</a></p>
+        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
       </section>
     </InteriorPage>
   );

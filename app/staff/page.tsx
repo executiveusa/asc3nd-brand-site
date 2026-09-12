@@ -3,6 +3,7 @@ import { StaffQueueDashboard } from "@/components/StaffQueueDashboard";
 import { ParticipationIntakeDashboard } from "@/components/ParticipationIntakeDashboard";
 import { RecoveryReview } from "@/components/RecoveryReview";
 import { ContentCommandCenter } from "@/components/ContentCommandCenter";
+import { ProjectMediaWorkbench } from "@/components/ProjectMediaWorkbench";
 import styles from "./staff.module.css";
 
 export const metadata = {
@@ -18,9 +19,10 @@ export default function StaffPage() {
         <div><p>Staff operations</p><h1>Identity → Context → Memory</h1></div>
       </header>
       <section className={styles.intro}>
-        <p>One person record. Multiple operational routes. Website intake, follow-up, content, consent, recovery, and CSV handoff all work from the canonical Supabase relationship record.</p>
+        <p>One person record. Multiple operational routes. Website intake, follow-up, content, consent, recovery, project media, and CSV handoff all work from the ASC3ND operating system.</p>
       </section>
       <StaffQueueDashboard />
+      <ProjectMediaWorkbench />
       <ParticipationIntakeDashboard />
       <RecoveryReview />
       <ContentCommandCenter />

@@ -87,7 +87,7 @@ export default function Home() {
       <MotionReveal>
         <section className="future shell" id="next" aria-labelledby="future-title">
           <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">Next <BrandWordmark text="ASC3ND" /> program.</h2>
+          <h2 id="future-title">Next <BrandWordmark text="ASC3ND" digitNudgeEm={0.01} /> program.</h2>
         </section>
       </MotionReveal>
 

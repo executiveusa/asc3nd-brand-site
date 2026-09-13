@@ -41,9 +41,9 @@ Instagram and LinkedIn are vector marks. No raster social-logo files are used.
 - LinkedIn vector path is inherited from the prior ASC3ND public site.
 - Utility interface icons use Lucide, not emoji or generic raster icon packs.
 
-Current social destinations are inherited from the prior ASC3ND site and should be re-verified before production cutover:
+Current verified social destinations:
 
-- `https://instagram.com/asc3ndcollective`
+- `https://www.instagram.com/theasc3ndcollective/`
 - `https://linkedin.com/company/asc3nd-collective`
 
 ## Editorial rule

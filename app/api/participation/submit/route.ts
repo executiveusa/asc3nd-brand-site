@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { guardPublicIntake, invalidIntake } from "@/lib/public-intake-guard";
+import { triggerSiteNotificationDelivery } from "@/lib/site-notifications";
 
 export const runtime = "nodejs";
 
@@ -70,5 +71,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message }, { status: 400 });
   }
 
+  await triggerSiteNotificationDelivery();
   return NextResponse.json(data);
 }

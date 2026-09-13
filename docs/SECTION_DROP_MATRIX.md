@@ -44,7 +44,7 @@ Instagram and LinkedIn are vector marks. No raster social-logo files are used.
 Current verified social destinations:
 
 - `https://www.instagram.com/theasc3ndcollective/`
-- `https://linkedin.com/company/asc3nd-collective`
+- `https://www.linkedin.com/in/asc3ndcollective/`
 
 ## Editorial rule
 

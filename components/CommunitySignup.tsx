@@ -47,7 +47,7 @@ export function CommunitySignup() {
     <section className="community-signup shell" aria-labelledby="community-signup-title">
       <div className="community-signup-copy">
         <p className="eyebrow">STAY CONNECTED</p>
-        <h2 id="community-signup-title"><BrandWordmark text="ASC3ND" digitNudgeEm={-0.045} /> updates.</h2>
+        <h2 id="community-signup-title"><BrandWordmark text="ASC3ND" digitNudgeEm={-0.02} /> updates.</h2>
       </div>
 
       <form className="community-signup-form" onSubmit={submit}>

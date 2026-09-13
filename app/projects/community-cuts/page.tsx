@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { ProjectFilm } from "@/components/ProjectFilm";
 import { ProjectProofGallery } from "@/components/ProjectProofGallery";
 import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import "./project.css";
@@ -32,6 +33,17 @@ export default function CommunityCutsPage() {
         </div>
         <p className="project-summary">{communityCutsProject.summary}</p>
       </section>
+
+      {communityCutsProject.featuredFilm ? (
+        <section className="project-film-section shell" aria-labelledby="project-film-title">
+          <div className="project-film-copy">
+            <p className="eyebrow">THE FILM</p>
+            <h2 id="project-film-title">Community, in motion.</h2>
+            <p>Watch the full Community Cuts film from Everett.</p>
+          </div>
+          <ProjectFilm film={communityCutsProject.featuredFilm} />
+        </section>
+      ) : null}
 
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">

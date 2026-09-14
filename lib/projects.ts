@@ -13,6 +13,14 @@ export type ProjectMediaItem = {
   featured?: boolean;
 };
 
+export type ProjectFilm = {
+  title: string;
+  embedSrc: string;
+  aspectRatio: "9:16" | "16:9";
+  caption?: string;
+  provider: "google-drive-preview" | "cloudflare-stream";
+};
+
 export type Asc3ndProject = {
   slug: string;
   title: string;
@@ -21,6 +29,7 @@ export type Asc3ndProject = {
   dateLabel: string;
   summary: string;
   status: "proof-building" | "published";
+  featuredFilm?: ProjectFilm;
   media: ProjectMediaItem[];
   outcomes: string[];
   quotes: { quote: string; attribution: string }[];
@@ -35,6 +44,13 @@ export const communityCutsProject: Asc3ndProject = {
   summary:
     "Community Cuts for Kids is the first public project in ASC3ND's story. This record is designed to hold the approved photographs, video, outcomes, partners, and testimony that prove what happened.",
   status: "proof-building",
+  featuredFilm: {
+    title: "Community Cuts for Kids — full film",
+    embedSrc: "https://drive.google.com/file/d/1t0M6aAbq2IDsqA0H9dzqN5xlRR8ps4yN/preview",
+    aspectRatio: "9:16",
+    caption: "Everett, Washington · August 2026",
+    provider: "google-drive-preview",
+  },
   media: [],
   outcomes: [],
   quotes: [],

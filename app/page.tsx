@@ -5,6 +5,7 @@ import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
 import { ProjectProofGallery } from "@/components/ProjectProofGallery";
+import { ProjectFilm } from "@/components/ProjectFilm";
 import { SocialLinks } from "@/components/SocialLinks";
 import { communityCutsProject } from "@/lib/projects";
 import { participationRoutes, siteStory } from "@/lib/site-content";
@@ -76,6 +77,15 @@ export default function Home() {
               <a href="/projects/community-cuts">View the project <span aria-hidden="true">↗</span></a>
             </div>
           </div>
+          {communityCutsProject.featuredFilm ? (
+            <div className="community-featured-film">
+              <div>
+                <p className="eyebrow">THE FILM</p>
+                <p className="community-film-copy">Watch Community Cuts for Kids in Everett.</p>
+              </div>
+              <ProjectFilm film={communityCutsProject.featuredFilm} />
+            </div>
+          ) : null}
           <ProjectProofGallery
             items={communityCutsProject.media}
             compact

@@ -4,12 +4,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
-      { source: "/community-cuts", destination: "/impact", permanent: true },
-      { source: "/community-cuts-for-kids", destination: "/impact", permanent: true },
-      { source: "/community-cuts-for-kids-2026", destination: "/impact", permanent: true },
-      { source: "/events/community-cuts", destination: "/impact", permanent: true },
-      { source: "/events/community-cuts-for-kids", destination: "/impact", permanent: true },
-      { source: "/events/community-cuts-for-kids-2026", destination: "/impact", permanent: true },
+      { source: "/community-cuts", destination: "/projects/community-cuts", permanent: true },
+      { source: "/community-cuts-for-kids", destination: "/projects/community-cuts", permanent: true },
+      { source: "/community-cuts-for-kids-2026", destination: "/projects/community-cuts", permanent: true },
+      { source: "/events/community-cuts", destination: "/projects/community-cuts", permanent: true },
+      { source: "/events/community-cuts-for-kids", destination: "/projects/community-cuts", permanent: true },
+      { source: "/events/community-cuts-for-kids-2026", destination: "/projects/community-cuts", permanent: true },
       { source: "/volunteer", destination: "/take-part", permanent: true },
       { source: "/mentor", destination: "/take-part", permanent: true },
       { source: "/mentors", destination: "/take-part", permanent: true },

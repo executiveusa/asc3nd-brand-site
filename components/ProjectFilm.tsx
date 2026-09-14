@@ -11,15 +11,26 @@ export function ProjectFilm({ film }: Props) {
   return (
     <figure className={`${styles.film} ${aspectClass}`}>
       <div className={styles.frame}>
-        <iframe
-          className={styles.player}
-          src={film.embedSrc}
-          title={film.title}
-          allow="accelerometer; autoplay; encrypted-media; fullscreen; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
+        {film.provider === "direct-video" ? (
+          <video
+            className={styles.player}
+            src={film.embedSrc}
+            title={film.title}
+            controls
+            playsInline
+            preload="metadata"
+          />
+        ) : (
+          <iframe
+            className={styles.player}
+            src={film.embedSrc}
+            title={film.title}
+            allow="accelerometer; autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        )}
       </div>
       {film.caption ? <figcaption className={styles.caption}>{film.caption}</figcaption> : null}
     </figure>

@@ -18,7 +18,7 @@ export type ProjectFilm = {
   embedSrc: string;
   aspectRatio: "9:16" | "16:9";
   caption?: string;
-  provider: "google-drive-preview" | "cloudflare-stream";
+  provider: "google-drive-preview" | "cloudflare-stream" | "direct-video";
 };
 
 export type Asc3ndProject = {
@@ -46,10 +46,10 @@ export const communityCutsProject: Asc3ndProject = {
   status: "proof-building",
   featuredFilm: {
     title: "Community Cuts for Kids — full film",
-    embedSrc: "https://drive.google.com/file/d/1t0M6aAbq2IDsqA0H9dzqN5xlRR8ps4yN/preview",
+    embedSrc: "https://pub-90c88be06d2b4940b0047cf04c9fed6d.r2.dev/community-cuts-opus-master-9x16.mp4",
     aspectRatio: "9:16",
     caption: "Everett, Washington · August 2026",
-    provider: "google-drive-preview",
+    provider: "direct-video",
   },
   media: [],
   outcomes: [],

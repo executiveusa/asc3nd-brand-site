@@ -1,3 +1,5 @@
+import { communityCutsMedia } from "./community-cuts-media.generated";
+
 export type ProjectMediaType = "image" | "video";
 
 export type ProjectMediaItem = {
@@ -53,7 +55,7 @@ export const communityCutsProject: Asc3ndProject = {
     caption: "Everett, Washington · August 2026",
     provider: "direct-video",
   },
-  media: [],
+  media: communityCutsMedia,
   outcomes: [],
   quotes: [],
 };

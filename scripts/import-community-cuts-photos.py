@@ -44,7 +44,6 @@ def download_source() -> list[Path]:
         output=str(RAW_DIR),
         quiet=False,
         use_cookies=False,
-        remaining_ok=True,
     )
     if not result:
         raise RuntimeError("Google Drive folder download returned no files")

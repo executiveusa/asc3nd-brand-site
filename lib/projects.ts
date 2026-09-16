@@ -11,6 +11,8 @@ export type ProjectMediaItem = {
   approved: boolean;
   consentConfirmed: boolean;
   featured?: boolean;
+  width?: number;
+  height?: number;
 };
 
 export type ProjectFilm = {

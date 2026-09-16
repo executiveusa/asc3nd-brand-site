@@ -135,8 +135,7 @@ def write_typescript(manifest: list[dict]) -> None:
                 "  },",
             ]
         )
-    lines.extend(["];
-", ""])
+    lines.extend(["];", ""])
     MANIFEST_TS.write_text("\n".join(lines), encoding="utf-8")
 
 

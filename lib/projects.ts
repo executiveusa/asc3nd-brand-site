@@ -25,6 +25,16 @@ export type ProjectFilm = {
   provider: "google-drive-preview" | "cloudflare-stream" | "direct-video";
 };
 
+export type ProjectCreditGroup = {
+  label: string;
+  entries: string[];
+};
+
+export type ProjectCredits = {
+  intro: string;
+  groups: ProjectCreditGroup[];
+};
+
 export type Asc3ndProject = {
   slug: string;
   title: string;
@@ -37,6 +47,7 @@ export type Asc3ndProject = {
   media: ProjectMediaItem[];
   outcomes: string[];
   quotes: { quote: string; attribution: string }[];
+  credits?: ProjectCredits;
 };
 
 export const communityCutsProject: Asc3ndProject = {
@@ -58,6 +69,20 @@ export const communityCutsProject: Asc3ndProject = {
   media: communityCutsMedia,
   outcomes: [],
   quotes: [],
+  credits: {
+    intro:
+      "To the barbers, volunteers, families, partners, photographers, organizers, and everyone who gave their time, talent, and support — thank you for showing up for the community.",
+    groups: [
+      { label: "Event partners", entries: ["Names to be confirmed"] },
+      { label: "Sponsors", entries: ["Names to be confirmed"] },
+      { label: "Barbers", entries: ["Names to be confirmed"] },
+      { label: "Volunteers", entries: ["Names to be confirmed"] },
+      { label: "Photography + video", entries: ["Names to be confirmed"] },
+      { label: "Community partners", entries: ["Names to be confirmed"] },
+      { label: "Organizers", entries: ["Names to be confirmed"] },
+      { label: "Special thanks", entries: ["Names to be confirmed"] },
+    ],
+  },
 };
 
 export const asc3ndProjects = [communityCutsProject] as const;

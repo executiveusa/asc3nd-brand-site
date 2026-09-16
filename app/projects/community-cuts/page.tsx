@@ -77,12 +77,9 @@ export default function CommunityCutsPage() {
                 eventLabel={`${communityCutsProject.title} · ${communityCutsProject.location} · ${communityCutsProject.dateLabel}`}
                 groups={communityCutsProject.credits.groups}
               />
-              <Link href="/take-part">Take part <span aria-hidden="true">↗</span></Link>
             </div>
           </>
-        ) : (
-          <Link href="/take-part">Take part <span aria-hidden="true">↗</span></Link>
-        )}
+        ) : null}
       </section>
     </main>
   );

@@ -48,10 +48,9 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: "24"
-          cache: npm
 
       - name: Install app dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund --package-lock=false
 
       - name: Build production app
         run: npm run build

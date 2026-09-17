@@ -17,30 +17,35 @@ export function CommunitySignup() {
     setState("submitting");
     setMessage("");
 
-    const response = await fetch("/api/community/join", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        website: formData.get("website"),
-        preferred_language: "en",
-        consent_accepted: formData.get("consent") === "on",
-        source_page: "asc3nd.org/home",
-      }),
-    });
+    try {
+      const response = await fetch("/api/community/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          website: formData.get("website"),
+          preferred_language: "en",
+          consent_accepted: formData.get("consent") === "on",
+          source_page: "asc3nd.org/home",
+        }),
+      });
 
-    const data = await response.json().catch(() => null);
+      const data = await response.json().catch(() => null);
 
-    if (!response.ok || !data?.ok) {
+      if (!response.ok || !data?.ok) {
+        setState("error");
+        setMessage(data?.message || "We could not save your signup. Please try again.");
+        return;
+      }
+
+      setState("success");
+      setMessage(data.message || "You are signed up for ASC3ND updates.");
+      form.reset();
+    } catch {
       setState("error");
-      setMessage(data?.message || "We could not save your signup. Please try again.");
-      return;
+      setMessage("We could not reach ASC3ND right now. Check your connection and try again.");
     }
-
-    setState("success");
-    setMessage(data.message || "You are signed up for ASC3ND updates.");
-    form.reset();
   }
 
   return (

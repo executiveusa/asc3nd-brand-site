@@ -25,26 +25,26 @@ export const siteStory = {
 export const communityRoll = [
   {
     index: "01",
-    title: "Approved event image",
-    copy: "CONTENT PLACEHOLDER — Add an approved Community Cuts image and a verified caption.",
+    title: "Everett, Washington",
+    copy: "Community Cuts for Kids took place in Everett in August 2026.",
     mediaSlot: "arrival",
   },
   {
     index: "02",
-    title: "Verified outcome",
-    copy: "CONTENT PLACEHOLDER — Add only a verified event outcome or service fact.",
+    title: "Full event film",
+    copy: "The complete Community Cuts film is published with the project record.",
     mediaSlot: "service",
   },
   {
     index: "03",
-    title: "Founder reflection",
-    copy: "CONTENT PLACEHOLDER — Add a founder-approved post-event reflection or participant testimony.",
+    title: "86 approved photographs",
+    copy: "The project record includes 86 approved event photographs.",
     mediaSlot: "connection",
   },
   {
     index: "04",
-    title: "What comes next",
-    copy: "CONTENT PLACEHOLDER — Add the next confirmed activity in approved founder language.",
+    title: "Event credits",
+    copy: "ASC3ND is documenting the people and organizations that helped make the event possible.",
     mediaSlot: "next",
   },
 ] as const;
@@ -52,21 +52,21 @@ export const communityRoll = [
 export const pathways = [
   {
     index: "01",
-    title: "Program / activity 01",
-    copy: "Program / activity item.",
-    status: "Placeholder",
+    title: "Trusted guidance",
+    copy: "Connect young people with adults who can listen, encourage, and help them see practical next steps.",
+    status: "In development",
   },
   {
     index: "02",
-    title: "Program / activity 02",
-    copy: "Program / activity item.",
-    status: "Placeholder",
+    title: "Life skills",
+    copy: "Create useful experiences where young people can practice communication, confidence, and everyday skills.",
+    status: "In development",
   },
   {
     index: "03",
-    title: "Program / activity 03",
-    copy: "Program / activity item.",
-    status: "Placeholder",
+    title: "Community opportunity",
+    copy: "Connect young people and families with people, programs, and opportunities in their community.",
+    status: "In development",
   },
 ] as const;
 

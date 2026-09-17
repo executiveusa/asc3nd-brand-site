@@ -39,8 +39,8 @@ export default function CommunityCutsPage() {
         <section className="project-film-section shell" aria-labelledby="project-film-title">
           <div className="project-film-copy">
             <p className="eyebrow">THE FILM</p>
-            <h2 id="project-film-title">Community, in motion.</h2>
-            <p>Watch the full Community Cuts film from Everett.</p>
+            <h2 id="project-film-title">Community Cuts for Kids, Everett.</h2>
+            <p>Watch the full event film.</p>
           </div>
           <ProjectFilm film={communityCutsProject.featuredFilm} />
         </section>
@@ -49,19 +49,23 @@ export default function CommunityCutsPage() {
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">
           <p className="eyebrow">PROJECT PROOF</p>
-          <h2 id="project-proof-title">The work, documented.</h2>
-          <p>{media.length ? `${media.length} approved media items.` : "Approved event media will appear here."}</p>
+          <h2 id="project-proof-title">Community Cuts, photographed.</h2>
+          <p>{media.length ? `${media.length} approved event photographs.` : "Approved event photographs will appear here."}</p>
         </div>
-        <ProjectProofGallery items={communityCutsProject.media} emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO" />
+        <ProjectProofGallery
+          items={communityCutsProject.media}
+          initialVisible={10}
+          emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
+        />
       </section>
 
       <section className="project-evidence shell">
-        <div><p className="eyebrow">OUTCOMES</p><h2>Verified outcomes.</h2></div>
+        <div><p className="eyebrow">OUTCOMES</p><h2>What ASC3ND can verify.</h2></div>
         <div className="project-evidence-body">
           {communityCutsProject.outcomes.length ? (
             <ul>{communityCutsProject.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
           ) : (
-            <p>Verified project outcomes will be added when approved.</p>
+            <p>Outcome totals will be published here after they are verified.</p>
           )}
         </div>
       </section>

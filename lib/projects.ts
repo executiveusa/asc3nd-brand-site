@@ -57,7 +57,7 @@ export const communityCutsProject: Asc3ndProject = {
   location: "Everett, Washington",
   dateLabel: "August 2026",
   summary:
-    "Community Cuts for Kids is the first public project in ASC3ND's story. This record is designed to hold the approved photographs, video, outcomes, partners, and testimony that prove what happened.",
+    "Community Cuts for Kids took place in Everett, Washington, in August 2026. This project page brings together the event film, approved photographs, and event credits in one public record.",
   status: "proof-building",
   featuredFilm: {
     title: "Community Cuts for Kids — full film",

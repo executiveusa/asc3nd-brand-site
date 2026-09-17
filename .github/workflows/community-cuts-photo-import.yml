@@ -1,0 +1,68 @@
+name: Community Cuts photo import
+
+on:
+  push:
+    branches:
+      - feat/community-cuts-proof-photos-20260916
+    paths:
+      - .github/workflows/community-cuts-photo-import.yml
+      - scripts/import-community-cuts-photos.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: community-cuts-photo-import
+  cancel-in-progress: false
+
+jobs:
+  import-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v5
+        with:
+          ref: feat/community-cuts-proof-photos-20260916
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install photo import dependencies
+        run: python -m pip install --disable-pip-version-check gdown Pillow
+
+      - name: Download and optimize all approved Community Cuts photos
+        run: python scripts/import-community-cuts-photos.py
+
+      - name: Verify exact photo count
+        run: |
+          count=$(find public/images/projects/community-cuts -maxdepth 1 -type f -name '*.jpg' | wc -l)
+          echo "Optimized photo count: $count"
+          test "$count" -eq 86
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Install app dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
+      - name: Build production app
+        run: npm run build
+
+      - name: Commit optimized photos and generated manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/projects/community-cuts lib/community-cuts-media.generated.ts lib/projects.ts docs/community-cuts/PHOTO_IMPORT_AUDIT.json
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "Add 86 approved Community Cuts proof photos"
+          git push origin HEAD:feat/community-cuts-proof-photos-20260916

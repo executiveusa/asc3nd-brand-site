@@ -17,7 +17,9 @@
 .project-evidence-body { align-self: end; color: var(--muted); font-size: 1rem; line-height: 1.7; }
 .project-evidence-body ul { margin: 0; padding-left: 18px; }
 .project-next { padding: clamp(100px, 14vw, 200px) 0; border-top: 1px solid var(--line); }
-.project-next h2 { max-width: 1000px; font-size: clamp(3.6rem, 8vw, 8rem); line-height: .9; }
+.project-next h2 { max-width: 1120px; margin-bottom: 32px; font-size: clamp(3.6rem, 8vw, 8rem); line-height: .9; }
+.project-thanks { max-width: 720px; margin: 0 0 34px; color: var(--muted); font-size: clamp(1.05rem, 1.8vw, 1.35rem); line-height: 1.65; }
+.project-next-actions { display: flex; flex-wrap: wrap; gap: 18px 34px; align-items: center; }
 .project-next a { display: inline-flex; gap: 26px; align-items: center; min-height: 48px; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 700; text-decoration: none; }
 
 @media (max-width: 820px) {
@@ -29,4 +31,5 @@
   .project-film-copy { max-width: 680px; }
   .project-proof-heading .eyebrow { grid-column: auto; }
   .project-evidence-body { align-self: auto; }
+  .project-next h2 { font-size: clamp(3.1rem, 15vw, 5.8rem); }
 }

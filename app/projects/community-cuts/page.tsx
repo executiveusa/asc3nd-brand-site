@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { EventCredits } from "@/components/EventCredits";
 import { ProjectFilm } from "@/components/ProjectFilm";
 import { ProjectProofGallery } from "@/components/ProjectProofGallery";
 import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
@@ -66,9 +67,19 @@ export default function CommunityCutsPage() {
       </section>
 
       <section className="project-next shell">
-        <p className="eyebrow">ASC3ND PROJECT 001</p>
-        <h2>Proof first. Then the next chapter.</h2>
-        <Link href="/take-part">Take part <span aria-hidden="true">↗</span></Link>
+        <p className="eyebrow">WITH GRATITUDE</p>
+        <h2>Thank you to everyone who made Community Cuts possible.</h2>
+        {communityCutsProject.credits ? (
+          <>
+            <p className="project-thanks">{communityCutsProject.credits.intro}</p>
+            <div className="project-next-actions">
+              <EventCredits
+                eventLabel={`${communityCutsProject.title} · ${communityCutsProject.location} · ${communityCutsProject.dateLabel}`}
+                groups={communityCutsProject.credits.groups}
+              />
+            </div>
+          </>
+        ) : null}
       </section>
     </main>
   );

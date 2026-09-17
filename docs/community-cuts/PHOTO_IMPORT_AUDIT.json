@@ -1,0 +1,613 @@
+{
+  "sourceFolder": "https://drive.google.com/drive/folders/1QXJK7WwEqhugArmSiFVh_Ysq7Ci1dDB8",
+  "expectedCount": 86,
+  "importedCount": 86,
+  "maxLongEdge": 1600,
+  "jpegQuality": 82,
+  "outputDirectory": "public/images/projects/community-cuts",
+  "totalOptimizedBytes": 28553284,
+  "items": [
+    {
+      "sourceFile": "_75A0001.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-001.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 346273
+    },
+    {
+      "sourceFile": "_75A0004.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-002.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 373207
+    },
+    {
+      "sourceFile": "_75A0005.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-003.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 297467
+    },
+    {
+      "sourceFile": "_75A0015.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-004.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 283556
+    },
+    {
+      "sourceFile": "_75A0016.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-005.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 277131
+    },
+    {
+      "sourceFile": "_75A0021.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-006.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 340146
+    },
+    {
+      "sourceFile": "_75A0025.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-007.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 276564
+    },
+    {
+      "sourceFile": "_75A0031.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-008.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 287662
+    },
+    {
+      "sourceFile": "_75A0033.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-009.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 273128
+    },
+    {
+      "sourceFile": "_75A0035.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-010.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 329211
+    },
+    {
+      "sourceFile": "_75A0040.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-011.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 337573
+    },
+    {
+      "sourceFile": "_75A0044.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-012.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 336707
+    },
+    {
+      "sourceFile": "_75A0047.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-013.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 389953
+    },
+    {
+      "sourceFile": "_75A0053.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-014.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 369190
+    },
+    {
+      "sourceFile": "_75A0055.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-015.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 381274
+    },
+    {
+      "sourceFile": "_75A0065.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-016.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 329024
+    },
+    {
+      "sourceFile": "_75A0066.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-017.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 335474
+    },
+    {
+      "sourceFile": "_75A0068.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-018.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 298662
+    },
+    {
+      "sourceFile": "_75A0070.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-019.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 270033
+    },
+    {
+      "sourceFile": "_75A0072.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-020.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 196253
+    },
+    {
+      "sourceFile": "_75A0078.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-021.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 334192
+    },
+    {
+      "sourceFile": "_75A0081.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-022.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 224664
+    },
+    {
+      "sourceFile": "_75A0082.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-023.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 289586
+    },
+    {
+      "sourceFile": "_75A0084.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-024.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 318865
+    },
+    {
+      "sourceFile": "_75A0087.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-025.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 377545
+    },
+    {
+      "sourceFile": "_75A0090.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-026.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 431081
+    },
+    {
+      "sourceFile": "_75A0091.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-027.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 264751
+    },
+    {
+      "sourceFile": "_75A0103.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-028.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 460950
+    },
+    {
+      "sourceFile": "_75A0112.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-029.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 494168
+    },
+    {
+      "sourceFile": "_75A0116.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-030.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 402243
+    },
+    {
+      "sourceFile": "_75A0117.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-031.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 367201
+    },
+    {
+      "sourceFile": "_75A0129.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-032.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 488432
+    },
+    {
+      "sourceFile": "_75A0136.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-033.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 374456
+    },
+    {
+      "sourceFile": "_75A0137.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-034.jpg",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 490073
+    },
+    {
+      "sourceFile": "_75A0143.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-035.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 303471
+    },
+    {
+      "sourceFile": "_75A0159.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-036.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 415463
+    },
+    {
+      "sourceFile": "_75A0165.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-037.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 227124
+    },
+    {
+      "sourceFile": "_75A0166.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-038.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 308464
+    },
+    {
+      "sourceFile": "_75A0170.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-039.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 331735
+    },
+    {
+      "sourceFile": "_75A0172.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-040.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 315869
+    },
+    {
+      "sourceFile": "_75A0175.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-041.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 315082
+    },
+    {
+      "sourceFile": "_75A0179.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-042.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 369698
+    },
+    {
+      "sourceFile": "_75A0182.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-043.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 235137
+    },
+    {
+      "sourceFile": "_75A0183.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-044.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 437142
+    },
+    {
+      "sourceFile": "_75A0186.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-045.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 311488
+    },
+    {
+      "sourceFile": "_75A0189.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-046.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 324001
+    },
+    {
+      "sourceFile": "_75A9866.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-047.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 363882
+    },
+    {
+      "sourceFile": "_75A9874.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-048.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 347465
+    },
+    {
+      "sourceFile": "_75A9876.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-049.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 403763
+    },
+    {
+      "sourceFile": "_75A9877.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-050.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 263440
+    },
+    {
+      "sourceFile": "_75A9879.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-051.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 325155
+    },
+    {
+      "sourceFile": "_75A9880.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-052.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 427111
+    },
+    {
+      "sourceFile": "_75A9881.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-053.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 218985
+    },
+    {
+      "sourceFile": "_75A9882.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-054.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 244507
+    },
+    {
+      "sourceFile": "_75A9883.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-055.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 290889
+    },
+    {
+      "sourceFile": "_75A9884.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-056.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 378007
+    },
+    {
+      "sourceFile": "_75A9885.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-057.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 474969
+    },
+    {
+      "sourceFile": "_75A9887.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-058.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 384843
+    },
+    {
+      "sourceFile": "_75A9891.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-059.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 216189
+    },
+    {
+      "sourceFile": "_75A9895.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-060.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 362215
+    },
+    {
+      "sourceFile": "_75A9899.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-061.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 272479
+    },
+    {
+      "sourceFile": "_75A9901.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-062.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 304566
+    },
+    {
+      "sourceFile": "_75A9905.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-063.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 286260
+    },
+    {
+      "sourceFile": "_75A9907.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-064.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 289650
+    },
+    {
+      "sourceFile": "_75A9911.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-065.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 293241
+    },
+    {
+      "sourceFile": "_75A9914.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-066.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 362426
+    },
+    {
+      "sourceFile": "_75A9917.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-067.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 222354
+    },
+    {
+      "sourceFile": "_75A9922.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-068.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 181324
+    },
+    {
+      "sourceFile": "_75A9936.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-069.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 425736
+    },
+    {
+      "sourceFile": "_75A9937.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-070.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 432296
+    },
+    {
+      "sourceFile": "_75A9949.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-071.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 296508
+    },
+    {
+      "sourceFile": "_75A9951.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-072.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 322623
+    },
+    {
+      "sourceFile": "_75A9953.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-073.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 268887
+    },
+    {
+      "sourceFile": "_75A9956.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-074.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 333605
+    },
+    {
+      "sourceFile": "_75A9957.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-075.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 308459
+    },
+    {
+      "sourceFile": "_75A9958.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-076.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 282432
+    },
+    {
+      "sourceFile": "_75A9966.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-077.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 453666
+    },
+    {
+      "sourceFile": "_75A9967.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-078.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 396559
+    },
+    {
+      "sourceFile": "_75A9970.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-079.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 338574
+    },
+    {
+      "sourceFile": "_75A9972.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-080.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 350217
+    },
+    {
+      "sourceFile": "_75A9977.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-081.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 237623
+    },
+    {
+      "sourceFile": "_75A9980.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-082.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 278484
+    },
+    {
+      "sourceFile": "_75A9990.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-083.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 317073
+    },
+    {
+      "sourceFile": "_75A9995.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-084.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 329790
+    },
+    {
+      "sourceFile": "_75A9996.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-085.jpg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 396282
+    },
+    {
+      "sourceFile": "_75A9998.jpg",
+      "src": "/images/projects/community-cuts/community-cuts-086.jpg",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 329381
+    }
+  ]
+}

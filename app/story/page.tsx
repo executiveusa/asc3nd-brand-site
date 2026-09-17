@@ -1,37 +1,39 @@
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
-import { pathways } from "@/lib/site-content";
+import { pathways, siteStory } from "@/lib/site-content";
 
 export default function StoryPage() {
+  const [otha, elisha] = siteStory.founders;
+
   return (
     <InteriorPage
       eyebrow="Why ASC3ND exists"
-      title="The event was a beginning, not the whole idea."
-      intro="ASC3ND starts with a simple belief: young people need trusted adults, useful experiences, and a community that stays involved. Community Cuts gave us a place to begin."
+      title="ASC3ND began with Community Cuts for Kids."
+      intro="In Everett in August 2026, Community Cuts brought ASC3ND's work into public view. The organization is building from that foundation: trusted guidance, useful experiences, and stronger community connections for young people."
     >
       <section className="story shell interior-story">
         <DocumentaryFrame
-          label="APPROVED CLIENT CONTENT — Founder portrait / short video"
-          slot="founder"
+          label={otha.name}
+          slot="founder-otha"
           className="portrait-placeholder"
         />
         <div className="story-copy">
-          <p className="eyebrow">Founder belief</p>
-          <blockquote>CLIENT CONTENT — Short founder quote</blockquote>
-          <p>Founder speaking.</p>
+          <p className="eyebrow">{otha.name} · {otha.role}</p>
+          <blockquote>“{otha.quote}”</blockquote>
+          <p>— {otha.name}</p>
         </div>
       </section>
 
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="APPROVED CLIENT CONTENT — Short founder / community video"
-          slot="story-context"
+          label={elisha.name}
+          slot="founder-elisha"
         />
       </section>
 
       <section className="interior-statement shell">
         <p className="eyebrow">What comes next</p>
-        <h2>We are building in three areas.</h2>
+        <h2>Three areas ASC3ND is developing.</h2>
         <div className="interior-pathways">
           {pathways.map(({ index, title, copy, status }) => (
             <article key={index}>

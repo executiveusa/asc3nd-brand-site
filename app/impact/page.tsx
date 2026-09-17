@@ -8,23 +8,23 @@ export default function ImpactPage() {
   return (
     <InteriorPage
       eyebrow="Community Cuts for Kids · Everett · August 2026"
-      title="Start with the day people showed up."
-      intro="Community Cuts for Kids is the first public event in ASC3ND's story. We are using this page to show what happened, who came together, and what we are building from it."
+      title="Community Cuts is ASC3ND's first public project record."
+      intro="The project page brings together the full event film, 86 approved photographs, and event credits from Community Cuts for Kids in Everett, Washington."
     >
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="CLIENT CONTENT NEEDED — Add the strongest Community Cuts hero photo or short brand film here. This should immediately show real people, energy, and community participation."
+          label="Community Cuts for Kids · Everett, Washington · August 2026"
           slot="hero"
         />
       </section>
 
       <section className="interior-section shell">
-        <p className="eyebrow">Community Roll</p>
+        <p className="eyebrow">Community Cuts record</p>
         <div className="interior-list">
           {communityRoll.map(({ index, title, copy }, itemIndex) => (
             <article key={index}>
               <DocumentaryFrame
-                label={`CLIENT CONTENT NEEDED — Add a real event photo or short clip that best represents “${title}.”`}
+                label={`${title} · Community Cuts for Kids`}
                 slot={slots[itemIndex]}
               />
               <div className="interior-row-copy">
@@ -38,13 +38,13 @@ export default function ImpactPage() {
       </section>
 
       <section className="interior-statement shell">
-        <p className="eyebrow">What we know</p>
-        <h2>People came together around something useful.</h2>
+        <p className="eyebrow">What ASC3ND can verify</p>
+        <h2>The film and approved photographs are public now.</h2>
         <p>
-          CLIENT PROOF NEEDED — Add verified attendance totals, outcomes, a short testimonial, or another concrete result here once the numbers and quotes are approved.
+          Outcome totals and additional testimony will be added only after they are verified and approved.
         </p>
         <DocumentaryFrame
-          label="CLIENT CONTENT NEEDED — Add a closing Community Cuts image or short film here. Use a strong final moment that communicates connection, gratitude, or what comes next."
+          label="Community Cuts project record"
           slot="impact-closing"
         />
       </section>

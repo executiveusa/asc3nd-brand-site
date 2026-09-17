@@ -97,7 +97,7 @@ export default function Home() {
       <MotionReveal>
         <section className="future shell" id="next" aria-labelledby="future-title">
           <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">Next <BrandWordmark text="ASC3ND" digitNudgeEm={0.01} /> program.</h2>
+          <h2 id="future-title">The next confirmed <BrandWordmark text="ASC3ND" digitNudgeEm={0.01} /> program will be shared here.</h2>
         </section>
       </MotionReveal>
 
@@ -131,7 +131,7 @@ export default function Home() {
               <a href="#community"><span>Community</span><span aria-hidden="true">↗</span></a>
               <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br />Privacy · Youth safety · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

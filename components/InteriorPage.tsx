@@ -31,12 +31,14 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
 
       <footer className="footer interior-footer">
         <div className="shell interior-footer-inner">
-          <p className="eyebrow"><BrandWordmark />, with a three.</p>
+          <p className="eyebrow"><BrandWordmark /></p>
           <nav aria-label="Footer navigation">
             <a href="/">Home</a>
             <a href="/impact">Impact</a>
             <a href="/story">Story</a>
             <a href="/take-part">Take part</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/youth-safety">Youth safety</a>
             <a href="mailto:main@asc3nd.org">Contact</a>
           </nav>
           <SocialLinks />

@@ -9,6 +9,7 @@ type Props = {
   items: ProjectMediaItem[];
   emptyLabel?: string;
   compact?: boolean;
+  initialVisible?: number;
 };
 
 const SWIPE_THRESHOLD = 42;
@@ -17,11 +18,13 @@ export function ProjectProofGallery({
   items,
   emptyLabel = "PROJECT MEDIA — APPROVED PHOTOS / VIDEO",
   compact = false,
+  initialVisible,
 }: Props) {
   const approved = items.filter(
     (item) => item.approved && item.consentConfirmed && item.src,
   );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const move = (direction: 1 | -1) => {
@@ -59,11 +62,15 @@ export function ProjectProofGallery({
   }
 
   const active = activeIndex === null ? null : approved[activeIndex];
+  const visibleItems = !compact && initialVisible && !expanded
+    ? approved.slice(0, initialVisible)
+    : approved;
+  const canExpand = !compact && initialVisible && approved.length > initialVisible && !expanded;
 
   return (
     <>
       <div className={`project-proof-grid${compact ? " project-proof-grid--compact" : ""}`}>
-        {approved.map((item, index) => {
+        {visibleItems.map((item, index) => {
           const aspectRatio = item.width && item.height ? `${item.width} / ${item.height}` : undefined;
           const isFeatured = item.featured || index === 0;
 
@@ -93,6 +100,17 @@ export function ProjectProofGallery({
           );
         })}
       </div>
+
+      {canExpand ? (
+        <button
+          className="project-proof-expand"
+          type="button"
+          aria-expanded="false"
+          onClick={() => setExpanded(true)}
+        >
+          View all {approved.length} photos <span aria-hidden="true">→</span>
+        </button>
+      ) : null}
 
       {active ? (
         <div

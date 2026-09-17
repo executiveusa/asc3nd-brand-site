@@ -11,7 +11,7 @@ export default function TakePartPage() {
     >
       <section className="interior-section shell">
         <DocumentaryFrame
-          label="WELCOMING PHOTO / SHORT VIDEO — Families, volunteers, community partners"
+          label="Families, mentors, volunteers, and community partners are welcome here."
           slot="take-part"
         />
       </section>

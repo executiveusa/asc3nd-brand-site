@@ -15,7 +15,7 @@ export default function CommunityCutsPage() {
   const media = getApprovedProjectMedia(communityCutsProject);
 
   return (
-    <main id="main-content" className="project-page">
+    <main id="main-content" tabIndex={-1} className="project-page">
       <header className="masthead shell">
         <Link className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></Link>
         <nav className="nav" aria-label="Project navigation">

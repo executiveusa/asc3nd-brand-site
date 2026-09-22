@@ -327,10 +327,12 @@ test("Community Cuts lightbox traps focus and restores trigger", async ({ page }
   await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
   const firstCard = page.locator(".project-proof-card").first();
   await firstCard.focus();
-  await page.keyboard.press("Enter");
+  await expect(firstCard).toBeFocused();
+  await firstCard.press("Enter");
 
-  const dialog = page.getByRole("dialog", { name: /Community Cuts for Kids event photo 1/i });
+  const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAttribute("aria-label", /Community Cuts for Kids event photo 1/i);
   const close = page.getByRole("button", { name: "Close gallery" });
   await expect(close).toBeFocused();
 

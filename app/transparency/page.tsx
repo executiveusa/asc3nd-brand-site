@@ -22,7 +22,7 @@ const facts = [
 ] as const;
 
 export default function TransparencyPage() {
-  return <main id="main-content">
+  return <main id="main-content" tabIndex={-1}>
     <header className="masthead shell">
       <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
       <nav className="nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/story">Story</a><a href="/take-part">Take part</a></nav>

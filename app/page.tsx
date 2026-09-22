@@ -13,7 +13,7 @@ import "./community-proof.css";
 
 export default function Home() {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <header className="masthead shell">
         <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">

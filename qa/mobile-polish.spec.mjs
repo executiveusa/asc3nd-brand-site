@@ -233,3 +233,66 @@ for (const route of interiorRoutes) {
     });
   }
 }
+
+
+const keyboardRoutes = [
+  "/",
+  "/story",
+  "/impact",
+  "/take-part",
+  "/projects/community-cuts",
+  "/privacy",
+  "/youth-safety",
+  "/transparency",
+];
+
+for (const route of keyboardRoutes) {
+  test(`keyboard journey ${route}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const response = await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+    expect(response?.status() || 0).toBeLessThan(400);
+
+    const seen = [];
+    for (let i = 0; i < 24; i += 1) {
+      await page.keyboard.press("Tab");
+      const focus = await page.evaluate(() => {
+        const el = document.activeElement;
+        if (!(el instanceof HTMLElement)) return null;
+        const r = el.getBoundingClientRect();
+        return {
+          tag: el.tagName,
+          text: (el.innerText || el.getAttribute("aria-label") || el.getAttribute("name") || "").trim().slice(0, 120),
+          href: el instanceof HTMLAnchorElement ? el.getAttribute("href") : null,
+          visible: r.width > 0 && r.height > 0,
+          width: r.width,
+          height: r.height,
+        };
+      });
+      if (focus?.visible) seen.push(`${focus.tag}|${focus.text}|${focus.href || ""}`);
+    }
+
+    expect(new Set(seen).size, JSON.stringify(seen)).toBeGreaterThanOrEqual(3);
+  });
+}
+
+test("participation form controls have accessible names", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of ["/take-part/family", "/take-part/mentor-volunteer", "/take-part/partner"]) {
+    await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+    const unnamed = await page.locator("input, select, textarea").evaluateAll((els) =>
+      els.filter((el) => {
+        const id = el.id;
+        const labelled = id ? document.querySelector(`label[for="${CSS.escape(id)}"]`) : null;
+        const wrapped = el.closest("label");
+        const aria = el.getAttribute("aria-label") || el.getAttribute("aria-labelledby");
+        return !labelled && !wrapped && !aria;
+      }).map((el) => ({
+        tag: el.tagName,
+        type: el.getAttribute("type"),
+        name: el.getAttribute("name"),
+        id: el.id,
+      }))
+    );
+    expect(unnamed, `${route}: ${JSON.stringify(unnamed)}`).toEqual([]);
+  }
+});

@@ -364,3 +364,66 @@ test("event credits dialog is named, keyboard-closeable, and restores trigger", 
   await expect(dialog).toBeHidden();
   await expect(trigger).toBeFocused();
 });
+
+
+const semanticSmokeRoutes = [
+  "/",
+  "/story",
+  "/impact",
+  "/take-part",
+  "/take-part/family",
+  "/take-part/mentor-volunteer",
+  "/take-part/partner",
+  "/projects/community-cuts",
+  "/privacy",
+  "/youth-safety",
+  "/transparency",
+];
+
+for (const route of semanticSmokeRoutes) {
+  test(`semantic accessibility smoke ${route}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+
+    const imagesMissingAlt = await page.locator("img").evaluateAll((els) =>
+      els.filter((el) => !el.hasAttribute("alt")).map((el) => el.outerHTML.slice(0, 240))
+    );
+    expect(imagesMissingAlt, `${route}: images missing alt ${JSON.stringify(imagesMissingAlt)}`).toEqual([]);
+
+    const unnamedInteractive = await page.locator("a, button, input, select, textarea").evaluateAll((els) =>
+      els
+        .filter((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) return false;
+          const aria = el.getAttribute("aria-label") || el.getAttribute("aria-labelledby");
+          const text = (el.textContent || "").trim();
+          const title = el.getAttribute("title") || "";
+          const placeholder = el.getAttribute("placeholder") || "";
+          const value = "value" in el ? String(el.value || "") : "";
+          const id = el.getAttribute("id");
+          const labelled = id ? document.querySelector(`label[for="${CSS.escape(id)}"]`) : null;
+          const wrapped = el.closest("label");
+          return !(aria || text || title || placeholder || value || labelled || wrapped);
+        })
+        .map((el) => ({ tag: el.tagName, outerHTML: el.outerHTML.slice(0, 300) }))
+    );
+    expect(unnamedInteractive, `${route}: unnamed interactive ${JSON.stringify(unnamedInteractive)}`).toEqual([]);
+
+    const headingLevels = await page.locator("h1,h2,h3,h4,h5,h6").evaluateAll((els) =>
+      els.map((el) => Number(el.tagName.slice(1)))
+    );
+    expect(headingLevels[0], `${route}: no H1 found`).toBe(1);
+    for (let i = 1; i < headingLevels.length; i += 1) {
+      expect(
+        headingLevels[i] - headingLevels[i - 1],
+        `Heading jump on ${route}: ${headingLevels.join(" -> ")}`
+      ).toBeLessThanOrEqual(1);
+    }
+
+    const skip = page.getByRole("link", { name: /skip to content/i });
+    await page.keyboard.press("Tab");
+    await expect(skip).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("main#main-content")).toBeFocused();
+  });
+}

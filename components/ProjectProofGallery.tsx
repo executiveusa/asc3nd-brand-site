@@ -26,6 +26,10 @@ export function ProjectProofGallery({
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const isLightboxOpen = activeIndex !== null;
 
   const move = (direction: 1 | -1) => {
     setActiveIndex((current) => {
@@ -35,23 +39,68 @@ export function ProjectProofGallery({
   };
 
   useEffect(() => {
-    if (activeIndex === null) return;
+    if (!isLightboxOpen) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
 
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActiveIndex(null);
-      if (event.key === "ArrowRight") move(1);
-      if (event.key === "ArrowLeft") move(-1);
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setActiveIndex(null);
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setActiveIndex((current) =>
+          current === null || approved.length < 2
+            ? current
+            : (current + 1) % approved.length,
+        );
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setActiveIndex((current) =>
+          current === null || approved.length < 2
+            ? current
+            : (current - 1 + approved.length) % approved.length,
+        );
+        return;
+      }
+
+      if (event.key === "Tab" && lightboxRef.current) {
+        const focusable = Array.from(
+          lightboxRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls]',
+          ),
+        );
+
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
 
     window.addEventListener("keydown", onKey);
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = previousOverflow;
+      window.requestAnimationFrame(() => lastTriggerRef.current?.focus());
     };
-  }, [activeIndex, approved.length]);
+  }, [isLightboxOpen, approved.length]);
 
   if (!approved.length) {
     return (
@@ -79,7 +128,10 @@ export function ProjectProofGallery({
               className={`project-proof-card${isFeatured ? " project-proof-card--featured" : ""}`}
               key={item.id}
               type="button"
-              onClick={() => setActiveIndex(index)}
+              onClick={(event) => {
+                lastTriggerRef.current = event.currentTarget;
+                setActiveIndex(index);
+              }}
               aria-label={`Open ${item.alt}`}
               style={aspectRatio ? { aspectRatio } : undefined}
             >
@@ -114,6 +166,7 @@ export function ProjectProofGallery({
 
       {active ? (
         <div
+          ref={lightboxRef}
           className="project-proof-lightbox"
           role="dialog"
           aria-modal="true"
@@ -130,7 +183,7 @@ export function ProjectProofGallery({
             move(delta < 0 ? 1 : -1);
           }}
         >
-          <button className="project-proof-close" type="button" onClick={() => setActiveIndex(null)} aria-label="Close gallery">
+          <button ref={closeButtonRef} className="project-proof-close" type="button" onClick={() => setActiveIndex(null)} aria-label="Close gallery">
             <X size={22} />
           </button>
           {approved.length > 1 ? (

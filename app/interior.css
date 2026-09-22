@@ -123,6 +123,28 @@
     padding-top: 80px;
   }
 
+  .interior-hero h1 {
+    margin-bottom: 22px;
+    font-size: clamp(2.6rem, 11vw, 4.8rem);
+    line-height: .98;
+  }
+
+  .interior-hero > p:last-child {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .interior-section,
+  .interior-statement {
+    padding-bottom: clamp(84px, 20vw, 120px);
+  }
+
+  .interior-row-copy h2,
+  .interior-statement h2 {
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    line-height: 1;
+  }
+
   .interior-row-copy,
   .interior-pathways article {
     grid-template-columns: 42px 1fr;

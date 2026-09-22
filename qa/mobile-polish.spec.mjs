@@ -166,3 +166,70 @@ test("Reduced motion keeps content visible", async ({ browser }) => {
   expect(revealStates.every((x) => Number(x.opacity) > 0.95), JSON.stringify(revealStates)).toBeTruthy();
   await context.close();
 });
+
+
+const interiorRoutes = [
+  "/story",
+  "/impact",
+  "/take-part",
+  "/privacy",
+  "/youth-safety",
+  "/transparency",
+];
+
+for (const route of interiorRoutes) {
+  for (const vp of [
+    { name: "320x568", width: 320, height: 568 },
+    { name: "390x844", width: 390, height: 844 },
+    { name: "430x932", width: 430, height: 932 },
+  ]) {
+    test(`interior mobile polish ${route} ${vp.name}`, async ({ page }) => {
+      await page.setViewportSize({ width: vp.width, height: vp.height });
+      const errors = [];
+      page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
+      page.on("pageerror", (err) => errors.push(err.message));
+
+      const response = await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+      expect(response?.status() || 0).toBeLessThan(400);
+      await expect(page.locator("main#main-content")).toBeVisible();
+      await assertNoHorizontalOverflow(page);
+
+      const title = page.locator("h1").first();
+      await expect(title).toBeVisible();
+
+      await assertMinimumTargets(page, ".nav a, a.button, button");
+
+      const metrics = await page.evaluate(() => ({
+        width: window.innerWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        h1: (() => {
+          const el = document.querySelector("h1");
+          if (!el) return null;
+          const r = el.getBoundingClientRect();
+          const cs = getComputedStyle(el);
+          return {
+            width: r.width,
+            left: r.left,
+            right: r.right,
+            fontSize: cs.fontSize,
+            lineHeight: cs.lineHeight,
+            overflowWrap: cs.overflowWrap,
+          };
+        })(),
+      }));
+      expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width + 1);
+      if (metrics.h1) {
+        expect(metrics.h1.left).toBeGreaterThanOrEqual(-1);
+        expect(metrics.h1.right).toBeLessThanOrEqual(metrics.width + 1);
+      }
+
+      await settleLazyMedia(page);
+      await page.screenshot({
+        path: `test-results/interior-${route.replaceAll("/", "-")}-${vp.name}.png`,
+        fullPage: true,
+      });
+
+      expect(errors, JSON.stringify(errors)).toEqual([]);
+    });
+  }
+}

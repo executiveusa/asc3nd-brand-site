@@ -32,7 +32,7 @@ jobs:
           echo "Preview did not become ready in time"
           exit 1
       - name: Run mobile polish tests
-        run: npx playwright test qa/mobile-polish.spec.ts --reporter=line
+        run: npx playwright test qa/mobile-polish.spec.mjs --reporter=line
       - name: Upload QA screenshots and traces
         if: always()
         uses: actions/upload-artifact@v4

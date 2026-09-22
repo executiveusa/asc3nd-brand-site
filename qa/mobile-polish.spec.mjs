@@ -296,3 +296,119 @@ test("participation form controls have accessible names", async ({ page }) => {
     expect(unnamed, `${route}: ${JSON.stringify(unnamed)}`).toEqual([]);
   }
 });
+
+
+const accessibilityRoutes = [
+  "/",
+  "/story",
+  "/impact",
+  "/take-part",
+  "/take-part/family",
+  "/take-part/mentor-volunteer",
+  "/take-part/partner",
+  "/projects/community-cuts",
+  "/privacy",
+  "/youth-safety",
+  "/transparency",
+];
+
+for (const route of accessibilityRoutes) {
+  test(`accessibility smoke ${route}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+
+    const main = page.locator("main#main-content");
+    await expect(main).toBeVisible();
+
+    const images = page.locator("img");
+    const imageCount = await images.count();
+    for (let i = 0; i < imageCount; i++) {
+      const img = images.nth(i);
+      await expect(img).toHaveAttribute("alt");
+    }
+
+    const unnamedInteractive = await page.locator("a, button, input, select, textarea").evaluateAll((els) =>
+      els
+        .filter((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) return false;
+          const aria = el.getAttribute("aria-label") || el.getAttribute("aria-labelledby");
+          const text = (el.textContent || "").trim();
+          const title = el.getAttribute("title") || "";
+          const placeholder = el.getAttribute("placeholder") || "";
+          const value = "value" in el ? String(el.value || "") : "";
+          return !(aria || text || title || placeholder || value);
+        })
+        .map((el) => ({ tag: el.tagName, outerHTML: el.outerHTML.slice(0, 300) }))
+    );
+    expect(unnamedInteractive, JSON.stringify(unnamedInteractive)).toEqual([]);
+
+    const h1Count = await page.locator("h1").count();
+    expect(h1Count).toBe(1);
+
+    const headingLevels = await page.locator("h1,h2,h3,h4,h5,h6").evaluateAll((els) =>
+      els.map((el) => Number(el.tagName.slice(1)))
+    );
+    expect(headingLevels[0]).toBe(1);
+    for (let i = 1; i < headingLevels.length; i++) {
+      expect(
+        headingLevels[i] - headingLevels[i - 1],
+        `Heading jump on ${route}: ${headingLevels.join(" -> ")}`
+      ).toBeLessThanOrEqual(1);
+    }
+
+    const skip = page.getByRole("link", { name: /skip to content/i });
+    if (await skip.count()) {
+      await page.keyboard.press("Tab");
+      await expect(skip).toBeFocused();
+      await page.keyboard.press("Enter");
+      await expect(main).toBeFocused();
+    }
+
+    const controls = page.locator("input, select, textarea");
+    const controlCount = await controls.count();
+    for (let i = 0; i < controlCount; i++) {
+      const control = controls.nth(i);
+      const type = await control.getAttribute("type");
+      if (type === "hidden") continue;
+      const hasName = await control.evaluate((el) => {
+        const id = el.getAttribute("id");
+        const aria = el.getAttribute("aria-label") || el.getAttribute("aria-labelledby");
+        const wrapped = !!el.closest("label");
+        const explicit = id ? !!document.querySelector(`label[for="${CSS.escape(id)}"]`) : false;
+        return Boolean(aria || wrapped || explicit);
+      });
+      expect(hasName, `Unlabelled control on ${route} at index ${i}`).toBeTruthy();
+    }
+
+    await assertNoHorizontalOverflow(page);
+  });
+}
+
+test("Community Cuts dialog traps and restores keyboard focus", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
+
+  const firstCard = page.locator(".project-proof-card").first();
+  await firstCard.focus();
+  await page.keyboard.press("Enter");
+
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+
+  const close = page.getByRole("button", { name: "Close gallery" });
+  await expect(close).toBeFocused();
+
+  for (let i = 0; i < 8; i++) {
+    await page.keyboard.press("Tab");
+    const inside = await page.evaluate(() => {
+      const dialogEl = document.querySelector('[role="dialog"]');
+      return Boolean(dialogEl && document.activeElement && dialogEl.contains(document.activeElement));
+    });
+    expect(inside).toBeTruthy();
+  }
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(firstCard).toBeFocused();
+});

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main id="main-content" style={{ minHeight: "100svh", padding: "48px clamp(20px, 5vw, 80px)", background: "#f5f2e8", color: "#120f0b" }}>
+    <main id="main-content" tabIndex={-1} style={{ minHeight: "100svh", padding: "48px clamp(20px, 5vw, 80px)", background: "#f5f2e8", color: "#120f0b" }}>
       <div style={{ maxWidth: 760 }}>
         <p style={{ margin: "0 0 18px", fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase" }}>
           ASC3ND · Page moved

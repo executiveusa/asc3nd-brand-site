@@ -20,6 +20,18 @@ async function assertNoHorizontalOverflow(page: any) {
   expect(dims.scrollWidth, JSON.stringify(dims)).toBeLessThanOrEqual(dims.innerWidth + 1);
 }
 
+async function settleLazyMedia(page: any) {
+  await page.evaluate(async () => {
+    const step = Math.max(240, Math.floor(window.innerHeight * 0.65));
+    for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((resolve) => setTimeout(resolve, 90));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForTimeout(250);
+}
+
 async function assertMinimumTargets(page: any, selector: string) {
   const issues = await page.locator(selector).evaluateAll((els) =>
     els.map((el: any) => {
@@ -50,6 +62,7 @@ for (const vp of viewports) {
     await expect(page.locator("#community")).toBeVisible();
     await expect(page.locator("#take-part")).toBeVisible();
 
+    await settleLazyMedia(page);
     await page.screenshot({ path: `test-results/home-${vp.name}.png`, fullPage: true });
 
     expect(errors, JSON.stringify(errors)).toEqual([]);
@@ -67,6 +80,9 @@ test("Community Cuts 390px gallery and lightbox", async ({ page }) => {
 
   const cards = page.locator(".project-proof-card");
   await expect(cards).toHaveCount(10);
+  await settleLazyMedia(page);
+  await page.screenshot({ path: "test-results/community-cuts-390.png", fullPage: true });
+
   const expand = page.getByRole("button", { name: /View all 86 photos/i });
   await expect(expand).toBeVisible();
   await expect(expand).toHaveAttribute("aria-expanded", "false");
@@ -90,7 +106,6 @@ test("Community Cuts 390px gallery and lightbox", async ({ page }) => {
   await expect(dialog).toBeHidden();
   await expect(page.locator(".project-proof-card").first()).toBeFocused();
 
-  await page.screenshot({ path: "test-results/community-cuts-390.png", fullPage: true });
   expect(errors, JSON.stringify(errors)).toEqual([]);
 });
 

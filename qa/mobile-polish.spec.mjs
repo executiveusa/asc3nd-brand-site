@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const baseURL = process.env.QA_BASE_URL || "https://deploy-preview-45--asc3nd-org.netlify.app";
+const baseURL = process.env.QA_BASE_URL || "http://127.0.0.1:3000";
 
 const viewports = [
   { name: "320x568", width: 320, height: 568 },
@@ -29,7 +29,14 @@ async function settleLazyMedia(page) {
     }
     window.scrollTo(0, 0);
   });
-  await page.waitForTimeout(250);
+  await page.waitForFunction(() =>
+    Array.from(document.images)
+      .filter((img) => img.getBoundingClientRect().width > 0 && img.getBoundingClientRect().height > 0)
+      .every((img) => img.complete && img.naturalWidth > 0),
+    undefined,
+    { timeout: 8000 },
+  ).catch(() => {});
+  await page.waitForTimeout(350);
 }
 
 async function assertMinimumTargets(page, selector) {

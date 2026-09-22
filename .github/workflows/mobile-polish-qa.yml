@@ -25,13 +25,33 @@ jobs:
         run: npm install --no-save --package-lock=false @playwright/test@1.55.0
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+      - name: Wait for Netlify preview commit
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          for i in {1..36}; do
+            STATUS_JSON="$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${{ github.repository }}/commits/$HEAD_SHA/status")"
+            NETLIFY_STATE="$(printf '%s' "$STATUS_JSON" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const j=JSON.parse(s);const x=(j.statuses||[]).find(v=>v.context==="netlify/asc3nd-org/deploy-preview");process.stdout.write(x?.state||"missing")})')"
+            echo "Netlify status for $HEAD_SHA: $NETLIFY_STATE"
+            if [ "$NETLIFY_STATE" = "success" ]; then
+              break
+            fi
+            if [ "$NETLIFY_STATE" = "failure" ] || [ "$NETLIFY_STATE" = "error" ]; then
+              exit 1
+            fi
+            sleep 10
+          done
+          [ "$NETLIFY_STATE" = "success" ] || { echo "Netlify preview did not become ready for $HEAD_SHA"; exit 1; }
+
       - name: Wait for target
         run: |
-          for i in {1..30}; do
+          for i in {1..12}; do
             if curl -fsS "$QA_BASE_URL" >/dev/null; then
               exit 0
             fi
-            sleep 10
+            sleep 5
           done
           echo "Target did not become ready in time: $QA_BASE_URL"
           exit 1

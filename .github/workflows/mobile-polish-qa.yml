@@ -1,0 +1,32 @@
+name: Mobile Polish QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - polish/mobile-feel-gauntlet-20260922
+
+jobs:
+  mobile-polish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      QA_BASE_URL: https://deploy-preview-45--asc3nd-org.netlify.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright test runner
+        run: npm install --no-save --package-lock=false @playwright/test@1.55.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run mobile polish tests
+        run: npx playwright test qa/mobile-polish.spec.ts --reporter=line
+      - name: Upload QA screenshots and traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-polish-qa
+          path: test-results/
+          if-no-files-found: ignore

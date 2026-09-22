@@ -5,7 +5,7 @@ export const metadata = { title: "Community Partners · ASC3ND", robots: { index
 
 export default function PartnerParticipationPage() {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <header className="masthead shell"><Link className="wordmark" href="/">ASC3ND</Link><nav className="nav"><Link href="/take-part">Back to Take part</Link></nav></header>
       <ParticipationForm kind="partner" />
     </main>

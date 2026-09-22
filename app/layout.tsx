@@ -4,7 +4,7 @@ import "./interior.css";
 import "./gauntlet.css";
 
 export const metadata: Metadata = {
-  title: "ASC3ND | Community came through. Now we build forward.",
+  title: "ASC3ND",
   description:
     "ASC3ND is building ways for young people to find trusted guidance, practice life skills, and connect with community opportunity.",
 };

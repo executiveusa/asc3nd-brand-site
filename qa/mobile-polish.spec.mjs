@@ -296,3 +296,71 @@ test("participation form controls have accessible names", async ({ page }) => {
     expect(unnamed, `${route}: ${JSON.stringify(unnamed)}`).toEqual([]);
   }
 });
+
+
+test("skip link moves focus to main content", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(baseURL + "/", { waitUntil: "domcontentloaded" });
+  const skip = page.getByRole("link", { name: "Skip to content" });
+  await page.keyboard.press("Tab");
+  await expect(skip).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main-content")).toBeFocused();
+});
+
+for (const route of ["/", "/story", "/impact", "/take-part", "/privacy", "/youth-safety", "/transparency", "/projects/community-cuts"]) {
+  test(`semantic landmarks ${route}`, async ({ page }) => {
+    await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+    await expect(page.locator("main#main-content")).toHaveCount(1);
+    await expect(page.locator("h1")).toHaveCount(1);
+    await expect(page.locator('nav[aria-label]')).toHaveCount(await page.locator('nav[aria-label]').count());
+    const unnamedNavs = await page.locator("nav").evaluateAll((els) =>
+      els.filter((el) => !el.getAttribute("aria-label") && !el.getAttribute("aria-labelledby"))
+        .map((el) => el.outerHTML.slice(0, 180))
+    );
+    expect(unnamedNavs, `${route}: ${JSON.stringify(unnamedNavs)}`).toEqual([]);
+  });
+}
+
+test("Community Cuts lightbox traps focus and restores trigger", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
+  const firstCard = page.locator(".project-proof-card").first();
+  await firstCard.focus();
+  await page.keyboard.press("Enter");
+
+  const dialog = page.getByRole("dialog", { name: /Community Cuts for Kids event photo 1/i });
+  await expect(dialog).toBeVisible();
+  const close = page.getByRole("button", { name: "Close gallery" });
+  await expect(close).toBeFocused();
+
+  for (let i = 0; i < 8; i += 1) {
+    await page.keyboard.press("Tab");
+    const inside = await page.evaluate(() => {
+      const dialog = document.querySelector(".project-proof-lightbox");
+      return Boolean(dialog && dialog.contains(document.activeElement));
+    });
+    expect(inside).toBeTruthy();
+  }
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(firstCard).toBeFocused();
+});
+
+test("event credits dialog is named, keyboard-closeable, and restores trigger", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
+
+  const trigger = page.getByRole("button", { name: /View event credits/i });
+  await trigger.focus();
+  await page.keyboard.press("Enter");
+
+  const dialog = page.getByRole("dialog", { name: "The people behind the day." });
+  await expect(dialog).toBeVisible();
+  await expect(page.getByRole("button", { name: "Close event credits" })).toBeVisible();
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(trigger).toBeFocused();
+});

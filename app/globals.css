@@ -162,8 +162,8 @@ button:active, a:active { transform: translateY(1px); }
 
 @media (max-width: 430px) {
   .masthead { min-height: 62px; }
-  .nav { gap: 8px; }
-  .nav a { min-height: 44px; padding-inline: 2px; font-size: 11px; }
+  .nav { gap: 6px; }
+  .nav a { min-height: 44px; padding-inline: 2px; font-size: 12px; }
   .hero { min-height: calc(100svh - 62px); }
   .hero-explainer { max-width: 32ch; font-size: 1rem; }
   .hero-actions { width: 100%; }

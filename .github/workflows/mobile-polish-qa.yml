@@ -1,0 +1,46 @@
+name: Mobile Polish QA
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "URL to test"
+        required: true
+        default: "https://asc3nd.org"
+
+jobs:
+  mobile-polish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      QA_BASE_URL: ${{ github.event_name == 'pull_request' && format('https://deploy-preview-{0}--asc3nd-org.netlify.app', github.event.pull_request.number) || inputs.base_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright test runner
+        run: npm install --no-save --package-lock=false @playwright/test@1.55.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Wait for target
+        run: |
+          for i in {1..30}; do
+            if curl -fsS "$QA_BASE_URL" >/dev/null; then
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Target did not become ready in time: $QA_BASE_URL"
+          exit 1
+      - name: Run mobile polish tests
+        run: npx playwright test qa/mobile-polish.spec.mjs --reporter=line
+      - name: Upload QA screenshots and traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-polish-qa
+          path: test-results/
+          if-no-files-found: ignore

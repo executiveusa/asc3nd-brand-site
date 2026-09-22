@@ -5,7 +5,7 @@ export const metadata = { title: "Families · ASC3ND", robots: { index: false, f
 
 export default function FamilyParticipationPage() {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <header className="masthead shell"><Link className="wordmark" href="/">ASC3ND</Link><nav className="nav"><Link href="/take-part">Back to Take part</Link></nav></header>
       <ParticipationForm kind="family" />
     </main>

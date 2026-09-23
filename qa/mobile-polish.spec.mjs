@@ -481,3 +481,23 @@ for (const route of axeRoutes) {
     expect(violations, JSON.stringify(violations, null, 2)).toEqual([]);
   });
 }
+
+
+const craftRoutes = [
+  { route: "/story", slug: "story" },
+  { route: "/impact", slug: "impact" },
+  { route: "/take-part", slug: "take-part" },
+  { route: "/projects/community-cuts", slug: "community-cuts" },
+];
+
+for (const { route, slug } of craftRoutes) {
+  test(`visual craft evidence ${route}`, async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(baseURL + route, { waitUntil: "networkidle" });
+    await settleLazyMedia(page);
+    await page.screenshot({
+      path: `test-results/craft-${slug}-1440x900.png`,
+      fullPage: true,
+    });
+  });
+}

@@ -1,4 +1,8 @@
+import { createRequire } from "node:module";
 import { test, expect } from "@playwright/test";
+
+const require = createRequire(import.meta.url);
+const axePath = require.resolve("axe-core/axe.min.js");
 
 const baseURL = process.env.QA_BASE_URL || "http://127.0.0.1:3000";
 
@@ -430,5 +434,50 @@ for (const route of semanticSmokeRoutes) {
     await expect(skip).toBeFocused();
     await page.keyboard.press("Enter");
     await expect(page.locator("main#main-content")).toBeFocused();
+  });
+}
+
+
+const axeRoutes = [
+  "/",
+  "/story",
+  "/impact",
+  "/take-part",
+  "/take-part/family",
+  "/take-part/mentor-volunteer",
+  "/take-part/partner",
+  "/projects/community-cuts",
+  "/privacy",
+  "/youth-safety",
+  "/transparency",
+];
+
+for (const route of axeRoutes) {
+  test(`WCAG A/AA axe smoke ${route}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(baseURL + route, { waitUntil: "networkidle" });
+    await page.addScriptTag({ path: axePath });
+
+    const results = await page.evaluate(async () => {
+      return await window.axe.run(document, {
+        runOnly: {
+          type: "tag",
+          values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"],
+        },
+        resultTypes: ["violations"],
+      });
+    });
+
+    const violations = results.violations.map((violation) => ({
+      id: violation.id,
+      impact: violation.impact,
+      help: violation.help,
+      nodes: violation.nodes.map((node) => ({
+        target: node.target,
+        failureSummary: node.failureSummary,
+      })),
+    }));
+
+    expect(violations, JSON.stringify(violations, null, 2)).toEqual([]);
   });
 }

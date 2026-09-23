@@ -352,7 +352,7 @@ test("Community Cuts lightbox traps focus and restores trigger", async ({ page }
 
 test("event credits dialog is named, keyboard-closeable, and restores trigger", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
+  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "networkidle" });
 
   const trigger = page.getByRole("button", { name: /View event credits/i });
   await trigger.focus();

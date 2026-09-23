@@ -356,10 +356,13 @@ test("event credits dialog is named, keyboard-closeable, and restores trigger", 
 
   const trigger = page.getByRole("button", { name: /View event credits/i });
   await trigger.focus();
-  await page.keyboard.press("Enter");
+  await expect(trigger).toBeFocused();
+  await trigger.press("Enter");
 
-  const dialog = page.getByRole("dialog", { name: "The people behind the day." });
+  const dialog = page.locator("dialog.event-credits-dialog[open]");
   await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAttribute("aria-labelledby", "event-credits-title");
+  await expect(page.locator("#event-credits-title")).toHaveText("The people behind the day.");
   await expect(page.getByRole("button", { name: "Close event credits" })).toBeVisible();
 
   await page.keyboard.press("Escape");

@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 22
       - name: Install Playwright test runner
-        run: npm install --no-save --package-lock=false @playwright/test@1.55.0
+        run: npm install --no-save --package-lock=false @playwright/test@1.55.0 axe-core@4.10.3
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Wait for target

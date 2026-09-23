@@ -59,16 +59,15 @@ export function BrandWordmark({ text = "ASC3ND", digitNudgeEm = 0 }: BrandWordma
       : `${digitNudgeEm}em`;
 
   return (
-    <span ref={root} className="brand-wordmark" aria-label={text}>
-      <span aria-hidden="true">{text.slice(0, index)}</span>
+    <span ref={root} className="brand-wordmark">
+      <span>{text.slice(0, index)}</span>
       <span
         className="brand-wordmark-digit"
-        aria-hidden="true"
         style={{ fontSize: metrics ? `${metrics.size}em` : undefined, top }}
       >
         {text[index]}
       </span>
-      <span aria-hidden="true">{text.slice(index + 1)}</span>
+      <span>{text.slice(index + 1)}</span>
     </span>
   );
 }

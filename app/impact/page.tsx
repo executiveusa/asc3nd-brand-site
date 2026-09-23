@@ -1,6 +1,7 @@
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { communityRoll } from "@/lib/site-content";
+import { getApprovedMedia } from "@/lib/media-registry";
 
 const slots = ["arrival", "service", "connection", "next"] as const;
 
@@ -11,22 +12,26 @@ export default function ImpactPage() {
       title="Community Cuts is ASC3ND's first public project record."
       intro="The project page brings together the full event film, 86 approved photographs, and event credits from Community Cuts for Kids in Everett, Washington."
     >
-      <section className="interior-section shell">
-        <DocumentaryFrame
-          label="Community Cuts for Kids · Everett, Washington · August 2026"
-          slot="hero"
-        />
-      </section>
+      {getApprovedMedia("hero") ? (
+        <section className="interior-section shell">
+          <DocumentaryFrame
+            label="Community Cuts for Kids · Everett, Washington · August 2026"
+            slot="hero"
+          />
+        </section>
+      ) : null}
 
       <section className="interior-section shell">
         <p className="eyebrow">Community Cuts record</p>
         <div className="interior-list">
           {communityRoll.map(({ index, title, copy }, itemIndex) => (
             <article key={index}>
-              <DocumentaryFrame
-                label={`${title} · Community Cuts for Kids`}
-                slot={slots[itemIndex]}
-              />
+              {getApprovedMedia(slots[itemIndex]) ? (
+                <DocumentaryFrame
+                  label={`${title} · Community Cuts for Kids`}
+                  slot={slots[itemIndex]}
+                />
+              ) : null}
               <div className="interior-row-copy">
                 <span>{index}</span>
                 <h2>{title}</h2>
@@ -43,10 +48,12 @@ export default function ImpactPage() {
         <p>
           Outcome totals and additional testimony will be added only after they are verified and approved.
         </p>
-        <DocumentaryFrame
-          label="Community Cuts project record"
-          slot="impact-closing"
-        />
+        {getApprovedMedia("impact-closing") ? (
+          <DocumentaryFrame
+            label="Community Cuts project record"
+            slot="impact-closing"
+          />
+        ) : null}
       </section>
     </InteriorPage>
   );

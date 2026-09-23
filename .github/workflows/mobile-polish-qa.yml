@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      QA_BASE_URL: ${{ github.event_name == 'pull_request' && format('https://deploy-preview-{0}--asc3nd-org.netlify.app', github.event.pull_request.number) || inputs.base_url }}
+      QA_BASE_URL: https://main--asc3nd-org.netlify.app
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

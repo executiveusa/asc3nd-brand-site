@@ -11,7 +11,7 @@ type InteriorPageProps = {
 
 export function InteriorPage({ eyebrow, title, intro, children }: InteriorPageProps) {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <header className="masthead shell">
         <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">

@@ -5,7 +5,7 @@ export const metadata = { title: "Mentors + Volunteers · ASC3ND", robots: { ind
 
 export default function MentorVolunteerPage() {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <header className="masthead shell"><Link className="wordmark" href="/">ASC3ND</Link><nav className="nav"><Link href="/take-part">Back to Take part</Link></nav></header>
       <ParticipationForm kind="mentor-volunteer" />
     </main>

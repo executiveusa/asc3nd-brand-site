@@ -10,6 +10,7 @@ type Props = {
   emptyLabel?: string;
   compact?: boolean;
   initialVisible?: number;
+  maxVisible?: number;
 };
 
 const SWIPE_THRESHOLD = 42;
@@ -19,6 +20,7 @@ export function ProjectProofGallery({
   emptyLabel = "PROJECT MEDIA — APPROVED PHOTOS / VIDEO",
   compact = false,
   initialVisible,
+  maxVisible,
 }: Props) {
   const approved = items.filter(
     (item) => item.approved && item.consentConfirmed && item.src,
@@ -111,9 +113,11 @@ export function ProjectProofGallery({
   }
 
   const active = activeIndex === null ? null : approved[activeIndex];
-  const visibleItems = !compact && initialVisible && !expanded
-    ? approved.slice(0, initialVisible)
-    : approved;
+  const visibleItems = maxVisible
+    ? approved.slice(0, maxVisible)
+    : !compact && initialVisible && !expanded
+      ? approved.slice(0, initialVisible)
+      : approved;
   const canExpand = !compact && initialVisible && approved.length > initialVisible && !expanded;
 
   return (

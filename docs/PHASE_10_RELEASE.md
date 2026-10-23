@@ -9,4 +9,4 @@ Expected production behaviors:
 - Google Sheet mirroring remains server-side, duplicate-safe, and status-tracked in Supabase.
 - Automatic Sheet writes require production server credentials; no service credentials are exposed to the browser.
 
-Release target: locked Vercel project `prj_9CILXFMCnQh4ZsTirsArBrsVoTfV` from `main`.
+Release target: locked Vercel project `prj_oVvM9X5f4LNt3xwSV0Cl3ujiaIqn` from `main`.

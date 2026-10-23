@@ -14,5 +14,12 @@ jobs:
         with:
           node-version: 24
       - run: npm install
+      - name: Verify preserved Community Cuts photo archive
+        run: |
+          count=$(find public/images/projects/community-cuts -maxdepth 1 -type f -name 'community-cuts-*.jpg' | wc -l)
+          echo "Community Cuts GitHub archive: $count photos"
+          test "$count" -eq 86
+          test -f docs/community-cuts/PHOTO_IMPORT_AUDIT.json
+          node -e "const a=require('./docs/community-cuts/PHOTO_IMPORT_AUDIT.json'); if(a.importedCount!==86||a.items?.length!==86) process.exit(1)"
       - run: npm audit --audit-level=high
       - run: npm run build

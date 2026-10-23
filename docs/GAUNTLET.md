@@ -47,7 +47,7 @@ Code-level gauntlet is in progress. Production release remains blocked until a c
 3. Founder portrait and founder-authored belief approval.
 4. Verification of any public contact/donation/event destination used at launch.
 5. `asc3nd.org` + `www.asc3nd.org` custom-domain cutover and rollback rehearsal.
-6. The Extractor anti-slop gate passes with zero high-severity findings and every medium finding fixed or justified.
+6. The Extractor anti-slop gate passes with zero high-severity findings and every medium finding fixed or justified.\n7. `robots.txt` and `sitemap.xml` are verified on `asc3nd.org`; Vercel preview hosts remain non-indexable.
 
 ## Release rule
 

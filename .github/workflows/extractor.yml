@@ -43,6 +43,12 @@ jobs:
           path: app/youth-safety/page.tsx
           strict: true
 
+      - name: Audit events archive
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/events/page.tsx
+          strict: true
+
       - name: Audit Community Cuts proof page
         uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
         with:

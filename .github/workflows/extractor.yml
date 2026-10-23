@@ -1,0 +1,50 @@
+name: The Extractor
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  anti-slop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Audit homepage composition
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/page.tsx
+          strict: true
+
+      - name: Audit core public copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: lib/site-content.ts
+          strict: true
+
+      - name: Audit transparency copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/transparency/page.tsx
+          strict: true
+
+      - name: Audit privacy copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/privacy/page.tsx
+          strict: true
+
+      - name: Audit youth-safety copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/youth-safety/page.tsx
+          strict: true
+
+      - name: Audit Community Cuts proof page
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/projects/community-cuts/page.tsx
+          strict: true

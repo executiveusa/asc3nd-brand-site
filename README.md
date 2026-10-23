@@ -27,6 +27,8 @@ This repository is the new public brand site. Existing RSVP, confirmation, staff
 ## Deployment target
 
 Vercel project: `asc3nd-brand-site`
-Project ID: `prj_9CILXFMCnQh4ZsTirsArBrsVoTfV`
+Project ID: `prj_oVvM9X5f4LNt3xwSV0Cl3ujiaIqn`
 
-Do not claim production verification until the exact deployed SHA is confirmed against the public runtime.
+Current verified Vercel production baseline: `42a92a5d8f1b920bc5d8b01d15f9e6004e69ed1e`.
+
+Do not claim the custom-domain cutover complete until `asc3nd.org` and `www.asc3nd.org` are attached to this project, the exact promoted SHA is verified, and rollback is recorded.

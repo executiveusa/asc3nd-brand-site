@@ -37,16 +37,17 @@ Code-level gauntlet is in progress. Production release remains blocked until a c
 
 ### Sovereignty
 - Canonical source: executiveusa/asc3nd-brand-site.
-- Canonical Vercel project ID remains prj_9CILXFMCnQh4ZsTirsArBrsVoTfV.
+- Canonical Vercel project ID is `prj_oVvM9X5f4LNt3xwSV0Cl3ujiaIqn` (`asc3nd-brand-site`).
 - Rollback remains Git-based; production domain cutover has not occurred.
 
 ## Release blockers
 
-1. Current Phase 6 rendered desktop/mobile preview.
+1. Current Vercel desktop/mobile render verified against the intended production SHA.
 2. Real Community Cuts documentary media with approval, credit, and consent state.
 3. Founder portrait and founder-authored belief approval.
 4. Verification of any public contact/donation/event destination used at launch.
-5. Domain cutover and rollback rehearsal.
+5. `asc3nd.org` + `www.asc3nd.org` custom-domain cutover and rollback rehearsal.
+6. The Extractor anti-slop gate passes with zero high-severity findings and every medium finding fixed or justified.
 
 ## Release rule
 

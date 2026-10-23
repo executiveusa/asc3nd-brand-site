@@ -15,7 +15,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
       <header className="masthead shell">
         <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">
-          <a href="/impact">Impact</a>
+          <a href="/events">Events</a>
           <a href="/story">Story</a>
           <a href="/take-part">Take part</a>
         </nav>
@@ -34,7 +34,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
           <p className="eyebrow"><BrandWordmark /></p>
           <nav aria-label="Footer navigation">
             <a href="/">Home</a>
-            <a href="/impact">Impact</a>
+            <a href="/events">Events</a>
             <a href="/story">Story</a>
             <a href="/take-part">Take part</a>
             <a href="/privacy">Privacy</a>

@@ -6,6 +6,8 @@ const routes = [
   "/",
   "/story",
   "/events",
+  "/events/community-cuts",
+  "/merch",
   "/projects/community-cuts",
   "/take-part",
   "/take-part/family",

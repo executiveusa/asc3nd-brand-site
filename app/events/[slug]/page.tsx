@@ -22,6 +22,13 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${project.title} | ASC3ND`,
     description: `ASC3ND event record for ${project.title} in ${project.location}.`,
+    alternates: {
+      canonical: `https://asc3nd.org/events/${project.slug}`,
+      languages: {
+        "en-US": `https://asc3nd.org/events/${project.slug}`,
+        es: `https://asc3nd.org/es/eventos/${project.slug}`,
+      },
+    },
   };
 }
 

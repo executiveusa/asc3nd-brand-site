@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import { SocialLinks } from "@/components/SocialLinks";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 type InteriorPageProps = {
   eyebrow: string;
@@ -12,14 +14,7 @@ type InteriorPageProps = {
 export function InteriorPage({ eyebrow, title, intro, children }: InteriorPageProps) {
   return (
     <main id="main-content" tabIndex={-1}>
-      <header className="masthead shell">
-        <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
-        <nav className="nav" aria-label="Primary navigation">
-          <a href="/events">Events</a>
-          <a href="/story">Story</a>
-          <a href="/take-part">Take part</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section className="interior-hero shell">
         <p className="eyebrow">{eyebrow}</p>
@@ -29,21 +24,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
 
       {children}
 
-      <footer className="footer interior-footer">
-        <div className="shell interior-footer-inner">
-          <p className="eyebrow"><BrandWordmark /></p>
-          <nav aria-label="Footer navigation">
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/story">Story</a>
-            <a href="/take-part">Take part</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/youth-safety">Youth safety</a>
-            <a href="mailto:main@asc3nd.org">Contact</a>
-          </nav>
-          <SocialLinks />
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

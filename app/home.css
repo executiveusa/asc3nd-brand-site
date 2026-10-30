@@ -94,3 +94,7 @@
   .home-hero-crown, .home-hero-logo, .home-hero-promise, .home-hero-explainer, .home-hero-actions { animation: none; }
   .home-join-label { transition: none; }
 }
+@media (max-width: 430px) {
+  .home-hero-actions { flex-direction: column; }
+  .home-hero-actions .button { width: 100%; flex: none; white-space: nowrap; }
+}

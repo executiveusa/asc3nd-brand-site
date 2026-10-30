@@ -5,6 +5,8 @@ import { ProjectFilm } from "@/components/ProjectFilm";
 import { ProjectProofGallery } from "@/components/ProjectProofGallery";
 import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import "./project.css";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata = {
   title: "Community Cuts for Kids | ASC3ND",
@@ -16,14 +18,7 @@ export default function CommunityCutsPage() {
 
   return (
     <main id="main-content" tabIndex={-1} className="project-page">
-      <header className="masthead shell">
-        <Link className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></Link>
-        <nav className="nav" aria-label="Project navigation">
-          <Link href="/">Home</Link>
-          <Link href="/events">Events</Link>
-          <Link href="/take-part">Take part</Link>
-        </nav>
-      </header>
+      <SiteHeader current="events" />
 
       <section className="project-hero shell">
         <p className="eyebrow">{communityCutsProject.eyebrow}</p>
@@ -38,7 +33,7 @@ export default function CommunityCutsPage() {
       {communityCutsProject.featuredFilm ? (
         <section className="project-film-section shell" aria-labelledby="project-film-title">
           <div className="project-film-copy">
-            <p className="eyebrow">THE FILM</p>
+            <p className="eyebrow">The film</p>
             <h2 id="project-film-title">Community Cuts for Kids, Everett.</h2>
             <p>Watch the full event film.</p>
           </div>
@@ -48,7 +43,7 @@ export default function CommunityCutsPage() {
 
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">
-          <p className="eyebrow">PROJECT PROOF</p>
+          <p className="eyebrow">Photographs</p>
           <h2 id="project-proof-title">Community Cuts, photographed.</h2>
           <p>{media.length ? `${media.length} approved event photographs.` : "Approved event photographs will appear here."}</p>
         </div>
@@ -60,7 +55,7 @@ export default function CommunityCutsPage() {
       </section>
 
       <section className="project-evidence shell">
-        <div><p className="eyebrow">OUTCOMES</p><h2>What ASC3ND can verify.</h2></div>
+        <div><p className="eyebrow">Outcomes</p><h2>What ASC3ND can verify.</h2></div>
         <div className="project-evidence-body">
           {communityCutsProject.outcomes.length ? (
             <ul>{communityCutsProject.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
@@ -71,7 +66,7 @@ export default function CommunityCutsPage() {
       </section>
 
       <section className="project-next shell">
-        <p className="eyebrow">WITH GRATITUDE</p>
+        <p className="eyebrow">With gratitude</p>
         <h2>Thank you to everyone who made Community Cuts possible.</h2>
         {communityCutsProject.credits ? (
           <>
@@ -85,6 +80,7 @@ export default function CommunityCutsPage() {
           </>
         ) : null}
       </section>
+    <SiteFooter />
     </main>
   );
 }

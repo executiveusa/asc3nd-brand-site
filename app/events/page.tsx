@@ -3,6 +3,8 @@ import { BrandWordmark } from "@/components/BrandWordmark";
 import { SocialLinks } from "@/components/SocialLinks";
 import { asc3ndProjects, getApprovedProjectMedia } from "@/lib/projects";
 import "./events.css";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata = {
   title: "Events | ASC3ND",
@@ -12,17 +14,10 @@ export const metadata = {
 export default function EventsPage() {
   return (
     <main id="main-content" tabIndex={-1}>
-      <header className="masthead shell">
-        <Link className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></Link>
-        <nav className="nav" aria-label="Primary navigation">
-          <Link href="/story">Story</Link>
-          <Link href="/events" aria-current="page">Events</Link>
-          <Link href="/take-part">Take part</Link>
-        </nav>
-      </header>
+      <SiteHeader current="events" />
 
       <section className="events-hero shell">
-        <p className="eyebrow">EVENT ARCHIVE</p>
+        <p className="eyebrow">Event archive</p>
         <h1>One record for every ASC3ND event.</h1>
         <p>
           Each event keeps its own film, approved photographs, credits, and verified outcomes here.
@@ -38,7 +33,7 @@ export default function EventsPage() {
           return (
             <article className="event-record" key={project.slug}>
               <div className="event-record-index">
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                
               </div>
 
               <Link className="event-record-cover" href={`/projects/${project.slug}`} aria-label={`Open ${project.title} event record`}>
@@ -52,7 +47,7 @@ export default function EventsPage() {
               <div className="event-record-copy">
                 <p className="eyebrow">{project.eyebrow}</p>
                 <h2>{project.title}</h2>
-                <p>{project.location} · {project.dateLabel}</p>
+                <p>{project.location}, {project.dateLabel}</p>
                 <p className="event-record-summary">{project.summary}</p>
                 <div className="event-record-proof">
                   {project.featuredFilm ? <span>Film</span> : null}
@@ -60,7 +55,7 @@ export default function EventsPage() {
                   <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Outcomes pending verification"}</span>
                 </div>
                 <Link className="event-record-link" href={`/projects/${project.slug}`}>
-                  Open full event gallery <span aria-hidden="true">↗</span>
+                  Open the full event <span className="arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>
@@ -69,25 +64,11 @@ export default function EventsPage() {
       </section>
 
       <section className="events-next shell">
-        <p className="eyebrow">NEXT RECORD</p>
+        <p className="eyebrow">Next event</p>
         <h2>The next confirmed ASC3ND event will be added here.</h2>
       </section>
 
-      <footer className="footer interior-footer">
-        <div className="shell interior-footer-inner">
-          <p className="eyebrow"><BrandWordmark /></p>
-          <nav aria-label="Footer navigation">
-            <Link href="/">Home</Link>
-            <Link href="/story">Story</Link>
-            <Link href="/events">Events</Link>
-            <Link href="/take-part">Take part</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/youth-safety">Youth safety</Link>
-            <a href="mailto:main@asc3nd.org">Contact</a>
-          </nav>
-          <SocialLinks />
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

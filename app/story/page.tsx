@@ -18,7 +18,7 @@ export default function StoryPage() {
           className="portrait-placeholder"
         />
         <div className="story-copy">
-          <p className="eyebrow">{otha.name} · {otha.role}</p>
+          <p className="eyebrow">{otha.name}, {otha.role.toLowerCase()}</p>
           <blockquote>“{otha.quote}”</blockquote>
           <p>— {otha.name}</p>
         </div>
@@ -35,9 +35,8 @@ export default function StoryPage() {
         <p className="eyebrow">What comes next</p>
         <h2>Three areas ASC3ND is developing.</h2>
         <div className="interior-pathways">
-          {pathways.map(({ index, title, copy, status }) => (
-            <article key={index}>
-              <span>{index}</span>
+          {pathways.map(({ title, copy, status }) => (
+            <article key={title}>
               <h3>{title}</h3>
               <p>{copy}</p>
               <small>{status}</small>

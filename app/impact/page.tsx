@@ -8,7 +8,7 @@ const slots = ["arrival", "service", "connection", "next"] as const;
 export default function ImpactPage() {
   return (
     <InteriorPage
-      eyebrow="Community Cuts for Kids · Everett · August 2026"
+      eyebrow="Community Cuts for Kids, Everett, August 2026"
       title="Community Cuts is ASC3ND's first public project record."
       intro="The project page brings together the full event film, 86 approved photographs, and event credits from Community Cuts for Kids in Everett, Washington."
     >

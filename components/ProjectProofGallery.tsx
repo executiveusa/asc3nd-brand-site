@@ -11,6 +11,7 @@ type Props = {
   compact?: boolean;
   initialVisible?: number;
   maxVisible?: number;
+  locale?: "en" | "es";
 };
 
 const SWIPE_THRESHOLD = 42;
@@ -21,7 +22,12 @@ export function ProjectProofGallery({
   compact = false,
   initialVisible,
   maxVisible,
+  locale = "en",
 }: Props) {
+  const labels = locale === "es"
+    ? { close: "Cerrar galería", previous: "Imagen anterior", next: "Imagen siguiente", viewAll: "Ver todas", photos: "fotos", open: "Abrir" }
+    : { close: "Close gallery", previous: "Previous image", next: "Next image", viewAll: "View all", photos: "photos", open: "Open" };
+
   const approved = items.filter(
     (item) => item.approved && item.consentConfirmed && item.src,
   );
@@ -136,7 +142,7 @@ export function ProjectProofGallery({
                 lastTriggerRef.current = event.currentTarget;
                 setActiveIndex(index);
               }}
-              aria-label={`Open ${item.alt}`}
+              aria-label={`${labels.open} ${item.alt}`}
               style={aspectRatio ? { aspectRatio } : undefined}
             >
               {item.type === "video" ? (
@@ -164,7 +170,7 @@ export function ProjectProofGallery({
           aria-expanded="false"
           onClick={() => setExpanded(true)}
         >
-          View all {approved.length} photos <span aria-hidden="true">→</span>
+          {labels.viewAll} {approved.length} {labels.photos} <span aria-hidden="true">→</span>
         </button>
       ) : null}
 
@@ -187,15 +193,15 @@ export function ProjectProofGallery({
             move(delta < 0 ? 1 : -1);
           }}
         >
-          <button ref={closeButtonRef} className="project-proof-close" type="button" onClick={() => setActiveIndex(null)} aria-label="Close gallery">
+          <button ref={closeButtonRef} className="project-proof-close" type="button" onClick={() => setActiveIndex(null)} aria-label={labels.close}>
             <X size={22} />
           </button>
           {approved.length > 1 ? (
             <>
-              <button className="project-proof-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">
+              <button className="project-proof-prev" type="button" onClick={() => move(-1)} aria-label={labels.previous}>
                 <ArrowLeft size={24} />
               </button>
-              <button className="project-proof-next" type="button" onClick={() => move(1)} aria-label="Next image">
+              <button className="project-proof-next" type="button" onClick={() => move(1)} aria-label={labels.next}>
                 <ArrowRight size={24} />
               </button>
             </>

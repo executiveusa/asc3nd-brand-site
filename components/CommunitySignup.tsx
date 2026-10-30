@@ -52,7 +52,7 @@ export function CommunitySignup({ locale = "en" }: { locale?: "en" | "es" }) {
     <section className="community-signup shell" aria-labelledby="community-signup-title">
       <div className="community-signup-copy">
         <p className="eyebrow">{locale === "es" ? "MANTENTE EN CONTACTO" : "STAY CONNECTED"}</p>
-        <h2 id="community-signup-title"><BrandWordmark text="ASC3ND" digitNudgeEm={0.005} /> {locale === "es" ? "novedades." : "updates."}</h2>
+        <h2 id="community-signup-title" className="community-signup-title"><BrandWordmark text="ASC3ND" digitNudgeEm={0.005} /><span>{locale === "es" ? "novedades." : "updates."}</span></h2>
       </div>
 
       <form className="community-signup-form" onSubmit={submit}>

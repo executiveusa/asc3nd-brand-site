@@ -25,7 +25,7 @@ export default function Home() {
     <main id="main-content" tabIndex={-1}>
       <header className="masthead shell">
         <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
-        <nav className="nav" aria-label="Primary navigation">
+        <nav className="nav home-nav" aria-label="Primary navigation">
           <a href="#story">Founders</a>
           <a href="/events">Work</a>
           <a href="#take-part">Take part</a>

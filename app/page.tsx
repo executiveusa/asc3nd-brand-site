@@ -1,4 +1,5 @@
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { HeroWordmark } from "@/components/HeroWordmark";
 import { CrownMark } from "@/components/CrownMark";
 import { LegalIdentity } from "@/components/LegalIdentity";
@@ -23,6 +24,7 @@ export default function Home() {
           <a href="/events">Work</a>
           <a href="#take-part">Take part</a>
           <a href="/merch">Merch</a>
+          <LocaleSwitch enHref="/" esHref="/es" />
         </nav>
       </header>
 

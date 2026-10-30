@@ -39,20 +39,30 @@ async function request<T>(path: string): Promise<T | null> {
   const current = config();
   if (!current) return null;
 
-  const response = await fetch(`${PRINTIFY_API_BASE}${path}`, {
-    headers: {
-      Authorization: `Bearer ${current.token}`,
-      "Content-Type": "application/json",
-    },
-    cache: "no-store",
-  });
+  try {
+    const response = await fetch(`${PRINTIFY_API_BASE}${path}`, {
+      headers: {
+        Authorization: `Bearer ${current.token}`,
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    });
 
-  if (!response.ok) {
-    console.warn(`Printify request failed: ${response.status} ${response.statusText}`);
+    if (!response.ok) {
+      console.warn(`Printify request failed: ${response.status} ${response.statusText}`);
+      return null;
+    }
+
+    try {
+      return await response.json() as T;
+    } catch (error) {
+      console.warn("Printify returned an unreadable response.", error);
+      return null;
+    }
+  } catch (error) {
+    console.warn("Printify transport failed; rendering the safe empty-catalog state.", error);
     return null;
   }
-
-  return response.json() as Promise<T>;
 }
 
 function active(product: PrintifyProduct) {

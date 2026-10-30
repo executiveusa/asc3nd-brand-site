@@ -155,7 +155,7 @@ export default function Home() {
               <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
               <a href="/merch"><span>Merch</span><span aria-hidden="true">↗</span></a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/transparency">Transparency</a> · <a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

@@ -1,0 +1,79 @@
+.merch-hero {
+  padding: clamp(90px, 13vw, 190px) 0 clamp(70px, 9vw, 130px);
+  border-bottom: 1px solid var(--line);
+}
+
+.merch-hero h1 {
+  max-width: 1000px;
+  margin-bottom: 30px;
+  font-size: clamp(4rem, 9vw, 9rem);
+  line-height: .9;
+}
+
+.merch-hero > p:last-child {
+  max-width: 62ch;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.merch-grid { padding: clamp(70px, 10vw, 150px) 0; }
+
+.merch-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  gap: clamp(34px, 8vw, 130px);
+  align-items: center;
+  padding: clamp(34px, 5vw, 74px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.merch-image {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #ebe7dc;
+}
+
+.merch-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.merch-image span { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
+.merch-copy { display: grid; gap: 28px; }
+.merch-copy h2 { margin: 0; font-size: clamp(2.4rem, 4.8vw, 5.4rem); line-height: .98; }
+.merch-price { margin: 0; font-size: 1rem; font-weight: 700; }
+.merch-link, .merch-coming a {
+  width: fit-content;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.merch-unavailable { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+
+.merch-coming {
+  padding: clamp(110px, 16vw, 230px) 0;
+}
+.merch-coming h2 {
+  max-width: 980px;
+  margin-bottom: 28px;
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: .95;
+}
+.merch-coming > p:not(.eyebrow) { max-width: 56ch; color: var(--muted); line-height: 1.65; }
+
+.merch-note { padding: 30px 0 80px; border-top: 1px solid var(--line); }
+.merch-note p { max-width: 74ch; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+
+@media (max-width: 820px) {
+  .merch-hero { padding-top: 70px; }
+  .merch-hero h1 { font-size: clamp(3.4rem, 16vw, 5.8rem); }
+  .merch-card { grid-template-columns: 1fr; gap: 26px; }
+  .merch-image { min-height: 0; aspect-ratio: 4 / 5; }
+  .merch-copy h2 { font-size: clamp(2.2rem, 10vw, 3.7rem); }
+}

@@ -543,3 +543,15 @@ for (const route of spanishSmokeRoutes) {
     expect(errors, JSON.stringify(errors)).toEqual([]);
   });
 }
+
+
+for (const route of ["/es", "/es/eventos"]) {
+  test(`Spanish narrow-header smoke ${route} 320x568`, async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    const response = await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+    expect(response?.status() || 0).toBeLessThan(400);
+    await assertNoHorizontalOverflow(page);
+    await assertMinimumTargets(page, ".nav a");
+    await expect(page.locator("main#main-content")).toHaveAttribute("lang", "es");
+  });
+}

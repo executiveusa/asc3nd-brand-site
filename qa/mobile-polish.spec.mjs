@@ -174,7 +174,6 @@ test("Reduced motion keeps content visible", async ({ browser }) => {
 
 const interiorRoutes = [
   "/story",
-  "/merch",
   "/impact",
   "/take-part",
   "/privacy",

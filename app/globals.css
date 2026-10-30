@@ -25,7 +25,7 @@ h1, h2, h3, p, blockquote { margin-top: 0; }
 .brand-wordmark { display: inline-block; white-space: nowrap; }
 .brand-wordmark-digit { position: relative; display: inline-block; line-height: 1; vertical-align: baseline; }
 .nav { display: flex; gap: 28px; }
-.nav a { min-height: 44px; display: inline-flex; align-items: center; font-size: 13px; font-weight: 700; text-decoration: none; transition: opacity 140ms ease, transform 120ms cubic-bezier(.25, 1, .5, 1); }
+.nav a { min-width: 44px; min-height: 44px; display: inline-flex; justify-content: center; align-items: center; font-size: 13px; font-weight: 700; text-decoration: none; transition: opacity 140ms ease, transform 120ms cubic-bezier(.25, 1, .5, 1); }
 .nav a:hover { opacity: .58; }
 button, a { touch-action: manipulation; }
 button:active, a:active { transform: translateY(1px); }

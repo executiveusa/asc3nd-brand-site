@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import { SocialLinks } from "@/components/SocialLinks";
 import { asc3ndProjects, getApprovedProjectMedia } from "@/lib/projects";
@@ -18,6 +19,7 @@ export default function EventsPage() {
           <Link href="/story">Story</Link>
           <Link href="/events" aria-current="page">Events</Link>
           <Link href="/take-part">Take part</Link>
+          <LocaleSwitch enHref="/events" esHref="/es/events" />
         </nav>
       </header>
 

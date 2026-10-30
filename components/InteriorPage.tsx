@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import { SocialLinks } from "@/components/SocialLinks";
 
@@ -18,6 +19,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
           <a href="/events">Events</a>
           <a href="/story">Story</a>
           <a href="/take-part">Take part</a>
+          <LocaleSwitch enHref="/" esHref="/es" />
         </nav>
       </header>
 

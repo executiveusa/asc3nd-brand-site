@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import { listAsc3ndMerch, productImage, productPrice, productPurchaseUrl } from "@/lib/printify";
 import "./merch.css";
@@ -21,6 +22,7 @@ export default async function MerchPage() {
           <Link href="/story">Story</Link>
           <Link href="/events">Events</Link>
           <Link href="/take-part">Take part</Link>
+          <LocaleSwitch enHref="/merch" esHref="/es/merch" />
         </nav>
       </header>
 

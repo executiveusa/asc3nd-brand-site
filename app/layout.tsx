@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./interior.css";
 import "./gauntlet.css";
+import "./site-chrome.css";
 
 export const metadata: Metadata = {
   title: "ASC3ND",

@@ -49,8 +49,20 @@ jobs:
           path: app/events/page.tsx
           strict: true
 
-      - name: Audit Community Cuts proof page
+      - name: Audit reusable event proof template
         uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
         with:
-          path: app/projects/community-cuts/page.tsx
+          path: app/events/[slug]/page.tsx
+          strict: true
+
+      - name: Audit Spanish homepage
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/es/page.tsx
+          strict: true
+
+      - name: Audit Spanish transparency copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: app/es/transparencia/page.tsx
           strict: true

@@ -11,10 +11,12 @@ export type EventCreditGroup = {
 type EventCreditsProps = {
   eventLabel: string;
   groups: EventCreditGroup[];
+  locale?: "en" | "es";
 };
 
-export function EventCredits({ eventLabel, groups }: EventCreditsProps) {
+export function EventCredits({ eventLabel, groups, locale = "en" }: EventCreditsProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const isEs = locale === "es";
 
   const openCredits = () => dialogRef.current?.showModal();
   const closeCredits = () => dialogRef.current?.close();
@@ -22,7 +24,7 @@ export function EventCredits({ eventLabel, groups }: EventCreditsProps) {
   return (
     <>
       <button className="event-credits-trigger" type="button" onClick={openCredits}>
-        View event credits <span aria-hidden="true">↗</span>
+        {isEs ? "Ver créditos del evento" : "View event credits"} <span aria-hidden="true">↗</span>
       </button>
 
       <dialog
@@ -36,12 +38,12 @@ export function EventCredits({ eventLabel, groups }: EventCreditsProps) {
         <div className="event-credits-panel">
           <div className="event-credits-header">
             <div>
-              <p className="eyebrow">EVENT CREDITS</p>
-              <h2 id="event-credits-title">The people behind the day.</h2>
+              <p className="eyebrow">{isEs ? "CRÉDITOS DEL EVENTO" : "EVENT CREDITS"}</p>
+              <h2 id="event-credits-title">{isEs ? "Las personas detrás del día." : "The people behind the day."}</h2>
               <p>{eventLabel}</p>
             </div>
-            <button className="event-credits-close" type="button" onClick={closeCredits} aria-label="Close event credits">
-              Close
+            <button className="event-credits-close" type="button" onClick={closeCredits} aria-label={isEs ? "Cerrar créditos del evento" : "Close event credits"}>
+              {isEs ? "Cerrar" : "Close"}
             </button>
           </div>
 

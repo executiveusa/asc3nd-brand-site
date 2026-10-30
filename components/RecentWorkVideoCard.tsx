@@ -7,9 +7,10 @@ type Props = {
   poster?: string;
   href: string;
   label: string;
+  overlayLabel?: string;
 };
 
-export function RecentWorkVideoCard({ src, poster, href, label }: Props) {
+export function RecentWorkVideoCard({ src, poster, href, label, overlayLabel = "Watch the work" }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -61,7 +62,7 @@ export function RecentWorkVideoCard({ src, poster, href, label }: Props) {
         />
       )}
       <span className="recent-work-media-overlay">
-        <span>Watch the work</span>
+        <span>{overlayLabel}</span>
         <span aria-hidden="true">↗</span>
       </span>
     </a>

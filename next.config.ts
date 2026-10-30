@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       { source: "/support", destination: "/take-part", permanent: true },
       { source: "/get-involved", destination: "/take-part", permanent: true },
       { source: "/about", destination: "/story", permanent: true },
+      { source: "/impact", destination: "/events", permanent: true },
     ];
   },
 };

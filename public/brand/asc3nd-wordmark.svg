@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" role="img" aria-labelledby="title desc">
+  <title id="title">ASC3ND</title>
+  <desc id="desc">ASC3ND wordmark</desc>
+  <rect width="1200" height="250" fill="none"/>
+  <text x="600" y="188"
+    text-anchor="middle"
+    fill="#120f0b"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="190"
+    font-weight="400"
+    letter-spacing="-9">ASC<tspan font-size="201" dy="-1">3</tspan><tspan dy="1" font-size="190">ND</tspan></text>
+</svg>

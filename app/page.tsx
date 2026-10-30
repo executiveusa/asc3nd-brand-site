@@ -1,30 +1,42 @@
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
+import { HeroWordmark } from "@/components/HeroWordmark";
 import { CrownMark } from "@/components/CrownMark";
 import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
-import { ProjectProofGallery } from "@/components/ProjectProofGallery";
+import { RecentWorkVideoCard } from "@/components/RecentWorkVideoCard";
 import { SocialLinks } from "@/components/SocialLinks";
-import { communityCutsProject } from "@/lib/projects";
-import { participationRoutes, siteStory } from "@/lib/site-content";
+import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
+import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
 import "./community-proof.css";
 
+export const metadata = {
+  title: "ASC3ND",
+  description: "ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.",
+  alternates: { canonical: "https://asc3nd.org/", languages: { "en-US": "https://asc3nd.org/", "es": "https://asc3nd.org/es" } },
+};
+
 export default function Home() {
+  const communityCutsPoster = getApprovedProjectMedia(communityCutsProject)[0]?.src;
+
   return (
     <main id="main-content" tabIndex={-1}>
       <header className="masthead shell">
         <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
-        <nav className="nav" aria-label="Primary navigation">
+        <nav className="nav home-nav" aria-label="Primary navigation">
           <a href="#story">Founders</a>
-          <a href="/events">Events</a>
+          <a href="/events">Work</a>
           <a href="#take-part">Take part</a>
+          <a href="/merch">Merch</a>
+          <LocaleSwitch enHref="/" esHref="/es" />
         </nav>
       </header>
 
       <section className="hero shell" id="top">
         <div className="hero-mark"><CrownMark /></div>
-        <h1><BrandWordmark text={siteStory.hero.headline} /></h1>
+        <h1><HeroWordmark /></h1>
         <div
           className="hero-statements"
           aria-label="ASC3ND mission statements"
@@ -67,31 +79,48 @@ export default function Home() {
       </MotionReveal>
 
       <MotionReveal>
+        <section className="focus-areas shell" id="how" aria-labelledby="focus-title">
+          <div className="focus-heading">
+            <p className="eyebrow">HOW ASC3ND HELPS</p>
+            <h2 id="focus-title">Three areas the organization is building around young people.</h2>
+          </div>
+          <div className="focus-list">
+            {pathways.map(({ index, title, copy, status }) => (
+              <article className="focus-item" key={index}>
+                <span className="focus-index">{index}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+                <small>{status}</small>
+              </article>
+            ))}
+          </div>
+        </section>
+      </MotionReveal>
+
+      <MotionReveal>
         <section className="community-proof shell" id="community" aria-labelledby="community-title">
           <div className="section-heading">
             <p className="eyebrow">RECENT WORK · PROJECT 001</p>
             <h2 id="community-title">Community Cuts for Kids.</h2>
             <div className="community-project-meta">
               <p>{communityCutsProject.location} · {communityCutsProject.dateLabel}</p>
-              <a href="/projects/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
+              <p className="community-project-summary">{communityCutsProject.summary}</p>
+              <a href="/events/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
             </div>
           </div>
-          <ProjectProofGallery
-            items={communityCutsProject.media}
-            compact
-            maxVisible={3}
-            emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
-          />
+          {communityCutsProject.featuredFilm ? (
+            <RecentWorkVideoCard
+              src={communityCutsProject.featuredFilm.embedSrc}
+              poster={communityCutsPoster}
+              href="/events/community-cuts"
+              label="Community Cuts for Kids"
+            />
+          ) : null}
           <div className="community-archive-link">
             <a href="/events">View all ASC3ND events <span aria-hidden="true">↗</span></a>
           </div>
-        </section>
-      </MotionReveal>
-
-      <MotionReveal>
-        <section className="future shell" id="next" aria-labelledby="future-title">
-          <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">The next confirmed <BrandWordmark text="ASC3ND" digitNudgeEm={0.01} /> program will be shared here.</h2>
         </section>
       </MotionReveal>
 
@@ -122,10 +151,11 @@ export default function Home() {
           <div className="footer-meta">
             <nav className="footer-links" aria-label="Footer navigation">
               <a href="#story"><span>Founders</span><span aria-hidden="true">↗</span></a>
-              <a href="/events"><span>Events</span><span aria-hidden="true">↗</span></a>
+              <a href="/events"><span>Work</span><span aria-hidden="true">↗</span></a>
               <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
+              <a href="/merch"><span>Merch</span><span aria-hidden="true">↗</span></a>
             </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
+            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/transparency">Transparency</a> · <a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>
         </div>
       </footer>

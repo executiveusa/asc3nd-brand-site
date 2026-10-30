@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import { SocialLinks } from "@/components/SocialLinks";
 import { asc3ndProjects, getApprovedProjectMedia } from "@/lib/projects";
@@ -7,6 +8,13 @@ import "./events.css";
 export const metadata = {
   title: "Events | ASC3ND",
   description: "A growing archive of ASC3ND events, project records, films, approved photographs, credits, and verified outcomes.",
+  alternates: {
+    canonical: "https://asc3nd.org/events",
+    languages: {
+      "en-US": "https://asc3nd.org/events",
+      es: "https://asc3nd.org/es/eventos",
+    },
+  },
 };
 
 export default function EventsPage() {
@@ -18,6 +26,7 @@ export default function EventsPage() {
           <Link href="/story">Story</Link>
           <Link href="/events" aria-current="page">Events</Link>
           <Link href="/take-part">Take part</Link>
+          <LocaleSwitch enHref="/events" esHref="/es/eventos" />
         </nav>
       </header>
 
@@ -41,7 +50,7 @@ export default function EventsPage() {
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
 
-              <Link className="event-record-cover" href={`/projects/${project.slug}`} aria-label={`Open ${project.title} event record`}>
+              <Link className="event-record-cover" href={`/events/${project.slug}`} aria-label={`Open ${project.title} event record`}>
                 {cover?.src ? (
                   <img src={cover.src} alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
                 ) : (
@@ -59,18 +68,13 @@ export default function EventsPage() {
                   <span>{media.length} approved photos</span>
                   <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Outcomes pending verification"}</span>
                 </div>
-                <Link className="event-record-link" href={`/projects/${project.slug}`}>
+                <Link className="event-record-link" href={`/events/${project.slug}`}>
                   Open full event gallery <span aria-hidden="true">↗</span>
                 </Link>
               </div>
             </article>
           );
         })}
-      </section>
-
-      <section className="events-next shell">
-        <p className="eyebrow">NEXT RECORD</p>
-        <h2>The next confirmed ASC3ND event will be added here.</h2>
       </section>
 
       <footer className="footer interior-footer">
@@ -80,6 +84,7 @@ export default function EventsPage() {
             <Link href="/">Home</Link>
             <Link href="/story">Story</Link>
             <Link href="/events">Events</Link>
+          <Link href="/merch">Merch</Link>
             <Link href="/take-part">Take part</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/youth-safety">Youth safety</Link>

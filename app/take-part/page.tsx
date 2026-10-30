@@ -3,6 +3,18 @@ import { InteriorPage } from "@/components/InteriorPage";
 import { participationRoutes } from "@/lib/site-content";
 import { getApprovedMedia } from "@/lib/media-registry";
 
+export const metadata = {
+  title: "Take part | ASC3ND",
+  description: "Connect with ASC3ND as a family, mentor, volunteer, or community partner.",
+  alternates: {
+    canonical: "https://asc3nd.org/take-part",
+    languages: {
+      "en-US": "https://asc3nd.org/take-part",
+      es: "https://asc3nd.org/es/participar",
+    },
+  },
+};
+
 export default function TakePartPage() {
   return (
     <InteriorPage

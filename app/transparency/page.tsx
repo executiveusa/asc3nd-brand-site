@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import { LegalIdentity } from "@/components/LegalIdentity";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -25,7 +26,7 @@ export default function TransparencyPage() {
   return <main id="main-content" tabIndex={-1}>
     <header className="masthead shell">
       <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
-      <nav className="nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/story">Story</a><a href="/take-part">Take part</a></nav>
+      <nav className="nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/story">Story</a><a href="/take-part">Take part</a><LocaleSwitch enHref="/transparency" esHref="/es/transparency" /></nav>
     </header>
     <section className="transparency-hero shell" aria-labelledby="transparency-title">
       <p className="eyebrow">THE ASC3ND COLLECTIVE / PUBLIC RECORD</p>

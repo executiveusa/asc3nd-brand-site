@@ -87,6 +87,10 @@ export const communityCutsProject: Asc3ndProject = {
 
 export const asc3ndProjects = [communityCutsProject] as const;
 
+export function getProjectBySlug(slug: string): Asc3ndProject | undefined {
+  return asc3ndProjects.find((project) => project.slug === slug);
+}
+
 export function getApprovedProjectMedia(project: Asc3ndProject) {
   return project.media.filter(
     (item) => item.approved && item.consentConfirmed && Boolean(item.src),

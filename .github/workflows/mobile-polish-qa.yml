@@ -15,12 +15,23 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
-      QA_BASE_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.base_url || 'https://asc3nd-brand-site.vercel.app' }}
+      QA_BASE_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.base_url || 'http://127.0.0.1:3000' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Install application dependencies
+        if: github.event_name != 'workflow_dispatch'
+        run: npm install
+      - name: Build branch under test
+        if: github.event_name != 'workflow_dispatch'
+        run: npm run build
+      - name: Start branch under test
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          npm run start > /tmp/asc3nd-next.log 2>&1 &
+          echo $! > /tmp/asc3nd-next.pid
       - name: Install Playwright test runner
         run: npm install --no-save --package-lock=false @playwright/test@1.55.0 axe-core@4.10.3
       - name: Install Chromium

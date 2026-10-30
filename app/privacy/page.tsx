@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export const metadata = {
   title: "Privacy | ASC3ND",
   description: "How ASC3ND handles information submitted through its website.",
+  alternates: { canonical: "https://asc3nd.org/privacy", languages: { "en-US": "https://asc3nd.org/privacy", "es": "https://asc3nd.org/es/privacidad" } },
 };
 
 export default function PrivacyPage() {

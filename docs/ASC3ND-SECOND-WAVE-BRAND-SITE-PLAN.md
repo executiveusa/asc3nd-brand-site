@@ -59,6 +59,202 @@ Avoid:
 - fake impact statistics;
 - generated youth imagery presented as documentary truth.
 
+
+## Extractor operating law
+
+The second wave must run through The Extractor before visual redesign.
+
+The Extractor is not an AI-authorship detector. It is a destruction-first reduction system.
+
+Required sequence:
+
+```text
+R0 SOURCE
+freeze current production
+  ↓
+DEFINE HUMAN JOB
+  ↓
+INVENTORY EVERY ELEMENT
+  ↓
+SLOP / EVIDENCE PASSES
+  ↓
+DELETE BEFORE REPLACING
+  ↓
+R1 ESSENTIAL
+  ↓
+R2 HUMAN
+  ↓
+R3 COMPOSED
+  ↓
+R4 MINIMUM USEFUL
+  ↓
+INDEPENDENT REVIEW
+  ↓
+VERIFY
+```
+
+### R0 protected baseline
+
+Before changing design, record and preserve:
+
+- production SHA and Vercel deployment;
+- desktop and mobile screenshots;
+- current navigation and routes;
+- founder quotations;
+- approved documentary photography;
+- Community Cuts 86-photo archive;
+- intake/form behavior;
+- privacy, youth-safety and transparency copy;
+- accessibility behavior;
+- current event evidence state;
+- current brand marks/wordmark behavior;
+- rollback target.
+
+### Human jobs by surface
+
+#### Homepage
+
+Visitor must understand:
+
+1. what ASC3ND is;
+2. who leads it;
+3. why it is credible;
+4. how it helps young people;
+5. what real work it has done;
+6. how the visitor can participate.
+
+Primary action: choose a participation path.
+
+#### Event archive
+
+Visitor must understand:
+
+1. what ASC3ND has actually done;
+2. when and where;
+3. what evidence exists;
+4. what outcomes are verified versus pending.
+
+Primary action: inspect a real event record.
+
+#### Event record
+
+Visitor must be able to:
+
+1. understand the event;
+2. view documentary evidence;
+3. distinguish verified facts from pending claims;
+4. see credits/partners when confirmed;
+5. return to the broader ASC3ND story.
+
+#### Merch
+
+Visitor must understand:
+
+1. what is actually for sale;
+2. the actual price;
+3. how fulfillment works;
+4. what purchase does and does not mean financially;
+5. how to buy or express interest.
+
+#### Take-part flows
+
+Visitor must understand:
+
+1. which path applies to them;
+2. what information is being requested;
+3. what happens next;
+4. what consent they are giving.
+
+### Protected list
+
+These elements may not be removed merely for minimalism:
+
+- ASC3ND identity;
+- founder names and approved quotations;
+- documentary proof;
+- meaningful uncertainty such as unverified outcome totals;
+- youth-safety information;
+- consent language;
+- privacy language;
+- accessibility;
+- error recovery;
+- event provenance;
+- participation actions;
+- client-approved legal identity;
+- mobile usability.
+
+### Extractor verdicts
+
+Every meaningful existing or proposed element must receive one:
+
+- KEEP VERBATIM
+- KEEP AND REPOSITION
+- REDUCE
+- HUMANIZE
+- REPLACE WITH EVIDENCE
+- REMOVE
+- MISSING AND REQUIRED
+
+For every removal, record what would be lost.
+
+### Eight required slop passes
+
+Run:
+
+1. Copy
+2. Structure
+3. Cognitive load
+4. Trust
+5. Visual UI
+6. Motion
+7. Code
+8. Commercial clarity
+
+### Specific ASC3ND applications
+
+Examples:
+
+- three-image homepage event gallery → **REDUCE** to one proof card;
+- generic future-program filler → **REMOVE or REPLACE WITH EVIDENCE**;
+- repeated ASC3ND slogans → keep only where they establish brand identity;
+- decorative gallery motion → remove unless it explains spatial transition;
+- generic card grids → reject unless they materially improve scanning;
+- unverified merch copy/prices → **REPLACE WITH EVIDENCE**;
+- repeated CTAs → consolidate around one next action per section;
+- untranslated legal/form copy → **MISSING AND REQUIRED** for Spanish launch;
+- generated imagery presented as real program proof → release failure.
+
+### Release failure conditions
+
+A second-wave release fails if it:
+
+- removes required facts or meaningful uncertainty;
+- invents proof;
+- damages accessibility or form/error recovery;
+- obscures the next action;
+- flattens founder/brand voice;
+- breaks mobile;
+- reduces privacy/youth/legal requirements into slogans;
+- claims production success without verification;
+- introduces generic AI visual language that does not serve a human task.
+
+No visual-polish score can average away one of these failures.
+
+### Independent review
+
+Builder cannot approve itself.
+
+Required critics:
+
+- Extractor reduction critic;
+- humanization/copy critic;
+- cognitive-load / Steve Krug pass;
+- visual-detail pass using Details MCP;
+- accessibility pass;
+- mobile pass;
+- commercial/trust pass.
+
+
 ## Phase 1 — Brand system
 
 ### 1.1 Preserve the approved concept
@@ -488,6 +684,24 @@ Codex build law:
 8. build preview;
 9. visually verify desktop + mobile;
 10. merge only with rollback.
+
+
+## Pre-build subtraction deliverable
+
+Before Wave A implementation, produce a documented **ASC3ND R0 → R1 audit**.
+
+The audit must show:
+
+- baseline screenshot/reference;
+- element;
+- verdict;
+- why;
+- what is lost if removed;
+- reversible action.
+
+No redesign PR begins until this subtraction version exists.
+
+The objective is not to make ASC3ND minimal. The objective is to remove what is generic, redundant, unsupported or distracting so that the real founders, work, mission and participation paths become more visible.
 
 ## Phase 10 — Release sequence
 

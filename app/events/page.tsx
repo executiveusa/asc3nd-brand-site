@@ -8,6 +8,13 @@ import "./events.css";
 export const metadata = {
   title: "Events | ASC3ND",
   description: "A growing archive of ASC3ND events, project records, films, approved photographs, credits, and verified outcomes.",
+  alternates: {
+    canonical: "https://asc3nd.org/events",
+    languages: {
+      "en-US": "https://asc3nd.org/events",
+      es: "https://asc3nd.org/es/eventos",
+    },
+  },
 };
 
 export default function EventsPage() {
@@ -19,7 +26,7 @@ export default function EventsPage() {
           <Link href="/story">Story</Link>
           <Link href="/events" aria-current="page">Events</Link>
           <Link href="/take-part">Take part</Link>
-          <LocaleSwitch enHref="/events" esHref="/es/events" />
+          <LocaleSwitch enHref="/events" esHref="/es/eventos" />
         </nav>
       </header>
 

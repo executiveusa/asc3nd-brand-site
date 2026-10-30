@@ -208,7 +208,7 @@ export function ParticipationForm({ kind, locale = "en" }: Props) {
           <label><span>{strings.name}</span><input name="name" required minLength={2} maxLength={100} autoComplete="name" /></label>
           <label><span>Email</span><input name="email" required type="email" autoComplete="email" /></label>
           <label><span>{strings.phone}</span><input name="phone" type="tel" autoComplete="tel" /></label>
-          <label><span>{strings.preferredLanguage}</span><select name="preferred_language" value={locale} readOnly aria-readonly="true"><option value={locale}>{isEs ? "Español" : "English"}</option></select></label>
+          <label><span>{strings.preferredLanguage}</span><select name="preferred_language" value={locale} onChange={() => undefined} aria-readonly="true"><option value={locale}>{isEs ? "Español" : "English"}</option></select></label>
         </div>
 
         {kind === "family" ? <>

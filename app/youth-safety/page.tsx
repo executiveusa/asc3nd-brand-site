@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export const metadata = {
   title: "Youth Safety | ASC3ND",
   description: "ASC3ND's public website safety boundaries for youth, families, volunteers, mentors, and partners.",
+  alternates: { canonical: "https://asc3nd.org/youth-safety", languages: { "en-US": "https://asc3nd.org/youth-safety", "es": "https://asc3nd.org/es/seguridad-juvenil" } },
 };
 
 export default function YouthSafetyPage() {

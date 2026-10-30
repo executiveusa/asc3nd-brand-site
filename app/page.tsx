@@ -4,13 +4,15 @@ import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
-import { ProjectProofGallery } from "@/components/ProjectProofGallery";
+import { RecentWorkVideoCard } from "@/components/RecentWorkVideoCard";
 import { SocialLinks } from "@/components/SocialLinks";
-import { communityCutsProject } from "@/lib/projects";
-import { participationRoutes, siteStory } from "@/lib/site-content";
+import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
+import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
 import "./community-proof.css";
 
 export default function Home() {
+  const communityCutsPoster = getApprovedProjectMedia(communityCutsProject)[0]?.src;
+
   return (
     <main id="main-content" tabIndex={-1}>
       <header className="masthead shell">
@@ -67,31 +69,48 @@ export default function Home() {
       </MotionReveal>
 
       <MotionReveal>
+        <section className="focus-areas shell" id="how" aria-labelledby="focus-title">
+          <div className="focus-heading">
+            <p className="eyebrow">HOW ASC3ND HELPS</p>
+            <h2 id="focus-title">Three areas the organization is building around young people.</h2>
+          </div>
+          <div className="focus-list">
+            {pathways.map(({ index, title, copy, status }) => (
+              <article className="focus-item" key={index}>
+                <span className="focus-index">{index}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+                <small>{status}</small>
+              </article>
+            ))}
+          </div>
+        </section>
+      </MotionReveal>
+
+      <MotionReveal>
         <section className="community-proof shell" id="community" aria-labelledby="community-title">
           <div className="section-heading">
             <p className="eyebrow">RECENT WORK · PROJECT 001</p>
             <h2 id="community-title">Community Cuts for Kids.</h2>
             <div className="community-project-meta">
               <p>{communityCutsProject.location} · {communityCutsProject.dateLabel}</p>
+              <p className="community-project-summary">{communityCutsProject.summary}</p>
               <a href="/projects/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
             </div>
           </div>
-          <ProjectProofGallery
-            items={communityCutsProject.media}
-            compact
-            maxVisible={3}
-            emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
-          />
+          {communityCutsProject.featuredFilm ? (
+            <RecentWorkVideoCard
+              src={communityCutsProject.featuredFilm.embedSrc}
+              poster={communityCutsPoster}
+              href="/projects/community-cuts"
+              label="Community Cuts for Kids"
+            />
+          ) : null}
           <div className="community-archive-link">
             <a href="/events">View all ASC3ND events <span aria-hidden="true">↗</span></a>
           </div>
-        </section>
-      </MotionReveal>
-
-      <MotionReveal>
-        <section className="future shell" id="next" aria-labelledby="future-title">
-          <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">The next confirmed <BrandWordmark text="ASC3ND" digitNudgeEm={0.01} /> program will be shared here.</h2>
         </section>
       </MotionReveal>
 

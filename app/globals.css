@@ -57,6 +57,17 @@ button:active, a:active { transform: translateY(1px); }
 .founder-copy blockquote { margin-top: 0; font-size: clamp(2rem, 3.3vw, 3.8rem); line-height: 1.03; text-wrap: pretty; }
 .founder-attribution { display: block; margin-top: clamp(14px, 2vw, 22px); font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.1rem, 1.6vw, 1.4rem); font-style: normal; letter-spacing: -0.01em; color: var(--muted); }
 
+.focus-areas { padding: clamp(100px, 14vw, 210px) 0; border-top: 1px solid var(--line); }
+.focus-heading { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: clamp(36px, 8vw, 140px); align-items: start; margin-bottom: clamp(52px, 8vw, 110px); }
+.focus-heading .eyebrow { margin: 8px 0 0; }
+.focus-heading h2 { max-width: 970px; margin: 0; font-size: clamp(3rem, 6.4vw, 6.8rem); line-height: .94; text-wrap: balance; }
+.focus-list { border-top: 1px solid var(--line); }
+.focus-item { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: clamp(18px, 4vw, 64px); align-items: start; padding: clamp(30px, 4vw, 54px) 0; border-bottom: 1px solid var(--line); }
+.focus-index { padding-top: .4em; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.focus-item h3 { margin: 0 0 12px; font-size: clamp(2rem, 3.8vw, 4.2rem); line-height: 1; }
+.focus-item p { max-width: 54ch; margin: 0; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.16rem); line-height: 1.6; }
+.focus-item small { padding-top: .45em; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
 .community-proof { padding: clamp(100px, 14vw, 210px) 0; border-top: 1px solid var(--line); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); gap: clamp(30px, 7vw, 110px); align-items: end; margin-bottom: clamp(48px, 7vw, 96px); }
 .section-heading .eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
@@ -142,6 +153,12 @@ button:active, a:active { transform: translateY(1px); }
   .section-heading { grid-template-columns: 1fr; gap: 20px; }
   .section-heading .eyebrow { grid-column: auto; }
   .section-heading h2, .future h2, .take-part h2, .community-signup h2 { font-size: clamp(2.2rem, 8.5vw, 3.6rem); line-height: 1.05; }
+  .focus-areas { padding: 88px 0; }
+  .focus-heading { grid-template-columns: 1fr; gap: 22px; margin-bottom: 52px; }
+  .focus-heading .eyebrow { margin-top: 0; }
+  .focus-heading h2 { font-size: clamp(2.2rem, 8.5vw, 3.6rem); line-height: 1.05; }
+  .focus-item { grid-template-columns: 36px 1fr; gap: 14px; }
+  .focus-item small { grid-column: 2; padding-top: 0; }
   .community-proof { padding: 88px 0; }
   .community-proof > .media-placeholder, .community-proof > .media-live { min-height: 0; aspect-ratio: 16 / 10; max-height: 400px; }
   .future { padding-block: 96px; padding-inline: 20px; }

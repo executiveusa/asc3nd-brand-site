@@ -1,7 +1,19 @@
-export const metadata = {\n  title: "Take part | ASC3ND",\n  description: "Connect with ASC3ND as a family, mentor, volunteer, or community partner.",\n  alternates: { canonical: "https://asc3nd.org/take-part", languages: { "en-US": "https://asc3nd.org/take-part", "es": "https://asc3nd.org/es/participar" } },\n};\n\nimport { DocumentaryFrame } from "@/components/DocumentaryFrame";
+import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { participationRoutes } from "@/lib/site-content";
 import { getApprovedMedia } from "@/lib/media-registry";
+
+export const metadata = {
+  title: "Take part | ASC3ND",
+  description: "Connect with ASC3ND as a family, mentor, volunteer, or community partner.",
+  alternates: {
+    canonical: "https://asc3nd.org/take-part",
+    languages: {
+      "en-US": "https://asc3nd.org/take-part",
+      es: "https://asc3nd.org/es/participar",
+    },
+  },
+};
 
 export default function TakePartPage() {
   return (

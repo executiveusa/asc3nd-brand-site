@@ -20,8 +20,9 @@ export default function Home() {
         <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">
           <a href="#story">Founders</a>
-          <a href="/events">Events</a>
+          <a href="/events">Work</a>
           <a href="#take-part">Take part</a>
+          <a href="/merch">Merch</a>
         </nav>
       </header>
 
@@ -142,8 +143,9 @@ export default function Home() {
           <div className="footer-meta">
             <nav className="footer-links" aria-label="Footer navigation">
               <a href="#story"><span>Founders</span><span aria-hidden="true">↗</span></a>
-              <a href="/events"><span>Events</span><span aria-hidden="true">↗</span></a>
+              <a href="/events"><span>Work</span><span aria-hidden="true">↗</span></a>
               <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
+              <a href="/merch"><span>Merch</span><span aria-hidden="true">↗</span></a>
             </nav>
             <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
           </div>

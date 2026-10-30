@@ -12,6 +12,12 @@ import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
 import "./community-proof.css";
 
+export const metadata = {
+  title: "ASC3ND",
+  description: "ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.",
+  alternates: { canonical: "https://asc3nd.org/", languages: { "en-US": "https://asc3nd.org/", "es": "https://asc3nd.org/es" } },
+};
+
 export default function Home() {
   const communityCutsPoster = getApprovedProjectMedia(communityCutsProject)[0]?.src;
 

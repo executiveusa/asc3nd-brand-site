@@ -98,14 +98,14 @@ export default function Home() {
             <div className="community-project-meta">
               <p>{communityCutsProject.location} · {communityCutsProject.dateLabel}</p>
               <p className="community-project-summary">{communityCutsProject.summary}</p>
-              <a href="/projects/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
+              <a href="/events/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           {communityCutsProject.featuredFilm ? (
             <RecentWorkVideoCard
               src={communityCutsProject.featuredFilm.embedSrc}
               poster={communityCutsPoster}
-              href="/projects/community-cuts"
+              href="/events/community-cuts"
               label="Community Cuts for Kids"
             />
           ) : null}

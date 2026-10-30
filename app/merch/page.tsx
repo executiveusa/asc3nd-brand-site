@@ -7,6 +7,7 @@ import "./merch.css";
 export const metadata = {
   title: "Merch | ASC3ND",
   description: "ASC3ND merchandise: an optional way to support the organization and represent the mission.",
+  alternates: { canonical: "https://asc3nd.org/merch", languages: { "en-US": "https://asc3nd.org/merch", "es": "https://asc3nd.org/es/merch" } },
 };
 
 export const dynamic = "force-dynamic";

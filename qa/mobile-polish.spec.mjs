@@ -86,11 +86,11 @@ test("Community Cuts 390px gallery and lightbox", async ({ page }) => {
   page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
   page.on("pageerror", (err) => errors.push(err.message));
 
-  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
+  await page.goto(baseURL + "/events/community-cuts", { waitUntil: "domcontentloaded" });
   await assertNoHorizontalOverflow(page);
 
   const cards = page.locator(".project-proof-card");
-  await expect(cards).toHaveCount(10);
+  await expect(cards).toHaveCount(18);
   await settleLazyMedia(page);
   await page.screenshot({ path: "test-results/community-cuts-390.png", fullPage: true });
 
@@ -174,11 +174,13 @@ test("Reduced motion keeps content visible", async ({ browser }) => {
 
 const interiorRoutes = [
   "/story",
+  "/merch",
   "/impact",
   "/take-part",
   "/privacy",
   "/youth-safety",
   "/transparency",
+  "/merch",
 ];
 
 for (const route of interiorRoutes) {
@@ -244,7 +246,7 @@ const keyboardRoutes = [
   "/story",
   "/impact",
   "/take-part",
-  "/projects/community-cuts",
+  "/events/community-cuts",
   "/privacy",
   "/youth-safety",
   "/transparency",
@@ -312,7 +314,7 @@ test("skip link moves focus to main content", async ({ page }) => {
   await expect(page.locator("#main-content")).toBeFocused();
 });
 
-for (const route of ["/", "/story", "/impact", "/take-part", "/privacy", "/youth-safety", "/transparency", "/projects/community-cuts"]) {
+for (const route of ["/", "/story", "/impact", "/take-part", "/privacy", "/youth-safety", "/transparency", "/events/community-cuts"]) {
   test(`semantic landmarks ${route}`, async ({ page }) => {
     await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
     await expect(page.locator("main#main-content")).toHaveCount(1);
@@ -328,7 +330,7 @@ for (const route of ["/", "/story", "/impact", "/take-part", "/privacy", "/youth
 
 test("Community Cuts lightbox traps focus and restores trigger", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "domcontentloaded" });
+  await page.goto(baseURL + "/events/community-cuts", { waitUntil: "domcontentloaded" });
   const firstCard = page.locator(".project-proof-card").first();
   await firstCard.focus();
   await expect(firstCard).toBeFocused();
@@ -356,7 +358,7 @@ test("Community Cuts lightbox traps focus and restores trigger", async ({ page }
 
 test("event credits dialog is named, keyboard-closeable, and restores trigger", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(baseURL + "/projects/community-cuts", { waitUntil: "networkidle" });
+  await page.goto(baseURL + "/events/community-cuts", { waitUntil: "networkidle" });
 
   const trigger = page.getByRole("button", { name: /View event credits/i });
   await trigger.focus();
@@ -383,7 +385,7 @@ const semanticSmokeRoutes = [
   "/take-part/family",
   "/take-part/mentor-volunteer",
   "/take-part/partner",
-  "/projects/community-cuts",
+  "/events/community-cuts",
   "/privacy",
   "/youth-safety",
   "/transparency",
@@ -446,7 +448,7 @@ const axeRoutes = [
   "/take-part/family",
   "/take-part/mentor-volunteer",
   "/take-part/partner",
-  "/projects/community-cuts",
+  "/events/community-cuts",
   "/privacy",
   "/youth-safety",
   "/transparency",
@@ -487,7 +489,7 @@ const craftRoutes = [
   { route: "/story", slug: "story" },
   { route: "/impact", slug: "impact" },
   { route: "/take-part", slug: "take-part" },
-  { route: "/projects/community-cuts", slug: "community-cuts" },
+  { route: "/events/community-cuts", slug: "community-cuts" },
 ];
 
 for (const { route, slug } of craftRoutes) {

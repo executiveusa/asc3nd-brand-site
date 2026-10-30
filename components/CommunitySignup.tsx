@@ -35,12 +35,12 @@ export function CommunitySignup({ locale = "en" }: { locale?: "en" | "es" }) {
 
       if (!response.ok || !data?.ok) {
         setState("error");
-        setMessage(data?.message || (locale === "es" ? "No pudimos guardar tu registro. Inténtalo de nuevo." : "We could not save your signup. Please try again."));
+        setMessage(locale === "es" ? "No pudimos guardar tu registro. Inténtalo de nuevo." : (data?.message || "We could not save your signup. Please try again."));
         return;
       }
 
       setState("success");
-      setMessage(data.message || (locale === "es" ? "Ya estás registrado para recibir novedades de ASC3ND." : "You are signed up for ASC3ND updates."));
+      setMessage(locale === "es" ? "Ya estás registrado para recibir novedades de ASC3ND." : (data.message || "You are signed up for ASC3ND updates."));
       form.reset();
     } catch {
       setState("error");

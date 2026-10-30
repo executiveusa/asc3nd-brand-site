@@ -16,6 +16,17 @@ const routes = [
   "/privacy",
   "/youth-safety",
   "/transparency",
+  "/es",
+  "/es/eventos",
+  "/es/eventos/community-cuts",
+  "/es/participar",
+  "/es/participar/familia",
+  "/es/participar/mentores-voluntariado",
+  "/es/participar/aliados",
+  "/es/merch",
+  "/es/privacidad",
+  "/es/seguridad-juvenil",
+  "/es/transparencia",
 ] as const;
 
 function xmlEscape(value: string) {

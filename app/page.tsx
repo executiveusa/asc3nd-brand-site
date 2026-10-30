@@ -1,4 +1,5 @@
 import { BrandWordmark } from "@/components/BrandWordmark";
+import { HeroWordmark } from "@/components/HeroWordmark";
 import { CrownMark } from "@/components/CrownMark";
 import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
@@ -26,7 +27,7 @@ export default function Home() {
 
       <section className="hero shell" id="top">
         <div className="hero-mark"><CrownMark /></div>
-        <h1><BrandWordmark text={siteStory.hero.headline} /></h1>
+        <h1><HeroWordmark /></h1>
         <div
           className="hero-statements"
           aria-label="ASC3ND mission statements"

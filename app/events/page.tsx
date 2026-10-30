@@ -75,6 +75,7 @@ export default function EventsPage() {
             <Link href="/">Home</Link>
             <Link href="/story">Story</Link>
             <Link href="/events">Events</Link>
+          <Link href="/merch">Merch</Link>
             <Link href="/take-part">Take part</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/youth-safety">Youth safety</Link>

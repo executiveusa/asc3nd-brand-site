@@ -132,7 +132,7 @@ export default function SpanishHome() {
               <a href="#participar"><span>Participar</span><span aria-hidden="true">↗</span></a>
               <a href="/es/merch"><span>Merch</span><span aria-hidden="true">↗</span></a>
             </nav>
-            <div><SocialLinks /><p><a href="/es/privacidad">Privacidad</a> · <a href="/es/seguridad-juvenil">Seguridad juvenil</a> · <a href="mailto:main@asc3nd.org">Contacto</a></p></div>
+            <div><SocialLinks /><p><a href="/es/transparencia">Transparencia</a> · <a href="/es/privacidad">Privacidad</a> · <a href="/es/seguridad-juvenil">Seguridad juvenil</a> · <a href="mailto:main@asc3nd.org">Contacto</a></p></div>
           </div>
         </div>
       </footer>

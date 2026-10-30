@@ -41,7 +41,7 @@ export default function EventsPage() {
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
 
-              <Link className="event-record-cover" href={`/projects/${project.slug}`} aria-label={`Open ${project.title} event record`}>
+              <Link className="event-record-cover" href={`/events/${project.slug}`} aria-label={`Open ${project.title} event record`}>
                 {cover?.src ? (
                   <img src={cover.src} alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
                 ) : (
@@ -59,18 +59,13 @@ export default function EventsPage() {
                   <span>{media.length} approved photos</span>
                   <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Outcomes pending verification"}</span>
                 </div>
-                <Link className="event-record-link" href={`/projects/${project.slug}`}>
+                <Link className="event-record-link" href={`/events/${project.slug}`}>
                   Open full event gallery <span aria-hidden="true">↗</span>
                 </Link>
               </div>
             </article>
           );
         })}
-      </section>
-
-      <section className="events-next shell">
-        <p className="eyebrow">NEXT RECORD</p>
-        <h2>The next confirmed ASC3ND event will be added here.</h2>
       </section>
 
       <footer className="footer interior-footer">

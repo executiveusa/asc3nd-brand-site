@@ -16,7 +16,7 @@ export default function EventosPage() {
     <main id="main-content" tabIndex={-1} lang="es">
       <header className="masthead shell">
         <Link className="wordmark" href="/es" aria-label="Inicio de ASC3ND"><BrandWordmark /></Link>
-        <nav className="nav" aria-label="Navegación principal">
+        <nav className="nav compact-mobile-nav" aria-label="Navegación principal">
           <Link href="/es">Historia</Link>
           <Link href="/es/eventos" aria-current="page">Eventos</Link>
           <Link href="/es/participar">Participar</Link>

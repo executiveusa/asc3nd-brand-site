@@ -170,12 +170,12 @@ export function ParticipationForm({ kind, locale = "en" }: Props) {
 
       const data = await response.json().catch(() => null);
       if (!response.ok) {
-        setStatus(`${data?.message || strings.submitFail} ${strings.submitSaved}`);
+        setStatus(`${locale === "es" ? strings.submitFail : (data?.message || strings.submitFail)} ${strings.submitSaved}`);
         saveDraft();
         return;
       }
 
-      setStatus(data?.message || strings.received);
+      setStatus(locale === "es" ? strings.received : (data?.message || strings.received));
       clearDraft();
       formElement.reset();
       setRoute(formCopy.defaultRoute);

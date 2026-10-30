@@ -502,3 +502,44 @@ for (const { route, slug } of craftRoutes) {
     });
   });
 }
+
+
+const spanishSmokeRoutes = [
+  "/es",
+  "/es/eventos",
+  "/es/eventos/community-cuts",
+  "/es/participar",
+  "/es/participar/familia",
+  "/es/participar/mentores-voluntariado",
+  "/es/participar/aliados",
+  "/es/merch",
+  "/es/privacidad",
+  "/es/seguridad-juvenil",
+  "/es/transparencia",
+];
+
+for (const route of spanishSmokeRoutes) {
+  test(`Spanish mobile/accessibility smoke ${route}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const errors = [];
+    page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
+    page.on("pageerror", (err) => errors.push(err.message));
+
+    const response = await page.goto(baseURL + route, { waitUntil: "domcontentloaded" });
+    expect(response?.status() || 0).toBeLessThan(400);
+    await expect(page.locator("main#main-content")).toBeVisible();
+    await expect(page.locator("h1")).toHaveCount(1);
+    await assertNoHorizontalOverflow(page);
+    await assertMinimumTargets(page, ".nav a, button, a.button");
+
+    const language = await page.locator("main#main-content").getAttribute("lang");
+    expect(language).toBe("es");
+
+    const imagesMissingAlt = await page.locator("img").evaluateAll((els) =>
+      els.filter((el) => !el.hasAttribute("alt")).map((el) => el.outerHTML.slice(0, 180))
+    );
+    expect(imagesMissingAlt, `${route}: images missing alt ${JSON.stringify(imagesMissingAlt)}`).toEqual([]);
+
+    expect(errors, JSON.stringify(errors)).toEqual([]);
+  });
+}

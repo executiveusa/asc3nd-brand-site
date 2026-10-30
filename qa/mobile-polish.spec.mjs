@@ -65,12 +65,12 @@ for (const vp of viewports) {
     await assertNoHorizontalOverflow(page);
 
     await assertMinimumTargets(page,
-      ".nav a, .hero-action, .choices a, .community-signup-form button, .social-links a"
+      ".site-nav a, .home-hero-actions a, .home-join-row, .community-signup-form button, .social-links a"
     );
 
-    await expect(page.locator(".hero h1")).toBeVisible();
+    await expect(page.locator(".home-hero h1")).toBeVisible();
     await expect(page.locator("#story")).toBeVisible();
-    await expect(page.locator("#community")).toBeVisible();
+    await expect(page.locator(".home-essay")).toBeVisible();
     await expect(page.locator("#take-part")).toBeVisible();
 
     await settleLazyMedia(page);
@@ -90,7 +90,7 @@ test("Community Cuts 390px gallery and lightbox", async ({ page }) => {
   await assertNoHorizontalOverflow(page);
 
   const cards = page.locator(".project-proof-card");
-  await expect(cards).toHaveCount(10);
+  await expect(cards).toHaveCount(12);
   await settleLazyMedia(page);
   await page.screenshot({ path: "test-results/community-cuts-390.png", fullPage: true });
 
@@ -201,7 +201,7 @@ for (const route of interiorRoutes) {
       const title = page.locator("h1").first();
       await expect(title).toBeVisible();
 
-      await assertMinimumTargets(page, ".nav a, a.button, button");
+      await assertMinimumTargets(page, ".nav a, .site-nav a, a.button, button");
 
       const metrics = await page.evaluate(() => ({
         width: window.innerWidth,

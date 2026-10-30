@@ -60,3 +60,21 @@
   .footer-links a:nth-child(2) { margin-left: 14px; }
   .footer-links a:nth-child(3) { margin-left: 30px; }
 }
+
+
+.community-archive-link {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 28px;
+}
+
+.community-archive-link a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}

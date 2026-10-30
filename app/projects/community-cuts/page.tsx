@@ -20,7 +20,7 @@ export default function CommunityCutsPage() {
         <Link className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></Link>
         <nav className="nav" aria-label="Project navigation">
           <Link href="/">Home</Link>
-          <Link href="/#community">Community</Link>
+          <Link href="/events">Events</Link>
           <Link href="/take-part">Take part</Link>
         </nav>
       </header>
@@ -54,7 +54,7 @@ export default function CommunityCutsPage() {
         </div>
         <ProjectProofGallery
           items={communityCutsProject.media}
-          initialVisible={10}
+          initialVisible={12}
           emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
         />
       </section>

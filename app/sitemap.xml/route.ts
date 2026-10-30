@@ -5,7 +5,7 @@ const CANONICAL_HOSTS = new Set(["asc3nd.org", "www.asc3nd.org"]);
 const routes = [
   "/",
   "/story",
-  "/impact",
+  "/events",
   "/projects/community-cuts",
   "/take-part",
   "/take-part/family",

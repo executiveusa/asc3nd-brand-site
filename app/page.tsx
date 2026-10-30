@@ -5,7 +5,6 @@ import { CommunitySignup } from "@/components/CommunitySignup";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { MotionReveal } from "@/components/MotionReveal";
 import { ProjectProofGallery } from "@/components/ProjectProofGallery";
-import { ProjectFilm } from "@/components/ProjectFilm";
 import { SocialLinks } from "@/components/SocialLinks";
 import { communityCutsProject } from "@/lib/projects";
 import { participationRoutes, siteStory } from "@/lib/site-content";
@@ -18,7 +17,7 @@ export default function Home() {
         <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">
           <a href="#story">Founders</a>
-          <a href="#community">Community</a>
+          <a href="/events">Events</a>
           <a href="#take-part">Take part</a>
         </nav>
       </header>
@@ -39,7 +38,7 @@ export default function Home() {
         <p className="hero-explainer">ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.</p>
         <div className="hero-actions" aria-label="Start here">
           <a className="hero-action hero-action-primary" href="#take-part">Take part <span aria-hidden="true">→</span></a>
-          <a className="hero-action" href="#community">See the work <span aria-hidden="true">↓</span></a>
+          <a className="hero-action" href="/events">See the work <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
@@ -70,27 +69,22 @@ export default function Home() {
       <MotionReveal>
         <section className="community-proof shell" id="community" aria-labelledby="community-title">
           <div className="section-heading">
-            <p className="eyebrow">COMMUNITY CUTS FOR KIDS · PROJECT 001</p>
-            <h2 id="community-title">Community Cuts.</h2>
+            <p className="eyebrow">RECENT WORK · PROJECT 001</p>
+            <h2 id="community-title">Community Cuts for Kids.</h2>
             <div className="community-project-meta">
               <p>{communityCutsProject.location} · {communityCutsProject.dateLabel}</p>
-              <a href="/projects/community-cuts">View the project <span aria-hidden="true">↗</span></a>
+              <a href="/projects/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
             </div>
           </div>
-          {communityCutsProject.featuredFilm ? (
-            <div className="community-featured-film">
-              <div>
-                <p className="eyebrow">THE FILM</p>
-                <p className="community-film-copy">Watch Community Cuts for Kids in Everett.</p>
-              </div>
-              <ProjectFilm film={communityCutsProject.featuredFilm} />
-            </div>
-          ) : null}
           <ProjectProofGallery
             items={communityCutsProject.media}
             compact
+            maxVisible={3}
             emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
           />
+          <div className="community-archive-link">
+            <a href="/events">View all ASC3ND events <span aria-hidden="true">↗</span></a>
+          </div>
         </section>
       </MotionReveal>
 
@@ -128,7 +122,7 @@ export default function Home() {
           <div className="footer-meta">
             <nav className="footer-links" aria-label="Footer navigation">
               <a href="#story"><span>Founders</span><span aria-hidden="true">↗</span></a>
-              <a href="#community"><span>Community</span><span aria-hidden="true">↗</span></a>
+              <a href="/events"><span>Events</span><span aria-hidden="true">↗</span></a>
               <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
             </nav>
             <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>

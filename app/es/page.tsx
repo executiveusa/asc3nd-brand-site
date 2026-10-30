@@ -27,7 +27,7 @@ export default function SpanishHome() {
     <main id="main-content" tabIndex={-1} lang="es">
       <header className="masthead shell">
         <a className="wordmark" href="/es" aria-label="Inicio de ASC3ND"><BrandWordmark /></a>
-        <nav className="nav" aria-label="Navegación principal">
+        <nav className="nav home-nav" aria-label="Navegación principal">
           <a href="#historia">Fundadores</a>
           <a href="/es/eventos">Trabajo</a>
           <a href="#participar">Participar</a>

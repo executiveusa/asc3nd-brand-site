@@ -8,18 +8,21 @@ type InteriorPageProps = {
   title: string;
   intro: string;
   children: ReactNode;
+  locale?: "en" | "es";
+  enHref?: string;
+  esHref?: string;
 };
 
-export function InteriorPage({ eyebrow, title, intro, children }: InteriorPageProps) {
+export function InteriorPage({ eyebrow, title, intro, children, locale = "en", enHref = "/", esHref = "/es" }: InteriorPageProps) {
   return (
-    <main id="main-content" tabIndex={-1}>
+    <main id="main-content" tabIndex={-1} lang={locale}>
       <header className="masthead shell">
-        <a className="wordmark" href="/" aria-label="ASC3ND home"><BrandWordmark /></a>
+        <a className="wordmark" href={locale === "es" ? "/es" : "/"} aria-label={locale === "es" ? "Inicio de ASC3ND" : "ASC3ND home"}><BrandWordmark /></a>
         <nav className="nav" aria-label="Primary navigation">
-          <a href="/events">Events</a>
-          <a href="/story">Story</a>
-          <a href="/take-part">Take part</a>
-          <LocaleSwitch enHref="/" esHref="/es" />
+          <a href={locale === "es" ? "/es/eventos" : "/events"}>{locale === "es" ? "Eventos" : "Events"}</a>
+          <a href={locale === "es" ? "/es" : "/story"}>{locale === "es" ? "Historia" : "Story"}</a>
+          <a href={locale === "es" ? "/es/participar" : "/take-part"}>{locale === "es" ? "Participar" : "Take part"}</a>
+          <LocaleSwitch locale={locale} enHref={enHref} esHref={esHref} />
         </nav>
       </header>
 
@@ -35,13 +38,13 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
         <div className="shell interior-footer-inner">
           <p className="eyebrow"><BrandWordmark /></p>
           <nav aria-label="Footer navigation">
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/story">Story</a>
-            <a href="/take-part">Take part</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/youth-safety">Youth safety</a>
-            <a href="mailto:main@asc3nd.org">Contact</a>
+            <a href={locale === "es" ? "/es" : "/"}>{locale === "es" ? "Inicio" : "Home"}</a>
+            <a href={locale === "es" ? "/es/eventos" : "/events"}>{locale === "es" ? "Eventos" : "Events"}</a>
+            <a href={locale === "es" ? "/es" : "/story"}>{locale === "es" ? "Historia" : "Story"}</a>
+            <a href={locale === "es" ? "/es/participar" : "/take-part"}>{locale === "es" ? "Participar" : "Take part"}</a>
+            <a href={locale === "es" ? "/es/privacidad" : "/privacy"}>{locale === "es" ? "Privacidad" : "Privacy"}</a>
+            <a href={locale === "es" ? "/es/seguridad-juvenil" : "/youth-safety"}>{locale === "es" ? "Seguridad juvenil" : "Youth safety"}</a>
+            <a href="mailto:main@asc3nd.org">{locale === "es" ? "Contacto" : "Contact"}</a>
           </nav>
           <SocialLinks />
         </div>

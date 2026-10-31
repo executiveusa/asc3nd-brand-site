@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { signupEs } from "@/lib/participation.es";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -30,9 +31,27 @@ const englishCopy: SignupCopy = {
   unreachable: "We could not reach ASC3ND right now. Check your connection and try again.",
 };
 
-type CommunitySignupProps = { copy?: SignupCopy; language?: "en" | "es"; sourcePage?: string };
+const spanishCopy: SignupCopy = {
+  title: signupEs.title,
+  body: signupEs.intro,
+  name: signupEs.name,
+  email: signupEs.email,
+  consent: signupEs.consent,
+  submit: signupEs.submit,
+  submitting: signupEs.submitting,
+  success: signupEs.success,
+  failed: signupEs.error,
+  unreachable: signupEs.network,
+};
 
-export function CommunitySignup({ copy = englishCopy, language = "en", sourcePage = "asc3nd.org/home" }: CommunitySignupProps = {}) {
+/** `locale="es"` is the shortcut for the Spanish pages; `copy`, `language` and `sourcePage` override it. */
+type CommunitySignupProps = { copy?: SignupCopy; language?: "en" | "es"; sourcePage?: string; locale?: "en" | "es" };
+
+export function CommunitySignup({ locale, copy: copyProp, language: languageProp, sourcePage: sourceProp }: CommunitySignupProps = {}) {
+  const language = languageProp ?? locale ?? "en";
+  const copy = copyProp ?? (language === "es" ? spanishCopy : englishCopy);
+  const sourcePage = sourceProp ?? (language === "es" ? "asc3nd.org/es" : "asc3nd.org/home");
+  const honeypot = language === "es" ? signupEs.honeypot : "Website";
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
 
@@ -96,7 +115,7 @@ export function CommunitySignup({ copy = englishCopy, language = "en", sourcePag
           <span>{copy.consent}</span>
         </label>
         <label className="signup-honeypot" aria-hidden="true">
-          <span>Website</span>
+          <span>{honeypot}</span>
           <input name="website" type="text" tabIndex={-1} autoComplete="off" />
         </label>
         <button type="submit" disabled={state === "submitting"}>

@@ -53,13 +53,6 @@
   display: block;
   object-fit: contain;
   background: #d8d4c9;
-  transition: transform 300ms cubic-bezier(.2,.7,.2,1), filter 220ms ease;
-}
-
-.project-proof-card:hover img,
-.project-proof-card:hover video {
-  transform: scale(1.01);
-  filter: brightness(.93);
 }
 
 .project-proof-card:focus-visible {
@@ -219,9 +212,4 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .project-proof-card img,
-  .project-proof-card video {
-    transition: none;
-  }
-}
+

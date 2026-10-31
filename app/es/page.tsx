@@ -4,6 +4,8 @@ import { CrownMark } from "@/components/CrownMark";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { EssayGrid, type EssayEntry } from "@/components/EssayGrid";
+import { RevealInit } from "@/components/RevealInit";
 import { ui } from "@/lib/i18n";
 import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import {
@@ -23,14 +25,21 @@ const photo = (n: string) => `/images/projects/community-cuts/community-cuts-${n
 
 const focusPhotos = [photo("043"), photo("059"), photo("040")];
 
-const essay = [
-  { src: photo("046"), shape: "wide" },
-  { src: photo("081"), shape: "tall" },
-  { src: photo("010"), shape: "square" },
-  { src: photo("042"), shape: "square" },
-  { src: photo("017"), shape: "tall" },
-  { src: photo("016"), shape: "wide" },
-] as const;
+// Same order as the English page: the silent loop takes the tall right slot (second in the grid).
+// essayAlts keeps the original photo order: 046, 081, 010, 042, 017, 016.
+const essayPhotos = [
+  { src: photo("046"), alt: t.essayAlts[0] },
+  { src: photo("010"), alt: t.essayAlts[2] },
+  { src: photo("042"), alt: t.essayAlts[3] },
+  { src: photo("081"), alt: t.essayAlts[1] },
+  { src: photo("017"), alt: t.essayAlts[4] },
+  { src: photo("016"), alt: t.essayAlts[5] },
+];
+const essay: EssayEntry[] = [
+  { kind: "photo", ...essayPhotos[0] },
+  { kind: "loop" },
+  ...essayPhotos.slice(1).map((p) => ({ kind: "photo" as const, ...p })),
+];
 
 export const metadata = pageMetadata({
   title: t.meta.title,
@@ -44,6 +53,7 @@ export default function HomeEs() {
     <>
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
+        <RevealInit />
         <section className="home-hero shell" aria-labelledby="home-title">
           <div className="home-hero-crown" aria-hidden="true"><CrownMark /></div>
           <h1 id="home-title" className="home-hero-logo"><BrandLogo title="ASC3ND" /></h1>
@@ -56,7 +66,7 @@ export default function HomeEs() {
         </section>
 
         <figure className="home-hero-media">
-          <img src={photo("060")} style={{ height: "auto" }} alt={t.heroAlt} width={1600} height={1067} fetchPriority="high" />
+          <img data-reveal="" src={photo("060")} style={{ height: "auto" }} alt={t.heroAlt} width={1600} height={1067} fetchPriority="high" />
           <figcaption className="shell home-proof">{t.proof(photoCount)}</figcaption>
         </figure>
 
@@ -65,7 +75,7 @@ export default function HomeEs() {
           <div className="home-founders-grid">
             {founderQuotesEs.map((founder, i) => (
               <figure className="home-founder" key={founder.name}>
-                <img src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={t.founderAlt(founder.name, founder.role)} loading="lazy" />
+                <img data-reveal="" src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={t.founderAlt(founder.name, founder.role)} loading="lazy" />
                 <blockquote>
                   <p>“{founder.quote}”</p>
                 </blockquote>
@@ -83,7 +93,7 @@ export default function HomeEs() {
           </div>
           {pathwaysEs.map((area, i) => (
             <article className={`home-focus-row shell ${i % 2 ? "is-reversed" : ""}`} key={area.title}>
-              <img src={focusPhotos[i]} alt={t.focusPhotoAlts[i]} loading="lazy" />
+              <img data-reveal="" src={focusPhotos[i]} alt={t.focusPhotoAlts[i]} loading="lazy" />
               <div className="home-focus-copy">
                 <h3>{area.title}</h3>
                 <p>{area.copy}</p>
@@ -98,11 +108,7 @@ export default function HomeEs() {
             <p>{esLocation}, {esDateLabel}. {t.essayIntro}</p>
             <Link className="text-link" href="/es/proyectos/community-cuts">{t.essayLink(photoCount)} <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
-          <div className="shell home-essay-grid">
-            {essay.map((item, i) => (
-              <img key={item.src} className={`essay-${item.shape}`} src={item.src} alt={t.essayAlts[i]} loading="lazy" />
-            ))}
-          </div>
+          <EssayGrid entries={essay} locale="es" />
         </section>
 
         <section className="home-join shell" id="participar" aria-labelledby="join-title">

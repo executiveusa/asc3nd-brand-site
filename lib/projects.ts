@@ -74,7 +74,7 @@ export const communityCutsProject: Asc3ndProject = {
   featuredFilm: {
     title: "Community Cuts for Kids — full film",
     embedSrc: "/media/community-cuts/community-cuts-720.mp4",
-    poster: "/media/community-cuts/community-cuts-poster.jpg",
+    poster: "/media/community-cuts/community-cuts-poster-720.webp",
     hdSrc: COMMUNITY_CUTS_FILM_HD_URL,
     aspectRatio: "9:16",
     caption: "Everett, Washington, August 2026",

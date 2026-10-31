@@ -10,7 +10,7 @@ import type { Locale } from "@/lib/i18n";
 export type EssayEntry = { kind: "photo"; src: string; alt: string } | { kind: "loop" };
 
 const LOOP_SRC = "/media/community-cuts/community-cuts-loop.mp4";
-const LOOP_POSTER = "/media/community-cuts/community-cuts-poster.jpg";
+const LOOP_POSTER = "/media/community-cuts/community-cuts-poster-720.webp";
 
 /** Homepage Community Cuts essay: photos open the shared lightbox; one slot holds the decorative loop. */
 export function EssayGrid({ entries, locale = "en" }: { entries: EssayEntry[]; locale?: Locale }) {

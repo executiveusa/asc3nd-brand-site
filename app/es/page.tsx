@@ -66,7 +66,7 @@ export default function HomeEs() {
         </section>
 
         <figure className="home-hero-media">
-          <img data-reveal="" src={photo("060")} style={{ height: "auto" }} alt={t.heroAlt} width={1600} height={1067} fetchPriority="high" />
+          <img data-reveal="" src={photo("060")} srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`} sizes="100vw" style={{ height: "auto" }} alt={t.heroAlt} width={1600} height={1067} fetchPriority="high" />
           <figcaption className="shell home-proof">{t.proof(photoCount)}</figcaption>
         </figure>
 

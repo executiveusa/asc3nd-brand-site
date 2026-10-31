@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import type { Locale } from "@/lib/i18n";
+import { creditsEs } from "@/lib/site-content.es";
 import "./event-credits.css";
 
 export type EventCreditGroup = {
@@ -11,9 +13,19 @@ export type EventCreditGroup = {
 type EventCreditsProps = {
   eventLabel: string;
   groups: EventCreditGroup[];
+  locale?: Locale;
 };
 
-export function EventCredits({ eventLabel, groups }: EventCreditsProps) {
+const creditsEn = {
+  open: "View event credits",
+  eyebrow: "EVENT CREDITS",
+  title: "The people behind the day.",
+  close: "Close",
+  closeLabel: "Close event credits",
+};
+
+export function EventCredits({ eventLabel, groups, locale = "en" }: EventCreditsProps) {
+  const t = locale === "es" ? creditsEs : creditsEn;
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openCredits = () => dialogRef.current?.showModal();
@@ -22,7 +34,7 @@ export function EventCredits({ eventLabel, groups }: EventCreditsProps) {
   return (
     <>
       <button className="event-credits-trigger" type="button" onClick={openCredits}>
-        View event credits <span aria-hidden="true">↗</span>
+        {t.open} <span aria-hidden="true">↗</span>
       </button>
 
       <dialog
@@ -36,12 +48,12 @@ export function EventCredits({ eventLabel, groups }: EventCreditsProps) {
         <div className="event-credits-panel">
           <div className="event-credits-header">
             <div>
-              <p className="eyebrow">EVENT CREDITS</p>
-              <h2 id="event-credits-title">The people behind the day.</h2>
+              <p className="eyebrow">{t.eyebrow}</p>
+              <h2 id="event-credits-title">{t.title}</h2>
               <p>{eventLabel}</p>
             </div>
-            <button className="event-credits-close" type="button" onClick={closeCredits} aria-label="Close event credits">
-              Close
+            <button className="event-credits-close" type="button" onClick={closeCredits} aria-label={t.closeLabel}>
+              {t.close}
             </button>
           </div>
 

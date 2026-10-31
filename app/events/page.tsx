@@ -5,11 +5,13 @@ import { asc3ndProjects, getApprovedProjectMedia } from "@/lib/projects";
 import "./events.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Events | ASC3ND",
+export const metadata = pageMetadata({
+  title: "Events",
   description: "A growing archive of ASC3ND events, project records, films, approved photographs, credits, and verified outcomes.",
-};
+  path: "/events",
+});
 
 export default function EventsPage() {
   return (

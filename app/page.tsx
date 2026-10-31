@@ -4,9 +4,12 @@ import { CrownMark } from "@/components/CrownMark";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { communityCutsProject } from "@/lib/projects";
+import { EssayGrid, type EssayEntry } from "@/components/EssayGrid";
+import { RevealInit } from "@/components/RevealInit";
+import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
 import "./home.css";
+import { pageMetadata } from "@/lib/metadata";
 
 const photo = (n: string) => `/images/projects/community-cuts/community-cuts-${n}.jpg`;
 
@@ -16,20 +19,35 @@ const focusPhotos = [
   { src: photo("040"), alt: "Families and volunteers at the ASC3ND table under the event tent" },
 ];
 
-const essay = [
-  { src: photo("046"), alt: "ASC3ND volunteers laughing while sorting backpacks in front of a back-to-school sign", shape: "wide" },
-  { src: photo("081"), alt: "A barber shaping a boy's hair", shape: "tall" },
-  { src: photo("010"), alt: "Two volunteers at the ASC3ND sign-in table", shape: "square" },
-  { src: photo("042"), alt: "A mother and her sons holding the items they received", shape: "square" },
-  { src: photo("017"), alt: "A volunteer handing out backpacks under the ASC3ND banner", shape: "tall" },
-  { src: photo("016"), alt: "Haircuts underway inside the barbershop", shape: "wide" },
-] as const;
+const essayPhotos = [
+  { src: photo("046"), alt: "ASC3ND volunteers laughing while sorting backpacks in front of a back-to-school sign" },
+  { src: photo("010"), alt: "Two volunteers at the ASC3ND sign-in table" },
+  { src: photo("042"), alt: "A mother and her sons holding the items they received" },
+  { src: photo("081"), alt: "A barber shaping a boy's hair" },
+  { src: photo("017"), alt: "A volunteer handing out backpacks under the ASC3ND banner" },
+  { src: photo("016"), alt: "Haircuts underway inside the barbershop" },
+];
+
+// The silent loop takes the tall right slot (second in the grid); photos keep their order around it.
+const essay: EssayEntry[] = [
+  { kind: "photo", ...essayPhotos[0] },
+  { kind: "loop" },
+  ...essayPhotos.slice(1).map((p) => ({ kind: "photo" as const, ...p })),
+];
+
+export const metadata = pageMetadata({
+  title: "Empower youth. Elevate futures. Build community.",
+  description: "ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.",
+  path: "/",
+});
 
 export default function Home() {
+  const photoCount = getApprovedProjectMedia(communityCutsProject).length;
   return (
     <>
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
+        <RevealInit />
         <section className="home-hero shell" aria-labelledby="home-title">
           <div className="home-hero-crown" aria-hidden="true"><CrownMark /></div>
           <h1 id="home-title" className="home-hero-logo"><BrandLogo title="ASC3ND" /></h1>
@@ -44,8 +62,8 @@ export default function Home() {
         </section>
 
         <figure className="home-hero-media">
-          <img src={photo("060")} style={{ height: "auto" }} alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community" width={1600} height={1067} fetchPriority="high" />
-          <figcaption className="shell">Community Cuts for Kids, Everett, Washington, August 2026</figcaption>
+          <img data-reveal="" src={photo("060")} srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`} sizes="100vw" style={{ height: "auto" }} alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community" width={1600} height={1067} fetchPriority="high" />
+          <figcaption className="shell home-proof">The first event: Community Cuts for Kids, Everett, Washington, August 2026. {photoCount} photographs in the public record.</figcaption>
         </figure>
 
         <section className="home-founders shell" id="story" aria-labelledby="founders-title">
@@ -53,7 +71,7 @@ export default function Home() {
           <div className="home-founders-grid">
             {siteStory.founders.map((founder, i) => (
               <figure className="home-founder" key={founder.name}>
-                <img src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={`${founder.name}, founder of the ASC3ND Collective`} loading="lazy" />
+                <img data-reveal="" src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={`${founder.name}, founder of the ASC3ND Collective`} loading="lazy" />
                 <blockquote>
                   <p>“{founder.quote}”</p>
                 </blockquote>
@@ -70,7 +88,7 @@ export default function Home() {
           </div>
           {pathways.map((area, i) => (
             <article className={`home-focus-row shell ${i % 2 ? "is-reversed" : ""}`} key={area.title}>
-              <img src={focusPhotos[i].src} alt={focusPhotos[i].alt} loading="lazy" />
+              <img data-reveal="" src={focusPhotos[i].src} alt={focusPhotos[i].alt} loading="lazy" />
               <div className="home-focus-copy">
                 <h3>{area.title}</h3>
                 <p>{area.copy}</p>
@@ -85,13 +103,9 @@ export default function Home() {
             <p>
               {communityCutsProject.location}, {communityCutsProject.dateLabel}. Haircuts and school supplies for kids heading back to school.
             </p>
-            <Link className="text-link" href="/projects/community-cuts">See all 86 photos and the film <span className="arrow" aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/projects/community-cuts">See all {photoCount} photos and the film <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
-          <div className="shell home-essay-grid">
-            {essay.map((item) => (
-              <img key={item.src} className={`essay-${item.shape}`} src={item.src} alt={item.alt} loading="lazy" />
-            ))}
-          </div>
+          <EssayGrid entries={essay} />
         </section>
 
         <section className="home-join shell" id="take-part" aria-labelledby="join-title">

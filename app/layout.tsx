@@ -3,6 +3,7 @@ import "./globals.css";
 import "./interior.css";
 import "./gauntlet.css";
 import "./site-chrome.css";
+import "./motion.css";
 import { OG_IMAGE, SITE_URL } from "@/lib/metadata";
 
 export const metadata: Metadata = {

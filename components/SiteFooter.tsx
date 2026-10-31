@@ -1,32 +1,51 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CrownMark } from "@/components/CrownMark";
 import { SocialLinks } from "@/components/SocialLinks";
+import { localeOf, ui } from "@/lib/i18n";
 
 export function SiteFooter() {
+  const locale = localeOf(usePathname() || "/");
+  const t = ui[locale];
+  const href = {
+    story: locale === "es" ? "/es/historia" : "/story",
+    events: locale === "es" ? "/es/eventos" : "/events",
+    takePart: locale === "es" ? "/es/participar" : "/take-part",
+    support: locale === "es" ? "/es/apoyo" : "/support",
+    shop: locale === "es" ? "/es/tienda" : "/shop",
+    transparency: locale === "es" ? "/es/transparencia" : "/transparency",
+    privacy: locale === "es" ? "/es/privacidad" : "/privacy",
+    youthSafety: locale === "es" ? "/es/seguridad-juvenil" : "/youth-safety",
+  };
+
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" lang={locale}>
       <div className="shell site-footer-inner">
         <div className="site-footer-lead">
-          <p className="site-footer-promise">Empower youth.<br />Elevate futures.<br />Build community.</p>
+          <p className="site-footer-promise">{t.promise[0]}<br />{t.promise[1]}<br />{t.promise[2]}</p>
           <a className="site-footer-mail" href="mailto:main@asc3nd.org">main@asc3nd.org</a>
         </div>
 
-        <nav className="site-footer-columns" aria-label="Footer navigation">
+        <nav className="site-footer-columns" aria-label={t.footerNav}>
           <div>
-            <h2>ASC3ND</h2>
-            <Link href="/story">Story</Link>
-            <Link href="/events">Events</Link>
-            <Link href="/take-part">Take part</Link>
+            <h2>{t.columns.asc3nd}</h2>
+            <Link href={href.story}>{t.links.story}</Link>
+            <Link href={href.events}>{t.links.events}</Link>
+            <Link href={href.takePart}>{t.links.takePart}</Link>
+            <Link href={href.support}>{t.links.support}</Link>
+            <Link href={href.shop}>{t.links.shop}</Link>
           </div>
           <div>
-            <h2>Trust</h2>
-            <Link href="/transparency">Transparency</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/youth-safety">Youth safety</Link>
+            <h2>{t.columns.trust}</h2>
+            <Link href={href.transparency}>{t.links.transparency}</Link>
+            <Link href={href.privacy}>{t.links.privacy}</Link>
+            <Link href={href.youthSafety}>{t.links.youthSafety}</Link>
           </div>
           <div>
-            <h2>Follow</h2>
+            <h2>{t.columns.follow}</h2>
             <SocialLinks />
           </div>
         </nav>
@@ -38,8 +57,8 @@ export function SiteFooter() {
 
         <div className="site-footer-legal">
           <p>The ASC3ND Collective</p>
-          <p>Washington nonprofit corporation, UBI 606 247 629</p>
-          <Link href="/transparency">Public record <span className="arrow" aria-hidden="true">→</span></Link>
+          <p>{t.legal}</p>
+          <Link href={href.transparency}>{t.record} <span className="arrow" aria-hidden="true">→</span></Link>
         </div>
       </div>
     </footer>

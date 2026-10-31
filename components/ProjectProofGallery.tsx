@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, X, Play } from "lucide-react";
 import type { ProjectMediaItem } from "@/lib/projects";
+import type { Locale } from "@/lib/i18n";
+import { galleryEs } from "@/lib/site-content.es";
 import "./project-proof-gallery.css";
 
 type Props = {
@@ -11,6 +13,15 @@ type Props = {
   compact?: boolean;
   initialVisible?: number;
   maxVisible?: number;
+  locale?: Locale;
+};
+
+const galleryEn = {
+  open: (alt: string) => `Open ${alt}`,
+  viewAll: (n: number) => `View all ${n} photos`,
+  close: "Close gallery",
+  prev: "Previous image",
+  next: "Next image",
 };
 
 const SWIPE_THRESHOLD = 42;
@@ -21,7 +32,9 @@ export function ProjectProofGallery({
   compact = false,
   initialVisible,
   maxVisible,
+  locale = "en",
 }: Props) {
+  const t = locale === "es" ? galleryEs : galleryEn;
   const approved = items.filter(
     (item) => item.approved && item.consentConfirmed && item.src,
   );
@@ -136,7 +149,7 @@ export function ProjectProofGallery({
                 lastTriggerRef.current = event.currentTarget;
                 setActiveIndex(index);
               }}
-              aria-label={`Open ${item.alt}`}
+              aria-label={t.open(item.alt)}
               style={aspectRatio ? { aspectRatio } : undefined}
             >
               {item.type === "video" ? (
@@ -164,7 +177,7 @@ export function ProjectProofGallery({
           aria-expanded="false"
           onClick={() => setExpanded(true)}
         >
-          View all {approved.length} photos <span aria-hidden="true">→</span>
+          {t.viewAll(approved.length)} <span aria-hidden="true">→</span>
         </button>
       ) : null}
 
@@ -187,15 +200,15 @@ export function ProjectProofGallery({
             move(delta < 0 ? 1 : -1);
           }}
         >
-          <button ref={closeButtonRef} className="project-proof-close" type="button" onClick={() => setActiveIndex(null)} aria-label="Close gallery">
+          <button ref={closeButtonRef} className="project-proof-close" type="button" onClick={() => setActiveIndex(null)} aria-label={t.close}>
             <X size={22} />
           </button>
           {approved.length > 1 ? (
             <>
-              <button className="project-proof-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">
+              <button className="project-proof-prev" type="button" onClick={() => move(-1)} aria-label={t.prev}>
                 <ArrowLeft size={24} />
               </button>
-              <button className="project-proof-next" type="button" onClick={() => move(1)} aria-label="Next image">
+              <button className="project-proof-next" type="button" onClick={() => move(1)} aria-label={t.next}>
                 <ArrowRight size={24} />
               </button>
             </>

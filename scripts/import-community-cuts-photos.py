@@ -2,10 +2,16 @@
 """Download, optimize, inventory, and wire the approved Community Cuts photo set.
 
 Source: Google Drive folder supplied by the ASC3ND owner.
-Destination: public/images/projects/community-cuts/*.jpg
+Destination: public/images/projects/community-cuts/*.jpg plus 640/1024/1600 px WebP renditions.
 
 This pipeline intentionally stores web-ready derivatives in GitHub rather than multi-megabyte
 camera originals. The originals remain in the owner-controlled Drive folder.
+
+Alt text and the curated order of the first photos live in scripts/community-cuts-alt.json and
+survive regeneration. To change either one, or to regenerate the WebP files and the TypeScript
+manifest from the committed JPEGs without downloading anything, run:
+
+    python3 scripts/import-community-cuts-photos.py --rebuild
 """
 
 from __future__ import annotations
@@ -13,9 +19,9 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
 
-import gdown
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,9 +31,13 @@ DEST_DIR = ROOT / "public" / "images" / "projects" / "community-cuts"
 MANIFEST_TS = ROOT / "lib" / "community-cuts-media.generated.ts"
 PROJECTS_TS = ROOT / "lib" / "projects.ts"
 AUDIT_JSON = ROOT / "docs" / "community-cuts" / "PHOTO_IMPORT_AUDIT.json"
+ALT_JSON = ROOT / "scripts" / "community-cuts-alt.json"
 EXPECTED_COUNT = 86
 MAX_LONG_EDGE = 1600
 JPEG_QUALITY = 82
+WEBP_WIDTHS = (640, 1024, 1600)
+WEBP_QUALITY = 78
+CAPTION = "Community Cuts for Kids, Everett, Washington, August 2026"
 
 
 def natural_key(path: Path):
@@ -35,6 +45,8 @@ def natural_key(path: Path):
 
 
 def download_source() -> list[Path]:
+    import gdown  # imported here so --rebuild works without it
+
     if RAW_DIR.exists():
         shutil.rmtree(RAW_DIR)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -62,9 +74,9 @@ def download_source() -> list[Path]:
 
 
 def optimize(photos: list[Path]) -> list[dict]:
-    if DEST_DIR.exists():
-        shutil.rmtree(DEST_DIR)
     DEST_DIR.mkdir(parents=True, exist_ok=True)
+    for stale in DEST_DIR.glob("community-cuts-*"):
+        stale.unlink()
 
     manifest: list[dict] = []
     for index, source in enumerate(photos, start=1):
@@ -93,13 +105,8 @@ def optimize(photos: list[Path]) -> list[dict]:
         manifest.append(
             {
                 "id": f"community-cuts-photo-{index:03d}",
-                "type": "image",
                 "src": f"/images/projects/community-cuts/{output_name}",
-                "alt": f"Community Cuts for Kids event photo {index}",
-                "caption": "Community Cuts for Kids · Everett, Washington · August 2026",
-                "approved": True,
-                "consentConfirmed": True,
-                "featured": index == 1,
+                "caption": CAPTION,
                 "width": out_width,
                 "height": out_height,
                 "sourceFile": source.name,
@@ -109,28 +116,108 @@ def optimize(photos: list[Path]) -> list[dict]:
     return manifest
 
 
+def describe_existing() -> list[dict]:
+    """Inventory the committed JPEGs (used by --rebuild; no network)."""
+    manifest: list[dict] = []
+    for jpg in sorted(DEST_DIR.glob("community-cuts-[0-9][0-9][0-9].jpg")):
+        index = int(jpg.stem.split("-")[-1])
+        with Image.open(jpg) as image:
+            width, height = ImageOps.exif_transpose(image).size
+        manifest.append(
+            {
+                "id": f"community-cuts-photo-{index:03d}",
+                "src": f"/images/projects/community-cuts/{jpg.name}",
+                "caption": CAPTION,
+                "width": width,
+                "height": height,
+                "bytes": jpg.stat().st_size,
+            }
+        )
+    if len(manifest) != EXPECTED_COUNT:
+        raise RuntimeError(f"Expected {EXPECTED_COUNT} photos on disk, found {len(manifest)}")
+    return manifest
+
+
+def webp_widths(width: int) -> list[int]:
+    """640/1024/1600, capped at the source width, which is always the largest rendition."""
+    widths = [w for w in WEBP_WIDTHS if w < width]
+    if widths and width <= widths[-1] * 1.1:
+        return widths[:-1] + [width]  # source barely wider than the last step: no near-duplicate
+    return widths + [width]
+
+
+def make_webp(jpg: Path) -> list[dict]:
+    """Write metadata-free WebP renditions next to a JPEG and return them."""
+    variants: list[dict] = []
+    with Image.open(jpg) as original:
+        image = ImageOps.exif_transpose(original).convert("RGB")
+        for target in webp_widths(image.width):
+            if target == image.width:
+                resized = image
+            else:
+                resized = image.resize(
+                    (target, max(1, round(image.height * target / image.width))),
+                    Image.Resampling.LANCZOS,
+                )
+            out = jpg.with_name(f"{jpg.stem}-{target}.webp")
+            resized.save(out, format="WEBP", quality=WEBP_QUALITY, method=6)
+            variants.append({"width": target, "src": f"/images/projects/community-cuts/{out.name}"})
+    return variants
+
+
+def load_alt_config(manifest: list[dict]) -> dict:
+    config = json.loads(ALT_JSON.read_text(encoding="utf-8"))
+    ids = {item["id"] for item in manifest}
+    missing = sorted(ids - set(config["alt"]))
+    if missing:
+        raise RuntimeError(f"Alt text missing for: {missing}")
+    unknown = sorted(set(config["alt"]) - ids)
+    if unknown:
+        raise RuntimeError(f"Alt text for unknown photos: {unknown}")
+    order = config["curatedOrder"]
+    if len(set(order)) != len(order) or not set(order) <= ids:
+        raise RuntimeError("curatedOrder must list distinct, known photo ids")
+    return config
+
+
+def curate(manifest: list[dict], curated: list[str]) -> list[dict]:
+    by_id = {item["id"]: item for item in manifest}
+    first = [by_id[photo_id] for photo_id in curated]
+    rest = [item for item in manifest if item["id"] not in set(curated)]
+    return first + rest
+
+
 def write_typescript(manifest: list[dict]) -> None:
+    config = load_alt_config(manifest)
+    manifest = curate(manifest, config["curatedOrder"])
     lines = [
         'import type { ProjectMediaItem } from "./projects";',
         "",
-        "// Generated by scripts/import-community-cuts-photos.py.",
+        "// Generated by scripts/import-community-cuts-photos.py. Do not edit by hand:",
+        "// alt text and the curated order live in scripts/community-cuts-alt.json.",
         "// Owner authorized publication of the supplied Community Cuts photo set on 2026-09-16.",
         "export const communityCutsMedia: ProjectMediaItem[] = [",
     ]
-    for item in manifest:
+    for position, item in enumerate(manifest):
+        variant_lines = [
+            f'      {{ width: {v["width"]}, src: "{v["src"]}" }},' for v in item.get("variants", [])
+        ]
         lines.extend(
             [
                 "  {",
                 f'    id: "{item["id"]}",',
                 '    type: "image",',
                 f'    src: "{item["src"]}",',
-                f'    alt: "{item["alt"]}",',
-                f'    caption: "{item["caption"]}",',
+                f'    alt: {json.dumps(config["alt"][item["id"]], ensure_ascii=False)},',
+                f'    caption: {json.dumps(item["caption"], ensure_ascii=False)},',
                 "    approved: true,",
                 "    consentConfirmed: true,",
-                f'    featured: {str(item["featured"]).lower()},',
+                f"    featured: {str(position == 0).lower()},",
                 f'    width: {item["width"]},',
                 f'    height: {item["height"]},',
+                "    variants: [",
+                *variant_lines,
+                "    ],",
                 "  },",
             ]
         )
@@ -181,13 +268,21 @@ def write_audit(manifest: list[dict]) -> None:
 
 
 def main() -> None:
-    photos = download_source()
-    manifest = optimize(photos)
+    rebuild = "--rebuild" in sys.argv[1:]
+    if rebuild:
+        manifest = describe_existing()
+    else:
+        manifest = optimize(download_source())
+
+    for item in manifest:
+        item["variants"] = make_webp(ROOT / "public" / item["src"].lstrip("/"))
+
     write_typescript(manifest)
     wire_project_model()
-    write_audit(manifest)
-    print(f"Imported {len(manifest)} Community Cuts photos")
-    print(f"Optimized bytes: {sum(item['bytes'] for item in manifest):,}")
+    if not rebuild:
+        write_audit(manifest)
+    print(f"{'Rebuilt' if rebuild else 'Imported'} {len(manifest)} Community Cuts photos")
+    print(f"JPEG bytes: {sum(item['bytes'] for item in manifest):,}")
 
 
 if __name__ == "__main__":

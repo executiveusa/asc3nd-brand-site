@@ -17,7 +17,7 @@ type Props = {
 };
 
 const galleryEn = {
-  open: (alt: string) => `Open ${alt}`,
+  open: (alt: string, n: number, total: number) => `Open photo ${n} of ${total}: ${alt}`,
   viewAll: (n: number) => `View all ${n} photos`,
   close: "Close gallery",
   prev: "Previous image",
@@ -25,6 +25,19 @@ const galleryEn = {
 };
 
 const SWIPE_THRESHOLD = 42;
+
+// Layout widths of a grid card (see project-proof-gallery.css): one column up to 820px,
+// two columns above it, and a featured card that spans the full shell.
+const GRID_SIZES =
+  "(max-width: 820px) calc(100vw - 40px), (max-width: 1600px) 45vw, 680px";
+const FEATURED_SIZES =
+  "(max-width: 820px) calc(100vw - 40px), (max-width: 1600px) 92vw, 1460px";
+const LIGHTBOX_SIZES = "(max-width: 1466px) 90vw, 1320px";
+
+function srcSetFor(item: ProjectMediaItem) {
+  if (!item.variants?.length) return undefined;
+  return item.variants.map((variant) => `${variant.src} ${variant.width}w`).join(", ");
+}
 
 export function ProjectProofGallery({
   items,
@@ -126,6 +139,9 @@ export function ProjectProofGallery({
   }
 
   const active = activeIndex === null ? null : approved[activeIndex];
+  const activeLabel = activeIndex === null || !active
+    ? ""
+    : `Community Cuts for Kids event photo ${activeIndex + 1} of ${approved.length}: ${active.alt}`;
   const visibleItems = maxVisible
     ? approved.slice(0, maxVisible)
     : !compact && initialVisible && !expanded
@@ -149,7 +165,7 @@ export function ProjectProofGallery({
                 lastTriggerRef.current = event.currentTarget;
                 setActiveIndex(index);
               }}
-              aria-label={t.open(item.alt)}
+              aria-label={t.open(item.alt, index + 1, approved.length)}
               style={aspectRatio ? { aspectRatio } : undefined}
             >
               {item.type === "video" ? (
@@ -158,7 +174,17 @@ export function ProjectProofGallery({
                   <span className="project-proof-play" aria-hidden="true"><Play size={18} fill="currentColor" /></span>
                 </>
               ) : (
-                <img src={item.src} alt="" loading={index < 3 ? "eager" : "lazy"} decoding="async" />
+                <img
+                  src={item.src}
+                  srcSet={srcSetFor(item)}
+                  sizes={isFeatured ? FEATURED_SIZES : GRID_SIZES}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  loading={index < 2 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : undefined}
+                  decoding="async"
+                />
               )}
               {(item.caption || item.credit) && (
                 <span className="project-proof-caption">
@@ -187,7 +213,7 @@ export function ProjectProofGallery({
           className="project-proof-lightbox"
           role="dialog"
           aria-modal="true"
-          aria-label={active.alt}
+          aria-label={activeLabel}
           onTouchStart={(event) => {
             touchStartX.current = event.changedTouches[0]?.clientX ?? null;
           }}
@@ -217,7 +243,15 @@ export function ProjectProofGallery({
             {active.type === "video" ? (
               <video src={active.src} poster={active.poster} controls autoPlay playsInline />
             ) : (
-              <img src={active.src} alt={active.alt} />
+              <img
+                src={active.src}
+                srcSet={srcSetFor(active)}
+                sizes={LIGHTBOX_SIZES}
+                alt={active.alt}
+                width={active.width}
+                height={active.height}
+                decoding="async"
+              />
             )}
             {(active.caption || active.credit) && (
               <figcaption>

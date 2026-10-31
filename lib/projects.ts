@@ -13,6 +13,8 @@ export type ProjectMediaItem = {
   approved: boolean;
   consentConfirmed: boolean;
   featured?: boolean;
+  /** Responsive WebP renditions of `src`, narrowest first. `src` stays the full-size fallback. */
+  variants?: { width: number; src: string }[];
   width?: number;
   height?: number;
 };

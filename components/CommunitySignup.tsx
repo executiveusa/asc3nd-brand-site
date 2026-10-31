@@ -4,7 +4,35 @@ import { FormEvent, useState } from "react";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
-export function CommunitySignup() {
+export type SignupCopy = {
+  title: string;
+  body: string;
+  name: string;
+  email: string;
+  consent: string;
+  submit: string;
+  submitting: string;
+  success: string;
+  failed: string;
+  unreachable: string;
+};
+
+const englishCopy: SignupCopy = {
+  title: "Hear what ASC3ND does next.",
+  body: "Occasional email when a program, event or volunteer need is confirmed. Unsubscribe any time.",
+  name: "Name",
+  email: "Email",
+  consent: "I agree to receive ASC3ND updates by email. I can unsubscribe at any time.",
+  submit: "Join updates",
+  submitting: "Joining…",
+  success: "You are signed up for ASC3ND updates.",
+  failed: "We could not save your signup. Please try again.",
+  unreachable: "We could not reach ASC3ND right now. Check your connection and try again.",
+};
+
+type CommunitySignupProps = { copy?: SignupCopy; language?: "en" | "es"; sourcePage?: string };
+
+export function CommunitySignup({ copy = englishCopy, language = "en", sourcePage = "asc3nd.org/home" }: CommunitySignupProps = {}) {
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
 
@@ -24,9 +52,9 @@ export function CommunitySignup() {
           name: formData.get("name"),
           email: formData.get("email"),
           website: formData.get("website"),
-          preferred_language: "en",
+          preferred_language: language,
           consent_accepted: formData.get("consent") === "on",
-          source_page: "asc3nd.org/home",
+          source_page: sourcePage,
         }),
       });
 
@@ -34,45 +62,45 @@ export function CommunitySignup() {
 
       if (!response.ok || !data?.ok) {
         setState("error");
-        setMessage(data?.message || "We could not save your signup. Please try again.");
+        setMessage(data?.message || copy.failed);
         return;
       }
 
       setState("success");
-      setMessage(data.message || "You are signed up for ASC3ND updates.");
+      setMessage(data.message || copy.success);
       form.reset();
     } catch {
       setState("error");
-      setMessage("We could not reach ASC3ND right now. Check your connection and try again.");
+      setMessage(copy.unreachable);
     }
   }
 
   return (
     <section className="community-signup shell" aria-labelledby="community-signup-title">
       <div className="community-signup-copy">
-        <h2 id="community-signup-title">Hear what ASC3ND does next.</h2>
-        <p>Occasional email when a program, event or volunteer need is confirmed. Unsubscribe any time.</p>
+        <h2 id="community-signup-title">{copy.title}</h2>
+        <p>{copy.body}</p>
       </div>
 
       <form className="community-signup-form" onSubmit={submit}>
         <label>
-          <span>Name</span>
+          <span>{copy.name}</span>
           <input name="name" type="text" autoComplete="name" required minLength={2} maxLength={100} />
         </label>
         <label>
-          <span>Email</span>
+          <span>{copy.email}</span>
           <input name="email" type="email" autoComplete="email" required />
         </label>
         <label className="signup-consent">
           <input name="consent" type="checkbox" required />
-          <span>I agree to receive ASC3ND updates by email. I can unsubscribe at any time.</span>
+          <span>{copy.consent}</span>
         </label>
         <label className="signup-honeypot" aria-hidden="true">
           <span>Website</span>
           <input name="website" type="text" tabIndex={-1} autoComplete="off" />
         </label>
         <button type="submit" disabled={state === "submitting"}>
-          {state === "submitting" ? "Joining…" : "Join updates"}
+          {state === "submitting" ? copy.submitting : copy.submit}
         </button>
         <p className={`signup-status signup-status-${state}`} role="status" aria-live="polite">
           {message}

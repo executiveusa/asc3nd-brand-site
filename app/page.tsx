@@ -4,9 +4,10 @@ import { CrownMark } from "@/components/CrownMark";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { communityCutsProject } from "@/lib/projects";
+import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
 import "./home.css";
+import { pageMetadata } from "@/lib/metadata";
 
 const photo = (n: string) => `/images/projects/community-cuts/community-cuts-${n}.jpg`;
 
@@ -25,7 +26,14 @@ const essay = [
   { src: photo("016"), alt: "Haircuts underway inside the barbershop", shape: "wide" },
 ] as const;
 
+export const metadata = pageMetadata({
+  title: "Empower youth. Elevate futures. Build community.",
+  description: "ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.",
+  path: "/",
+});
+
 export default function Home() {
+  const photoCount = getApprovedProjectMedia(communityCutsProject).length;
   return (
     <>
       <SiteHeader />
@@ -45,7 +53,7 @@ export default function Home() {
 
         <figure className="home-hero-media">
           <img src={photo("060")} style={{ height: "auto" }} alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community" width={1600} height={1067} fetchPriority="high" />
-          <figcaption className="shell">Community Cuts for Kids, Everett, Washington, August 2026</figcaption>
+          <figcaption className="shell home-proof">The first event: Community Cuts for Kids, Everett, Washington, August 2026. {photoCount} photographs in the public record.</figcaption>
         </figure>
 
         <section className="home-founders shell" id="story" aria-labelledby="founders-title">
@@ -85,7 +93,7 @@ export default function Home() {
             <p>
               {communityCutsProject.location}, {communityCutsProject.dateLabel}. Haircuts and school supplies for kids heading back to school.
             </p>
-            <Link className="text-link" href="/projects/community-cuts">See all 86 photos and the film <span className="arrow" aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/projects/community-cuts">See all {photoCount} photos and the film <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
           <div className="shell home-essay-grid">
             {essay.map((item) => (

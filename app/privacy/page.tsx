@@ -1,9 +1,11 @@
 import { InteriorPage } from "@/components/InteriorPage";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Privacy | ASC3ND",
+export const metadata = pageMetadata({
+  title: "Privacy",
   description: "How ASC3ND handles information submitted through its website.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

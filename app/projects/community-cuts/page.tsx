@@ -7,11 +7,13 @@ import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import "./project.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Community Cuts for Kids | ASC3ND",
-  description: "ASC3ND project proof for Community Cuts for Kids in Everett, Washington.",
-};
+export const metadata = pageMetadata({
+  title: "Community Cuts for Kids",
+  description: "Community Cuts for Kids in Everett, Washington, August 2026: the event film, 86 approved photographs, and credits.",
+  path: "/projects/community-cuts",
+});
 
 export default function CommunityCutsPage() {
   const media = getApprovedProjectMedia(communityCutsProject);

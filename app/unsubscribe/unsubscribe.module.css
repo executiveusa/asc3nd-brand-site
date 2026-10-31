@@ -29,11 +29,11 @@
 
 .panel h1 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: clamp(3rem, 8vw, 6.8rem);
   font-weight: 400;
   line-height: .92;
-  letter-spacing: -.045em;
+  letter-spacing: -.022em;
 }
 
 .panel > p:not(.eyebrow):not(.note) {

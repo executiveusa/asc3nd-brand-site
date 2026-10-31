@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { BrandWordmark } from "@/components/BrandWordmark";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -51,8 +50,8 @@ export function CommunitySignup() {
   return (
     <section className="community-signup shell" aria-labelledby="community-signup-title">
       <div className="community-signup-copy">
-        <p className="eyebrow">STAY CONNECTED</p>
-        <h2 id="community-signup-title"><BrandWordmark text="ASC3ND" digitNudgeEm={0.005} /> updates.</h2>
+        <h2 id="community-signup-title">Hear what ASC3ND does next.</h2>
+        <p>Occasional email when a program, event or volunteer need is confirmed. Unsubscribe any time.</p>
       </div>
 
       <form className="community-signup-form" onSubmit={submit}>

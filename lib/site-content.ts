@@ -1,19 +1,19 @@
 export const siteStory = {
   hero: {
-    headline: "ASC3ND.ORG",
-    lines: ["EMPOWER YOUTH.", "ELEVATE FUTURES.", "BUILD COMMUNITY."],
+    headline: "ASC3ND",
+    lines: ["Empower youth.", "Elevate futures.", "Build community."],
   },
   founders: [
     {
       name: "Otha Minnifield",
-      role: "FOUNDER",
+      role: "Founder",
       quote: "It’s powerful when you have someone that can sit down and talk to a young youth and just build off of what they want to have in life, and just let them know what it is that they can be a part of, which is the future.",
       mediaSlot: "founder-otha",
     },
     {
       name: "Elisha Minnifield",
-      role: "FOUNDER",
-      quote: "I want any youth that comes even close to me to walk feeling like they're a better person because they encountered love and interaction and communication with me.",
+      role: "Founder",
+      quote: "I want any youth that comes even close to me to walk feeling like they’re a better person because they encountered love and interaction and communication with me.",
       mediaSlot: "founder-elisha",
     },
   ],
@@ -74,19 +74,22 @@ export const participationRoutes = [
   {
     index: "01",
     label: "Families",
-    action: "Stay connected →",
+    action: "Stay connected",
+    detail: "Hear about programs and events for your young person.",
     href: "/take-part/family",
   },
   {
     index: "02",
-    label: "Mentors + volunteers",
-    action: "Get involved →",
+    label: "Mentors and volunteers",
+    action: "Get involved",
+    detail: "Give time, skills or a listening ear to young people nearby.",
     href: "/take-part/mentor-volunteer",
   },
   {
     index: "03",
     label: "Community partners",
-    action: "Talk with ASC3ND →",
+    action: "Talk with ASC3ND",
+    detail: "Bring space, services or support to an event or program.",
     href: "/take-part/partner",
   },
 ] as const;

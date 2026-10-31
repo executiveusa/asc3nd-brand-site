@@ -53,7 +53,7 @@ export type Asc3ndProject = {
 export const communityCutsProject: Asc3ndProject = {
   slug: "community-cuts",
   title: "Community Cuts for Kids",
-  eyebrow: "PROJECT 001",
+  eyebrow: "Community project",
   location: "Everett, Washington",
   dateLabel: "August 2026",
   summary:
@@ -63,7 +63,7 @@ export const communityCutsProject: Asc3ndProject = {
     title: "Community Cuts for Kids — full film",
     embedSrc: "https://pub-90c88be06d2b4940b0047cf04c9fed6d.r2.dev/community-cuts-opus-master-9x16.mp4",
     aspectRatio: "9:16",
-    caption: "Everett, Washington · August 2026",
+    caption: "Everett, Washington, August 2026",
     provider: "direct-video",
   },
   media: communityCutsMedia,

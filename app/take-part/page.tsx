@@ -2,6 +2,7 @@ import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { participationRoutes } from "@/lib/site-content";
 import { getApprovedMedia } from "@/lib/media-registry";
+import "../home.css";
 
 export default function TakePartPage() {
   return (
@@ -20,12 +21,12 @@ export default function TakePartPage() {
       ) : null}
 
       <section className="interior-section shell">
-        <div className="choices">
-          {participationRoutes.map(({ index, label, action, href }) => (
-            <a href={href} key={index}>
-              <span>{index}</span>
-              <strong>{label}</strong>
-              <em>{action}</em>
+        <div className="home-join-list">
+          {participationRoutes.map((route) => (
+            <a className="home-join-row" href={route.href} key={route.href}>
+              <span className="home-join-label">{route.label}</span>
+              <span className="home-join-detail">{route.detail}</span>
+              <span className="home-join-action">{route.action} <span className="arrow" aria-hidden="true">→</span></span>
             </a>
           ))}
         </div>

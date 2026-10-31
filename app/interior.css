@@ -10,7 +10,7 @@
   margin-bottom: 28px;
   font-size: clamp(4rem, 9vw, 9rem);
   line-height: .94;
-  letter-spacing: -.035em;
+  letter-spacing: -.022em;
   text-wrap: balance;
 }
 
@@ -90,8 +90,8 @@
 .interior-pathways small {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .interior-footer {

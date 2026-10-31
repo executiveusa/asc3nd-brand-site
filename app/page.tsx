@@ -1,134 +1,115 @@
-import { BrandWordmark } from "@/components/BrandWordmark";
+import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
 import { CrownMark } from "@/components/CrownMark";
-import { LegalIdentity } from "@/components/LegalIdentity";
 import { CommunitySignup } from "@/components/CommunitySignup";
-import { DocumentaryFrame } from "@/components/DocumentaryFrame";
-import { MotionReveal } from "@/components/MotionReveal";
-import { ProjectProofGallery } from "@/components/ProjectProofGallery";
-import { SocialLinks } from "@/components/SocialLinks";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { communityCutsProject } from "@/lib/projects";
-import { participationRoutes, siteStory } from "@/lib/site-content";
-import "./community-proof.css";
+import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
+import "./home.css";
+
+const photo = (n: string) => `/images/projects/community-cuts/community-cuts-${n}.jpg`;
+
+const focusPhotos = [
+  { src: photo("043"), alt: "Otha Minnifield, in an ASC3ND shirt, talking with a young person at Community Cuts for Kids" },
+  { src: photo("059"), alt: "A volunteer barber in an ASC3ND shirt giving a boy a haircut" },
+  { src: photo("040"), alt: "Families and volunteers at the ASC3ND table under the event tent" },
+];
+
+const essay = [
+  { src: photo("046"), alt: "ASC3ND volunteers laughing while sorting backpacks in front of a back-to-school sign", shape: "wide" },
+  { src: photo("081"), alt: "A barber shaping a boy's hair", shape: "tall" },
+  { src: photo("010"), alt: "Two volunteers at the ASC3ND sign-in table", shape: "square" },
+  { src: photo("042"), alt: "A mother and her sons holding the items they received", shape: "square" },
+  { src: photo("017"), alt: "A volunteer handing out backpacks under the ASC3ND banner", shape: "tall" },
+  { src: photo("016"), alt: "Haircuts underway inside the barbershop", shape: "wide" },
+] as const;
 
 export default function Home() {
   return (
-    <main id="main-content" tabIndex={-1}>
-      <header className="masthead shell">
-        <a className="wordmark" href="#top" aria-label="ASC3ND home"><BrandWordmark /></a>
-        <nav className="nav" aria-label="Primary navigation">
-          <a href="#story">Founders</a>
-          <a href="/events">Events</a>
-          <a href="#take-part">Take part</a>
-        </nav>
-      </header>
+    <>
+      <SiteHeader />
+      <main id="main-content" tabIndex={-1}>
+        <section className="home-hero shell" aria-labelledby="home-title">
+          <div className="home-hero-crown" aria-hidden="true"><CrownMark /></div>
+          <h1 id="home-title" className="home-hero-logo"><BrandLogo title="ASC3ND" /></h1>
+          <p className="home-hero-promise">{siteStory.hero.lines.join(" ")}</p>
+          <p className="home-hero-explainer">
+            ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.
+          </p>
+          <div className="home-hero-actions">
+            <Link className="button button-solid" href="/take-part">Take part <span className="arrow" aria-hidden="true">→</span></Link>
+            <Link className="button button-line" href="/projects/community-cuts">See Community Cuts <span className="arrow" aria-hidden="true">→</span></Link>
+          </div>
+        </section>
 
-      <section className="hero shell" id="top">
-        <div className="hero-mark"><CrownMark /></div>
-        <h1><BrandWordmark text={siteStory.hero.headline} /></h1>
-        <div
-          className="hero-statements"
-          aria-label="ASC3ND mission statements"
-        >
-          {siteStory.hero.lines.map((line) => (
-            <p key={line} className="hero-statement-line">
-              {line}
-            </p>
+        <figure className="home-hero-media">
+          <img src={photo("060")} style={{ height: "auto" }} alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community" width={1600} height={1067} fetchPriority="high" />
+          <figcaption className="shell">Community Cuts for Kids, Everett, Washington, August 2026</figcaption>
+        </figure>
+
+        <section className="home-founders shell" id="story" aria-labelledby="founders-title">
+          <h2 id="founders-title" className="home-section-title">Started by Otha and Elisha Minnifield.</h2>
+          <div className="home-founders-grid">
+            {siteStory.founders.map((founder, i) => (
+              <figure className="home-founder" key={founder.name}>
+                <img src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={`${founder.name}, founder of the ASC3ND Collective`} loading="lazy" />
+                <blockquote>
+                  <p>“{founder.quote}”</p>
+                </blockquote>
+                <figcaption>{founder.name}, {founder.role.toLowerCase()}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section className="home-focus" aria-labelledby="focus-title">
+          <div className="shell home-focus-head">
+            <h2 id="focus-title" className="home-section-title">What ASC3ND is building.</h2>
+            <p>Three areas guide the work. Each one is still in development.</p>
+          </div>
+          {pathways.map((area, i) => (
+            <article className={`home-focus-row shell ${i % 2 ? "is-reversed" : ""}`} key={area.title}>
+              <img src={focusPhotos[i].src} alt={focusPhotos[i].alt} loading="lazy" />
+              <div className="home-focus-copy">
+                <h3>{area.title}</h3>
+                <p>{area.copy}</p>
+              </div>
+            </article>
           ))}
-        </div>
-        <p className="hero-explainer">ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.</p>
-        <div className="hero-actions" aria-label="Start here">
-          <a className="hero-action hero-action-primary" href="#take-part">Take part <span aria-hidden="true">→</span></a>
-          <a className="hero-action" href="/events">See the work <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
+        </section>
 
-      <MotionReveal>
-        <section className="founders shell" id="story" aria-labelledby="founders-title">
-          <p className="eyebrow" id="founders-title">FOUNDERS</p>
-          <div className="founder-grid">
-            {siteStory.founders.map((founder) => (
-              <article className="founder-profile" key={founder.name}>
-                <DocumentaryFrame
-                  label={`PORTRAIT PLACEHOLDER — ${founder.name}`}
-                  slot={founder.mediaSlot}
-                  className="portrait-placeholder"
-                />
-                <div className="founder-copy">
-                  <p className="eyebrow">{founder.name} · {founder.role}</p>
-                  <blockquote>
-                    “{founder.quote}”
-                    <cite className="founder-attribution">— {founder.name}</cite>
-                  </blockquote>
-                </div>
-              </article>
+        <section className="home-essay" aria-labelledby="essay-title">
+          <div className="shell home-essay-head">
+            <h2 id="essay-title" className="home-section-title">{communityCutsProject.title}.</h2>
+            <p>
+              {communityCutsProject.location}, {communityCutsProject.dateLabel}. Haircuts and school supplies for kids heading back to school.
+            </p>
+            <Link className="text-link" href="/projects/community-cuts">See all 86 photos and the film <span className="arrow" aria-hidden="true">→</span></Link>
+          </div>
+          <div className="shell home-essay-grid">
+            {essay.map((item) => (
+              <img key={item.src} className={`essay-${item.shape}`} src={item.src} alt={item.alt} loading="lazy" />
             ))}
           </div>
         </section>
-      </MotionReveal>
 
-      <MotionReveal>
-        <section className="community-proof shell" id="community" aria-labelledby="community-title">
-          <div className="section-heading">
-            <p className="eyebrow">RECENT WORK · PROJECT 001</p>
-            <h2 id="community-title">Community Cuts for Kids.</h2>
-            <div className="community-project-meta">
-              <p>{communityCutsProject.location} · {communityCutsProject.dateLabel}</p>
-              <a href="/projects/community-cuts">Open event record <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-          <ProjectProofGallery
-            items={communityCutsProject.media}
-            compact
-            maxVisible={3}
-            emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
-          />
-          <div className="community-archive-link">
-            <a href="/events">View all ASC3ND events <span aria-hidden="true">↗</span></a>
-          </div>
-        </section>
-      </MotionReveal>
-
-      <MotionReveal>
-        <section className="future shell" id="next" aria-labelledby="future-title">
-          <p className="eyebrow">WHAT COMES NEXT</p>
-          <h2 id="future-title">The next confirmed <BrandWordmark text="ASC3ND" digitNudgeEm={0.01} /> program will be shared here.</h2>
-        </section>
-      </MotionReveal>
-
-      <MotionReveal>
-        <section className="take-part shell" id="take-part" aria-labelledby="take-part-title">
-          <p className="eyebrow">TAKE PART</p>
-          <h2 id="take-part-title">Choose how you want to connect.</h2>
-          <div className="choices">
-            {participationRoutes.map(({ index, label, action, href }) => (
-              <a href={href} key={index}>
-                <span>{index}</span><strong>{label}</strong><em>{action}</em>
-              </a>
+        <section className="home-join shell" id="take-part" aria-labelledby="join-title">
+          <h2 id="join-title" className="home-section-title">Find your way in.</h2>
+          <div className="home-join-list">
+            {participationRoutes.map((route) => (
+              <Link className="home-join-row" href={route.href} key={route.href}>
+                <span className="home-join-label">{route.label}</span>
+                <span className="home-join-detail">{route.detail}</span>
+                <span className="home-join-action">{route.action} <span className="arrow" aria-hidden="true">→</span></span>
+              </Link>
             ))}
           </div>
         </section>
-      </MotionReveal>
 
-      <MotionReveal>
         <CommunitySignup />
-      </MotionReveal>
-
-      <footer className="footer">
-        <div className="shell footer-inner">
-          <div>
-            <p className="eyebrow"><BrandWordmark text="ASC3ND.ORG" /></p>
-            <h2>{siteStory.footer.lines.map((line) => <span key={line}>{line}<br /></span>)}</h2>
-          </div>
-          <div className="footer-meta">
-            <nav className="footer-links" aria-label="Footer navigation">
-              <a href="#story"><span>Founders</span><span aria-hidden="true">↗</span></a>
-              <a href="/events"><span>Events</span><span aria-hidden="true">↗</span></a>
-              <a href="#take-part"><span>Take part</span><span aria-hidden="true">↗</span></a>
-            </nav>
-            <div><SocialLinks /><p><BrandWordmark text="asc3nd.org" /><br /><a href="/privacy">Privacy</a> · <a href="/youth-safety">Youth safety</a> · <a className="footer-contact-link" href="mailto:main@asc3nd.org">Contact</a></p><LegalIdentity compact /></div>
-          </div>
-        </div>
-      </footer>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

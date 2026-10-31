@@ -40,9 +40,9 @@ export function ProjectProofGallery({
   locale = "en",
 }: Props) {
   const t = locale === "es" ? galleryEs : galleryEn;
-  const approved = items.filter(
-    (item) => item.approved && item.consentConfirmed && item.src,
-  );
+  const approved = items
+    .filter((item) => item.approved && item.consentConfirmed && item.src)
+    .map((item) => ({ ...item, alt: locale === "es" && item.altEs ? item.altEs : item.alt }));
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
   const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
@@ -58,7 +58,9 @@ export function ProjectProofGallery({
   const active = activeIndex === null ? null : approved[activeIndex];
   const activeLabel = activeIndex === null || !active
     ? ""
-    : `Community Cuts for Kids event photo ${activeIndex + 1} of ${approved.length}: ${active.alt}`;
+    : locale === "es"
+      ? `Community Cuts for Kids, foto del evento ${activeIndex + 1} de ${approved.length}: ${active.alt}`
+      : `Community Cuts for Kids event photo ${activeIndex + 1} of ${approved.length}: ${active.alt}`;
   const visibleItems = maxVisible
     ? approved.slice(0, maxVisible)
     : !compact && initialVisible && !expanded

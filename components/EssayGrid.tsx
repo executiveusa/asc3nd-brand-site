@@ -55,7 +55,11 @@ export function EssayGrid({ entries, locale = "en" }: { entries: EssayEntry[]; l
           index={active}
           onIndexChange={setActive}
           onClose={() => setActive(null)}
-          label={`Community Cuts for Kids event photo ${active + 1} of ${photos.length}: ${photos[active].alt}`}
+          label={
+            locale === "es"
+              ? `Community Cuts for Kids, foto del evento ${active + 1} de ${photos.length}: ${photos[active].alt}`
+              : `Community Cuts for Kids event photo ${active + 1} of ${photos.length}: ${photos[active].alt}`
+          }
           labels={t}
           triggerRef={triggerRef}
         />

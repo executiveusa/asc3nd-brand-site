@@ -8,6 +8,8 @@ export type ProjectMediaItem = {
   src?: string;
   poster?: string;
   alt: string;
+  /** Spanish alt text; Spanish pages fall back to `alt` when it is missing. */
+  altEs?: string;
   caption?: string;
   credit?: string;
   approved: boolean;

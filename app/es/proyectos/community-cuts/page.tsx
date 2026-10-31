@@ -18,9 +18,8 @@ export default function CommunityCutsEsPage() {
   const project = communityCutsProject;
   const media = getApprovedProjectMedia(project);
   const film = project.featuredFilm ? { ...project.featuredFilm, title: t.film.filmTitle, caption: t.film.caption } : undefined;
-  const photos = project.media.map((item, i) => ({
+  const photos = project.media.map((item) => ({
     ...item,
-    alt: t.photos.alt(i + 1),
     caption: item.caption ? t.photos.caption : undefined,
   }));
 

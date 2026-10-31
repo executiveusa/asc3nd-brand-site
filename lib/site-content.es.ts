@@ -158,7 +158,6 @@ export const communityCutsEs = {
     title: "Community Cuts en imágenes.",
     count: (n: number) => (n ? `${n} fotografías aprobadas del evento.` : "Las fotografías aprobadas del evento aparecerán aquí."),
     empty: "Community Cuts: fotos y video aprobados",
-    alt: (n: number) => `Community Cuts for Kids, foto del evento ${n}`,
     caption: "Community Cuts for Kids, Everett, Washington, agosto de 2026",
   },
   outcomes: {

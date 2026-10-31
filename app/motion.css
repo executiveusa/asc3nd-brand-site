@@ -14,3 +14,6 @@
   [data-reveal], [data-reveal="pending"], [data-reveal="done"] { opacity: 1 !important; scale: none !important; transition: none !important; }
   .zoom-frame:hover img { transform: none !important; }
 }
+
+/* Full-page capture, print and reader tools never scroll, so they must never see hidden images. */
+@media print { [data-reveal] { opacity: 1 !important; scale: none !important; transition: none !important; } }

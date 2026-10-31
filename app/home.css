@@ -29,8 +29,8 @@
 .home-founder figcaption { margin-top: 18px; font-size: 15px; color: var(--muted); }
 
 .home-focus { padding: clamp(90px, 11vw, 170px) 0; background: #ebe6d8; }
-.home-focus-head { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 32px; align-items: end; margin-bottom: clamp(56px, 7vw, 110px); }
-.home-focus-head p { max-width: 30ch; margin: 0; font-size: 17px; line-height: 1.55; color: var(--muted); }
+.home-focus-head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(32px, 6vw, 110px); align-items: end; margin-bottom: clamp(56px, 7vw, 110px); }
+.home-focus-head p { max-width: 30ch; margin: 0; font-size: 17px; line-height: 1.55; color: rgba(18, 15, 11, .8); }
 .home-focus-row { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(32px, 6vw, 110px); align-items: center; }
 .home-focus-row + .home-focus-row { margin-top: clamp(72px, 9vw, 140px); }
 .home-focus-row img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: clamp(8px, 1vw, 14px); }

@@ -12,7 +12,7 @@ type Section = "story" | "events" | "take-part" | "shop" | undefined;
 function sectionOf(pathname: string): Section {
   if (/^\/(es\/)?(story|historia)/.test(pathname)) return "story";
   if (/^\/(es\/)?(events|eventos|projects)/.test(pathname)) return "events";
-  if (/^\/(es\/)?(take-part|participar|support|apoyo)/.test(pathname)) return "take-part";
+  if (/^\/(es\/)?(take-part|participar)/.test(pathname)) return "take-part";
   if (/^\/(es\/)?(shop|tienda)/.test(pathname)) return "shop";
   return undefined;
 }

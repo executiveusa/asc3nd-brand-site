@@ -1,0 +1,39 @@
+diff --git a/src/index.ts b/src/index.ts
+index b0256eb..0190c71 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -6,6 +6,9 @@ import { z } from "zod";
+ import { PrintifyAPI } from "./printify-api.js";
+ import { ReplicateClient } from "./replicate-client.js";
+ import dotenv from "dotenv";
++
++// stdout is the MCP JSON-RPC channel: send every console.log to stderr so it cannot corrupt the stream.
++console.log = (...args: unknown[]) => console.error(...args);
+ // File system imports moved to service modules
+ 
+ // Export the main classes and types for use as a library
+@@ -1166,6 +1169,7 @@ server.tool(
+     try {
+       printifySDK = new Printify({
+         accessToken: process.env.PRINTIFY_API_KEY || '',
++        enableLogging: false,
+         shopId: printifyClient ? printifyClient.getCurrentShopId() || undefined : undefined
+       });
+ 
+diff --git a/src/printify-api.ts b/src/printify-api.ts
+index 5c06fc7..0110fde 100644
+--- a/src/printify-api.ts
++++ b/src/printify-api.ts
+@@ -25,10 +25,10 @@ export class PrintifyAPI {
+     this.client = new Printify({
+       accessToken: apiToken,
+       shopId: shopId || undefined, // Only pass shopId if it's provided
+-      enableLogging: true
++      enableLogging: false
+     });
+ 
+-    console.log('Printify API client initialized with token:', apiToken.substring(0, 5) + '...');
++    console.error('Printify API client initialized.');
+ 
+     // Set the shop ID if provided
+     if (shopId) {

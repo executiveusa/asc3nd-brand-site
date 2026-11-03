@@ -17,8 +17,8 @@ jobs:
     env:
       QA_BASE_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.base_url || 'http://127.0.0.1:3000' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - name: Build and serve this pull request
@@ -45,7 +45,7 @@ jobs:
         run: npx playwright test qa/mobile-polish.spec.mjs --reporter=line
       - name: Upload QA screenshots and traces
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mobile-polish-qa
           path: test-results/

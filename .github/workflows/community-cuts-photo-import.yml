@@ -22,13 +22,13 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Check out branch
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: feat/community-cuts-proof-photos-20260916
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -45,7 +45,7 @@ jobs:
           test "$count" -eq 86
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: "24"
 

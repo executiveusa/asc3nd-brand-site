@@ -1,15 +1,22 @@
+import type { Metadata } from "next";
+import { notFound, redirect } from "next/navigation";
 import { ShopView } from "@/components/ShopView";
 import { pageMetadata } from "@/lib/metadata";
+import { shopLiveUrl, shopMode } from "@/lib/shop-config";
 import { shopEn } from "@/lib/support-shop.en";
 
-export const revalidate = 300;
-
-export const metadata = pageMetadata({
-  title: "Shop",
-  description: "ASC3ND merchandise: an optional way to support the organization and wear the mission.",
-  path: "/shop",
-});
+// A concept preview is not a store, so search engines are asked to skip it.
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Shop",
+    description: "A preview of an ASC3ND shop. Concepts only; nothing is for sale yet.",
+    path: "/shop",
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function ShopPage() {
+  if (shopMode === "off") notFound();
+  if (shopMode === "live") redirect(shopLiveUrl);
   return <ShopView copy={shopEn} language="en" />;
 }

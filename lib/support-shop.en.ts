@@ -18,10 +18,7 @@ export type ShopCopy = {
   title: string;
   intro: string;
   gridLabel: string;
-  from: string;
-  buy: string;
-  fallbackTitle: string;
-  soon: { eyebrow: string; title: string; body: string; link: string; href: string };
+  demo: { chip: string; note: string; state: string };
   signup: SignupCopy;
 };
 
@@ -65,17 +62,12 @@ export const supportEn: SupportCopy = {
 export const shopEn: ShopCopy = {
   eyebrow: "Shop",
   title: "Wear the mission.",
-  intro: "A small collection built around ASC3ND and its community. Buying is one optional way to support the organization.",
-  gridLabel: "ASC3ND merchandise",
-  from: "From",
-  buy: "Shop this item",
-  fallbackTitle: "ASC3ND merchandise",
-  soon: {
-    eyebrow: "Shop",
-    title: "Shop opening soon.",
-    body: "We are preparing the first ASC3ND collection. Nothing is for sale yet. Leave your email and we will tell you when it opens.",
-    link: "Other ways to support ASC3ND",
-    href: "/support",
+  intro: "A preview of what an ASC3ND shop could look like.",
+  gridLabel: "ASC3ND merchandise concepts",
+  demo: {
+    chip: "Concept preview",
+    note: "These are design concepts. Items, designs and prices are not final, and nothing is for sale yet.",
+    state: "Preview only",
   },
   signup: {
     title: "Be first to know.",

@@ -1,52 +1,45 @@
-import Link from "next/link";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { InteriorPage } from "@/components/InteriorPage";
-import { listAsc3ndMerch, productImage, productPrice, productPurchaseUrl } from "@/lib/printify";
+import { shopDemoProducts } from "@/lib/shop-demo";
 import type { ShopCopy } from "@/lib/support-shop.en";
 import "@/app/home.css";
 import "@/app/support-shop.css";
+import "@/app/shop-demo.css";
 
-export async function ShopView({ copy, language }: { copy: ShopCopy; language: "en" | "es" }) {
-  const products = await listAsc3ndMerch();
+/** Concept preview of the shop. No prices, no cart, no checkout: nothing here can be bought. */
+export function ShopView({ copy, language }: { copy: ShopCopy; language: "en" | "es" }) {
   const sourcePage = language === "es" ? "asc3nd.org/es/tienda" : "asc3nd.org/shop";
 
   return (
     <InteriorPage eyebrow={copy.eyebrow} title={copy.title} intro={copy.intro}>
-      {products.length ? (
-        <section className="interior-section shell" aria-label={copy.gridLabel}>
-          <ul className="shop-grid">
-            {products.map((product) => {
-              const image = productImage(product);
-              const price = productPrice(product);
-              const href = productPurchaseUrl(product);
-              if (!href) return null;
-              return (
-                <li className="shop-card" key={product.id}>
-                  <div className="shop-image">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {image ? <img src={image} alt={product.title ?? copy.fallbackTitle} loading="lazy" decoding="async" /> : null}
-                  </div>
-                  <h2>{product.title ?? copy.fallbackTitle}</h2>
-                  {price ? <p className="shop-price">{copy.from} {price}</p> : null}
-                  <a className="ss-action" href={href} target="_blank" rel="noopener noreferrer">
-                    {copy.buy} <span className="arrow" aria-hidden="true">↗</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ) : (
-        <>
-          <section className="interior-statement shell shop-soon" aria-labelledby="shop-soon-title">
-            <p className="eyebrow">{copy.soon.eyebrow}</p>
-            <h2 id="shop-soon-title">{copy.soon.title}</h2>
-            <p>{copy.soon.body}</p>
-            <p><Link className="text-link" href={copy.soon.href}>{copy.soon.link} <span className="arrow" aria-hidden="true">→</span></Link></p>
-          </section>
-          <CommunitySignup copy={copy.signup} language={language} sourcePage={sourcePage} />
-        </>
-      )}
+      <section className="interior-section shell shop-demo" aria-label={copy.gridLabel}>
+        <p className="shop-demo-note">
+          <span className="shop-demo-chip">{copy.demo.chip}</span>
+          <span>{copy.demo.note}</span>
+        </p>
+        <ul className="shop-demo-grid">
+          {shopDemoProducts.map((product) => (
+            <li className="shop-demo-card" key={product.id}>
+              <div className="shop-demo-image">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/images/shop/demo/${product.id}-1254.webp`}
+                  srcSet={`/images/shop/demo/${product.id}-640.webp 640w, /images/shop/demo/${product.id}-1254.webp 1254w`}
+                  sizes="(max-width: 820px) 46vw, 30vw"
+                  alt={product.alt[language]}
+                  width={1254}
+                  height={1254}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h2>{product.name[language]}</h2>
+              <p className="shop-demo-state">{copy.demo.state}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <CommunitySignup copy={copy.signup} language={language} sourcePage={sourcePage} />
     </InteriorPage>
   );
 }

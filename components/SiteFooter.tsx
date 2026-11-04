@@ -6,16 +6,17 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { CrownMark } from "@/components/CrownMark";
 import { SocialLinks } from "@/components/SocialLinks";
 import { localeOf, ui } from "@/lib/i18n";
+import { shopLink } from "@/lib/nav";
 
 export function SiteFooter() {
   const locale = localeOf(usePathname() || "/");
   const t = ui[locale];
+  const shop = shopLink(locale);
   const href = {
     story: locale === "es" ? "/es/historia" : "/story",
     events: locale === "es" ? "/es/eventos" : "/events",
     takePart: locale === "es" ? "/es/participar" : "/take-part",
     support: locale === "es" ? "/es/apoyo" : "/support",
-    shop: locale === "es" ? "/es/tienda" : "/shop",
     transparency: locale === "es" ? "/es/transparencia" : "/transparency",
     privacy: locale === "es" ? "/es/privacidad" : "/privacy",
     youthSafety: locale === "es" ? "/es/seguridad-juvenil" : "/youth-safety",
@@ -36,7 +37,13 @@ export function SiteFooter() {
             <Link href={href.events}>{t.links.events}</Link>
             <Link href={href.takePart}>{t.links.takePart}</Link>
             <Link href={href.support}>{t.links.support}</Link>
-            <Link href={href.shop}>{t.links.shop}</Link>
+            {shop ? (
+              shop.external ? (
+                <a href={shop.href} target="_blank" rel="noopener noreferrer">{t.links.shop} <span className="arrow" aria-hidden="true">↗</span></a>
+              ) : (
+                <Link href={shop.href}>{t.links.shop}</Link>
+              )
+            ) : null}
           </div>
           <div>
             <h2>{t.columns.trust}</h2>

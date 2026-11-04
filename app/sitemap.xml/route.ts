@@ -25,7 +25,9 @@ export async function GET() {
     `    <xhtml:link rel="alternate" hreflang="es-US" href="${xmlEscape(base + es)}"/>`,
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(base + en)}"/>`,
   ].join("\n");
+  // The shop is a preview or an external store, never a page to list here.
   const urls = routePairs
+    .filter((pair) => pair.en !== "/shop")
     .flatMap((pair) => [pair.en, pair.es].map((loc) => `  <url>\n    <loc>${xmlEscape(base + loc)}</loc>\n${alt(pair.en, pair.es)}\n  </url>`))
     .join("\n");
 

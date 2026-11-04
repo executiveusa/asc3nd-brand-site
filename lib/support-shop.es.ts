@@ -40,17 +40,12 @@ export const supportEs: SupportCopy = {
 export const shopEs: ShopCopy = {
   eyebrow: "Tienda",
   title: "Lleva la misión.",
-  intro: "Una colección pequeña, hecha en torno a ASC3ND y su comunidad. Comprar es una forma opcional de apoyar a la organización.",
-  gridLabel: "Mercancía de ASC3ND",
-  from: "Desde",
-  buy: "Ver este producto",
-  fallbackTitle: "Mercancía de ASC3ND",
-  soon: {
-    eyebrow: "Tienda",
-    title: "La tienda abre pronto.",
-    body: "Estamos preparando la primera colección de ASC3ND. Todavía no hay nada a la venta. Deja tu correo y te avisamos cuando abra.",
-    link: "Otras formas de apoyar a ASC3ND",
-    href: "/es/apoyo",
+  intro: "Una vista previa de cómo podría verse una tienda de ASC3ND.",
+  gridLabel: "Conceptos de mercancía de ASC3ND",
+  demo: {
+    chip: "Vista previa del concepto",
+    note: "Son conceptos de diseño. Los artículos, los diseños y los precios no son definitivos, y todavía no hay nada a la venta.",
+    state: "Solo vista previa",
   },
   signup: {
     title: "Entérate primero.",

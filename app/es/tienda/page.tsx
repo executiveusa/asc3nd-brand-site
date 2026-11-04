@@ -1,15 +1,22 @@
+import type { Metadata } from "next";
+import { notFound, redirect } from "next/navigation";
 import { ShopView } from "@/components/ShopView";
 import { pageMetadata } from "@/lib/metadata";
+import { shopLiveUrl, shopMode } from "@/lib/shop-config";
 import { shopEs } from "@/lib/support-shop.es";
 
-export const revalidate = 300;
+// A concept preview is not a store, so search engines are asked to skip it.
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Tienda",
+    description: "Una vista previa de una tienda de ASC3ND. Solo conceptos; todavía no hay nada a la venta.",
+    path: "/es/tienda",
+  }),
+  robots: { index: false, follow: true },
+};
 
-export const metadata = pageMetadata({
-  title: "Tienda",
-  description: "Mercancía de ASC3ND: una forma opcional de apoyar a la organización y llevar la misión.",
-  path: "/es/tienda",
-});
-
-export default function TiendaPage() {
+export default function ShopPage() {
+  if (shopMode === "off") notFound();
+  if (shopMode === "live") redirect(shopLiveUrl);
   return <ShopView copy={shopEs} language="es" />;
 }

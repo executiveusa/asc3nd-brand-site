@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { counterpart, localeOf, ui } from "@/lib/i18n";
+import { navFor } from "@/lib/nav";
 import { ZEFFY_DONATE_URL } from "@/lib/site-content";
 
 type Section = "story" | "events" | "take-part" | "shop" | undefined;
@@ -58,11 +59,17 @@ export function SiteHeader({ current }: { current?: Section }) {
 
         <div id={panelId} className="site-panel" data-open={open ? "true" : "false"}>
           <nav className="site-nav" aria-label={t.primary}>
-            {t.nav.map((link) => (
-              <Link key={link.key} href={link.href} aria-current={active === link.key ? "page" : undefined}>
-                {link.label}
-              </Link>
-            ))}
+            {navFor(locale).map((link) =>
+              link.external ? (
+                <a key={link.key} href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label} <span className="arrow" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <Link key={link.key} href={link.href} aria-current={active === link.key ? "page" : undefined}>
+                  {link.label}
+                </Link>
+              ),
+            )}
           </nav>
           <div className="locale-switch" role="group" aria-label={t.language}>
             {locale === "en" ? (

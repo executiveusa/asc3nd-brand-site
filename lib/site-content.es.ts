@@ -1,3 +1,4 @@
+import { creditGroupsForDialog } from "@/lib/credits";
 /**
  * Spanish copy for the core public pages (home, historia, eventos, Community Cuts,
  * privacidad, seguridad juvenil, transparencia). Same facts as the English pages.
@@ -123,8 +124,6 @@ export const eventsEs = {
   },
   eyebrow: "Archivo de eventos",
   title: "Un registro para cada evento de ASC3ND.",
-  intro:
-    "Cada evento conserva aquí su propio video, sus fotografías aprobadas, sus créditos y sus resultados verificados. La página de inicio se centra en ASC3ND como un todo.",
   listLabel: "Archivo de eventos de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",
@@ -172,16 +171,7 @@ export const communityCutsEs = {
       "A los barberos, voluntarios, familias, aliados, fotógrafos, organizadores y a todas las personas que dieron su tiempo, su talento y su apoyo: gracias por estar presentes para la comunidad.",
   },
   /** Group labels translated; the "Names to be confirmed" placeholder keeps its meaning. */
-  creditGroups: [
-    { label: "Aliados del evento", entries: ["Nombres por confirmar"] },
-    { label: "Patrocinadores", entries: ["Nombres por confirmar"] },
-    { label: "Barberos", entries: ["Nombres por confirmar"] },
-    { label: "Voluntarios", entries: ["Nombres por confirmar"] },
-    { label: "Fotografía y video", entries: ["Nombres por confirmar"] },
-    { label: "Aliados comunitarios", entries: ["Nombres por confirmar"] },
-    { label: "Organizadores", entries: ["Nombres por confirmar"] },
-    { label: "Agradecimientos especiales", entries: ["Nombres por confirmar"] },
-  ],
+  creditGroups: creditGroupsForDialog("es"),
 };
 
 export const privacyEs = {

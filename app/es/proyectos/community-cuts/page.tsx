@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EventCredits } from "@/components/EventCredits";
 import { ProjectFilm } from "@/components/ProjectFilm";
 import { ProjectProofGallery } from "@/components/ProjectProofGallery";
@@ -80,6 +81,7 @@ export default function CommunityCutsEsPage() {
                 eventLabel={`${project.title} · ${esLocation} · ${esDateLabel}`}
                 groups={t.creditGroups}
               />
+              <Link href="/es/creditos">Página de créditos completa <span className="arrow" aria-hidden="true">→</span></Link>
             </div>
           </>
         ) : null}

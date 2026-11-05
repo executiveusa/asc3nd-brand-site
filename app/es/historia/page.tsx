@@ -1,3 +1,4 @@
+import { CollectiveLogo } from "@/components/CollectiveLogo";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { founderQuotesEs, pathwaysEs, storyEs as t, translationNote } from "@/lib/site-content.es";
@@ -27,6 +28,8 @@ export default function HistoriaPage() {
       <section className="interior-section shell">
         <DocumentaryFrame label={elisha.name} slot="founder-elisha" />
       </section>
+
+      <CollectiveLogo alt="Logotipo de ASC3ND Collective: una corona naranja sobre el nombre ASC3ND en letras blancas de pincel, con el 3 en naranja" />
 
       <section className="interior-statement shell">
         <p className="eyebrow">{t.nextEyebrow}</p>

@@ -1,3 +1,4 @@
+import { CollectiveLogo } from "@/components/CollectiveLogo";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { pathways, siteStory } from "@/lib/site-content";
@@ -37,6 +38,8 @@ export default function StoryPage() {
           slot="founder-elisha"
         />
       </section>
+
+      <CollectiveLogo alt="ASC3ND Collective logo: an orange crown above the name ASC3ND in white brush lettering, with the 3 in orange" />
 
       <section className="interior-statement shell">
         <p className="eyebrow">What comes next</p>

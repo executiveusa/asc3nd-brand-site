@@ -72,3 +72,9 @@ jobs:
         with:
           path: app/shop/page.tsx
           strict: true
+
+      - name: Audit contact form copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: components/ContactForm.tsx
+          strict: true

@@ -1,4 +1,5 @@
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
+import { ContactForm } from "@/components/ContactForm";
 import { InteriorPage } from "@/components/InteriorPage";
 import { participationRoutes } from "@/lib/site-content";
 import { getApprovedMedia } from "@/lib/media-registry";
@@ -39,11 +40,7 @@ export default function TakePartPage() {
         </div>
       </section>
 
-      <section className="interior-statement shell">
-        <p className="eyebrow">Direct contact</p>
-        <h2>Start with a conversation.</h2>
-        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
-      </section>
+      <ContactForm />
     </InteriorPage>
   );
 }

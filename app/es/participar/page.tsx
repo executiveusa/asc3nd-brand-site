@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/ContactForm";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { getApprovedMedia } from "@/lib/media-registry";
@@ -59,11 +60,7 @@ export default function ParticiparPage() {
         </div>
       </section>
 
-      <section className="interior-statement shell">
-        <p className="eyebrow">Contacto directo</p>
-        <h2>Empieza con una conversación.</h2>
-        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
-      </section>
+      <ContactForm locale="es" />
     </InteriorPage>
   );
 }

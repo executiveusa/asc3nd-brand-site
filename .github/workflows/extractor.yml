@@ -78,3 +78,9 @@ jobs:
         with:
           path: components/ContactForm.tsx
           strict: true
+
+      - name: Audit credits page copy
+        uses: executiveusa/the-extractor@ea3df3e9e31bad432d2a3e15011d8a3dbccad621
+        with:
+          path: components/CreditsPage.tsx
+          strict: true

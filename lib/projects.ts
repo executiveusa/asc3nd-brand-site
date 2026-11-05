@@ -1,3 +1,4 @@
+import { creditGroupsForDialog } from "./credits";
 import { communityCutsMedia } from "./community-cuts-media.generated";
 
 export type ProjectMediaType = "image" | "video";
@@ -88,16 +89,7 @@ export const communityCutsProject: Asc3ndProject = {
   credits: {
     intro:
       "To the barbers, volunteers, families, partners, photographers, organizers, and everyone who gave their time, talent, and support — thank you for showing up for the community.",
-    groups: [
-      { label: "Event partners", entries: ["Names to be confirmed"] },
-      { label: "Sponsors", entries: ["Names to be confirmed"] },
-      { label: "Barbers", entries: ["Names to be confirmed"] },
-      { label: "Volunteers", entries: ["Names to be confirmed"] },
-      { label: "Photography + video", entries: ["Names to be confirmed"] },
-      { label: "Community partners", entries: ["Names to be confirmed"] },
-      { label: "Organizers", entries: ["Names to be confirmed"] },
-      { label: "Special thanks", entries: ["Names to be confirmed"] },
-    ],
+    groups: creditGroupsForDialog("en"),
   },
 };
 

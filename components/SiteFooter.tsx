@@ -15,6 +15,7 @@ export function SiteFooter() {
   const href = {
     story: locale === "es" ? "/es/historia" : "/story",
     events: locale === "es" ? "/es/eventos" : "/events",
+    credits: locale === "es" ? "/es/creditos" : "/credits",
     takePart: locale === "es" ? "/es/participar" : "/take-part",
     support: locale === "es" ? "/es/apoyo" : "/support",
     transparency: locale === "es" ? "/es/transparencia" : "/transparency",
@@ -35,6 +36,7 @@ export function SiteFooter() {
             <h2>{t.columns.asc3nd}</h2>
             <Link href={href.story}>{t.links.story}</Link>
             <Link href={href.events}>{t.links.events}</Link>
+            <Link href={href.credits}>{t.links.credits}</Link>
             <Link href={href.takePart}>{t.links.takePart}</Link>
             <Link href={href.support}>{t.links.support}</Link>
             {shop ? (

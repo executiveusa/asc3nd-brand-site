@@ -78,6 +78,7 @@ export default function CommunityCutsPage() {
                 eventLabel={`${communityCutsProject.title} · ${communityCutsProject.location} · ${communityCutsProject.dateLabel}`}
                 groups={communityCutsProject.credits.groups}
               />
+              <Link href="/credits">Full credits page <span className="arrow" aria-hidden="true">→</span></Link>
             </div>
           </>
         ) : null}

@@ -5,6 +5,7 @@ export const routePairs = [
   { en: "/", es: "/es" },
   { en: "/story", es: "/es/historia" },
   { en: "/events", es: "/es/eventos" },
+  { en: "/credits", es: "/es/creditos" },
   { en: "/projects/community-cuts", es: "/es/proyectos/community-cuts" },
   { en: "/take-part", es: "/es/participar" },
   { en: "/take-part/family", es: "/es/participar/familia" },
@@ -60,6 +61,7 @@ export const ui = {
     links: {
       story: "Story",
       events: "Events",
+      credits: "Credits",
       takePart: "Take part",
       support: "Support",
       shop: "Shop",
@@ -94,6 +96,7 @@ export const ui = {
     links: {
       story: "Historia",
       events: "Eventos",
+      credits: "Créditos",
       takePart: "Participa",
       support: "Apoyo",
       shop: "Tienda",

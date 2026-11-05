@@ -21,10 +21,6 @@ export default function EventsPage() {
       <section className="events-hero shell">
         <p className="eyebrow">Event archive</p>
         <h1>One record for every ASC3ND event.</h1>
-        <p>
-          Each event keeps its own film, approved photographs, credits, and verified outcomes here.
-          The homepage stays focused on ASC3ND as a whole.
-        </p>
       </section>
 
       <section className="events-list shell" aria-label="ASC3ND event archive">

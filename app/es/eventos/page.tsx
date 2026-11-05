@@ -30,7 +30,6 @@ export default function EventosPage() {
       <section className="events-hero shell">
         <p className="eyebrow">{t.eyebrow}</p>
         <h1>{t.title}</h1>
-        <p>{t.intro}</p>
       </section>
 
       <section className="events-list shell" aria-label={t.listLabel}>

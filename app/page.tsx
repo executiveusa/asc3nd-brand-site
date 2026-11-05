@@ -67,7 +67,7 @@ export default function Home() {
         </figure>
 
         <section className="home-founders shell" id="story" aria-labelledby="founders-title">
-          <h2 id="founders-title" className="home-section-title">Started by Otha and Elisha Minnifield.</h2>
+          <h2 id="founders-title" className="home-section-title">Founded by Otha and Elisha Minnifield.</h2>
           <div className="home-founders-grid">
             {siteStory.founders.map((founder, i) => (
               <figure className="home-founder" key={founder.name}>
@@ -75,7 +75,7 @@ export default function Home() {
                 <blockquote>
                   <p>“{founder.quote}”</p>
                 </blockquote>
-                <figcaption>{founder.name}, {founder.role.toLowerCase()}</figcaption>
+                <figcaption><span aria-hidden="true">— </span><strong>{founder.name}</strong>, {founder.role.toLowerCase()}</figcaption>
               </figure>
             ))}
           </div>

@@ -79,7 +79,7 @@ export default function HomeEs() {
                 <blockquote>
                   <p>“{founder.quote}”</p>
                 </blockquote>
-                <figcaption>{founder.name}, {founder.role}</figcaption>
+                <figcaption><span aria-hidden="true">— </span><strong>{founder.name}</strong>, {founder.role}</figcaption>
               </figure>
             ))}
           </div>

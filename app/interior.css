@@ -69,8 +69,9 @@
 
 .interior-pathways article {
   display: grid;
-  grid-template-columns: 64px 1fr 1fr auto;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 16px clamp(28px, 4vw, 64px);
+  align-items: start;
   padding: clamp(30px, 3.5vw, 52px) 0;
   border-bottom: 1px solid var(--line);
 }
@@ -88,8 +89,10 @@
 }
 
 .interior-pathways small {
-  font-size: 10px;
-  font-weight: 700;
+  padding-top: .6em;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
   letter-spacing: 0;
   text-transform: none;
 }
@@ -146,15 +149,21 @@
     line-height: 1;
   }
 
-  .interior-row-copy,
-  .interior-pathways article {
+  .interior-row-copy {
     grid-template-columns: 42px 1fr;
   }
 
-  .interior-row-copy p,
-  .interior-pathways p,
-  .interior-pathways small {
+  .interior-row-copy p {
     grid-column: 2;
+  }
+
+  .interior-pathways article {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .interior-pathways small {
+    padding-top: 0;
   }
 
   .interior-footer-inner {

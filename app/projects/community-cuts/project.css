@@ -27,9 +27,13 @@
   .project-hero h1 { font-size: clamp(3.1rem, 17vw, 5.6rem); }
   .project-film-section,
   .project-proof-heading,
-  .project-evidence { grid-template-columns: 1fr; }
+  .project-evidence { grid-template-columns: minmax(0, 1fr); }
+  .project-proof-heading h2 { overflow-wrap: break-word; }
   .project-film-copy { max-width: 680px; }
   .project-proof-heading .eyebrow { grid-column: auto; }
   .project-evidence-body { align-self: auto; }
   .project-next h2 { font-size: clamp(3.1rem, 15vw, 5.8rem); }
 }
+
+/* At 320px the word "photographed." at 3.3rem is wider than the column. */
+@media (max-width: 359px) { .project-proof-heading h2 { font-size: 2.6rem; } }

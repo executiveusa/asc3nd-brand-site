@@ -7,10 +7,8 @@
 .community-project-meta p {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .community-project-meta a {

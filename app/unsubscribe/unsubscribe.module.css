@@ -21,10 +21,8 @@
 
 .eyebrow {
   margin: 0 0 18px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .panel h1 {

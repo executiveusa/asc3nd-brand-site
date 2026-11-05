@@ -3,6 +3,13 @@ import { InteriorPage } from "@/components/InteriorPage";
 import { participationRoutes } from "@/lib/site-content";
 import { getApprovedMedia } from "@/lib/media-registry";
 import "../home.css";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata = pageMetadata({
+  title: "Take part",
+  description: "Families, mentors, volunteers, and community partners: choose the route that fits you and start a direct conversation with ASC3ND.",
+  path: "/take-part",
+});
 
 export default function TakePartPage() {
   return (

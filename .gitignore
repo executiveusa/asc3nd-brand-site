@@ -13,3 +13,6 @@ pnpm-debug.log*
 
 test-results/
 playwright-report/
+
+# Printify MCP debug output, if ever run from the repo directory
+debug/

@@ -1,0 +1,25 @@
+/* Spanish pages use sentence case everywhere. Shared components set some labels in tracked capitals for English; undo that here only. */
+[lang="es"] .event-credits-header > div > p:last-child,
+[lang="es"] .event-credits-close,
+[lang="es"] .event-credit-group h3,
+[lang="es"] .project-proof-empty span,
+[lang="es"] .project-proof-lightbox figcaption,
+[lang="es"] .project-proof-caption,
+[lang="es"] [class*="ProjectFilm"][class*="caption"],
+[lang="es"] .community-signup-copy > p:last-child,
+[lang="es"] .community-signup-form label > span,
+[lang="es"] .media-placeholder span,
+[lang="es"] .portrait-placeholder span,
+[lang="es"] .transparency-fact dt,
+[lang="es"] .community-project-meta p {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+[lang="es"] .translation-note {
+  max-width: 62ch;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+}

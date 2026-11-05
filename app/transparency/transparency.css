@@ -7,7 +7,7 @@
 .transparency-details dl { margin: 0; }
 .transparency-fact { display: grid; grid-template-columns: minmax(120px, .8fr) minmax(0, 1.2fr); gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 .transparency-fact:first-child { padding-top: 0; }
-.transparency-fact dt { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.5; }
+.transparency-fact dt { color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.5; }
 .transparency-fact dd { margin: 0; font-size: 15px; line-height: 1.5; }
 .transparency-source { margin: 32px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .transparency-source a { display: inline; color: var(--ink); text-underline-offset: 3px; }

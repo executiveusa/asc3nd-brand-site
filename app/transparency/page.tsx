@@ -5,11 +5,13 @@ import { SocialLinks } from "@/components/SocialLinks";
 import "./transparency.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Trust & Transparency | THE ASC3ND COLLECTIVE",
+export const metadata: Metadata = pageMetadata({
+  title: "Trust and transparency",
   description: "Washington corporate identity and the current status of ASC3ND's public tax and charitable-registration information.",
-};
+  path: "/transparency",
+});
 
 const facts = [
   ["Legal name", "THE ASC3ND COLLECTIVE"],

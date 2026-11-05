@@ -1,9 +1,11 @@
 import { InteriorPage } from "@/components/InteriorPage";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Youth Safety | ASC3ND",
+export const metadata = pageMetadata({
+  title: "Youth safety",
   description: "ASC3ND's public website safety boundaries for youth, families, volunteers, mentors, and partners.",
-};
+  path: "/youth-safety",
+});
 
 export default function YouthSafetyPage() {
   return (

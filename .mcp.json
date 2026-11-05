@@ -2,7 +2,19 @@
   "mcpServers": {
     "jcodemunch": {
       "command": "uvx",
-      "args": ["jcodemunch-mcp"]
+      "args": [
+        "jcodemunch-mcp"
+      ]
+    },
+    "printify": {
+      "command": "bash",
+      "args": [
+        "scripts/run-printify-mcp.sh"
+      ],
+      "env": {
+        "PRINTIFY_API_KEY": "${PRINTIFY_API_KEY:-}",
+        "PRINTIFY_SHOP_ID": "${PRINTIFY_SHOP_ID:-}"
+      }
     }
   }
 }

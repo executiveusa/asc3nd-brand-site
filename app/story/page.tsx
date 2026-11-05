@@ -1,6 +1,13 @@
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { pathways, siteStory } from "@/lib/site-content";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata = pageMetadata({
+  title: "Our story",
+  description: "ASC3ND began with Community Cuts for Kids in Everett, Washington, in August 2026. Read how the organization is building from that foundation.",
+  path: "/story",
+});
 
 export default function StoryPage() {
   const [otha, elisha] = siteStory.founders;

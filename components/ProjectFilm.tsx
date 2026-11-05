@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { ProjectFilm as ProjectFilmModel } from "@/lib/projects";
 import styles from "./ProjectFilm.module.css";
 
@@ -5,8 +8,17 @@ type Props = {
   film: ProjectFilmModel;
 };
 
+/** Phones and narrow windows always get the 720p file. The 1080p file is chosen only on wide screens, only if one is hosted. */
+const WIDE = "(min-width: 900px)";
+
 export function ProjectFilm({ film }: Props) {
   const aspectClass = film.aspectRatio === "9:16" ? styles.portrait : styles.landscape;
+  const [src, setSrc] = useState(film.embedSrc);
+
+  useEffect(() => {
+    if (film.provider !== "direct-video" || !film.hdSrc) return;
+    if (window.matchMedia(WIDE).matches) setSrc(film.hdSrc);
+  }, [film.provider, film.hdSrc]);
 
   return (
     <figure className={`${styles.film} ${aspectClass}`}>
@@ -14,11 +26,12 @@ export function ProjectFilm({ film }: Props) {
         {film.provider === "direct-video" ? (
           <video
             className={styles.player}
-            src={film.embedSrc}
+            src={src}
+            poster={film.poster}
             title={film.title}
             controls
             playsInline
-            preload="metadata"
+            preload="none"
           />
         ) : (
           <iframe

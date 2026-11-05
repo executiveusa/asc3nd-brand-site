@@ -8,11 +8,15 @@ export type ProjectMediaItem = {
   src?: string;
   poster?: string;
   alt: string;
+  /** Spanish alt text; Spanish pages fall back to `alt` when it is missing. */
+  altEs?: string;
   caption?: string;
   credit?: string;
   approved: boolean;
   consentConfirmed: boolean;
   featured?: boolean;
+  /** Responsive WebP renditions of `src`, narrowest first. `src` stays the full-size fallback. */
+  variants?: { width: number; src: string }[];
   width?: number;
   height?: number;
 };
@@ -23,6 +27,10 @@ export type ProjectFilm = {
   aspectRatio: "9:16" | "16:9";
   caption?: string;
   provider: "google-drive-preview" | "cloudflare-stream" | "direct-video";
+  /** First frame shown before play. */
+  poster?: string;
+  /** Optional 1080p file for wide screens. When unset every screen gets embedSrc (the 720p file). */
+  hdSrc?: string;
 };
 
 export type ProjectCreditGroup = {
@@ -50,6 +58,12 @@ export type Asc3ndProject = {
   credits?: ProjectCredits;
 };
 
+/**
+ * The 1080p film is 218 MB, over GitHub's 100 MB file limit, so it is hosted outside the repo.
+ * Leave undefined until it is uploaded; wide screens then fall back to the 720p file.
+ */
+const COMMUNITY_CUTS_FILM_HD_URL: string | undefined = undefined;
+
 export const communityCutsProject: Asc3ndProject = {
   slug: "community-cuts",
   title: "Community Cuts for Kids",
@@ -61,7 +75,9 @@ export const communityCutsProject: Asc3ndProject = {
   status: "proof-building",
   featuredFilm: {
     title: "Community Cuts for Kids — full film",
-    embedSrc: "https://pub-90c88be06d2b4940b0047cf04c9fed6d.r2.dev/community-cuts-opus-master-9x16.mp4",
+    embedSrc: "/media/community-cuts/community-cuts-720.mp4",
+    poster: "/media/community-cuts/community-cuts-poster-720.webp",
+    hdSrc: COMMUNITY_CUTS_FILM_HD_URL,
     aspectRatio: "9:16",
     caption: "Everett, Washington, August 2026",
     provider: "direct-video",

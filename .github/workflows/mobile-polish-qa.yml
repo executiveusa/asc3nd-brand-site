@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
+      NEXT_PUBLIC_SHOP_MODE: demo
       QA_BASE_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.base_url || 'http://127.0.0.1:3000' }}
     steps:
       - uses: actions/checkout@v4

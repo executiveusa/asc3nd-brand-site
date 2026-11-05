@@ -46,10 +46,10 @@ button:active, a:active { transform: translateY(1px); }
 .hero-action-primary { border: 1px solid var(--ink); background: var(--ink); color: var(--paper); }
 
 .media-placeholder, .portrait-placeholder { display: grid; place-items: center; min-height: min(68vw, 860px); background: #d8d4c9; overflow: hidden; }
-.media-placeholder span, .portrait-placeholder span { max-width: 460px; padding: 24px; font-size: 11px; font-weight: 700; letter-spacing: .12em; line-height: 1.55; text-align: center; text-transform: uppercase; }
+.media-placeholder span, .portrait-placeholder span { max-width: 460px; padding: 24px; font-size: 13px; font-weight: 500; line-height: 1.55; text-align: center; }
 .media-live { margin: 0; padding: 0; position: relative; overflow: hidden; }
 .media-live picture, .media-live img, .media-live video { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; }
-.media-live figcaption { position: absolute; right: 14px; bottom: 12px; left: 14px; display: flex; justify-content: space-between; gap: 18px; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-shadow: 0 1px 16px rgba(0,0,0,.55); text-transform: uppercase; }
+.media-live figcaption { position: absolute; right: 14px; bottom: 12px; left: 14px; display: flex; justify-content: space-between; gap: 18px; color: #fff; font-size: 13px; font-weight: 500; text-shadow: 0 1px 16px rgba(0,0,0,.55); }
 
 .motion-reveal { opacity: 1; transform: none; }
 .motion-reveal.is-visible { animation: motion-reveal-in 460ms cubic-bezier(.2,.7,.2,1) both; }
@@ -66,7 +66,7 @@ button:active, a:active { transform: translateY(1px); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); gap: clamp(30px, 7vw, 110px); align-items: end; margin-bottom: clamp(48px, 7vw, 96px); }
 .section-heading .eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
 .section-heading h2, .future h2, .take-part h2, .community-signup h2 { max-width: 1100px; margin-bottom: 0; font-size: clamp(3.2rem, 7vw, 7.4rem); line-height: .92; text-wrap: balance; }
-.placeholder-note { max-width: 620px; margin: 0; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; line-height: 1.65; text-transform: uppercase; }
+.placeholder-note { max-width: 620px; margin: 0; color: var(--muted); font-size: 14px; font-weight: 500; line-height: 1.65; }
 .community-proof > .media-placeholder, .community-proof > .media-live { min-height: min(58vw, 780px); }
 
 .future { padding: clamp(110px, 15vw, 230px) 0; background: var(--field); color: var(--paper); width: 100%; max-width: none; padding-inline: max(clamp(20px, 4.2vw, 72px), calc((100vw - 1460px) / 2)); }
@@ -81,12 +81,12 @@ button:active, a:active { transform: translateY(1px); }
 .choices em { font-size: 13px; font-style: normal; font-weight: 700; }
 
 .community-signup { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: clamp(48px, 9vw, 150px); align-items: start; padding: clamp(100px, 14vw, 210px) 0; border-top: 1px solid var(--line); }
-.community-signup-copy > p:last-child { max-width: 590px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; line-height: 1.65; text-transform: uppercase; }
+.community-signup-copy > p:last-child { max-width: 590px; font-size: .9rem; font-weight: 500; line-height: 1.65; }
 .community-signup-form { display: grid; gap: 22px; padding: clamp(24px, 3.5vw, 42px); border: 1px solid var(--line); background: rgba(255, 255, 255, .42); }
 .community-signup-form label:not(.signup-consent):not(.signup-honeypot) { display: grid; gap: 10px; }
-.community-signup-form label > span { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.community-signup-form label > span { font-size: 14px; font-weight: 500; }
 .community-signup-form input[type="text"], .community-signup-form input[type="email"] { width: 100%; min-height: 54px; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1rem; }
-.community-signup-form input:focus-visible { outline: 2px solid var(--marker); outline-offset: 5px; border-bottom-width: 2px; }
+.community-signup-form input:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; border-bottom-width: 2px; }
 .signup-consent { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
 .signup-consent input { width: 18px; height: 18px; margin: 1px 0 0; }
 .signup-consent span { font-size: 12px !important; font-weight: 400 !important; letter-spacing: 0 !important; line-height: 1.55; text-transform: none !important; }
@@ -115,7 +115,9 @@ button:active, a:active { transform: translateY(1px); }
 .social-links svg:first-child { width: 20px; height: 20px; fill: currentColor; }
 .social-links a:hover span { text-decoration: underline; text-underline-offset: 4px; }
 
-:focus-visible { outline: 2px solid var(--marker); outline-offset: 5px; }
+/* Focus ring: ink on the cream page (17:1). Gold (1.6:1 on cream) is only used on the dark footer, where it is 11:1. */
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+.site-footer :focus-visible { outline-color: var(--marker); }
 
 @keyframes hero-in {
   from { opacity: 0; transform: translateY(16px); }

@@ -9,12 +9,10 @@
 .project-proof-empty span {
   max-width: 460px;
   padding: 24px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.55;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .project-proof-grid {
@@ -147,9 +145,7 @@
   justify-content: space-between;
   gap: 24px;
   padding-top: 12px;
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  font-size: 13px;
 }
 
 .project-proof-close,

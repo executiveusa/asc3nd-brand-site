@@ -33,7 +33,7 @@ function srcSetFor(item: ProjectMediaItem) {
 
 export function ProjectProofGallery({
   items,
-  emptyLabel = "PROJECT MEDIA — APPROVED PHOTOS / VIDEO",
+  emptyLabel = "Approved photos and video will appear here.",
   compact = false,
   initialVisible,
   maxVisible,

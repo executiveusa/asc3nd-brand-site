@@ -52,7 +52,7 @@ export default function CommunityCutsPage() {
         <ProjectProofGallery
           items={communityCutsProject.media}
           initialVisible={12}
-          emptyLabel="COMMUNITY CUTS — APPROVED PHOTOS / VIDEO"
+          emptyLabel="Approved Community Cuts photos and video will appear here."
         />
       </section>
 

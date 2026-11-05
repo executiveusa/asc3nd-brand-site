@@ -18,7 +18,7 @@ type EventCreditsProps = {
 
 const creditsEn = {
   open: "View event credits",
-  eyebrow: "EVENT CREDITS",
+  eyebrow: "Event credits",
   title: "The people behind the day.",
   close: "Close",
   closeLabel: "Close event credits",

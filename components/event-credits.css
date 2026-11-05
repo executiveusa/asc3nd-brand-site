@@ -61,10 +61,8 @@
 .event-credits-header > div > p:last-child {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .event-credits-close {
@@ -75,10 +73,8 @@
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
   cursor: pointer;
 }
 
@@ -95,10 +91,8 @@
 
 .event-credit-group h3 {
   margin: 0 0 14px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .09em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .event-credit-group ul {

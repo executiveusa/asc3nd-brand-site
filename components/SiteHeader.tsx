@@ -43,9 +43,15 @@ export function SiteHeader({ current }: { current?: Section }) {
         </Link>
 
         <div className="site-header-actions">
-          <a className="button button-solid donate-pill" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer" aria-label={t.donateLabel}>
-            {t.donate} <span className="arrow" aria-hidden="true">↗</span>
-          </a>
+          {ZEFFY_DONATE_URL ? (
+            <a className="button button-solid donate-pill" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer" aria-label={t.donateLabel}>
+              {t.donate} <span className="arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <Link className="button button-solid donate-pill" href={locale === "es" ? "/es/apoyo" : "/support"}>
+              {t.links.support} <span className="arrow" aria-hidden="true">→</span>
+            </Link>
+          )
           <button
             type="button"
             className="site-menu-toggle"

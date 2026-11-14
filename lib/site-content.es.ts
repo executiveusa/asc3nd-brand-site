@@ -68,7 +68,7 @@ export const homeEs = {
   heroAlt:
     "Familias haciendo fila en la carpa de ASC3ND, bajo una pancarta con el lema de la organización (en inglés)",
   proof: (n: number) =>
-    `El primer evento: Community Cuts for Kids, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
+    `El primer evento: Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que ASC3ND está construyendo.",
@@ -113,7 +113,7 @@ export const eventsEs = {
   },
   eyebrow: "Nuestro impacto en acción",
   title: "Donde el propósito se convierte en acción.",
-  listLabel: "Eventos e iniciativas de ASC3ND"
+  listLabel: "Eventos e iniciativas de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",
   film: "Video",

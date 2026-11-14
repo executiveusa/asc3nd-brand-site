@@ -104,3 +104,7 @@ button.essay-frame:focus-visible { outline: 3px solid var(--ink); outline-offset
   .home-hero-actions { flex-direction: column; }
   .home-hero-actions .button { width: 100%; flex: none; white-space: nowrap; }
 }
+
+/* Client founder-picture preference; preserve quotations and replace Elisha's portrait with event proof. */
+.home-founder:first-child img { max-width: 360px; }
+.home-founder blockquote p { font-size: clamp(1.65rem, 2.65vw, 2.65rem); }

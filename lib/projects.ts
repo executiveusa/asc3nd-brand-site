@@ -51,6 +51,7 @@ export type Asc3ndProject = {
   location: string;
   dateLabel: string;
   summary: string;
+  story?: string[];
   status: "proof-building" | "published";
   featuredFilm?: ProjectFilm;
   media: ProjectMediaItem[];
@@ -67,15 +68,19 @@ const COMMUNITY_CUTS_FILM_HD_URL: string | undefined = undefined;
 
 export const communityCutsProject: Asc3ndProject = {
   slug: "community-cuts",
-  title: "Community Cuts for Kids",
+  title: "Fresh Fade, Fresh Grade",
   eyebrow: "Community project",
   location: "Everett, Washington",
   dateLabel: "August 2026",
   summary:
-    "Community Cuts for Kids took place in Everett, Washington, in August 2026. This project page brings together the event film, approved photographs, and event credits in one public record.",
+    "Our inaugural Fresh Fade, Fresh Grade initiative brought our community together to help local youth prepare for the new school year with confidence and excitement.",
+  story: [
+    "Through community collaboration, giving, and meaningful connections, we celebrated the importance of showing up for our youth and reminding them that they are supported, valued, and capable of achieving great things.",
+    "More than a back-to-school event, this initiative represented the beginning of Asc3nd Collective's commitment to uplifting the next generation, one meaningful experience at a time.",
+  ],
   status: "proof-building",
   featuredFilm: {
-    title: "Community Cuts for Kids — full film",
+    title: "Fresh Fade, Fresh Grade — full film",
     embedSrc: "/media/community-cuts/community-cuts-720.mp4",
     poster: "/media/community-cuts/community-cuts-poster-720.webp",
     hdSrc: COMMUNITY_CUTS_FILM_HD_URL,

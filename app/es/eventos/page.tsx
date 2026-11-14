@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 // Spanish copy per project slug. Add an entry when a new project is added to lib/projects.ts.
 const projectCopy: Record<string, { title: string; eyebrow: string; place: string; summary: string }> = {
   "community-cuts": {
-    title: "Community Cuts for Kids",
+    title: "Fresh Fade, Fresh Grade",
     eyebrow: communityCutsEs.eyebrow,
     place: "Everett, Washington, agosto de 2026",
     summary: communityCutsEs.summary,
@@ -30,9 +30,16 @@ export default function EventosPage() {
       <section className="events-hero shell">
         <p className="eyebrow">{t.eyebrow}</p>
         <h1>{t.title}</h1>
+        <p>Desde iniciativas comunitarias hasta alianzas significativas, cada evento de ASC3ND Collective es una oportunidad para apoyar a jóvenes y familias.</p>
       </section>
 
+      <section className="events-current shell" aria-labelledby="current-initiatives-heading">
+        <p className="eyebrow">{t.nextEyebrow}</p><h2 id="current-initiatives-heading">{t.nextTitle}</h2>
+        <p>La iniciativa de apoyo navideño de ASC3ND Collective para 2026 está activa, según la organización. Contacta al equipo para conocer las maneras de participar.</p>
+        <div className="events-current-actions"><Link href="/es/participar">Participa →</Link><Link href="/es/apoyo">Apoya la misión →</Link></div>
+      </section>
       <section className="events-list shell" aria-label={t.listLabel}>
+        <h2 className="events-section-heading">Eventos pasados e impacto comunitario</h2>
         {asc3ndProjects.map((project, index) => {
           const media = getApprovedProjectMedia(project);
           const cover = media[0];
@@ -60,9 +67,9 @@ export default function EventosPage() {
                 <p>{copy.place}</p>
                 <p className="event-record-summary">{copy.summary}</p>
                 <div className="event-record-proof">
-                  {project.featuredFilm ? <span>{t.film}</span> : null}
-                  <span>{t.photos(media.length)}</span>
-                  <span>{project.outcomes.length ? t.outcomes(project.outcomes.length) : t.outcomesPending}</span>
+                  {project.featuredFilm ? <Link href={href + "#project-film-title"}>Ver video</Link> : null}
+                  <Link href={href + "#project-proof-title"}>Ver galería ({media.length})</Link>
+                  <Link href="/es/creditos">Aliados comunitarios</Link>
                 </div>
                 <Link className="event-record-link" href={href}>
                   {t.openEvent} <span className="arrow" aria-hidden="true">→</span>
@@ -73,10 +80,6 @@ export default function EventosPage() {
         })}
       </section>
 
-      <section className="events-next shell">
-        <p className="eyebrow">{t.nextEyebrow}</p>
-        <h2>{t.nextTitle}</h2>
-      </section>
 
       <SiteFooter />
     </main>

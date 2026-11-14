@@ -72,7 +72,7 @@ export const homeEs = {
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que ASC3ND está construyendo.",
-  focusIntro: "Tres áreas guían el trabajo. Cada una sigue en desarrollo.",
+  focusIntro: "A medida que ASC3ND Collective crece, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.",
   focusPhotoAlts: [
     "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Community Cuts for Kids",
     "Un barbero voluntario con camiseta de ASC3ND cortándole el pelo a un niño",

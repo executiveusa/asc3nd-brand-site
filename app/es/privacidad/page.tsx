@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
       <section className="interior-statement shell">
         <p className="eyebrow">{t.questions.eyebrow}</p>
         <h2>{t.questions.title}</h2>
-        <p>{t.questions.before}<a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a>{t.questions.after}</p>
+        <p>{t.questions.before}<a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>{t.questions.after}</p>
       </section>
     </InteriorPage>
   );

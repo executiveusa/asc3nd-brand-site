@@ -56,7 +56,7 @@ export default function Home() {
             ASC3ND helps young people find trusted guidance, practice life skills, and connect with community opportunity.
           </p>
           <div className="home-hero-actions">
-            <Link className="button button-solid" href="/take-part">Take part <span className="arrow" aria-hidden="true">→</span></Link>
+            <Link className="button button-solid" href="/take-part">Get Involved <span className="arrow" aria-hidden="true">→</span></Link>
             <Link className="button button-line" href="/projects/community-cuts">See Community Cuts <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
         </section>

@@ -22,7 +22,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
               <a className="ss-action" href="mailto:main@asc3ndcollective.com?subject=ASC3ND%20donation%20inquiry">
                 {copy.eyebrow === "Apoyo" ? "Consulta cómo donar" : "Ask how to donate"} <span className="arrow" aria-hidden="true">→</span>
               </a>
-            )
+            )}
           </div>
           <div className="ss-row">
             <h2 className="ss-label">{rows.volunteer.label}</h2>

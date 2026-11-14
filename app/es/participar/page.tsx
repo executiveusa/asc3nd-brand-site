@@ -3,6 +3,7 @@ import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { getApprovedMedia } from "@/lib/media-registry";
 import { pageMetadata } from "@/lib/metadata";
+import { participationRoutesEs } from "@/lib/site-content.es";
 import "../../home.css";
 
 export const metadata = pageMetadata({
@@ -11,33 +12,14 @@ export const metadata = pageMetadata({
   path: "/es/participar",
 });
 
-const routes = [
-  {
-    label: "Familias",
-    action: "Mantente al tanto",
-    detail: "Entérate de los programas y eventos para tu joven.",
-    href: "/es/participar/familia",
-  },
-  {
-    label: "Mentores y voluntarios",
-    action: "Participa",
-    detail: "Regala tu tiempo, tus habilidades o un oído atento a jóvenes de tu comunidad.",
-    href: "/es/participar/mentores-voluntariado",
-  },
-  {
-    label: "Aliados de la comunidad",
-    action: "Habla con ASC3ND",
-    detail: "Aporta un espacio, servicios o apoyo para un evento o programa.",
-    href: "/es/participar/aliados",
-  },
-] as const;
+const routes = participationRoutesEs;
 
 export default function ParticiparPage() {
   return (
     <InteriorPage
       eyebrow="Participa"
-      title="¿Quieres ser parte de lo que viene?"
-      intro="ASC3ND todavía está armando sus programas permanentes. Por ahora, la forma más fácil de acercarte es conversar directamente con nosotros. Elige el camino que mejor te quede."
+      title="Forma parte de algo más grande."
+      intro="En ASC3ND Collective creemos que el cambio significativo ocurre cuando las personas se reúnen con un propósito común. Si quieres conocer oportunidades para tu familia, ofrecer tiempo como voluntario o colaborar como organización, hay un lugar para ti en nuestra comunidad."
     >
       {getApprovedMedia("take-part") ? (
         <section className="interior-section shell">

@@ -22,7 +22,7 @@ export default function SeguridadJuvenilPage() {
       <section className="interior-statement shell">
         <p className="eyebrow">{t.contact.eyebrow}</p>
         <h2>{t.contact.title}</h2>
-        <p>{t.contact.before}<a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a>{t.contact.after}</p>
+        <p>{t.contact.before}<a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>{t.contact.after}</p>
       </section>
     </InteriorPage>
   );

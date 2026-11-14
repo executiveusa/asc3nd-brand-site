@@ -19,7 +19,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
                 {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
               </a>
             ) : (
-              <a className="ss-action" href="mailto:main@asc3ndcollective.com?subject=ASC3ND%20donation%20inquiry">
+              <a className="ss-action" href="mailto:main@asc3nd.org?subject=ASC3ND%20donation%20inquiry">
                 {copy.eyebrow === "Apoyo" ? "Consulta cómo donar" : "Ask how to donate"} <span className="arrow" aria-hidden="true">→</span>
               </a>
             )}
@@ -41,7 +41,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
           <div className="ss-row">
             <h2 className="ss-label">{rows.supplies.label}</h2>
             <p className="ss-detail">{rows.supplies.detail}</p>
-            <a className="ss-action" href="mailto:main@asc3ndcollective.com">{rows.supplies.action}</a>
+            <a className="ss-action" href="mailto:main@asc3nd.org">{rows.supplies.action}</a>
           </div>
         </div>
       </section>

@@ -28,7 +28,7 @@ export function SiteFooter() {
       <div className="shell site-footer-inner">
         <div className="site-footer-lead">
           <p className="site-footer-promise">{t.promise[0]}<br />{t.promise[1]}<br />{t.promise[2]}</p>
-          <a className="site-footer-mail" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>
+          <a className="site-footer-mail" href="mailto:main@asc3nd.org">main@asc3nd.org</a>
         </div>
 
         <nav className="site-footer-columns" aria-label={t.footerNav}>

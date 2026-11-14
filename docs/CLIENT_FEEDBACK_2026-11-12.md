@@ -10,7 +10,7 @@ Client-supplied 13-page attachment: `Asc3nd Website Updates 11.12.26.docx`, rece
 - Change Events from "Event archive / One record..." to "Our Impact in Action / Where Purpose Meets Action"; distinguish active initiatives and completed events; use links for Watch Highlights / View Gallery / Community Partners.
 - Include **Project Joy: Asc3nd the Joy**, described in the client attachment as the active 2026 holiday initiative. No fabricated amount, date, recipient, campaign photo, or outcome.
 - Update Get Involved copy and routes, including Families & Youth, Volunteers & Mentors, Community Partners & Sponsors, and Support Our Mission. Retain existing working intake forms.
-- Change displayed email and notification function target from `main@asc3nd.org` to the client-specified `main@asc3ndcollective.com`.
+- Email address change is ON HOLD pending client confirmation. Preserve the existing `main@asc3nd.org` in UI, contact forms, and notification function.
 - Add visible donation/support routes. Eliminate generic `https://www.zeffy.com/` as a fake donation destination; `NEXT_PUBLIC_ASC3ND_ZEFFY_URL` must point to a campaign-specific https Zeffy fundraising URL or the UI shows safe support/contact options.
 - Keep Spanish pages and navigation aligned.
 
@@ -18,7 +18,7 @@ Client-supplied 13-page attachment: `Asc3nd Website Updates 11.12.26.docx`, rece
 1. **Project Joy:** Client describes it as active; verify exact operating dates, campaign owner, public description, beneficiaries, approved photos and participation/donation method before production release. The branch intentionally provides a direct inquiry path, not an invented fundraising checkout.
 2. **Donations:** Confirm a real ASC3ND-controlled Zeffy campaign URL and the entity that receives funds before enabling live Donate links. No generic homepage link.
 3. **Legal status:** Existing Washington UBI is repository content; reconfirm legal name, UBI, nonprofit and tax-deductibility representations with the organization before launch. No new legal status claim has been added.
-4. **Contact delivery:** The source code for the site notification worker has a new recipient, but any separately deployed Supabase function will need its own authorized deployment, delivery test, and rollback.
+4. **Contact delivery:** The email change is on hold. Do not modify or deploy the notification worker's recipient until the client confirms the address; then separately authorize a delivery test and rollback.
 5. **Translation:** The Spanish presentation mirrors the client's English direction; have a bilingual editor independently review public copy.
 
 ## AI-slop watchlist — not authorship claims

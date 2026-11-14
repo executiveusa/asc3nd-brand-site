@@ -47,7 +47,7 @@ export const supportEn: SupportCopy = {
     supplies: {
       label: "Give supplies",
       detail: "Have supplies to give? Email us before you gather anything, so we can tell you whether it fits a current need.",
-      action: "main@asc3ndcollective.com",
+      action: "main@asc3nd.org",
     },
   },
   trust: {

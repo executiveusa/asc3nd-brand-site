@@ -64,7 +64,7 @@ Deno.serve(async (request) => {
       ok: true,
       configured: Boolean(resendKey),
       provider: "resend",
-      recipient: "main@asc3ndcollective.com",
+      recipient: "main@asc3nd.org",
       from_email: fromEmail,
       missing: resendKey ? [] : ["RESEND_API_KEY"],
     });
@@ -102,7 +102,7 @@ Deno.serve(async (request) => {
         },
         body: JSON.stringify({
           from: fromEmail,
-          to: ["main@asc3ndcollective.com"],
+          to: ["main@asc3nd.org"],
           reply_to: payload.email || undefined,
           subject: subject(row.kind, payload),
           text,
@@ -135,7 +135,7 @@ Deno.serve(async (request) => {
   return json({
     ok: true,
     configured: true,
-    recipient: "main@asc3ndcollective.com",
+    recipient: "main@asc3nd.org",
     processed: results.length,
     sent: results.filter((item) => item.ok === true).length,
     failed: results.filter((item) => item.ok !== true).length,

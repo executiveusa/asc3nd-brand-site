@@ -86,7 +86,7 @@ export function CreditsPage({ locale = "en" }: { locale?: Locale }) {
           <p>{t.missingBody}</p>
           <div className="credits-links">
             <Link href={t.messageHref}>{t.message} <span className="arrow" aria-hidden="true">→</span></Link>
-            <a href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>
+            <a href="mailto:main@asc3nd.org">main@asc3nd.org</a>
             <Link href={t.eventHref}>{t.eventLink} <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
         </div>

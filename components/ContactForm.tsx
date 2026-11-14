@@ -18,7 +18,7 @@ const copy = {
     submit: "Send message",
     pending: "Sending…",
     success: "Thank you. Your message was received.",
-    error: "We could not send your message. Please try again, or email main@asc3ndcollective.com.",
+    error: "We could not send your message. Please try again, or email main@asc3nd.org.",
     limit: "Too many messages were sent from this connection. Please try again in a few minutes.",
     sourcePage: "asc3nd.org/take-part#direct-contact",
     honeypot: "Website",
@@ -34,7 +34,7 @@ const copy = {
     submit: "Enviar mensaje",
     pending: "Enviando…",
     success: "Gracias. Recibimos tu mensaje.",
-    error: "No pudimos enviar tu mensaje. Inténtalo de nuevo o escribe a main@asc3ndcollective.com.",
+    error: "No pudimos enviar tu mensaje. Inténtalo de nuevo o escribe a main@asc3nd.org.",
     limit: "Se enviaron demasiados mensajes desde esta conexión. Inténtalo de nuevo en unos minutos.",
     sourcePage: "asc3nd.org/es/participar#contacto-directo",
     honeypot: "Sitio web",
@@ -112,7 +112,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         <p className="eyebrow">{t.eyebrow}</p>
         <h2 id={`${id}-title`}>{t.title}</h2>
         <p>
-          {t.intro} <a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>
+          {t.intro} <a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a>
         </p>
       </div>
 

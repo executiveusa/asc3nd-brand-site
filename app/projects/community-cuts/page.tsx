@@ -10,7 +10,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Fresh Fade, Fresh Grade"
+  title: "Fresh Fade, Fresh Grade",
   description: "Fresh Fade, Fresh Grade, Everett, August 2026: back-to-school community event photographs, film, and partners.",
   path: "/projects/community-cuts",
 });

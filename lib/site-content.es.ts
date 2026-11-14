@@ -64,7 +64,7 @@ export const homeEs = {
   explainer:
     "ASC3ND ayuda a los jóvenes a encontrar guía de confianza, practicar habilidades para la vida y conectarse con oportunidades en su comunidad.",
   ctaPrimary: "Cómo participar",
-  ctaSecondary: "Conoce Community Cuts",
+  ctaSecondary: "Conoce Fresh Fade, Fresh Grade",
   heroAlt:
     "Familias haciendo fila en la carpa de ASC3ND, bajo una pancarta con el lema de la organización (en inglés)",
   proof: (n: number) =>

@@ -10,8 +10,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Community Cuts for Kids",
-  description: "Community Cuts for Kids in Everett, Washington, August 2026: the event film, 86 approved photographs, and credits.",
+  title: "Fresh Fade, Fresh Grade"
+  description: "Fresh Fade, Fresh Grade, Everett, August 2026: back-to-school community event photographs, film, and partners.",
   path: "/projects/community-cuts",
 });
 
@@ -29,14 +29,16 @@ export default function CommunityCutsPage() {
           <p>{communityCutsProject.location}</p>
           <p>{communityCutsProject.dateLabel}</p>
         </div>
+        <p className="project-tagline">Fresh Cuts. Fresh Confidence. Brighter Futures.</p>
         <p className="project-summary">{communityCutsProject.summary}</p>
+        {communityCutsProject.story?.map((paragraph) => <p className="project-summary project-story-copy" key={paragraph}>{paragraph}</p>)}
       </section>
 
       {communityCutsProject.featuredFilm ? (
         <section className="project-film-section shell" aria-labelledby="project-film-title">
           <div className="project-film-copy">
             <p className="eyebrow">The film</p>
-            <h2 id="project-film-title">Community Cuts for Kids, Everett.</h2>
+            <h2 id="project-film-title">Fresh Fade, Fresh Grade, Everett.</h2>
             <p>Watch the full event film.</p>
           </div>
           <ProjectFilm film={communityCutsProject.featuredFilm} />
@@ -46,7 +48,7 @@ export default function CommunityCutsPage() {
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">
           <p className="eyebrow">Photographs</p>
-          <h2 id="project-proof-title">Community Cuts, photographed.</h2>
+          <h2 id="project-proof-title">Fresh Fade, Fresh Grade in pictures.</h2>
           <p>{media.length ? `${media.length} approved event photographs.` : "Approved event photographs will appear here."}</p>
         </div>
         <ProjectProofGallery

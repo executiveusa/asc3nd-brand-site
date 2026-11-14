@@ -7,7 +7,7 @@ export const supportEs: SupportCopy = {
   rows: {
     donate: {
       label: "Donar",
-      detail: "Dona en línea a través de Zeffy. Saldrás de este sitio para completar tu donación.",
+      detail: "Consulta cómo apoyar a ASC3ND. Las donaciones en línea estarán disponibles cuando se conecte la campaña de Zeffy verificada.",
       action: "Donar",
     },
     volunteer: {
@@ -25,7 +25,7 @@ export const supportEs: SupportCopy = {
     supplies: {
       label: "Dar materiales",
       detail: "¿Tienes materiales que quieras dar? Escríbenos antes de reunir nada, para decirte si responden a una necesidad actual.",
-      action: "main@asc3nd.org",
+      action: "main@asc3ndcollective.com",
     },
   },
   trust: {

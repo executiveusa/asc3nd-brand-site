@@ -1,5 +1,11 @@
-/** Placeholder until the founders connect their Zeffy account. Change this one constant and every Donate link follows. */
-export const ZEFFY_DONATE_URL = "https://www.zeffy.com/";
+/** Campaign-specific Zeffy link, never a generic Zeffy homepage. */
+const candidate = process.env.NEXT_PUBLIC_ASC3ND_ZEFFY_URL?.trim() || "";
+export const ZEFFY_DONATE_URL = (() => {
+  try {
+    const url = new URL(candidate);
+    return url.protocol === "https:" && ["zeffy.com", "www.zeffy.com"].includes(url.hostname) && url.pathname.includes("/fundraising/") ? candidate : "";
+  } catch { return ""; }
+})();
 
 export const siteStory = {
   hero: {
@@ -53,46 +59,32 @@ export const communityRoll = [
 ] as const;
 
 export const pathways = [
-  {
-    index: "01",
-    title: "Trusted guidance",
-    copy: "Connect young people with adults who can listen, encourage, and help them see practical next steps.",
-    status: "In development",
-  },
-  {
-    index: "02",
-    title: "Life skills",
-    copy: "Create useful experiences where young people can practice communication, confidence, and everyday skills.",
-    status: "In development",
-  },
-  {
-    index: "03",
-    title: "Community opportunity",
-    copy: "Connect young people and families with people, programs, and opportunities in their community.",
-    status: "In development",
-  },
+  { index: "01", title: "Trusted Guidance", copy: "We believe every young person deserves someone in their corner. Through mentorship, encouragement, and meaningful relationships, we aim to connect youth with positive role models who inspire confidence, provide guidance, and help them navigate life's opportunities and challenges." },
+  { index: "02", title: "Life Skills & Personal Growth", copy: "Empowering the next generation goes beyond the classroom. We envision creating opportunities for young people to build confidence, develop practical life skills, strengthen communication, and gain the tools they need to thrive." },
+  { index: "03", title: "Community Connections & Opportunity", copy: "Strong communities create stronger futures. Through outreach initiatives, collaborative partnerships, and community-driven experiences, we strive to connect youth and families with resources, opportunities, and support that make a lasting difference." },
 ] as const;
 
 export const participationRoutes = [
   {
     index: "01",
-    label: "Families",
+    label: "Families & Youth",
     action: "Stay connected",
-    detail: "Hear about programs and events for your young person.",
+    detail: "Learn about upcoming events, programs, and community resources for your family.",
     href: "/take-part/family",
   },
   {
     index: "02",
-    label: "Mentors and volunteers",
+    label: "Volunteers & Mentors",
     action: "Get involved",
-    detail: "Give time, skills or a listening ear to young people nearby.",
+    detail: "Contribute your time, talents, and experiences to support young people.",
     href: "/take-part/mentor-volunteer",
   },
   {
     index: "03",
-    label: "Community partners",
+    label: "Community Partners & Sponsors",
     action: "Talk with ASC3ND",
-    detail: "Bring space, services or support to an event or program.",
+    detail: "Businesses, organizations, and individuals can collaborate, sponsor events, or provide resources.",
     href: "/take-part/partner",
   },
+  { index: "04", label: "Support Our Mission", action: "Support ASC3ND", detail: "Explore ways to contribute, including a conversation about giving.", href: "/support" },
 ] as const;

@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       <section className="interior-statement shell">
         <p className="eyebrow">Questions</p>
         <h2>Contact ASC3ND directly.</h2>
-        <p>For questions about information you submitted through this website, email <a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a>.</p>
+        <p>For questions about information you submitted through this website, email <a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>.</p>
       </section>
     </InteriorPage>
   );

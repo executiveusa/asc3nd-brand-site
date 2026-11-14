@@ -75,7 +75,7 @@ export default function HomeEs() {
           <div className="home-founders-grid">
             {founderQuotesEs.map((founder, i) => (
               <figure className="home-founder" key={founder.name}>
-                <img data-reveal="" src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={t.founderAlt(founder.name, founder.role)} loading="lazy" />
+                <img data-reveal="" src={i === 0 ? "/media/founders/otha.webp" : photo("044")} alt={i === 0 ? t.founderAlt(founder.name, founder.role) : "Jóvenes en el evento comunitario de regreso a clases de ASC3ND"} loading="lazy" />
                 <blockquote>
                   <p>“{founder.quote}”</p>
                 </blockquote>

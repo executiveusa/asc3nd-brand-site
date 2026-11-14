@@ -29,7 +29,7 @@ export const supportEn: SupportCopy = {
   rows: {
     donate: {
       label: "Donate",
-      detail: "Give online through Zeffy. You will leave this site to finish your gift.",
+      detail: "Contact ASC3ND about supporting the mission. Online giving will be available once the organization's verified Zeffy campaign is connected.",
       action: "Donate",
     },
     volunteer: {
@@ -47,7 +47,7 @@ export const supportEn: SupportCopy = {
     supplies: {
       label: "Give supplies",
       detail: "Have supplies to give? Email us before you gather anything, so we can tell you whether it fits a current need.",
-      action: "main@asc3nd.org",
+      action: "main@asc3ndcollective.com",
     },
   },
   trust: {

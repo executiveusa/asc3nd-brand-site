@@ -63,7 +63,7 @@ export default function Home() {
 
         <figure className="home-hero-media">
           <img data-reveal="" src={photo("060")} srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`} sizes="100vw" style={{ height: "auto" }} alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community" width={1600} height={1067} fetchPriority="high" />
-          <figcaption className="shell home-proof">The first event: Community Cuts for Kids, Everett, Washington, August 2026. {photoCount} photographs in the public record.</figcaption>
+          <figcaption className="shell home-proof">The first event: Fresh Fade, Fresh Grade, Everett, Washington, August 2026. {photoCount} photographs in the public record.</figcaption>
         </figure>
 
         <section className="home-founders shell" id="story" aria-labelledby="founders-title">
@@ -71,7 +71,7 @@ export default function Home() {
           <div className="home-founders-grid">
             {siteStory.founders.map((founder, i) => (
               <figure className="home-founder" key={founder.name}>
-                <img data-reveal="" src={i === 0 ? "/media/founders/otha.webp" : "/media/founders/elisha.webp"} alt={`${founder.name}, founder of the ASC3ND Collective`} loading="lazy" />
+                <img data-reveal="" src={i === 0 ? "/media/founders/otha.webp" : photo("044")} alt={i === 0 ? founder.name + ", founder of the ASC3ND Collective" : "Young people at the ASC3ND back-to-school event"} loading="lazy" />
                 <blockquote>
                   <p>“{founder.quote}”</p>
                 </blockquote>
@@ -84,7 +84,7 @@ export default function Home() {
         <section className="home-focus" aria-labelledby="focus-title">
           <div className="shell home-focus-head">
             <h2 id="focus-title" className="home-section-title">What ASC3ND is building.</h2>
-            <p>Three areas guide the work. Each one is still in development.</p>
+            <p>As Asc3nd Collective continues to grow, we're working to expand our initiatives and partnerships to bring these areas of focus to life.</p>
           </div>
           {pathways.map((area, i) => (
             <article className={`home-focus-row shell ${i % 2 ? "is-reversed" : ""}`} key={area.title}>

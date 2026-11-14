@@ -41,7 +41,7 @@ export default function YouthSafetyPage() {
       <section className="interior-statement shell">
         <p className="eyebrow">Questions or concerns</p>
         <h2>Contact ASC3ND.</h2>
-        <p>Email <a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a> with a website safety question, media concern, or request for follow-up.</p>
+        <p>Email <a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a> with a website safety question, media concern, or request for follow-up.</p>
       </section>
     </InteriorPage>
   );

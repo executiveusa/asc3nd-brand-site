@@ -51,7 +51,7 @@ export function SiteHeader({ current }: { current?: Section }) {
             <Link className="button button-solid donate-pill" href={locale === "es" ? "/es/apoyo" : "/support"}>
               {t.links.support} <span className="arrow" aria-hidden="true">→</span>
             </Link>
-          )
+          )}
           <button
             type="button"
             className="site-menu-toggle"

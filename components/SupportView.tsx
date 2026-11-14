@@ -14,9 +14,15 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
           <div className="ss-row">
             <h2 className="ss-label">{rows.donate.label}</h2>
             <p className="ss-detail">{rows.donate.detail}</p>
-            <a className="ss-action" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer">
-              {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
-            </a>
+            {ZEFFY_DONATE_URL ? (
+              <a className="ss-action" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer">
+                {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <a className="ss-action" href="mailto:main@asc3ndcollective.com?subject=ASC3ND%20donation%20inquiry">
+                {copy.eyebrow === "Apoyo" ? "Consulta cómo donar" : "Ask how to donate"} <span className="arrow" aria-hidden="true">→</span>
+              </a>
+            )
           </div>
           <div className="ss-row">
             <h2 className="ss-label">{rows.volunteer.label}</h2>
@@ -35,7 +41,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
           <div className="ss-row">
             <h2 className="ss-label">{rows.supplies.label}</h2>
             <p className="ss-detail">{rows.supplies.detail}</p>
-            <a className="ss-action" href="mailto:main@asc3nd.org">{rows.supplies.action}</a>
+            <a className="ss-action" href="mailto:main@asc3ndcollective.com">{rows.supplies.action}</a>
           </div>
         </div>
       </section>

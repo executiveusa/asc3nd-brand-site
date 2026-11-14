@@ -28,7 +28,7 @@ export function SiteFooter() {
       <div className="shell site-footer-inner">
         <div className="site-footer-lead">
           <p className="site-footer-promise">{t.promise[0]}<br />{t.promise[1]}<br />{t.promise[2]}</p>
-          <a className="site-footer-mail" href="mailto:main@asc3nd.org">main@asc3nd.org</a>
+          <a className="site-footer-mail" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a>
         </div>
 
         <nav className="site-footer-columns" aria-label={t.footerNav}>
@@ -39,6 +39,7 @@ export function SiteFooter() {
             <Link href={href.credits}>{t.links.credits}</Link>
             <Link href={href.takePart}>{t.links.takePart}</Link>
             <Link href={href.support}>{t.links.support}</Link>
+            <Link href={href.support} className="site-footer-donate">{locale === "es" ? "Opciones de donación" : "Donation options"} <span className="arrow" aria-hidden="true">→</span></Link>
             {shop ? (
               shop.external ? (
                 <a href={shop.href} target="_blank" rel="noopener noreferrer">{t.links.shop} <span className="arrow" aria-hidden="true">↗</span></a>

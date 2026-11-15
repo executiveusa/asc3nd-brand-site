@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { CollectiveLogo } from "@/components/CollectiveLogo";
+import { projectJoy } from "@/lib/initiative-content";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { pathways, siteStory } from "@/lib/site-content";
@@ -32,11 +34,9 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <section className="interior-section shell">
-        <DocumentaryFrame
-          label={elisha.name}
-          slot="founder-elisha"
-        />
+      <section className="interior-section shell story-founder-commentary" aria-label="Elisha Minnifield, founder">
+        <blockquote>“{elisha.quote}”</blockquote>
+        <p>— {elisha.name}, {elisha.role.toLowerCase()}</p>
       </section>
 
       <CollectiveLogo alt="ASC3ND Collective logo: an orange crown above the name ASC3ND in white brush lettering, with the 3 in orange" />
@@ -54,10 +54,22 @@ export default function StoryPage() {
         </div>
         <p>As Asc3nd Collective continues to grow, we're working to expand our initiatives and partnerships to bring these areas of focus to life.</p>
       </section>
-      <section className="interior-section shell" aria-labelledby="mission-in-action">
+      <section className="interior-section shell story-mission" aria-labelledby="mission-in-action">
         <h2 id="mission-in-action">Our Mission in Action</h2>
-        <p>Fresh Fade, Fresh Grade brought our community together in Everett, Washington, in August 2026, to support youth and families as they prepared for the new school year.</p>
-        <p>Project Joy: Asc3nd the Joy is an ASC3ND initiative. Campaign details and ways to participate will be shared once confirmed.</p>
+        <div className="story-mission-grid">
+          <article>
+            <p className="eyebrow">Community initiative</p>
+            <h3>Fresh Fade, Fresh Grade</h3>
+            <p>Fresh Fade, Fresh Grade brought our community together in Everett, Washington, in August 2026, to support youth and families as they prepared for the new school year.</p>
+            <Link href="/projects/community-cuts">Explore Fresh Fade, Fresh Grade <span className="arrow" aria-hidden="true">→</span></Link>
+          </article>
+          <article>
+            <p className="eyebrow">{projectJoy.en.type}</p>
+            <h3>{projectJoy.title}</h3>
+            <p>{projectJoy.en.awaiting}</p>
+            <Link href="/projects/project-joy">{projectJoy.en.linkLabel} <span className="arrow" aria-hidden="true">→</span></Link>
+          </article>
+        </div>
       </section>
 
     </InteriorPage>

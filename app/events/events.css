@@ -163,3 +163,54 @@
     font-size: clamp(2.5rem, 10vw, 4.2rem);
   }
 }
+
+
+/* Project Joy uses the existing event-card layout with an honest media placeholder. */
+.event-record--upcoming {
+  grid-template-columns: minmax(280px, .95fr) minmax(320px, 1.05fr);
+  margin-top: clamp(28px, 5vw, 60px);
+}
+.event-record--upcoming h3 {
+  margin: 10px 0 16px;
+  font-size: clamp(2.6rem, 5vw, 5.4rem);
+  line-height: .94;
+  letter-spacing: -.025em;
+}
+.event-record--upcoming .event-record-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  max-width: 45ch;
+}
+.event-record--upcoming .event-record-link { margin-top: 28px; }
+.initiative-event-media {
+  display: grid;
+  place-items: center;
+  background: var(--field);
+  color: var(--paper);
+  padding: 32px;
+}
+.initiative-event-media span {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1;
+  text-align: center;
+}
+.community-partners-summary {
+  padding: clamp(60px, 8vw, 110px) 0;
+  border-top: 1px solid var(--line);
+}
+.community-partners-summary h2 {
+  font-size: clamp(2.6rem, 5vw, 5.6rem);
+  line-height: 1;
+  margin: 0 0 24px;
+}
+.community-partners-summary > p:not(.eyebrow) {
+  max-width: 50ch;
+  color: var(--muted);
+  line-height: 1.65;
+}
+@media (max-width: 820px) {
+  .event-record--upcoming { grid-template-columns: minmax(0, 1fr); }
+  .event-record--upcoming .event-record-cover,
+  .event-record--upcoming .event-record-copy { grid-column: 1; }
+  .event-record--upcoming .event-record-cover { aspect-ratio: 4 / 3; }
+}

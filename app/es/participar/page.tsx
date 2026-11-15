@@ -13,19 +13,19 @@ export const metadata = pageMetadata({
 
 const routes = [
   {
-    label: "Familias",
+    label: "Familias y jóvenes",
     action: "Mantente al tanto",
     detail: "Entérate de los programas y eventos para tu joven.",
     href: "/es/participar/familia",
   },
   {
-    label: "Mentores y voluntarios",
+    label: "Voluntarios y mentores",
     action: "Participa",
     detail: "Regala tu tiempo, tus habilidades o un oído atento a jóvenes de tu comunidad.",
     href: "/es/participar/mentores-voluntariado",
   },
   {
-    label: "Aliados de la comunidad",
+    label: "Aliados comunitarios y patrocinadores",
     action: "Habla con ASC3ND",
     detail: "Aporta un espacio, servicios o apoyo para un evento o programa.",
     href: "/es/participar/aliados",
@@ -36,8 +36,8 @@ export default function ParticiparPage() {
   return (
     <InteriorPage
       eyebrow="Participa"
-      title="¿Quieres ser parte de lo que viene?"
-      intro="ASC3ND todavía está armando sus programas permanentes. Por ahora, la forma más fácil de acercarte es conversar directamente con nosotros. Elige el camino que mejor te quede."
+      title="Sé parte de algo más grande."
+      intro="En Asc3nd Collective creemos que el cambio significativo ocurre cuando las personas se unen con un propósito común. Ya sea que busques oportunidades para tu familia, quieras ofrecer tu tiempo y talento como voluntario o representes a una organización interesada en colaborar, te invitamos a formar parte de nuestro colectivo en crecimiento. Juntos podemos crear experiencias significativas, fortalecer los vínculos comunitarios y ayudar a la próxima generación a prosperar."
     >
       {getApprovedMedia("take-part") ? (
         <section className="interior-section shell">

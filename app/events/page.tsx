@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Events",
-  description: "A growing archive of ASC3ND events, project records, films, approved photographs, credits, and verified outcomes.",
+  description: "Discover ASC3ND Collective's community initiatives, past events, and opportunities to get involved.",
   path: "/events",
 });
 
@@ -19,11 +19,26 @@ export default function EventsPage() {
       <SiteHeader current="events" />
 
       <section className="events-hero shell">
-        <p className="eyebrow">Event archive</p>
-        <h1>One record for every ASC3ND event.</h1>
+        <p className="eyebrow">Our Impact in Action</p>
+        <h1>Where Purpose Meets Action.</h1>
+        <p>From community outreach and youth-focused initiatives to meaningful partnerships, every Asc3nd Collective event is an opportunity to give back, build connections, and make a difference.</p>
       </section>
 
-      <section className="events-list shell" aria-label="ASC3ND event archive">
+      <section className="events-next shell" aria-labelledby="current-initiatives-title">
+        <h2 id="current-initiatives-title">Current &amp; Upcoming Initiatives</h2>
+        <article aria-labelledby="project-joy-title">
+          <h3 id="project-joy-title">Project Joy: Asc3nd the Joy</h3>
+          {/* CLIENT TODO: Supply approved description, dates, location, and campaign status.
+              Supply consent-cleared images and verified participation/donation destinations.
+              Do not publish unverified claims or links. */}
+          <p>Initiative details awaiting confirmation from ASC3ND.</p>
+        </article>
+      </section>
+      <section className="shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title">Past Events &amp; Community Impact</h2>
+      </section>
+
+      <section className="events-list shell" aria-label="ASC3ND community events and impact">
         {asc3ndProjects.map((project, index) => {
           const media = getApprovedProjectMedia(project);
           const cover = media[0];
@@ -44,16 +59,16 @@ export default function EventsPage() {
 
               <div className="event-record-copy">
                 <p className="eyebrow">{project.eyebrow}</p>
-                <h2>{project.title}</h2>
+                <h2>{project.title} — Back-to-School Community Event</h2>
                 <p>{project.location}, {project.dateLabel}</p>
                 <p className="event-record-summary">{project.summary}</p>
                 <div className="event-record-proof">
-                  {project.featuredFilm ? <span>Film</span> : null}
-                  <span>{media.length} approved photos</span>
-                  <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Outcomes pending verification"}</span>
+                  {project.featuredFilm ? <span>Watch Highlights</span> : null}
+                  <span>View Gallery ({media.length} photos)</span>
+                  <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Community Partners"}</span>
                 </div>
                 <Link className="event-record-link" href={`/projects/${project.slug}`}>
-                  Open the full event <span className="arrow" aria-hidden="true">→</span>
+                  Explore the event <span className="arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>
@@ -61,10 +76,7 @@ export default function EventsPage() {
         })}
       </section>
 
-      <section className="events-next shell">
-        <p className="eyebrow">Next event</p>
-        <h2>The next confirmed ASC3ND event will be added here.</h2>
-      </section>
+
 
       <SiteFooter />
     </main>

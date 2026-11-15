@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "ASC3ND",
     locale: "en_US",
     alternateLocale: ["es_US"],
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "ASC3ND over a photo of families at the Community Cuts for Kids tent in Everett, Washington" }],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "ASC3ND over a photo of families at the Fresh Fade, Fresh Grade tent in Everett, Washington" }],
   },
   twitter: { card: "summary_large_image", images: [OG_IMAGE] },
 };

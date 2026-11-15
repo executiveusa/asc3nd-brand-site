@@ -7,7 +7,7 @@ import { creditGroupsForDialog } from "@/lib/credits";
 
 export const esLocation = "Everett, Washington";
 export const esDateLabel = "agosto de 2026";
-export const esProjectName = "Community Cuts for Kids";
+export const esProjectName = "Fresh Fade, Fresh Grade";
 
 /** Shown once beside translated founder quotes. */
 export const translationNote = "Traducción del testimonio original en inglés.";
@@ -29,37 +29,37 @@ export const founderQuotesEs = [
 
 export const pathwaysEs = [
   {
-    title: "Guía de confianza",
-    copy: "Conectar a los jóvenes con adultos que sepan escuchar, animar y ayudarles a ver los próximos pasos concretos.",
+    title: "Orientación de confianza",
+    copy: "Creemos que cada joven merece contar con alguien que lo apoye. Mediante la mentoría, el ánimo y las relaciones significativas, buscamos conectar a los jóvenes con modelos positivos que inspiren confianza, ofrezcan orientación y les ayuden a aprovechar las oportunidades de la vida.",
     status: "En desarrollo",
   },
   {
-    title: "Habilidades para la vida",
-    copy: "Crear experiencias útiles donde los jóvenes practiquen la comunicación, la confianza en sí mismos y las habilidades del día a día.",
+    title: "Habilidades para la vida y crecimiento personal",
+    copy: "Empoderar a la próxima generación va más allá del aula. Queremos crear oportunidades para desarrollar la confianza, las habilidades prácticas para la vida y la comunicación, y ofrecer herramientas para prosperar.",
     status: "En desarrollo",
   },
   {
-    title: "Oportunidades en la comunidad",
-    copy: "Conectar a los jóvenes y a sus familias con personas, programas y oportunidades de su comunidad.",
+    title: "Conexiones comunitarias y oportunidades",
+    copy: "Las comunidades fuertes crean futuros más sólidos. Mediante iniciativas de apoyo, alianzas y experiencias comunitarias, buscamos conectar a jóvenes y familias con recursos, oportunidades y el apoyo que marque una diferencia duradera.",
     status: "En desarrollo",
   },
 ] as const;
 
 export const participationRoutesEs = [
   {
-    label: "Familias",
+    label: "Familias y jóvenes",
     action: "Mantente al tanto",
     detail: "Entérate de los programas y eventos para los jóvenes de tu familia.",
     href: "/es/participar/familia",
   },
   {
-    label: "Mentores y voluntarios",
+    label: "Voluntarios y mentores",
     action: "Súmate",
     detail: "Ofrece tu tiempo, tus habilidades o simplemente tu escucha a jóvenes de tu zona.",
     href: "/es/participar/mentores-voluntariado",
   },
   {
-    label: "Aliados comunitarios",
+    label: "Aliados comunitarios y patrocinadores",
     action: "Hablemos",
     detail: "Aporta un espacio, servicios o apoyo para un evento o programa.",
     href: "/es/participar/aliados",
@@ -75,17 +75,17 @@ export const homeEs = {
   explainer:
     "ASC3ND ayuda a los jóvenes a encontrar guía de confianza, practicar habilidades para la vida y conectarse con oportunidades en su comunidad.",
   ctaPrimary: "Cómo participar",
-  ctaSecondary: "Conoce Community Cuts",
+  ctaSecondary: "Conoce Fresh Fade, Fresh Grade",
   heroAlt:
     "Familias haciendo fila en la carpa de ASC3ND, bajo una pancarta con el lema de la organización (en inglés)",
   proof: (n: number) =>
-    `El primer evento: Community Cuts for Kids, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
+    `El primer evento: Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que ASC3ND está construyendo.",
-  focusIntro: "Tres áreas guían el trabajo. Cada una sigue en desarrollo.",
+  focusIntro: "A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.",
   focusPhotoAlts: [
-    "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Community Cuts for Kids",
+    "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Fresh Fade, Fresh Grade",
     "Un barbero voluntario con camiseta de ASC3ND cortándole el pelo a un niño",
     "Familias y voluntarios en la mesa de ASC3ND, bajo la carpa del evento",
   ],
@@ -106,58 +106,57 @@ export const storyEs = {
   meta: {
     title: "Nuestra historia",
     description:
-      "ASC3ND nació con Community Cuts for Kids en Everett, Washington, en agosto de 2026. Conoce cómo la organización sigue creciendo a partir de esa base.",
+      "ASC3ND nació con Fresh Fade, Fresh Grade en Everett, Washington, en agosto de 2026. Conoce cómo la organización sigue creciendo a partir de esa base.",
   },
   eyebrow: "Por qué existe ASC3ND",
-  title: "ASC3ND nació con Community Cuts for Kids.",
+  title: "Comenzó con una visión. Está creciendo hasta convertirse en un movimiento.",
   intro:
-    "En agosto de 2026, en Everett, Community Cuts puso el trabajo de ASC3ND a la vista de todos. La organización sigue creciendo a partir de esa base: guía de confianza, experiencias útiles y vínculos más fuertes con la comunidad para los jóvenes.",
+    "Asc3nd Collective nació de una pasión compartida por contribuir a la comunidad, apoyar a los demás y crear oportunidades significativas para la próxima generación. Lo que comenzó como una visión de servicio a jóvenes y familias tomó forma con nuestra primera iniciativa, Fresh Fade, Fresh Grade, en Everett, Washington, en agosto de 2026. Pero nuestra misión va mucho más allá de un solo evento. Creemos que cada joven merece sentirse visto, apoyado, alentado y capaz de alcanzar su máximo potencial. Mediante alianzas comunitarias, mentoría, actividades y experiencias significativas, construimos un colectivo donde pequeños actos de bondad generan un impacto duradero.",
   nextEyebrow: "Lo que viene",
-  nextTitle: "Tres áreas que ASC3ND está desarrollando.",
+  nextTitle: "Tres pilares. Un propósito. Posibilidades infinitas.",
 };
 
 export const eventsEs = {
   meta: {
     title: "Eventos",
     description:
-      "Un archivo en crecimiento de los eventos de ASC3ND: registros de proyectos, videos, fotografías aprobadas, créditos y resultados verificados.",
+      "Descubre las iniciativas comunitarias de Asc3nd Collective, los eventos anteriores y las oportunidades para participar.",
   },
-  eyebrow: "Archivo de eventos",
-  title: "Un registro para cada evento de ASC3ND.",
-  listLabel: "Archivo de eventos de ASC3ND",
+  eyebrow: "Nuestro impacto en acción",
+  title: "Donde el propósito se convierte en acción.",
+  intro: "Desde actividades comunitarias e iniciativas centradas en la juventud hasta alianzas significativas, cada evento de Asc3nd Collective es una oportunidad para contribuir, crear vínculos y marcar una diferencia.",
+  listLabel: "Eventos e impacto comunitario de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",
-  film: "Video",
-  photos: (n: number) => `${n} fotos aprobadas`,
+  film: "Ver momentos destacados",
+  photos: (n: number) => `Ver galería (${n} fotos)`,
   outcomes: (n: number) => `${n} resultados verificados`,
-  outcomesPending: "Resultados pendientes de verificación",
-  openEvent: "Abrir el evento completo",
-  nextEyebrow: "Próximo evento",
-  nextTitle: "Aquí agregaremos el próximo evento confirmado de ASC3ND.",
+  outcomesPending: "Aliados comunitarios",
+  openEvent: "Conoce el evento",
 };
 
 export const communityCutsEs = {
   meta: {
-    title: "Community Cuts for Kids",
+    title: "Fresh Fade, Fresh Grade",
     description:
-      "Community Cuts for Kids en Everett, Washington, agosto de 2026: el video del evento, 86 fotografías aprobadas y los créditos.",
+      "Fresh Fade, Fresh Grade en Everett, Washington, agosto de 2026: el video del evento, 86 fotografías aprobadas y los créditos.",
   },
   eyebrow: "Proyecto comunitario",
   summary:
-    "Community Cuts for Kids se realizó en Everett, Washington, en agosto de 2026. Esta página reúne en un solo registro público el video del evento, las fotografías aprobadas y los créditos.",
+    "Cortes frescos. Más confianza. Futuros más brillantes. Nuestra primera iniciativa Fresh Fade, Fresh Grade reunió a nuestra comunidad para ayudar a los jóvenes a prepararse para el nuevo año escolar con confianza y entusiasmo. A través de la colaboración comunitaria, la generosidad y las conexiones significativas, celebramos la importancia de apoyar a nuestra juventud y recordarles que cuentan con respaldo, que son valiosos y que pueden alcanzar grandes cosas. Más que un evento de regreso a clases, esta iniciativa marcó el comienzo del compromiso de Asc3nd Collective de apoyar a la próxima generación, una experiencia significativa a la vez.",
   film: {
     eyebrow: "El video",
-    title: "Community Cuts for Kids, Everett.",
+    title: "Fresh Fade, Fresh Grade, Everett.",
     lead: "Mira el video completo del evento.",
-    filmTitle: "Community Cuts for Kids: video completo",
+    filmTitle: "Fresh Fade, Fresh Grade: video completo",
     caption: "Everett, Washington, agosto de 2026",
   },
   photos: {
     eyebrow: "Fotografías",
-    title: "Community Cuts en imágenes.",
+    title: "Fresh Fade, Fresh Grade en imágenes.",
     count: (n: number) => (n ? `${n} fotografías aprobadas del evento.` : "Las fotografías aprobadas del evento aparecerán aquí."),
-    empty: "Community Cuts: fotos y video aprobados",
-    caption: "Community Cuts for Kids, Everett, Washington, agosto de 2026",
+    empty: "Fresh Fade, Fresh Grade: fotos y video aprobados",
+    caption: "Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026",
   },
   outcomes: {
     eyebrow: "Resultados",
@@ -166,7 +165,7 @@ export const communityCutsEs = {
   },
   thanks: {
     eyebrow: "Con gratitud",
-    title: "Gracias a todas las personas que hicieron posible Community Cuts.",
+    title: "Gracias a todas las personas que hicieron posible Fresh Fade, Fresh Grade.",
     intro:
       "A los barberos, voluntarios, familias, aliados, fotógrafos, organizadores y a todas las personas que dieron su tiempo, su talento y su apoyo: gracias por estar presentes para la comunidad.",
   },

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
+import { clientLogoEnabled } from "@/components/ClientBrandLockup";
 import { counterpart, localeOf, ui } from "@/lib/i18n";
 import { navFor } from "@/lib/nav";
 import { ZEFFY_DONATE_URL } from "@/lib/site-content";
@@ -24,6 +25,7 @@ export function SiteHeader({ current }: { current?: Section }) {
   const t = ui[locale];
   const other = counterpart(pathname);
   const active = sectionOf(pathname) ?? current;
+  const hideHomeWordmark = clientLogoEnabled && (pathname === "/" || pathname === "/es");
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -38,9 +40,11 @@ export function SiteHeader({ current }: { current?: Section }) {
   return (
     <header className="site-header">
       <div className="shell site-header-inner">
-        <Link className="site-logo" href={locale === "es" ? "/es" : "/"} aria-label={t.homeLabel}>
-          <BrandLogo />
-        </Link>
+        {!hideHomeWordmark ? (
+          <Link className="site-logo" href={locale === "es" ? "/es" : "/"} aria-label={t.homeLabel}>
+            <BrandLogo />
+          </Link>
+        ) : null}
 
         <div className="site-header-actions">
           <a className="button button-solid donate-pill" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer" aria-label={t.donateLabel}>

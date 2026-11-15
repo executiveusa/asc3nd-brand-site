@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 // Spanish copy per project slug. Add an entry when a new project is added to lib/projects.ts.
 const projectCopy: Record<string, { title: string; eyebrow: string; place: string; summary: string }> = {
   "community-cuts": {
-    title: "Community Cuts for Kids",
+    title: "Fresh Fade, Fresh Grade",
     eyebrow: communityCutsEs.eyebrow,
     place: "Everett, Washington, agosto de 2026",
     summary: communityCutsEs.summary,
@@ -30,6 +30,20 @@ export default function EventosPage() {
       <section className="events-hero shell">
         <p className="eyebrow">{t.eyebrow}</p>
         <h1>{t.title}</h1>
+        <p>{t.intro}</p>
+      </section>
+
+      <section className="events-next shell" aria-labelledby="current-initiatives-title">
+        <h2 id="current-initiatives-title">Iniciativas actuales y próximas</h2>
+        <article aria-labelledby="project-joy-title">
+          <h3 id="project-joy-title">Project Joy: Asc3nd the Joy</h3>
+          {/* CLIENTE: aportar descripción aprobada, fechas, ubicación, imagen con consentimiento
+              y enlaces verificados para participar o donar. No publicar datos sin confirmar. */}
+          <p>Información de la iniciativa pendiente de confirmación por ASC3ND.</p>
+        </article>
+      </section>
+      <section className="shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title">Eventos pasados e impacto comunitario</h2>
       </section>
 
       <section className="events-list shell" aria-label={t.listLabel}>
@@ -56,7 +70,7 @@ export default function EventosPage() {
 
               <div className="event-record-copy">
                 <p className="eyebrow">{copy.eyebrow}</p>
-                <h2>{copy.title}</h2>
+                <h2>{copy.title} — Evento comunitario de regreso a clases</h2>
                 <p>{copy.place}</p>
                 <p className="event-record-summary">{copy.summary}</p>
                 <div className="event-record-proof">
@@ -73,10 +87,7 @@ export default function EventosPage() {
         })}
       </section>
 
-      <section className="events-next shell">
-        <p className="eyebrow">{t.nextEyebrow}</p>
-        <h2>{t.nextTitle}</h2>
-      </section>
+
 
       <SiteFooter />
     </main>

@@ -3,7 +3,7 @@ import { counterpart, localeOf, routePairs, type Locale } from "@/lib/i18n";
 
 export const SITE_URL = "https://asc3nd.org";
 export const OG_IMAGE = "/og/asc3nd.jpg";
-const OG_ALT = "ASC3ND over a photo of families at the Community Cuts for Kids tent in Everett, Washington";
+const OG_ALT = "ASC3ND over a photo of families at the Fresh Fade, Fresh Grade tent in Everett, Washington";
 
 type PageMeta = { title: string; description: string; path: string };
 

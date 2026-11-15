@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Our story",
-  description: "ASC3ND began with Community Cuts for Kids in Everett, Washington, in August 2026. Read how the organization is building from that foundation.",
+  description: "ASC3ND began with Fresh Fade, Fresh Grade in Everett, Washington, in August 2026. Read how the organization is building from that foundation.",
   path: "/story",
 });
 
@@ -17,7 +17,7 @@ export default function StoryPage() {
     <InteriorPage
       eyebrow="Why ASC3ND exists"
       title="It Started with a Vision. It's Growing into a Movement."
-      intro="In Everett in August 2026, Community Cuts brought ASC3ND's work into public view. The organization is building from that foundation: trusted guidance, useful experiences, and stronger community connections for young people."
+      intro="Asc3nd Collective was born from a shared passion for giving back, uplifting others, and creating meaningful opportunities for the next generation. What began as a vision to serve youth and families in our community came to life through our first initiative, Fresh Fade, Fresh Grade, in Everett, Washington, in August 2026. But our mission extends far beyond a single event. We believe every young person deserves to feel seen, supported, encouraged, and empowered to reach their full potential. Through community partnerships, mentorship, outreach, and meaningful experiences, we are building a collective where small acts of kindness create lasting impact."
     >
       <section className="story shell interior-story">
         <DocumentaryFrame
@@ -43,16 +43,16 @@ export default function StoryPage() {
 
       <section className="interior-statement shell">
         <p className="eyebrow">What comes next</p>
-        <h2>Three areas ASC3ND is developing.</h2>
+        <h2>Three Pillars. One Purpose. Endless Possibilities.</h2>
         <div className="interior-pathways">
-          {pathways.map(({ title, copy, status }) => (
+          {pathways.map(({ title, copy }) => (
             <article key={title}>
               <h3>{title}</h3>
               <p>{copy}</p>
-              <small>{status}</small>
             </article>
           ))}
         </div>
+        <p>As Asc3nd Collective continues to grow, we're working to expand our initiatives and partnerships to bring these areas of focus to life.</p>
       </section>
     </InteriorPage>
   );

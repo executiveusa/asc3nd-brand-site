@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { EditorialProofCarousel } from "@/components/EditorialProofCarousel";
+import { getStoryProofs } from "@/lib/editorial-proof";
 import { CollectiveLogo } from "@/components/CollectiveLogo";
 import { projectJoy } from "@/lib/initiative-content";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
@@ -28,6 +30,8 @@ export default function HistoriaPage() {
         <p>A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.</p>
       </section>
 
+
+      <EditorialProofCarousel items={getStoryProofs()} locale="es" />
 
       <CollectiveLogo alt="Logotipo de ASC3ND Collective: una corona naranja sobre el nombre ASC3ND en letras blancas de pincel, con el 3 en naranja" />
 

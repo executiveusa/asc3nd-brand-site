@@ -103,7 +103,7 @@ export default function Home() {
             <p>
               {communityCutsProject.location}, {communityCutsProject.dateLabel}. Haircuts and school supplies for kids heading back to school.
             </p>
-            <Link className="text-link" href="/projects/community-cuts">See all {photoCount} photos and the film <span className="arrow" aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/projects/community-cuts">View Gallery ({photoCount} photos) and Watch Highlights <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
           <EssayGrid entries={essay} />
         </section>

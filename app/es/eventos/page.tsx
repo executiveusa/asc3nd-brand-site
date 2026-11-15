@@ -70,7 +70,7 @@ export default function EventosPage() {
 
               <div className="event-record-copy">
                 <p className="eyebrow">{copy.eyebrow}</p>
-                <h2>{copy.title}</h2>
+                <h2>{copy.title} — Evento comunitario de regreso a clases</h2>
                 <p>{copy.place}</p>
                 <p className="event-record-summary">{copy.summary}</p>
                 <div className="event-record-proof">

@@ -554,9 +554,10 @@ for (const locale of ["en", "es"]) {
     const joyPath = spanish ? "/es/proyectos/project-joy" : "/projects/project-joy";
     const takePartPath = spanish ? "/es/participar" : "/take-part";
     await page.goto(baseURL + storyPath);
-    await expect(page.locator(".story-founder-commentary blockquote")).toContainText(
-      spanish ? "Quiero que cualquier joven" : "I want any youth",
-    );
+    // Owner explicitly approved removing both Elisha's Story portrait and testimony.
+    await expect(page.locator(".story-founder-commentary")).toHaveCount(0);
+    await expect(page.locator('[data-slot="founder-elisha"]')).toHaveCount(0);
+    await expect(page.locator("main")).not.toContainText(spanish ? "Quiero que cualquier joven" : "I want any youth");
     await expect(page.locator(`a[href="${joyPath}"]`)).toBeVisible();
     await page.goto(baseURL + eventsPath);
     await expect(page.locator(".event-record--upcoming")).toContainText("Project Joy: Asc3nd the Joy");

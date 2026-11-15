@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { CollectiveLogo } from "@/components/CollectiveLogo";
+import { projectJoy } from "@/lib/initiative-content";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
 import { founderQuotesEs, pathwaysEs, storyEs as t, translationNote } from "@/lib/site-content.es";
@@ -26,8 +28,10 @@ export default function HistoriaPage() {
         <p>A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.</p>
       </section>
 
-      <section className="interior-section shell">
-        <DocumentaryFrame label={elisha.name} slot="founder-elisha" />
+      <section className="interior-section shell story-founder-commentary" aria-label="Elisha Minnifield, fundadora">
+        <blockquote>“{elisha.quote}”</blockquote>
+        <p>— {elisha.name}, {elisha.role}</p>
+        <p className="translation-note">{translationNote}</p>
       </section>
 
       <CollectiveLogo alt="Logotipo de ASC3ND Collective: una corona naranja sobre el nombre ASC3ND en letras blancas de pincel, con el 3 en naranja" />
@@ -44,10 +48,22 @@ export default function HistoriaPage() {
           ))}
         </div>
       </section>
-      <section className="interior-section shell" aria-labelledby="mission-in-action">
+      <section className="interior-section shell story-mission" aria-labelledby="mission-in-action">
         <h2 id="mission-in-action">Nuestra misión en acción</h2>
-        <p>Fresh Fade, Fresh Grade reunió a nuestra comunidad en Everett, Washington, en agosto de 2026 para apoyar a jóvenes y familias durante el regreso a clases.</p>
-        <p>Project Joy: Asc3nd the Joy es otra iniciativa de ASC3ND. Los detalles de la campaña y las formas de participar se publicarán cuando estén confirmados.</p>
+        <div className="story-mission-grid">
+          <article>
+            <p className="eyebrow">Iniciativa comunitaria</p>
+            <h3>Fresh Fade, Fresh Grade</h3>
+            <p>Fresh Fade, Fresh Grade reunió a nuestra comunidad en Everett, Washington, en agosto de 2026 para apoyar a jóvenes y familias durante el regreso a clases.</p>
+            <Link href="/es/proyectos/community-cuts">Conoce Fresh Fade, Fresh Grade <span className="arrow" aria-hidden="true">→</span></Link>
+          </article>
+          <article>
+            <p className="eyebrow">{projectJoy.es.type}</p>
+            <h3>{projectJoy.title}</h3>
+            <p>{projectJoy.es.awaiting}</p>
+            <Link href="/es/proyectos/project-joy">{projectJoy.es.linkLabel} <span className="arrow" aria-hidden="true">→</span></Link>
+          </article>
+        </div>
       </section>
 
     </InteriorPage>

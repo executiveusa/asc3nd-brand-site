@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CrownMark } from "@/components/CrownMark";
+import { ClientBrandLockup, clientLogoEnabled } from "@/components/ClientBrandLockup";
 import { SocialLinks } from "@/components/SocialLinks";
 import { localeOf, ui } from "@/lib/i18n";
 import { shopLink } from "@/lib/nav";
@@ -60,8 +61,14 @@ export function SiteFooter() {
         </nav>
 
         <div className="site-footer-sign">
-          <div className="site-footer-mark" aria-hidden="true"><CrownMark /></div>
-          <BrandLogo className="site-footer-logo" title="ASC3ND" />
+          {clientLogoEnabled ? (
+            <ClientBrandLockup className="site-footer-client-logo" />
+          ) : (
+            <>
+              <div className="site-footer-mark" aria-hidden="true"><CrownMark /></div>
+              <BrandLogo className="site-footer-logo" title="ASC3ND" />
+            </>
+          )}
         </div>
 
         <div className="site-footer-legal">

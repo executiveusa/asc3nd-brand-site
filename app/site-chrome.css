@@ -76,3 +76,18 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(4px); }
   .site-nav a::after { display: none; }
   .locale-switch { justify-content: flex-start; padding-top: 8px; }
 }
+
+/* Client-provided full logo in footer; preserve old marks for release rollback. */
+.site-footer-client-logo {
+  display: block;
+  width: min(100%, 760px);
+  height: auto;
+  mix-blend-mode: screen;
+}
+.site-footer-sign:has(.site-footer-client-logo) {
+  isolation: isolate;
+  gap: 0;
+}
+@media (max-width: 820px) {
+  .site-footer-client-logo { width: min(100%, 500px); }
+}

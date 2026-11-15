@@ -38,7 +38,7 @@ MAX_LONG_EDGE = 1600
 JPEG_QUALITY = 82
 WEBP_WIDTHS = (640, 1024, 1600)
 WEBP_QUALITY = 78
-CAPTION = "Community Cuts for Kids, Everett, Washington, August 2026"
+CAPTION = "Fresh Fade, Fresh Grade, Everett, Washington, August 2026"
 
 
 def natural_key(path: Path):

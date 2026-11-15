@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
 });
 
 export default function HistoriaPage() {
-  const [otha, elisha] = founderQuotesEs;
+  const [otha] = founderQuotesEs;
 
   return (
     <InteriorPage eyebrow={t.eyebrow} title={t.title} intro={t.intro}>
@@ -28,12 +28,6 @@ export default function HistoriaPage() {
         <p>A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.</p>
       </section>
 
-      <section className="interior-section shell story-founder-commentary" aria-label="Elisha Minnifield, fundadora">
-        <DocumentaryFrame label={elisha.name} slot="founder-elisha" />
-        <blockquote>“{elisha.quote}”</blockquote>
-        <p>— {elisha.name}, {elisha.role}</p>
-        <p className="translation-note">{translationNote}</p>
-      </section>
 
       <CollectiveLogo alt="Logotipo de ASC3ND Collective: una corona naranja sobre el nombre ASC3ND en letras blancas de pincel, con el 3 en naranja" />
 

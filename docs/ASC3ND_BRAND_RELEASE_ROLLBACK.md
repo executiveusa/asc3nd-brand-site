@@ -4,7 +4,7 @@
 The single review branch adds the client-supplied complete logo lockup to the home heroes and footer, removes the redundant home-header wordmark, and carries the approved content changes from PR #77.
 
 ## Asset strategy and limitation
-Source is the existing `public/brand/asc3nd-collective-logo.webp`, a raster with an opaque dark background. `mix-blend-mode: screen` visually hides the dark background **only** where the surrounding element is the site's uniform dark `--ink` color (`#120f0b`). This does not create transparency, and appearance over gradients or photographs is not approved. If edge/contrast review fails, do not merge. A tested true-alpha asset may replace this in a subsequent revision.
+Source is the unchanged, owner-controlled `public/brand/asc3nd-collective-logo.webp`. The later logo-alpha fix renders it inside an inline SVG with a per-pixel alpha filter derived from its red channel (bright orange/white becomes opaque; black becomes transparent). `mix-blend-mode` is disabled. The original WebP stays untouched for rollback. The filter makes displayed pixels transparent without introducing a new remote asset, but a dedicated transparency PNG remains preferable as a future asset replacement. Validate across browsers and on the hero/footer before merge.
 
 ## Flagged rollback (build-time)
 Set `NEXT_PUBLIC_ASC3ND_CLIENT_LOGO=off` for the production build and redeploy. Home hero, footer and home header will return to the preserved original components. Unset/enable only after a new visual review.

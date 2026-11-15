@@ -35,6 +35,7 @@ export default function StoryPage() {
       </section>
 
       <section className="interior-section shell story-founder-commentary" aria-label="Elisha Minnifield, founder">
+        <DocumentaryFrame label={elisha.name} slot="founder-elisha" />
         <blockquote>“{elisha.quote}”</blockquote>
         <p>— {elisha.name}, {elisha.role.toLowerCase()}</p>
       </section>

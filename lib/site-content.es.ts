@@ -7,7 +7,7 @@ import { creditGroupsForDialog } from "@/lib/credits";
 
 export const esLocation = "Everett, Washington";
 export const esDateLabel = "agosto de 2026";
-export const esProjectName = "Community Cuts for Kids";
+export const esProjectName = "Fresh Fade, Fresh Grade";
 
 /** Shown once beside translated founder quotes. */
 export const translationNote = "Traducción del testimonio original en inglés.";
@@ -47,19 +47,19 @@ export const pathwaysEs = [
 
 export const participationRoutesEs = [
   {
-    label: "Familias",
+    label: "Familias y jóvenes",
     action: "Mantente al tanto",
     detail: "Entérate de los programas y eventos para los jóvenes de tu familia.",
     href: "/es/participar/familia",
   },
   {
-    label: "Mentores y voluntarios",
+    label: "Voluntarios y mentores",
     action: "Súmate",
     detail: "Ofrece tu tiempo, tus habilidades o simplemente tu escucha a jóvenes de tu zona.",
     href: "/es/participar/mentores-voluntariado",
   },
   {
-    label: "Aliados comunitarios",
+    label: "Aliados comunitarios y patrocinadores",
     action: "Hablemos",
     detail: "Aporta un espacio, servicios o apoyo para un evento o programa.",
     href: "/es/participar/aliados",
@@ -75,17 +75,17 @@ export const homeEs = {
   explainer:
     "ASC3ND ayuda a los jóvenes a encontrar guía de confianza, practicar habilidades para la vida y conectarse con oportunidades en su comunidad.",
   ctaPrimary: "Cómo participar",
-  ctaSecondary: "Conoce Community Cuts",
+  ctaSecondary: "Conoce Fresh Fade, Fresh Grade",
   heroAlt:
     "Familias haciendo fila en la carpa de ASC3ND, bajo una pancarta con el lema de la organización (en inglés)",
   proof: (n: number) =>
-    `El primer evento: Community Cuts for Kids, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
+    `El primer evento: Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que ASC3ND está construyendo.",
   focusIntro: "Tres áreas guían el trabajo. Cada una sigue en desarrollo.",
   focusPhotoAlts: [
-    "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Community Cuts for Kids",
+    "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Fresh Fade, Fresh Grade",
     "Un barbero voluntario con camiseta de ASC3ND cortándole el pelo a un niño",
     "Familias y voluntarios en la mesa de ASC3ND, bajo la carpa del evento",
   ],
@@ -106,14 +106,14 @@ export const storyEs = {
   meta: {
     title: "Nuestra historia",
     description:
-      "ASC3ND nació con Community Cuts for Kids en Everett, Washington, en agosto de 2026. Conoce cómo la organización sigue creciendo a partir de esa base.",
+      "ASC3ND nació con Fresh Fade, Fresh Grade en Everett, Washington, en agosto de 2026. Conoce cómo la organización sigue creciendo a partir de esa base.",
   },
   eyebrow: "Por qué existe ASC3ND",
-  title: "ASC3ND nació con Community Cuts for Kids.",
+  title: "Comenzó con una visión. Está creciendo hasta convertirse en un movimiento.",
   intro:
-    "En agosto de 2026, en Everett, Community Cuts puso el trabajo de ASC3ND a la vista de todos. La organización sigue creciendo a partir de esa base: guía de confianza, experiencias útiles y vínculos más fuertes con la comunidad para los jóvenes.",
+    "En agosto de 2026, en Everett, Fresh Fade, Fresh Grade puso el trabajo de ASC3ND a la vista de todos. La organización sigue creciendo a partir de esa base: guía de confianza, experiencias útiles y vínculos más fuertes con la comunidad para los jóvenes.",
   nextEyebrow: "Lo que viene",
-  nextTitle: "Tres áreas que ASC3ND está desarrollando.",
+  nextTitle: "Tres pilares. Un propósito. Posibilidades infinitas.",
 };
 
 export const eventsEs = {
@@ -122,8 +122,8 @@ export const eventsEs = {
     description:
       "Un archivo en crecimiento de los eventos de ASC3ND: registros de proyectos, videos, fotografías aprobadas, créditos y resultados verificados.",
   },
-  eyebrow: "Archivo de eventos",
-  title: "Un registro para cada evento de ASC3ND.",
+  eyebrow: "Nuestro impacto en acción",
+  title: "Donde el propósito se convierte en acción.",
   listLabel: "Archivo de eventos de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",
@@ -138,26 +138,26 @@ export const eventsEs = {
 
 export const communityCutsEs = {
   meta: {
-    title: "Community Cuts for Kids",
+    title: "Fresh Fade, Fresh Grade",
     description:
-      "Community Cuts for Kids en Everett, Washington, agosto de 2026: el video del evento, 86 fotografías aprobadas y los créditos.",
+      "Fresh Fade, Fresh Grade en Everett, Washington, agosto de 2026: el video del evento, 86 fotografías aprobadas y los créditos.",
   },
   eyebrow: "Proyecto comunitario",
   summary:
-    "Community Cuts for Kids se realizó en Everett, Washington, en agosto de 2026. Esta página reúne en un solo registro público el video del evento, las fotografías aprobadas y los créditos.",
+    "Fresh Fade, Fresh Grade se realizó en Everett, Washington, en agosto de 2026. Esta página reúne en un solo registro público el video del evento, las fotografías aprobadas y los créditos.",
   film: {
     eyebrow: "El video",
-    title: "Community Cuts for Kids, Everett.",
+    title: "Fresh Fade, Fresh Grade, Everett.",
     lead: "Mira el video completo del evento.",
-    filmTitle: "Community Cuts for Kids: video completo",
+    filmTitle: "Fresh Fade, Fresh Grade: video completo",
     caption: "Everett, Washington, agosto de 2026",
   },
   photos: {
     eyebrow: "Fotografías",
-    title: "Community Cuts en imágenes.",
+    title: "Fresh Fade, Fresh Grade en imágenes.",
     count: (n: number) => (n ? `${n} fotografías aprobadas del evento.` : "Las fotografías aprobadas del evento aparecerán aquí."),
-    empty: "Community Cuts: fotos y video aprobados",
-    caption: "Community Cuts for Kids, Everett, Washington, agosto de 2026",
+    empty: "Fresh Fade, Fresh Grade: fotos y video aprobados",
+    caption: "Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026",
   },
   outcomes: {
     eyebrow: "Resultados",
@@ -166,7 +166,7 @@ export const communityCutsEs = {
   },
   thanks: {
     eyebrow: "Con gratitud",
-    title: "Gracias a todas las personas que hicieron posible Community Cuts.",
+    title: "Gracias a todas las personas que hicieron posible Fresh Fade, Fresh Grade.",
     intro:
       "A los barberos, voluntarios, familias, aliados, fotógrafos, organizadores y a todas las personas que dieron su tiempo, su talento y su apoyo: gracias por estar presentes para la comunidad.",
   },

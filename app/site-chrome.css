@@ -82,7 +82,7 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(4px); }
   display: block;
   width: min(100%, 760px);
   height: auto;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 .site-footer-sign:has(.site-footer-client-logo) {
   isolation: isolate;

@@ -16,7 +16,7 @@ export default function StoryPage() {
   return (
     <InteriorPage
       eyebrow="Why ASC3ND exists"
-      title="ASC3ND began with Community Cuts for Kids."
+      title="It Started with a Vision. It's Growing into a Movement."
       intro="In Everett in August 2026, Community Cuts brought ASC3ND's work into public view. The organization is building from that foundation: trusted guidance, useful experiences, and stronger community connections for young people."
     >
       <section className="story shell interior-story">

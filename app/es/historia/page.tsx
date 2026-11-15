@@ -23,6 +23,7 @@ export default function HistoriaPage() {
           <p>— {otha.name}</p>
           <p className="translation-note">{translationNote}</p>
         </div>
+        <p>A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.</p>
       </section>
 
       <section className="interior-section shell">
@@ -35,11 +36,10 @@ export default function HistoriaPage() {
         <p className="eyebrow">{t.nextEyebrow}</p>
         <h2>{t.nextTitle}</h2>
         <div className="interior-pathways">
-          {pathwaysEs.map(({ title, copy, status }) => (
+          {pathwaysEs.map(({ title, copy }) => (
             <article key={title}>
               <h3>{title}</h3>
               <p>{copy}</p>
-              <small>{status}</small>
             </article>
           ))}
         </div>

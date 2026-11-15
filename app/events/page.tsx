@@ -19,8 +19,24 @@ export default function EventsPage() {
       <SiteHeader current="events" />
 
       <section className="events-hero shell">
-        <p className="eyebrow">Event archive</p>
-        <h1>One record for every ASC3ND event.</h1>
+        <p className="eyebrow">Our Impact in Action</p>
+        <h1>Where Purpose Meets Action.</h1>
+      </section>
+
+      <section className="events-next shell" aria-labelledby="current-initiatives-title">
+        <p className="eyebrow">Initiatives</p>
+        <h2 id="current-initiatives-title">Current &amp; Upcoming Initiatives</h2>
+        <article aria-labelledby="project-joy-title">
+          <h3 id="project-joy-title">Project Joy: Asc3nd the Joy</h3>
+          {/* CLIENT TODO: Supply approved description, audience, dates, location and current status.
+              Supply approved imagery with consent and credits. Verify volunteer, partner and
+              donation destinations before enabling any participation links. */}
+          <p>Initiative details awaiting confirmation from ASC3ND.</p>
+        </article>
+      </section>
+
+      <section className="shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title">Past Events &amp; Community Impact</h2>
       </section>
 
       <section className="events-list shell" aria-label="ASC3ND event archive">
@@ -61,10 +77,6 @@ export default function EventsPage() {
         })}
       </section>
 
-      <section className="events-next shell">
-        <p className="eyebrow">Next event</p>
-        <h2>The next confirmed ASC3ND event will be added here.</h2>
-      </section>
 
       <SiteFooter />
     </main>

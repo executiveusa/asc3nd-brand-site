@@ -19,8 +19,9 @@ export default function EventsPage() {
       <SiteHeader current="events" />
 
       <section className="events-hero shell">
-        <p className="eyebrow">Event archive</p>
-        <h1>One record for every ASC3ND event.</h1>
+        <p className="eyebrow">Our Impact in Action</p>
+        <h1>Where Purpose Meets Action.</h1>
+        <p>From community outreach and youth-focused initiatives to meaningful partnerships, every Asc3nd Collective event is an opportunity to give back, build connections, and make a difference.</p>
       </section>
 
       <section className="events-list shell" aria-label="ASC3ND event archive">

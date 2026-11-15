@@ -5,6 +5,8 @@ import { asc3ndProjects, getApprovedProjectMedia } from "@/lib/projects";
 import "./events.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { projectJoy } from "@/lib/initiative-content";
+import { CommunityPartnersSummary } from "@/components/CommunityPartnersSummary";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -26,12 +28,14 @@ export default function EventsPage() {
 
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
         <h2 id="current-initiatives-title">Current &amp; Upcoming Initiatives</h2>
-        <article aria-labelledby="project-joy-title">
-          <h3 id="project-joy-title">Project Joy: Asc3nd the Joy</h3>
-          {/* CLIENT TODO: Supply approved description, dates, location, and campaign status.
-              Supply consent-cleared images and verified participation/donation destinations.
-              Do not publish unverified claims or links. */}
-          <p>Initiative details awaiting confirmation from ASC3ND.</p>
+        <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
+          <div className="event-record-cover initiative-event-media" aria-hidden="true"><span>PROJECT JOY</span></div>
+          <div className="event-record-copy">
+            <p className="eyebrow">{projectJoy.en.type}</p>
+            <h3 id="project-joy-title">{projectJoy.title}</h3>
+            <p>{projectJoy.en.awaiting}</p>
+            <Link className="event-record-link" href="/projects/project-joy">{projectJoy.en.linkLabel} <span className="arrow" aria-hidden="true">→</span></Link>
+          </div>
         </article>
       </section>
       <section className="shell" aria-labelledby="past-impact-title">
@@ -78,6 +82,7 @@ export default function EventsPage() {
 
 
 
+      <CommunityPartnersSummary />
       <SiteFooter />
     </main>
   );

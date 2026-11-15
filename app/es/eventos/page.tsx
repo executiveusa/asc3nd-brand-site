@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 // Spanish copy per project slug. Add an entry when a new project is added to lib/projects.ts.
 const projectCopy: Record<string, { title: string; eyebrow: string; place: string; summary: string }> = {
   "community-cuts": {
-    title: "Community Cuts for Kids",
+    title: "Fresh Fade, Fresh Grade",
     eyebrow: communityCutsEs.eyebrow,
     place: "Everett, Washington, agosto de 2026",
     summary: communityCutsEs.summary,

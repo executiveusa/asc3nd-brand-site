@@ -7,6 +7,7 @@ export const routePairs = [
   { en: "/events", es: "/es/eventos" },
   { en: "/credits", es: "/es/creditos" },
   { en: "/projects/community-cuts", es: "/es/proyectos/community-cuts" },
+  { en: "/projects/project-joy", es: "/es/proyectos/project-joy" },
   { en: "/take-part", es: "/es/participar" },
   { en: "/take-part/family", es: "/es/participar/familia" },
   { en: "/take-part/mentor-volunteer", es: "/es/participar/mentores-voluntariado" },

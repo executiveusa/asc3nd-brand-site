@@ -501,3 +501,45 @@ for (const { route, slug } of craftRoutes) {
     });
   });
 }
+
+
+/**
+ * Regression: screenshot pixels outside the client's painted logo must match
+ * the footer/hero background, rather than the opaque black image canvas.
+ * Decode Playwright's screenshots in the browser to avoid extra PNG libraries.
+ */
+for (const viewport of [
+  { name: "mobile", width: 390, height: 844 },
+  { name: "desktop", width: 1440, height: 900 },
+]) {
+  test(`client logo has no opaque rectangle on ${viewport.name}`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto(baseURL + "/", { waitUntil: "networkidle" });
+    for (const selector of [".home-hero-client-logo .client-brand-lockup", ".site-footer-client-logo"]) {
+      const logo = page.locator(selector);
+      await expect(logo).toBeVisible();
+      const png = await logo.screenshot();
+      const sampled = await page.evaluate(async (base64) => {
+        const img = new Image();
+        img.src = "data:image/png;base64," + base64;
+        await img.decode();
+        const canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        return [[0.04, 0.06], [0.96, 0.06], [0.04, 0.94], [0.96, 0.94]].map(([x,y]) => {
+          const px = ctx.getImageData(Math.floor(x * (canvas.width - 1)), Math.floor(y * (canvas.height - 1)), 1, 1).data;
+          return Array.from(px).slice(0, 3);
+        });
+      }, png.toString("base64"));
+      // --ink is rgb(18, 15, 11). The old black rectangle is rgb(0,0,0).
+      for (const sample of sampled) {
+        expect(sample[0], `${selector}: ${JSON.stringify(sampled)}`).toBeGreaterThanOrEqual(14);
+        expect(Math.abs(sample[0] - 18)).toBeLessThanOrEqual(4);
+        expect(Math.abs(sample[1] - 15)).toBeLessThanOrEqual(4);
+        expect(Math.abs(sample[2] - 11)).toBeLessThanOrEqual(4);
+      }
+    }
+  });
+}

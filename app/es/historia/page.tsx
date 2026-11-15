@@ -44,6 +44,12 @@ export default function HistoriaPage() {
           ))}
         </div>
       </section>
+      <section className="interior-section shell" aria-labelledby="mission-in-action">
+        <h2 id="mission-in-action">Nuestra misión en acción</h2>
+        <p>Fresh Fade, Fresh Grade reunió a nuestra comunidad en Everett, Washington, en agosto de 2026 para apoyar a jóvenes y familias durante el regreso a clases.</p>
+        <p>Project Joy: Asc3nd the Joy es otra iniciativa de ASC3ND. Los detalles de la campaña y las formas de participar se publicarán cuando estén confirmados.</p>
+      </section>
+
     </InteriorPage>
   );
 }

@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Events",
-  description: "A growing archive of ASC3ND events, project records, films, approved photographs, credits, and verified outcomes.",
+  description: "Discover ASC3ND Collective's community initiatives, past events, and opportunities to get involved.",
   path: "/events",
 });
 
@@ -38,7 +38,7 @@ export default function EventsPage() {
         <h2 id="past-impact-title">Past Events &amp; Community Impact</h2>
       </section>
 
-      <section className="events-list shell" aria-label="ASC3ND event archive">
+      <section className="events-list shell" aria-label="ASC3ND community events and impact">
         {asc3ndProjects.map((project, index) => {
           const media = getApprovedProjectMedia(project);
           const cover = media[0];
@@ -63,12 +63,12 @@ export default function EventsPage() {
                 <p>{project.location}, {project.dateLabel}</p>
                 <p className="event-record-summary">{project.summary}</p>
                 <div className="event-record-proof">
-                  {project.featuredFilm ? <span>Film</span> : null}
-                  <span>{media.length} approved photos</span>
-                  <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Outcomes pending verification"}</span>
+                  {project.featuredFilm ? <span>Watch Highlights</span> : null}
+                  <span>View Gallery ({media.length} photos)</span>
+                  <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Community Partners"}</span>
                 </div>
                 <Link className="event-record-link" href={`/projects/${project.slug}`}>
-                  Open the full event <span className="arrow" aria-hidden="true">→</span>
+                  Explore the event <span className="arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>

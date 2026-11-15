@@ -6,11 +6,14 @@ import { projectJoy } from "@/lib/initiative-content";
 import "../../../projects/community-cuts/project.css";
 import "../../../initiative-placeholder.css";
 
-export const metadata = pageMetadata({
+export const metadata = {
+  ...pageMetadata({
   title: projectJoy.title,
   description: "Iniciativa solidaria de ASC3ND para la temporada navideña de 2026. Los detalles se publicarán cuando los fundadores los confirmen.",
   path: "/es/proyectos/project-joy",
-});
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function ProjectJoyEsPage() {
   const c = projectJoy.es;

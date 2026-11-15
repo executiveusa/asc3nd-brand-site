@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
 });
 
 export default function StoryPage() {
-  const [otha, elisha] = siteStory.founders;
+  const [otha] = siteStory.founders;
 
   return (
     <InteriorPage
@@ -34,11 +34,6 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <section className="interior-section shell story-founder-commentary" aria-label="Elisha Minnifield, founder">
-        <DocumentaryFrame label={elisha.name} slot="founder-elisha" />
-        <blockquote>“{elisha.quote}”</blockquote>
-        <p>— {elisha.name}, {elisha.role.toLowerCase()}</p>
-      </section>
 
       <CollectiveLogo alt="ASC3ND Collective logo: an orange crown above the name ASC3ND in white brush lettering, with the 3 in orange" />
 

@@ -4,7 +4,7 @@ Source: founder email `Website Asc3nd Updates and Comments` (2026-11-13), attach
 
 ## Delivered in this branch
 
-1. **Elisha commentary / Story:** Existing approved quote in `siteStory.founders[1]` and `founderQuotesEs[1]` is rendered directly on Story/Historía. The portrait was deliberately left untouched because the requested photo removal is a separate design task.
+1. **Elisha / Story:** Owner explicitly clarified that **both** the photograph and quote are to be removed from the Story and Historia pages. The approved source quote and image assets remain in the repository for reversible restoration; the public Story pages render neither. This owner direction supersedes the earlier interpretation of the founder document.
 2. **Project Joy / Story:** Paired with Fresh Fade in `Our Mission in Action`, linking to an independent detail page. No unsupported impact claims.
 3. **Project Joy / Events:** Uses the same editorial event-card hierarchy as Fresh Fade and has dedicated EN/ES project-detail routes with reserved sections for founder-approved campaign narrative, photos/video and ways to participate.
 4. **Fresh Fade partner highlights:** Events includes a `Community Partners` heading driven by the existing public `creditPeople.partners/sponsors/community` registry, not an invented second database. Empty lists clearly await confirmation. Existing Fresh Fade credit registry and event-credits dialog remain intact.
@@ -14,7 +14,7 @@ Source: founder email `Website Asc3nd Updates and Comments` (2026-11-13), attach
 
 - Project Joy: final English campaign text, start/end and location (if applicable), beneficiary/use of gifts, participation steps and verified donation URL, consent-cleared media, and whether to characterize its status as active.
 - Fresh Fade: approved names, partner organizations, contributions, media, and permission to credit publicly.
-- Story design work: separate release to revise portrait sizing, remove Elisha photo and add event imagery.
+- Story design work: separate release to revise Otha's portrait sizing and add approved event imagery. Elisha's portrait and commentary have already been removed from the Story pages per the owner's explicit direction.
 
 ## Guardrails
 
@@ -25,7 +25,7 @@ Source: founder email `Website Asc3nd Updates and Comments` (2026-11-13), attach
 
 ## Acceptance
 
-- EN/ES Story pages visibly show Elisha's existing quote and links to both initiative pages.
+- EN/ES Story pages contain neither Elisha's portrait nor her quote, and still link to both initiative pages.
 - EN/ES Events page contains a Project Joy card, a working detail route, and a partner section without unverified names.
 - EN/ES Get Involved pages have the supporting statement.
 - EN/ES Project Joy routes show reserved narrative, media and involvement slots with no invented data or donation link.

@@ -10,8 +10,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Community Cuts for Kids",
-  description: "Community Cuts for Kids in Everett, Washington, August 2026: the event film, 86 approved photographs, and credits.",
+  title: "Fresh Fade, Fresh Grade",
+  description: "Fresh Fade, Fresh Grade in Everett, Washington, August 2026: the event film, 86 approved photographs, and credits.",
   path: "/projects/community-cuts",
 });
 
@@ -36,7 +36,7 @@ export default function CommunityCutsPage() {
         <section className="project-film-section shell" aria-labelledby="project-film-title">
           <div className="project-film-copy">
             <p className="eyebrow">The film</p>
-            <h2 id="project-film-title">Community Cuts for Kids, Everett.</h2>
+            <h2 id="project-film-title">Fresh Fade, Fresh Grade, Everett.</h2>
             <p>Watch the full event film.</p>
           </div>
           <ProjectFilm film={communityCutsProject.featuredFilm} />
@@ -46,13 +46,13 @@ export default function CommunityCutsPage() {
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">
           <p className="eyebrow">Photographs</p>
-          <h2 id="project-proof-title">Community Cuts, photographed.</h2>
+          <h2 id="project-proof-title">Fresh Fade, Fresh Grade, photographed.</h2>
           <p>{media.length ? `${media.length} approved event photographs.` : "Approved event photographs will appear here."}</p>
         </div>
         <ProjectProofGallery
           items={communityCutsProject.media}
           initialVisible={12}
-          emptyLabel="Approved Community Cuts photos and video will appear here."
+          emptyLabel="Approved Fresh Fade, Fresh Grade photos and video will appear here."
         />
       </section>
 
@@ -69,7 +69,7 @@ export default function CommunityCutsPage() {
 
       <section className="project-next shell">
         <p className="eyebrow">With gratitude</p>
-        <h2>Thank you to everyone who made Community Cuts possible.</h2>
+        <h2>Thank you to everyone who made Fresh Fade, Fresh Grade possible.</h2>
         {communityCutsProject.credits ? (
           <>
             <p className="project-thanks">{communityCutsProject.credits.intro}</p>

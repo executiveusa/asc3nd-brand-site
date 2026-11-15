@@ -1,0 +1,16 @@
+/* Reuse the Fresh Fade project hierarchy without publishing invented Project Joy media. */
+.initiative-media-stage {
+  min-height: clamp(240px, 42vw, 540px);
+  background: var(--field);
+  color: var(--paper);
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+.initiative-media-stage span {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 6rem);
+  line-height: 1.03;
+  overflow-wrap: anywhere;
+}

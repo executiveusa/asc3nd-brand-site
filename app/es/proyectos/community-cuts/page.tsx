@@ -41,7 +41,7 @@ export default function CommunityCutsEsPage() {
       {film ? (
         <section className="project-film-section shell" aria-labelledby="project-film-title">
           <div className="project-film-copy">
-            <p className="eyebrow">{t.film.eyebrow}</p>
+            <p className="eyebrow">Ver momentos destacados</p>
             <h2 id="project-film-title">{t.film.title}</h2>
             <p>{t.film.lead}</p>
           </div>
@@ -51,7 +51,7 @@ export default function CommunityCutsEsPage() {
 
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">
-          <p className="eyebrow">{t.photos.eyebrow}</p>
+          <p className="eyebrow">Ver galería</p>
           <h2 id="project-proof-title">{t.photos.title}</h2>
           <p>{t.photos.count(media.length)}</p>
         </div>
@@ -70,7 +70,7 @@ export default function CommunityCutsEsPage() {
       </section>
 
       <section className="project-next shell">
-        <p className="eyebrow">{t.thanks.eyebrow}</p>
+        <p className="eyebrow">Aliados comunitarios</p>
         <h2>{t.thanks.title}</h2>
         {project.credits ? (
           <>

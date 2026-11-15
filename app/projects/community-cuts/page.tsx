@@ -35,7 +35,7 @@ export default function CommunityCutsPage() {
       {communityCutsProject.featuredFilm ? (
         <section className="project-film-section shell" aria-labelledby="project-film-title">
           <div className="project-film-copy">
-            <p className="eyebrow">The film</p>
+            <p className="eyebrow">Watch Highlights</p>
             <h2 id="project-film-title">Fresh Fade, Fresh Grade, Everett.</h2>
             <p>Watch the full event film.</p>
           </div>
@@ -45,7 +45,7 @@ export default function CommunityCutsPage() {
 
       <section className="project-proof shell" aria-labelledby="project-proof-title">
         <div className="project-proof-heading">
-          <p className="eyebrow">Photographs</p>
+          <p className="eyebrow">View Gallery</p>
           <h2 id="project-proof-title">Fresh Fade, Fresh Grade, photographed.</h2>
           <p>{media.length ? `${media.length} approved event photographs.` : "Approved event photographs will appear here."}</p>
         </div>
@@ -68,7 +68,7 @@ export default function CommunityCutsPage() {
       </section>
 
       <section className="project-next shell">
-        <p className="eyebrow">With gratitude</p>
+        <p className="eyebrow">Community Partners</p>
         <h2>Thank you to everyone who made Fresh Fade, Fresh Grade possible.</h2>
         {communityCutsProject.credits ? (
           <>

@@ -7,7 +7,7 @@ import "../home.css";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Take part",
+  title: "Get Involved",
   description: "Families, mentors, volunteers, and community partners: choose the route that fits you and start a direct conversation with ASC3ND.",
   path: "/take-part",
 });
@@ -16,8 +16,8 @@ export default function TakePartPage() {
   return (
     <InteriorPage
       eyebrow="Take part"
-      title="Want to be part of what comes next?"
-      intro="ASC3ND is still building its permanent programs. For now, the easiest way in is a direct conversation. Choose the route that fits you."
+      title="Be Part of Something Bigger."
+      intro="At Asc3nd Collective, we believe meaningful change happens when people come together with a shared purpose. Whether you're looking for opportunities for your family, want to volunteer your time and talents, or represent an organization interested in partnering with us, we welcome you to be part of our growing collective. Together, we can create meaningful experiences, strengthen community connections, and help the next generation thrive."
     >
       {getApprovedMedia("take-part") ? (
         <section className="interior-section shell">

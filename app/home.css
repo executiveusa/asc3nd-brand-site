@@ -121,7 +121,7 @@ button.essay-frame:focus-visible { outline: 3px solid var(--ink); outline-offset
   display: block;
   width: 100%;
   height: auto;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 .home-hero--client-brand .home-hero-explainer { color: rgba(245, 242, 232, .82); }
 .home-hero--client-brand .button-solid { color: var(--ink); background: var(--paper); border-color: var(--paper); }

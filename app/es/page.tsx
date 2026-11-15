@@ -57,7 +57,7 @@ export default function HomeEs() {
         <RevealInit />
         <section className={`home-hero shell${clientLogoEnabled ? " home-hero--client-brand" : ""}`} aria-labelledby="home-title">
           {clientLogoEnabled ? (
-            <h1 id="home-title" className="home-hero-logo home-hero-client-logo"><ClientBrandLockup priority /></h1>
+            <h1 id="home-title" className="home-hero-logo home-hero-client-logo"><ClientBrandLockup priority placement="hero" /></h1>
           ) : (
             <>
               <div className="home-hero-crown" aria-hidden="true"><CrownMark /></div>

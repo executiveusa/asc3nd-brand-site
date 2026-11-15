@@ -104,3 +104,32 @@ button.essay-frame:focus-visible { outline: 3px solid var(--ink); outline-offset
   .home-hero-actions { flex-direction: column; }
   .home-hero-actions .button { width: 100%; flex: none; white-space: nowrap; }
 }
+
+/* Client-approved full lockup: dark, edge-to-edge homepage hero. */
+.home-hero--client-brand {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(clamp(20px, 4.2vw, 72px), calc((100vw - 1460px) / 2));
+  background: var(--ink);
+  color: var(--paper);
+  isolation: isolate;
+}
+.home-hero-client-logo {
+  width: min(100%, 960px);
+}
+.home-hero-client-logo .client-brand-lockup {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen;
+}
+.home-hero--client-brand .home-hero-explainer { color: rgba(245, 242, 232, .82); }
+.home-hero--client-brand .button-solid { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+.home-hero--client-brand .button-solid:hover { background: #e8b85f; border-color: #e8b85f; }
+.home-hero--client-brand .button-line { color: var(--paper); border-color: var(--paper); }
+.home-hero--client-brand .button-line:hover { color: var(--ink); background: var(--paper); }
+.home-hero--client-brand a:focus-visible { outline: 2px solid var(--paper); outline-offset: 4px; }
+@media (max-width: 820px) {
+  .home-hero--client-brand { padding-inline: clamp(20px, 4.2vw, 72px); }
+  .home-hero-client-logo { width: min(100%, 640px); }
+}

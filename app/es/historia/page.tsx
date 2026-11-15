@@ -29,6 +29,7 @@ export default function HistoriaPage() {
       </section>
 
       <section className="interior-section shell story-founder-commentary" aria-label="Elisha Minnifield, fundadora">
+        <DocumentaryFrame label={elisha.name} slot="founder-elisha" />
         <blockquote>“{elisha.quote}”</blockquote>
         <p>— {elisha.name}, {elisha.role}</p>
         <p className="translation-note">{translationNote}</p>

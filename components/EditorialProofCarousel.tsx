@@ -93,7 +93,7 @@ export function EditorialProofCarousel({ items, locale = "en" }: Props) {
       </div>
 
       <div className="editorial-proof-rail" ref={railRef} onScroll={onScroll} role="region" aria-roledescription="carousel" aria-label={t.heading} tabIndex={0}>
-        {visible.map(({ image, eventTitle, hrefEn, hrefEs }, i) => (
+        {visible.map(({ image, eventTitle, hrefEn, hrefEs, captionEn, captionEs }, i) => (
           <figure className="editorial-proof-slide" key={image.id} role="group" aria-roledescription="slide" aria-label={`${i + 1} ${t.of} ${visible.length}`}>
             <Link href={locale === "es" ? hrefEs : hrefEn} aria-label={`${eventTitle}: ${locale === "es" ? image.altEs || image.alt : image.alt}`}>
               <img
@@ -107,7 +107,7 @@ export function EditorialProofCarousel({ items, locale = "en" }: Props) {
                 decoding="async"
               />
             </Link>
-            <figcaption>{eventTitle}</figcaption>
+            <figcaption>{locale === "es" ? captionEs : captionEn}</figcaption>
           </figure>
         ))}
       </div>

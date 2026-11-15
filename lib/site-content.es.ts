@@ -29,18 +29,18 @@ export const founderQuotesEs = [
 
 export const pathwaysEs = [
   {
-    title: "Guía de confianza",
-    copy: "Conectar a los jóvenes con adultos que sepan escuchar, animar y ayudarles a ver los próximos pasos concretos.",
+    title: "Orientación de confianza",
+    copy: "Creemos que cada joven merece contar con alguien que lo apoye. Mediante la mentoría, el ánimo y las relaciones significativas, buscamos conectar a los jóvenes con modelos positivos que inspiren confianza, ofrezcan orientación y les ayuden a aprovechar las oportunidades de la vida.",
     status: "En desarrollo",
   },
   {
-    title: "Habilidades para la vida",
-    copy: "Crear experiencias útiles donde los jóvenes practiquen la comunicación, la confianza en sí mismos y las habilidades del día a día.",
+    title: "Habilidades para la vida y crecimiento personal",
+    copy: "Empoderar a la próxima generación va más allá del aula. Queremos crear oportunidades para desarrollar la confianza, las habilidades prácticas para la vida y la comunicación, y ofrecer herramientas para prosperar.",
     status: "En desarrollo",
   },
   {
-    title: "Oportunidades en la comunidad",
-    copy: "Conectar a los jóvenes y a sus familias con personas, programas y oportunidades de su comunidad.",
+    title: "Conexiones comunitarias y oportunidades",
+    copy: "Las comunidades fuertes crean futuros más sólidos. Mediante iniciativas de apoyo, alianzas y experiencias comunitarias, buscamos conectar a jóvenes y familias con recursos, oportunidades y el apoyo que marque una diferencia duradera.",
     status: "En desarrollo",
   },
 ] as const;
@@ -111,7 +111,7 @@ export const storyEs = {
   eyebrow: "Por qué existe ASC3ND",
   title: "Comenzó con una visión. Está creciendo hasta convertirse en un movimiento.",
   intro:
-    "En agosto de 2026, en Everett, Fresh Fade, Fresh Grade puso el trabajo de ASC3ND a la vista de todos. La organización sigue creciendo a partir de esa base: guía de confianza, experiencias útiles y vínculos más fuertes con la comunidad para los jóvenes.",
+    "Asc3nd Collective nació de una pasión compartida por contribuir a la comunidad, apoyar a los demás y crear oportunidades significativas para la próxima generación. Lo que comenzó como una visión de servicio a jóvenes y familias tomó forma con nuestra primera iniciativa, Fresh Fade, Fresh Grade, en Everett, Washington, en agosto de 2026. Pero nuestra misión va mucho más allá de un solo evento. Creemos que cada joven merece sentirse visto, apoyado, alentado y capaz de alcanzar su máximo potencial. Mediante alianzas comunitarias, mentoría, actividades y experiencias significativas, construimos un colectivo donde pequeños actos de bondad generan un impacto duradero.",
   nextEyebrow: "Lo que viene",
   nextTitle: "Tres pilares. Un propósito. Posibilidades infinitas.",
 };
@@ -124,6 +124,7 @@ export const eventsEs = {
   },
   eyebrow: "Nuestro impacto en acción",
   title: "Donde el propósito se convierte en acción.",
+  intro: "Desde actividades comunitarias e iniciativas centradas en la juventud hasta alianzas significativas, cada evento de Asc3nd Collective es una oportunidad para contribuir, crear vínculos y marcar una diferencia.",
   listLabel: "Archivo de eventos de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",

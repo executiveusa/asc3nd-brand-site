@@ -133,8 +133,6 @@ export const eventsEs = {
   outcomes: (n: number) => `${n} resultados verificados`,
   outcomesPending: "Aliados comunitarios",
   openEvent: "Conoce el evento",
-  nextEyebrow: "Próximo evento",
-  nextTitle: "Aquí agregaremos el próximo evento confirmado de ASC3ND.",
 };
 
 export const communityCutsEs = {

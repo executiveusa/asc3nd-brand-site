@@ -6,11 +6,14 @@ import { projectJoy } from "@/lib/initiative-content";
 import "../community-cuts/project.css";
 import "../../initiative-placeholder.css";
 
-export const metadata = pageMetadata({
+export const metadata = {
+  ...pageMetadata({
   title: projectJoy.title,
   description: "ASC3ND's 2026 holiday giving initiative. Founder-approved campaign details will be added when confirmed.",
   path: "/projects/project-joy",
-});
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function ProjectJoyPage() {
   const c = projectJoy.en;

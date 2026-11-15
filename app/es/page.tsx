@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
+import { ClientBrandLockup, clientLogoEnabled } from "@/components/ClientBrandLockup";
 import { CrownMark } from "@/components/CrownMark";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -54,9 +55,15 @@ export default function HomeEs() {
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <RevealInit />
-        <section className="home-hero shell" aria-labelledby="home-title">
-          <div className="home-hero-crown" aria-hidden="true"><CrownMark /></div>
-          <h1 id="home-title" className="home-hero-logo"><BrandLogo title="ASC3ND" /></h1>
+        <section className={`home-hero shell${clientLogoEnabled ? " home-hero--client-brand" : ""}`} aria-labelledby="home-title">
+          {clientLogoEnabled ? (
+            <h1 id="home-title" className="home-hero-logo home-hero-client-logo"><ClientBrandLockup priority /></h1>
+          ) : (
+            <>
+              <div className="home-hero-crown" aria-hidden="true"><CrownMark /></div>
+              <h1 id="home-title" className="home-hero-logo"><BrandLogo title="ASC3ND" /></h1>
+            </>
+          )}
           <p className="home-hero-promise">{ui.es.promise.join(" ")}</p>
           <p className="home-hero-explainer">{t.explainer}</p>
           <div className="home-hero-actions">

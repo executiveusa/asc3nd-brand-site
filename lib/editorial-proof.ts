@@ -33,7 +33,16 @@ const homepageFeaturedIds = new Set([
   "community-cuts-photo-016",
 ]);
 
+const storyCaptions: Record<string, { en: string; es: string }> = {
+  "community-cuts-photo-002": { en: "Families exploring school supplies", es: "Familias descubriendo útiles escolares" },
+  "community-cuts-photo-038": { en: "A haircut for a young participant", es: "Un corte de pelo para un participante joven" },
+  "community-cuts-photo-086": { en: "Preparing a backpack for school", es: "Preparando una mochila para la escuela" },
+  "community-cuts-photo-049": { en: "Supplies ready for the community", es: "Útiles preparados para la comunidad" },
+};
+
 export type EditorialProof = {
+  captionEn: string;
+  captionEs: string;
   eventSlug: string;
   eventTitle: string;
   hrefEn: string;
@@ -66,6 +75,8 @@ export function getStoryProofs(limit = STORY_PHOTO_LIMIT): EditorialProof[] {
       const image = pool.images[pool.index++];
       if (!image) continue;
       result.push({
+        captionEn: storyCaptions[image.id]?.en ?? pool.event.title,
+        captionEs: storyCaptions[image.id]?.es ?? pool.event.title,
         eventSlug: pool.event.slug,
         eventTitle: pool.event.title,
         hrefEn: `/projects/${pool.event.slug}`,

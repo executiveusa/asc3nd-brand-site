@@ -62,7 +62,7 @@ export const ui = {
       story: "Story",
       events: "Events",
       credits: "Credits",
-      takePart: "Take part",
+      takePart: "Get Involved",
       support: "Support",
       shop: "Shop",
       transparency: "Transparency",

@@ -24,6 +24,20 @@ export default function EventsPage() {
         <p>From community outreach and youth-focused initiatives to meaningful partnerships, every Asc3nd Collective event is an opportunity to give back, build connections, and make a difference.</p>
       </section>
 
+      <section className="events-next shell" aria-labelledby="current-initiatives-title">
+        <h2 id="current-initiatives-title">Current &amp; Upcoming Initiatives</h2>
+        <article aria-labelledby="project-joy-title">
+          <h3 id="project-joy-title">Project Joy: Asc3nd the Joy</h3>
+          {/* CLIENT TODO: Supply approved description, dates, location, and campaign status.
+              Supply consent-cleared images and verified participation/donation destinations.
+              Do not publish unverified claims or links. */}
+          <p>Initiative details awaiting confirmation from ASC3ND.</p>
+        </article>
+      </section>
+      <section className="shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title">Past Events &amp; Community Impact</h2>
+      </section>
+
       <section className="events-list shell" aria-label="ASC3ND event archive">
         {asc3ndProjects.map((project, index) => {
           const media = getApprovedProjectMedia(project);
@@ -62,10 +76,7 @@ export default function EventsPage() {
         })}
       </section>
 
-      <section className="events-next shell">
-        <p className="eyebrow">Next event</p>
-        <h2>The next confirmed ASC3ND event will be added here.</h2>
-      </section>
+
 
       <SiteFooter />
     </main>

@@ -57,7 +57,7 @@ export default function StoryPage() {
       <section className="interior-section shell" aria-labelledby="mission-in-action">
         <h2 id="mission-in-action">Our Mission in Action</h2>
         <p>Fresh Fade, Fresh Grade brought our community together in Everett, Washington, in August 2026, to support youth and families as they prepared for the new school year.</p>
-        <p>Project Joy: Asc3nd the Joy is another ASC3ND initiative. Campaign details and ways to participate will be shared once confirmed.</p>
+        <p>Project Joy: Asc3nd the Joy is an ASC3ND initiative. Campaign details and ways to participate will be shared once confirmed.</p>
       </section>
 
     </InteriorPage>

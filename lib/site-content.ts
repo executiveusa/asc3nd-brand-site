@@ -29,7 +29,7 @@ export const communityRoll = [
   {
     index: "01",
     title: "Everett, Washington",
-    copy: "Community Cuts for Kids took place in Everett in August 2026.",
+    copy: "Fresh Fade, Fresh Grade took place in Everett in August 2026.",
     mediaSlot: "arrival",
   },
   {
@@ -55,20 +55,20 @@ export const communityRoll = [
 export const pathways = [
   {
     index: "01",
-    title: "Trusted guidance",
-    copy: "Connect young people with adults who can listen, encourage, and help them see practical next steps.",
+    title: "Trusted Guidance",
+    copy: "We believe every young person deserves someone in their corner. Through mentorship, encouragement, and meaningful relationships, we aim to connect youth with positive role models who inspire confidence, provide guidance, and help them navigate life's opportunities and challenges.",
     status: "In development",
   },
   {
     index: "02",
-    title: "Life skills",
-    copy: "Create useful experiences where young people can practice communication, confidence, and everyday skills.",
+    title: "Life Skills & Personal Growth",
+    copy: "Empowering the next generation goes beyond the classroom. We envision creating opportunities for young people to build confidence, develop practical life skills, strengthen communication, and gain the tools they need to thrive.",
     status: "In development",
   },
   {
     index: "03",
-    title: "Community opportunity",
-    copy: "Connect young people and families with people, programs, and opportunities in their community.",
+    title: "Community Connections & Opportunity",
+    copy: "Strong communities create stronger futures. Through outreach initiatives, collaborative partnerships, and community-driven experiences, we strive to connect youth and families with resources, opportunities, and support that make a lasting difference.",
     status: "In development",
   },
 ] as const;
@@ -76,23 +76,23 @@ export const pathways = [
 export const participationRoutes = [
   {
     index: "01",
-    label: "Families",
+    label: "Families & Youth",
     action: "Stay connected",
-    detail: "Hear about programs and events for your young person.",
+    detail: "Learn about upcoming events, programs, and community resources for youth and families.",
     href: "/take-part/family",
   },
   {
     index: "02",
-    label: "Mentors and volunteers",
+    label: "Volunteers & Mentors",
     action: "Get involved",
-    detail: "Give time, skills or a listening ear to young people nearby.",
+    detail: "Contribute your time, talents, and experiences to support our mission.",
     href: "/take-part/mentor-volunteer",
   },
   {
     index: "03",
-    label: "Community partners",
+    label: "Community Partners & Sponsors",
     action: "Talk with ASC3ND",
-    detail: "Bring space, services or support to an event or program.",
+    detail: "Collaborate, sponsor events, or provide resources to strengthen community impact.",
     href: "/take-part/partner",
   },
 ] as const;

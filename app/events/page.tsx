@@ -59,7 +59,7 @@ export default function EventsPage() {
 
               <div className="event-record-copy">
                 <p className="eyebrow">{project.eyebrow}</p>
-                <h2>{project.title}</h2>
+                <h2>{project.title} — Back-to-School Community Event</h2>
                 <p>{project.location}, {project.dateLabel}</p>
                 <p className="event-record-summary">{project.summary}</p>
                 <div className="event-record-proof">

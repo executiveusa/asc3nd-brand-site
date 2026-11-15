@@ -83,7 +83,7 @@ export const homeEs = {
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que ASC3ND está construyendo.",
-  focusIntro: "Tres áreas guían el trabajo. Cada una sigue en desarrollo.",
+  focusIntro: "A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.",
   focusPhotoAlts: [
     "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Fresh Fade, Fresh Grade",
     "Un barbero voluntario con camiseta de ASC3ND cortándole el pelo a un niño",
@@ -120,19 +120,19 @@ export const eventsEs = {
   meta: {
     title: "Eventos",
     description:
-      "Un archivo en crecimiento de los eventos de ASC3ND: registros de proyectos, videos, fotografías aprobadas, créditos y resultados verificados.",
+      "Descubre las iniciativas comunitarias de Asc3nd Collective, los eventos anteriores y las oportunidades para participar.",
   },
   eyebrow: "Nuestro impacto en acción",
   title: "Donde el propósito se convierte en acción.",
   intro: "Desde actividades comunitarias e iniciativas centradas en la juventud hasta alianzas significativas, cada evento de Asc3nd Collective es una oportunidad para contribuir, crear vínculos y marcar una diferencia.",
-  listLabel: "Archivo de eventos de ASC3ND",
+  listLabel: "Eventos e impacto comunitario de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",
-  film: "Video",
-  photos: (n: number) => `${n} fotos aprobadas`,
+  film: "Ver momentos destacados",
+  photos: (n: number) => `Ver galería (${n} fotos)`,
   outcomes: (n: number) => `${n} resultados verificados`,
-  outcomesPending: "Resultados pendientes de verificación",
-  openEvent: "Abrir el evento completo",
+  outcomesPending: "Aliados comunitarios",
+  openEvent: "Conoce el evento",
   nextEyebrow: "Próximo evento",
   nextTitle: "Aquí agregaremos el próximo evento confirmado de ASC3ND.",
 };
@@ -145,7 +145,7 @@ export const communityCutsEs = {
   },
   eyebrow: "Proyecto comunitario",
   summary:
-    "Fresh Fade, Fresh Grade se realizó en Everett, Washington, en agosto de 2026. Esta página reúne en un solo registro público el video del evento, las fotografías aprobadas y los créditos.",
+    "Cortes frescos. Más confianza. Futuros más brillantes. Nuestra primera iniciativa Fresh Fade, Fresh Grade reunió a nuestra comunidad para ayudar a los jóvenes a prepararse para el nuevo año escolar con confianza y entusiasmo. A través de la colaboración comunitaria, la generosidad y las conexiones significativas, celebramos la importancia de apoyar a nuestra juventud y recordarles que cuentan con respaldo, que son valiosos y que pueden alcanzar grandes cosas. Más que un evento de regreso a clases, esta iniciativa marcó el comienzo del compromiso de Asc3nd Collective de apoyar a la próxima generación, una experiencia significativa a la vez.",
   film: {
     eyebrow: "El video",
     title: "Fresh Fade, Fresh Grade, Everett.",

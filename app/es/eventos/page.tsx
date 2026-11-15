@@ -32,6 +32,22 @@ export default function EventosPage() {
         <h1>{t.title}</h1>
       </section>
 
+      <section className="events-next shell" aria-labelledby="current-initiatives-title">
+        <p className="eyebrow">Iniciativas</p>
+        <h2 id="current-initiatives-title">Iniciativas actuales y próximas</h2>
+        <article aria-labelledby="project-joy-title">
+          <h3 id="project-joy-title">Project Joy: Asc3nd the Joy</h3>
+          {/* CLIENT TODO: Confirmar estado, fechas, ubicación, beneficiarios y descripción oficial.
+              Añadir imagen aprobada y consentimiento; verificar enlaces de participación o donación.
+              No publicar fechas, métricas ni botones de donación sin validación. */}
+          <p>Detalles de la iniciativa pendientes de confirmación por ASC3ND.</p>
+        </article>
+      </section>
+
+      <section className="shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title">Eventos pasados e impacto comunitario</h2>
+      </section>
+
       <section className="events-list shell" aria-label={t.listLabel}>
         {asc3ndProjects.map((project, index) => {
           const media = getApprovedProjectMedia(project);
@@ -73,10 +89,6 @@ export default function EventosPage() {
         })}
       </section>
 
-      <section className="events-next shell">
-        <p className="eyebrow">{t.nextEyebrow}</p>
-        <h2>{t.nextTitle}</h2>
-      </section>
 
       <SiteFooter />
     </main>

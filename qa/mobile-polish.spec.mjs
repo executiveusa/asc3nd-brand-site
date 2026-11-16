@@ -607,3 +607,25 @@ for (const locale of ["en", "es"]) {
     });
   }
 }
+
+
+/* Founder-requested Story portrait hierarchy, single gallery and footer paths. */
+for (const locale of ["en", "es"]) {
+  test(`Story and footer design QA ${locale}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const es = locale === "es";
+    await page.goto(baseURL + (es ? "/es/historia" : "/story"));
+    const portrait = page.locator(".story-founder-feature .portrait-placeholder");
+    const quote = page.locator(".story-founder-feature .story-copy blockquote");
+    await expect(portrait).toBeVisible();
+    await expect(quote).toBeVisible();
+    await expect(page.locator(".editorial-proof")).toHaveCount(1);
+    await expect(page.locator(".story-mission")).toBeVisible();
+    await assertNoHorizontalOverflow(page);
+    const footer = page.locator(".site-footer");
+    await expect(footer.locator(".site-footer-support-cta")).toHaveAttribute("href", es ? "/es/apoyo" : "/support");
+    await expect(footer.locator(`a[href="${es ? "/es/participar/mentores-voluntariado" : "/take-part/mentor-volunteer"}"]`)).toBeVisible();
+    await expect(footer.locator(`a[href="${es ? "/es/participar/aliados" : "/take-part/partner"}"]`)).toBeVisible();
+    await page.screenshot({ path: `test-results/story-footer-design-${locale}-390.png`, fullPage: true });
+  });
+}

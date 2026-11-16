@@ -37,6 +37,7 @@ export default function ParticiparPage() {
     <InteriorPage
       eyebrow="Participa"
       title="Sé parte de algo más grande."
+      supporting="Cada acto de bondad, cada conexión y cada contribución tienen el poder de marcar la diferencia. Ya seas parte de una familia, voluntario o aliado comunitario, hay un lugar para ti en Asc3nd Collective."
       intro="En Asc3nd Collective creemos que el cambio significativo ocurre cuando las personas se unen con un propósito común. Ya sea que busques oportunidades para tu familia, quieras ofrecer tu tiempo y talento como voluntario o representes a una organización interesada en colaborar, te invitamos a formar parte de nuestro colectivo en crecimiento. Juntos podemos crear experiencias significativas, fortalecer los vínculos comunitarios y ayudar a la próxima generación a prosperar."
     >
       {getApprovedMedia("take-part") ? (

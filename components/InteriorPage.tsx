@@ -8,10 +8,11 @@ type InteriorPageProps = {
   eyebrow: string;
   title: string;
   intro: string;
+  supporting?: string;
   children: ReactNode;
 };
 
-export function InteriorPage({ eyebrow, title, intro, children }: InteriorPageProps) {
+export function InteriorPage({ eyebrow, title, intro, supporting, children }: InteriorPageProps) {
   return (
     <main id="main-content" tabIndex={-1}>
       <SiteHeader />
@@ -19,6 +20,7 @@ export function InteriorPage({ eyebrow, title, intro, children }: InteriorPagePr
       <section className="interior-hero shell">
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
+        {supporting ? <p className="interior-hero-supporting">{supporting}</p> : null}
         <p>{intro}</p>
       </section>
 

@@ -79,9 +79,9 @@ export default function EventosPage() {
                 <p>{copy.place}</p>
                 <p className="event-record-summary">{copy.summary}</p>
                 <div className="event-record-proof">
-                  {project.featuredFilm ? <span>{t.film}</span> : null}
-                  <span>{t.photos(media.length)}</span>
-                  <span>{project.outcomes.length ? t.outcomes(project.outcomes.length) : t.outcomesPending}</span>
+                  {project.featuredFilm ? <Link href={`${href}#project-film-title`}>{t.film}</Link> : null}
+                  <Link href={`${href}#project-proof-title`}>{t.photos(media.length)}</Link>
+                  <Link href={`${href}#project-partners-title`}>{project.outcomes.length ? t.outcomes(project.outcomes.length) : t.outcomesPending}</Link>
                 </div>
                 <Link className="event-record-link" href={href}>
                   {t.openEvent} <span className="arrow" aria-hidden="true">→</span>

@@ -91,3 +91,23 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(4px); }
 @media (max-width: 820px) {
   .site-footer-client-logo { width: min(100%, 500px); }
 }
+
+
+/* Support destination stays internal until ASC3ND supplies its own verified Zeffy URL. */
+.site-footer-support-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  width: fit-content;
+  margin-top: 24px;
+  padding: 10px 22px;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  color: var(--paper);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.site-footer-support-cta:hover { background: var(--paper); color: var(--ink); }
+.site-footer-support-cta:focus-visible { outline: 3px solid var(--marker); outline-offset: 4px; }

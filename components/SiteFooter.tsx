@@ -18,6 +18,8 @@ export function SiteFooter() {
     events: locale === "es" ? "/es/eventos" : "/events",
     credits: locale === "es" ? "/es/creditos" : "/credits",
     takePart: locale === "es" ? "/es/participar" : "/take-part",
+    volunteer: locale === "es" ? "/es/participar/mentores-voluntariado" : "/take-part/mentor-volunteer",
+    partner: locale === "es" ? "/es/participar/aliados" : "/take-part/partner",
     support: locale === "es" ? "/es/apoyo" : "/support",
     transparency: locale === "es" ? "/es/transparencia" : "/transparency",
     privacy: locale === "es" ? "/es/privacidad" : "/privacy",
@@ -30,6 +32,9 @@ export function SiteFooter() {
         <div className="site-footer-lead">
           <p className="site-footer-promise">{t.promise[0]}<br />{t.promise[1]}<br />{t.promise[2]}</p>
           <a className="site-footer-mail" href="mailto:main@asc3nd.org">main@asc3nd.org</a>
+          <Link className="site-footer-support-cta" href={href.support}>
+            {locale === "es" ? "Apoya nuestra misión" : "Support Our Mission"} <span className="arrow" aria-hidden="true">→</span>
+          </Link>
         </div>
 
         <nav className="site-footer-columns" aria-label={t.footerNav}>
@@ -39,6 +44,8 @@ export function SiteFooter() {
             <Link href={href.events}>{t.links.events}</Link>
             <Link href={href.credits}>{t.links.credits}</Link>
             <Link href={href.takePart}>{t.links.takePart}</Link>
+            <Link href={href.volunteer}>{locale === "es" ? "Voluntariado y mentoría" : "Volunteer & Mentor"}</Link>
+            <Link href={href.partner}>{locale === "es" ? "Alianzas y patrocinio" : "Partner & Sponsor"}</Link>
             <Link href={href.support}>{t.links.support}</Link>
             {shop ? (
               shop.external ? (

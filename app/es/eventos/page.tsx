@@ -81,7 +81,7 @@ export default function EventosPage() {
                 <div className="event-record-proof">
                   {project.featuredFilm ? <Link href={`${href}#project-film-title`}>{t.film}</Link> : null}
                   <Link href={`${href}#project-proof-title`}>{t.photos(media.length)}</Link>
-                  <Link href={`${href}#project-partners-title`}>{project.outcomes.length ? t.outcomes(project.outcomes.length) : t.outcomesPending}</Link>
+                  <Link href={`${href}#${project.outcomes.length ? "project-evidence-title" : "project-partners-title"}`}>{project.outcomes.length ? t.outcomes(project.outcomes.length) : t.outcomesPending}</Link>
                 </div>
                 <Link className="event-record-link" href={href}>
                   {t.openEvent} <span className="arrow" aria-hidden="true">→</span>

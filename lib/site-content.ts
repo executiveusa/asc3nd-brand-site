@@ -92,4 +92,11 @@ export const participationRoutes = [
     detail: "Collaborate, sponsor events, or provide resources to strengthen community impact.",
     href: "/take-part/partner",
   },
+  {
+    index: "04",
+    label: "Support Our Mission",
+    action: "Ways to support",
+    detail: "Explore giving options and other ways to help ASC3ND grow.",
+    href: "/support",
+  },
 ] as const;

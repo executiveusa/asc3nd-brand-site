@@ -59,7 +59,7 @@ export default function CommunityCutsEsPage() {
       </section>
 
       <section className="project-evidence shell">
-        <div><p className="eyebrow">{t.outcomes.eyebrow}</p><h2>{t.outcomes.title}</h2></div>
+        <div><p className="eyebrow">{t.outcomes.eyebrow}</p><h2 id="project-evidence-title">{t.outcomes.title}</h2></div>
         <div className="project-evidence-body">
           {project.outcomes.length ? (
             <ul>{project.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
@@ -71,7 +71,7 @@ export default function CommunityCutsEsPage() {
 
       <section className="project-next shell">
         <p className="eyebrow">Aliados comunitarios</p>
-        <h2>{t.thanks.title}</h2>
+        <h2 id="project-partners-title">{t.thanks.title}</h2>
         {project.credits ? (
           <>
             <p className="project-thanks">{t.thanks.intro}</p>

@@ -7,10 +7,16 @@ const SITE_NOTIFICATION_ENDPOINT =
  * make a successful website submission look failed to the visitor.
  */
 export async function triggerSiteNotificationDelivery() {
+  // Fail closed until the deployment has a private shared trigger secret.
+  const triggerSecret = process.env.ASC3ND_NOTIFICATION_TRIGGER_SECRET;
+  if (!triggerSecret) {
+    console.error("ASC3ND notification trigger is not configured");
+    return;
+  }
   try {
     const response = await fetch(SITE_NOTIFICATION_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${triggerSecret}` },
       body: "{}",
       cache: "no-store",
     });

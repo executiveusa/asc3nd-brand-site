@@ -46,6 +46,7 @@ export default function EventsPage() {
         {asc3ndProjects.map((project, index) => {
           const media = getApprovedProjectMedia(project);
           const cover = media[0];
+          const href = `/projects/${project.slug}`;
 
           return (
             <article className="event-record" key={project.slug}>

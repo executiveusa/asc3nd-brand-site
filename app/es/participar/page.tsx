@@ -30,6 +30,12 @@ const routes = [
     detail: "Aporta un espacio, servicios o apoyo para un evento o programa.",
     href: "/es/participar/aliados",
   },
+  {
+    label: "Apoya nuestra misión",
+    action: "Formas de apoyar",
+    detail: "Conoce las opciones para contribuir y ayudar a crecer a ASC3ND.",
+    href: "/es/apoyo",
+  },
 ] as const;
 
 export default function ParticiparPage() {

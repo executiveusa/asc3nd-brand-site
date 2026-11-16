@@ -1,6 +1,3 @@
-/** Placeholder until the founders connect their Zeffy account. Change this one constant and every Donate link follows. */
-export const ZEFFY_DONATE_URL = "https://www.zeffy.com/";
-
 export const siteStory = {
   hero: {
     headline: "ASC3ND",
@@ -94,5 +91,12 @@ export const participationRoutes = [
     action: "Talk with ASC3ND",
     detail: "Collaborate, sponsor events, or provide resources to strengthen community impact.",
     href: "/take-part/partner",
+  },
+  {
+    index: "04",
+    label: "Support Our Mission",
+    action: "Ways to support",
+    detail: "Explore giving options and other ways to help ASC3ND grow.",
+    href: "/support",
   },
 ] as const;

@@ -7,7 +7,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { clientLogoEnabled } from "@/components/ClientBrandLockup";
 import { counterpart, localeOf, ui } from "@/lib/i18n";
 import { navFor } from "@/lib/nav";
-import { ZEFFY_DONATE_URL } from "@/lib/site-content";
+import { ASC3ND_DONATION_URL } from "@/lib/donation-config";
 
 type Section = "story" | "events" | "take-part" | "shop" | undefined;
 
@@ -47,9 +47,15 @@ export function SiteHeader({ current }: { current?: Section }) {
         ) : null}
 
         <div className="site-header-actions">
-          <a className="button button-solid donate-pill" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer" aria-label={t.donateLabel}>
-            {t.donate} <span className="arrow" aria-hidden="true">↗</span>
-          </a>
+          {ASC3ND_DONATION_URL ? (
+            <a className="button button-solid donate-pill" href={ASC3ND_DONATION_URL} target="_blank" rel="noopener noreferrer" aria-label={t.donateLabel}>
+              {t.donate} <span className="arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <Link className="button button-solid donate-pill" href={locale === "es" ? "/es/apoyo" : "/support"}>
+              {locale === "es" ? "Apoyar" : "Support"} <span className="arrow" aria-hidden="true">→</span>
+            </Link>
+          )>
           <button
             type="button"
             className="site-menu-toggle"

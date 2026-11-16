@@ -246,4 +246,26 @@ begin
   return new;
 end;
 $function$
+-- Extend the existing communications-manager staff queue to donor inquiries.
+CREATE OR REPLACE FUNCTION asc3nd_private.has_route_access(p_organization_id uuid, p_route_key text, p_write boolean DEFAULT false)
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'pg_catalog'
+AS $function$
+  select exists (
+    select 1 from asc3nd.organization_members m
+    where m.organization_id = p_organization_id
+      and m.user_id = (select auth.uid())
+      and m.status = 'active'
+      and (
+        m.role in ('owner','admin','editor','program_manager')
+        or (m.role = 'communications_manager' and p_route_key in ('family','updates','volunteer','mentor','supplies','sponsor','partner','donor'))
+        or (m.role = 'volunteer_coordinator' and p_route_key in ('volunteer','mentor','supplies'))
+        or (m.role = 'event_staff' and not p_write and p_route_key in ('family','updates'))
+        or (m.role = 'viewer' and not p_write)
+        or (m.role = 'volunteer' and not p_write)
+      )
+  );
+$function$
 commit;

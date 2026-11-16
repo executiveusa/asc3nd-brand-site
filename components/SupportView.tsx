@@ -21,8 +21,8 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
                 {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
               </a>
             ) : (
-              <Link className="ss-action" href={copy.eyebrow === "Apoyo" ? "/es/participar" : "/take-part"}>
-                {copy.eyebrow === "Apoyo" ? "Otras formas de apoyar" : "Other ways to help"} <span className="arrow" aria-hidden="true">→</span>
+              <Link className="ss-action" href={copy.eyebrow === "Apoyo" ? "/es/participar/donante" : "/take-part/donor"}>
+                {copy.eyebrow === "Apoyo" ? "Consultar sobre donaciones" : "Ask about giving"} <span className="arrow" aria-hidden="true">→</span>
               </Link>
             )}
           </div>

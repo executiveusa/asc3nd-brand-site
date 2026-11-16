@@ -29,12 +29,22 @@ function subject(kind: string, payload: Record<string, unknown>) {
   if (kind === "community_signup") {
     return `ASC3ND website signup — ${payload.name || "New subscriber"}`;
   }
-  const label = payload.form_type || payload.route_key || "take-part";
+  if (kind === "participation_ack") {
+    return payload.preferred_language === "es" ? "ASC3ND recibió tu solicitud" : "ASC3ND received your request";
+  }
+  const label = payload.route_key || payload.form_type || "take-part";
   return `ASC3ND website ${label} submission — ${payload.name || "New contact"}`;
 }
 
 function bodyText(kind: string, payload: Record<string, unknown>) {
-  const answers = payload.answers && typeof payload.answers === "object" && !Array.isArray(payload.answers)
+  if (kind === "participation_ack") {
+    const name = String(payload.name || "").slice(0, 100);
+    return payload.preferred_language === "es"
+      ? `Hola ${name},\n\nRecibimos tu solicitud para ASC3ND. Nuestro equipo revisará la información y se comunicará contigo si es necesario. Esto no garantiza un servicio ni una plaza en un programa.\n\nSi no enviaste esta solicitud, responde a main@asc3nd.org.\n\nASC3ND Collective`
+      : `Hello ${name},\n\nASC3ND received your request. Our team will review the information and follow up if needed. This is not a guarantee of services or program placement.\n\nIf you did not submit this request, contact main@asc3nd.org.\n\nASC3ND Collective`;
+  }
+  // Family requests may contain sensitive youth details. Do not forward free-text answers in email.
+  const answers = payload.route_key !== "family" && payload.answers && typeof payload.answers === "object" && !Array.isArray(payload.answers)
     ? payload.answers as Record<string, unknown>
     : null;
 
@@ -58,20 +68,22 @@ function bodyText(kind: string, payload: Record<string, unknown>) {
 Deno.serve(async (request) => {
   const resendKey = Deno.env.get("RESEND_API_KEY");
   const fromEmail = Deno.env.get("ASC3ND_FROM_EMAIL") || "social@asc3nd.org";
+  const triggerSecret = Deno.env.get("ASC3ND_NOTIFICATION_TRIGGER_SECRET");
 
   if (request.method === "GET") {
     return json({
       ok: true,
-      configured: Boolean(resendKey),
+      configured: Boolean(resendKey && triggerSecret),
       provider: "resend",
       recipient: "main@asc3nd.org",
       from_email: fromEmail,
-      missing: resendKey ? [] : ["RESEND_API_KEY"],
+      missing: [...(!resendKey ? ["RESEND_API_KEY"] : []), ...(!triggerSecret ? ["ASC3ND_NOTIFICATION_TRIGGER_SECRET"] : [])],
     });
   }
 
   if (request.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);
-  if (!resendKey) return json({ ok: false, configured: false, missing: ["RESEND_API_KEY"] }, 503);
+  if (!resendKey || !triggerSecret) return json({ ok: false, configured: false, missing: [...(!resendKey ? ["RESEND_API_KEY"] : []), ...(!triggerSecret ? ["ASC3ND_NOTIFICATION_TRIGGER_SECRET"] : [])] }, 503);
+  if (request.headers.get("authorization") !== `Bearer ${triggerSecret}`) return json({ ok: false, error: "unauthorized" }, 401);
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const key = secretKey();
@@ -102,8 +114,8 @@ Deno.serve(async (request) => {
         },
         body: JSON.stringify({
           from: fromEmail,
-          to: ["main@asc3nd.org"],
-          reply_to: payload.email || undefined,
+          to: [row.recipient_email],
+          reply_to: row.kind === "participation_ack" ? "main@asc3nd.org" : (payload.email || undefined),
           subject: subject(row.kind, payload),
           text,
           html: `<div style="font-family:Arial,sans-serif;max-width:680px;margin:auto;padding:24px"><h2>ASC3ND website submission</h2><pre style="white-space:pre-wrap;font:14px/1.55 Arial,sans-serif">${escapeHtml(text)}</pre></div>`,

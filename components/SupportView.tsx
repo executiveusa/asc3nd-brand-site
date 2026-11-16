@@ -24,7 +24,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
               <Link className="ss-action" href={copy.eyebrow === "Apoyo" ? "/es/participar" : "/take-part"}>
                 {copy.eyebrow === "Apoyo" ? "Otras formas de apoyar" : "Other ways to help"} <span className="arrow" aria-hidden="true">→</span>
               </Link>
-            )>
+            )}
           </div>
           <div className="ss-row">
             <h2 className="ss-label">{rows.volunteer.label}</h2>

@@ -14,6 +14,8 @@ const copy = {
     name: "Name",
     email: "Email",
     message: "What would you like to talk about?",
+    purpose: "What is your request about?",
+    purposes: [["", "Choose a category"], ["family", "Services for my family or youth"], ["volunteer", "Volunteering or mentoring"], ["donor", "Making a donation"], ["sponsor", "Sponsorship"], ["partner", "Community partnership"]] as const,
     consent: "I agree that ASC3ND may contact me about this message.",
     submit: "Send message",
     pending: "Sending…",
@@ -30,6 +32,8 @@ const copy = {
     name: "Nombre",
     email: "Correo electrónico",
     message: "¿De qué te gustaría hablar?",
+    purpose: "¿Sobre qué es tu solicitud?",
+    purposes: [["", "Elige una categoría"], ["family", "Servicios para mi familia o jóvenes"], ["volunteer", "Voluntariado o mentoría"], ["donor", "Hacer una donación"], ["sponsor", "Patrocinio"], ["partner", "Alianza comunitaria"]] as const,
     consent: "Acepto que ASC3ND me contacte sobre este mensaje.",
     submit: "Enviar mensaje",
     pending: "Enviando…",
@@ -48,8 +52,8 @@ function newKey() {
 
 /**
  * Direct contact form for the Take part pages. It sends through the same intake endpoint and
- * payload shape as the participation forms, into the Partner queue, with source_page telling
- * staff it came from this box. The visitor's text stays in the form if sending fails.
+ * payload shape as the participation forms. The visitor explicitly chooses a route so
+ * service requests are never silently filed as partnerships. The visitor's text stays in the form if sending fails.
  */
 export function ContactForm({ locale = "en" }: { locale?: Locale }) {
   const t = copy[locale];
@@ -65,6 +69,8 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
     const form = event.currentTarget;
     const data = new FormData(form);
 
+    const route = String(data.get("purpose") || "");
+    const formType = route === "family" ? "family" : route === "volunteer" ? "mentor-volunteer" : route === "donor" ? "donor" : "partner";
     setStatus("pending");
     setMessage("");
     try {
@@ -76,11 +82,11 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           email: data.get("email"),
           phone: "",
           organization_name: "",
-          route_key: "partner",
-          form_type: "partner",
+          route_key: route,
+          form_type: formType,
           preferred_language: locale,
           answers: {
-            partnership_type: locale === "es" ? "Conversación general (contacto directo)" : "General conversation (direct contact)",
+            inquiry_purpose: route,
             message: String(data.get("message") ?? "").trim(),
           },
           contact_consent: data.get("contact_consent") === "on",
@@ -124,6 +130,12 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         <label>
           <span>{t.email}</span>
           <input name="email" type="email" autoComplete="email" required maxLength={254} />
+        </label>
+        <label>
+          <span>{t.purpose}</span>
+          <select name="purpose" required defaultValue="">
+            {t.purposes.map(([value, label]) => <option key={value} value={value} disabled={!value}>{label}</option>)}
+          </select>
         </label>
         <label>
           <span>{t.message}</span>

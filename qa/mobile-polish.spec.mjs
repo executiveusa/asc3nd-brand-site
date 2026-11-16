@@ -629,3 +629,20 @@ for (const locale of ["en", "es"]) {
     await page.screenshot({ path: `test-results/story-footer-design-${locale}-390.png`, fullPage: true });
   });
 }
+
+
+for (const locale of ["en", "es"]) {
+  test(`Events media links reach real sections ${locale}`, async ({ page }) => {
+    const es = locale === "es";
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(baseURL + (es ? "/es/eventos" : "/events"));
+    const proof = page.locator(".event-record-proof").first();
+    const href = es ? "/es/proyectos/community-cuts" : "/projects/community-cuts";
+    await expect(proof.locator(`a[href="${href}#project-film-title"]`)).toBeVisible();
+    await expect(proof.locator(`a[href="${href}#project-proof-title"]`)).toBeVisible();
+    await expect(proof.locator(`a[href="${href}#project-partners-title"]`)).toBeVisible();
+    await proof.locator(`a[href="${href}#project-partners-title"]`).click();
+    await expect(page.locator("#project-partners-title")).toBeVisible();
+    await assertNoHorizontalOverflow(page);
+  });
+}

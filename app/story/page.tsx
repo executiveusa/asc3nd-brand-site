@@ -23,7 +23,7 @@ export default function StoryPage() {
       title="It Started with a Vision. It's Growing into a Movement."
       intro="Asc3nd Collective was born from a shared passion for giving back, uplifting others, and creating meaningful opportunities for the next generation. What began as a vision to serve youth and families in our community came to life through our first initiative, Fresh Fade, Fresh Grade, in Everett, Washington, in August 2026. But our mission extends far beyond a single event. We believe every young person deserves to feel seen, supported, encouraged, and empowered to reach their full potential. Through community partnerships, mentorship, outreach, and meaningful experiences, we are building a collective where small acts of kindness create lasting impact."
     >
-      <section className="story shell interior-story">
+      <section className="story shell interior-story story-founder-feature">
         <DocumentaryFrame
           label={otha.name}
           slot="founder-otha"
@@ -36,8 +36,6 @@ export default function StoryPage() {
         </div>
       </section>
 
-
-      <EditorialProofCarousel items={getStoryProofs()} />
 
       <CollectiveLogo alt="ASC3ND Collective logo: an orange crown above the name ASC3ND in white brush lettering, with the 3 in orange" />
 
@@ -71,6 +69,7 @@ export default function StoryPage() {
           </article>
         </div>
       </section>
+      <EditorialProofCarousel items={getStoryProofs()} />
 
     </InteriorPage>
   );

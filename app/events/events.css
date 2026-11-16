@@ -214,3 +214,17 @@
   .event-record--upcoming .event-record-copy { grid-column: 1; }
   .event-record--upcoming .event-record-cover { aspect-ratio: 4 / 3; }
 }
+
+
+/* Clear interactive labels instead of non-actionable badges; preserve existing layout. */
+.event-record-proof a {
+  color: inherit;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.event-record-proof a:hover { text-underline-offset: 7px; }
+.event-record-proof a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }

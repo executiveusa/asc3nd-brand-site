@@ -57,7 +57,7 @@ export default function CommunityCutsPage() {
       </section>
 
       <section className="project-evidence shell">
-        <div><p className="eyebrow">Outcomes</p><h2>What ASC3ND can verify.</h2></div>
+        <div><p className="eyebrow">Outcomes</p><h2 id="project-evidence-title">What ASC3ND can verify.</h2></div>
         <div className="project-evidence-body">
           {communityCutsProject.outcomes.length ? (
             <ul>{communityCutsProject.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
@@ -69,7 +69,7 @@ export default function CommunityCutsPage() {
 
       <section className="project-next shell">
         <p className="eyebrow">Community Partners</p>
-        <h2>Thank you to everyone who made Fresh Fade, Fresh Grade possible.</h2>
+        <h2 id="project-partners-title">Thank you to everyone who made Fresh Fade, Fresh Grade possible.</h2>
         {communityCutsProject.credits ? (
           <>
             <p className="project-thanks">{communityCutsProject.credits.intro}</p>

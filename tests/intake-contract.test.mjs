@@ -1,0 +1,44 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+const source = (path) => readFileSync(new URL("../" + path, import.meta.url), "utf8");
+
+test("direct contact requires explicit category and does not default to partner", () => {
+  const form = source("components/ContactForm.tsx");
+  assert.match(form, /<select name="purpose" required defaultValue="">/);
+  for (const route of ["family", "volunteer", "donor", "sponsor", "partner"]) {
+    assert.match(form, new RegExp('\\["' + route + '",'));
+  }
+  assert.doesNotMatch(form, /route_key:\s*"partner"/);
+  assert.match(form, /route_key: route/);
+});
+
+test("donor flow is distinct and no payment details are collected", () => {
+  const form = source("components/ParticipationForm.tsx");
+  assert.match(form, /kind === "donor"/);
+  assert.match(form, /defaultRoute: "donor"/);
+  assert.match(form, /Please do not enter card numbers/);
+  assert.match(source("app/take-part/donor/page.tsx"), /kind="donor"/);
+  assert.match(source("app/es/participar/donante/page.tsx"), /kind="donor" locale="es"/);
+});
+
+test("migration preserves the existing RPC while adding donor and separate acknowledgments", () => {
+  const sql = source("supabase/migrations/20261116180000_asc3nd_categorized_intake_and_ack.sql");
+  assert.match(sql, /CREATE OR REPLACE FUNCTION public.asc3nd_submit_participation/i);
+  assert.match(sql, /v_form_type='donor' and v_route<>'donor'/);
+  assert.match(sql, /'participation_ack'/);
+  assert.match(sql, /status='held'/);
+  assert.match(sql, /new\.contact_consent/);
+});
+
+test("notification delivery requires server-only auth and separates staff and visitor recipients", () => {
+  const worker = source("supabase/functions/asc3nd-site-notifications/index.ts");
+  const caller = source("lib/site-notifications.ts");
+  assert.match(worker, /ASC3ND_NOTIFICATION_TRIGGER_SECRET/);
+  assert.match(worker, /error: "unauthorized"/);
+  assert.match(worker, /row\.recipient_email/);
+  assert.match(worker, /participation_ack/);
+  assert.match(caller, /process\.env\.ASC3ND_NOTIFICATION_TRIGGER_SECRET/);
+  assert.match(caller, /Authorization: `Bearer \$\{triggerSecret\}`/);
+  assert.doesNotMatch(caller, /NEXT_PUBLIC_ASC3ND_NOTIFICATION_TRIGGER_SECRET/);
+});

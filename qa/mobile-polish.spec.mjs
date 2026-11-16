@@ -646,3 +646,29 @@ for (const locale of ["en", "es"]) {
     await assertNoHorizontalOverflow(page);
   });
 }
+
+
+/* Launch safety: never send a donor to Zeffy's unrelated platform homepage. */
+for (const locale of ["en", "es"]) {
+  test(`Donation gate and fourth support route ${locale}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const es = locale === "es";
+    const takePart = es ? "/es/participar" : "/take-part";
+    const support = es ? "/es/apoyo" : "/support";
+    await page.goto(baseURL + takePart);
+    const rows = page.locator(".home-join-row");
+    await expect(rows).toHaveCount(4);
+    await expect(rows.last()).toHaveAttribute("href", support);
+    const headerCta = page.locator(".site-header-actions .donate-pill");
+    await expect(headerCta).toBeVisible();
+    const headerHref = await headerCta.getAttribute("href");
+    expect(headerHref).not.toBe("https://www.zeffy.com/");
+    expect(headerHref).not.toBe("https://zeffy.com/");
+    await page.goto(baseURL + support);
+    const links = await page.locator("a[href]").evaluateAll((els) =>
+      els.map((a) => a.getAttribute("href") || "")
+    );
+    expect(links.every((href) => href !== "https://www.zeffy.com/" && href !== "https://zeffy.com/")).toBeTruthy();
+    await assertNoHorizontalOverflow(page);
+  });
+}

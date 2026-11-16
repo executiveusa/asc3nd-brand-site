@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { EditorialProofCarousel } from "@/components/EditorialProofCarousel";
+import { getStoryProofs } from "@/lib/editorial-proof";
 import { CollectiveLogo } from "@/components/CollectiveLogo";
 import { projectJoy } from "@/lib/initiative-content";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
@@ -34,6 +36,8 @@ export default function StoryPage() {
         </div>
       </section>
 
+
+      <EditorialProofCarousel items={getStoryProofs()} />
 
       <CollectiveLogo alt="ASC3ND Collective logo: an orange crown above the name ASC3ND in white brush lettering, with the 3 in orange" />
 

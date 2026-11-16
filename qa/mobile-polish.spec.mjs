@@ -576,3 +576,34 @@ for (const locale of ["en", "es"]) {
     );
   });
 }
+
+
+/* Fixed-size story gallery: future events must not create an infinite Story page. */
+for (const locale of ["en", "es"]) {
+  for (const width of [320, 390, 1440]) {
+    test(`Story editorial proof gallery ${locale} at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 844 });
+      const spanish = locale === "es";
+      await page.goto(baseURL + (spanish ? "/es/historia" : "/story"));
+      const gallery = page.locator(".editorial-proof");
+      await expect(gallery).toBeVisible();
+      const slides = gallery.locator(".editorial-proof-slide");
+      await expect(slides).toHaveCount(4);
+      await expect(gallery.getByText("01 / 04")).toBeVisible();
+      await assertNoHorizontalOverflow(page);
+      const imageUrls = await slides.locator("img").evaluateAll((els) =>
+        els.map((img) => img.getAttribute("src") || "")
+      );
+      expect(new Set(imageUrls).size).toBe(4);
+      const homepageFeatured = ["060", "043", "059", "040", "046", "010", "042", "081", "017", "016"];
+      expect(imageUrls.every((src) => !homepageFeatured.some((id) => src.includes(`community-cuts-${id}`)))).toBeTruthy();
+      const next = gallery.getByRole("button", { name: spanish ? "Foto siguiente" : "Next photo" });
+      await expect(next).toBeVisible();
+      await next.click();
+      await expect(gallery.getByText("02 / 04")).toBeVisible();
+      const first = slides.first().locator("a");
+      await expect(first).toHaveAttribute("href", spanish ? "/es/proyectos/community-cuts" : "/projects/community-cuts");
+      await page.screenshot({ path: `test-results/story-proof-${locale}-${width}.png`, fullPage: true });
+    });
+  }
+}

@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 export default function TakePartPage() {
   return (
     <InteriorPage
-      eyebrow="Take part"
+      eyebrow="Get Involved"
       title="Be Part of Something Bigger."
       supporting="Every act of kindness, every connection, and every contribution has the power to make a difference. Whether you’re a family, volunteer, or community partner, there’s a place for you in the Asc3nd Collective."
       intro="At Asc3nd Collective, we believe meaningful change happens when people come together with a shared purpose. Whether you're looking for opportunities for your family, want to volunteer your time and talents, or represent an organization interested in partnering with us, we welcome you to be part of our growing collective. Together, we can create meaningful experiences, strengthen community connections, and help the next generation thrive."

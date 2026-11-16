@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { InteriorPage } from "@/components/InteriorPage";
-import { ZEFFY_DONATE_URL } from "@/lib/site-content";
+import { ASC3ND_DONATION_URL } from "@/lib/donation-config";
 import type { SupportCopy } from "@/lib/support-shop.en";
 import "@/app/home.css";
 import "@/app/support-shop.css";
@@ -13,10 +13,18 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
         <div className="ss-list">
           <div className="ss-row">
             <h2 className="ss-label">{rows.donate.label}</h2>
-            <p className="ss-detail">{rows.donate.detail}</p>
-            <a className="ss-action" href={ZEFFY_DONATE_URL} target="_blank" rel="noopener noreferrer">
-              {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
-            </a>
+            <p className="ss-detail">{ASC3ND_DONATION_URL ? rows.donate.detail : copy.eyebrow === "Apoyo"
+              ? "Estamos confirmando el enlace oficial de donaciones de ASC3ND. No enviamos a visitantes a una página genérica."
+              : "We are confirming ASC3ND's official donation campaign link. We will not redirect you to a generic platform."}</p>
+            {ASC3ND_DONATION_URL ? (
+              <a className="ss-action" href={ASC3ND_DONATION_URL} target="_blank" rel="noopener noreferrer">
+                {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <Link className="ss-action" href={copy.eyebrow === "Apoyo" ? "/es/participar" : "/take-part"}>
+                {copy.eyebrow === "Apoyo" ? "Otras formas de apoyar" : "Other ways to help"} <span className="arrow" aria-hidden="true">→</span>
+              </Link>
+            )>
           </div>
           <div className="ss-row">
             <h2 className="ss-label">{rows.volunteer.label}</h2>

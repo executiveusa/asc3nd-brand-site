@@ -19,7 +19,7 @@ export default function HistoriaPage() {
 
   return (
     <InteriorPage eyebrow={t.eyebrow} title={t.title} intro={t.intro}>
-      <section className="story shell interior-story">
+      <section className="story shell interior-story story-founder-feature">
         <DocumentaryFrame label={otha.name} slot="founder-otha" className="portrait-placeholder" />
         <div className="story-copy">
           <p className="eyebrow">{otha.name}, {otha.role}</p>
@@ -30,8 +30,6 @@ export default function HistoriaPage() {
         <p>A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.</p>
       </section>
 
-
-      <EditorialProofCarousel items={getStoryProofs()} locale="es" />
 
       <CollectiveLogo alt="Logotipo de ASC3ND Collective: una corona naranja sobre el nombre ASC3ND en letras blancas de pincel, con el 3 en naranja" />
 
@@ -64,6 +62,7 @@ export default function HistoriaPage() {
           </article>
         </div>
       </section>
+      <EditorialProofCarousel items={getStoryProofs()} locale="es" />
 
     </InteriorPage>
   );

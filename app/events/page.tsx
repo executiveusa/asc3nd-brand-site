@@ -67,9 +67,9 @@ export default function EventsPage() {
                 <p>{project.location}, {project.dateLabel}</p>
                 <p className="event-record-summary">{project.summary}</p>
                 <div className="event-record-proof">
-                  {project.featuredFilm ? <span>Watch Highlights</span> : null}
-                  <span>View Gallery ({media.length} photos)</span>
-                  <span>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Community Partners"}</span>
+                  {project.featuredFilm ? <Link href={`${href}#project-film-title`}>Watch Highlights</Link> : null}
+                  <Link href={`${href}#project-proof-title`}>View Gallery ({media.length} photos)</Link>
+                  <Link href={`${href}#project-partners-title`}>{project.outcomes.length ? `${project.outcomes.length} verified outcomes` : "Community Partners"}</Link>
                 </div>
                 <Link className="event-record-link" href={`/projects/${project.slug}`}>
                   Explore the event <span className="arrow" aria-hidden="true">→</span>

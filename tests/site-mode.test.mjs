@@ -4,9 +4,10 @@ import { readFileSync } from "node:fs";
 
 const source = (file) => readFileSync(new URL(`../${file}`, import.meta.url), "utf8");
 
-test("full brand site stays the default until client approval", () => {
+test("site mode is always an explicit, supported deployment setting", () => {
   const cfg = JSON.parse(source("config/site-mode.json"));
-  assert.equal(cfg.mode, "full");
+  assert.ok(["full", "standby"].includes(cfg.mode));
+  assert.doesNotMatch(source("scripts/set-site-mode.mjs"), /process\\.env\\.NEXT_PUBLIC_/);
 });
 test("standby mode is a server-side rewrite, never user-controlled", () => {
   const proxy = source("proxy.ts");

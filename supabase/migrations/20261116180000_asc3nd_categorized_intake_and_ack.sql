@@ -202,7 +202,7 @@ begin
 
   return jsonb_build_object('ok',true,'status','received','id',v_intake_id,'person_id',v_person_id,'route',v_route,'message','Thank you. ASC3ND received your information. A team member can now follow up through the appropriate participation queue.');
 end;
-$function$
+$function$;
 CREATE OR REPLACE FUNCTION asc3nd_private.queue_site_notification()
  RETURNS trigger
  LANGUAGE plpgsql
@@ -245,7 +245,7 @@ begin
   end if;
   return new;
 end;
-$function$
+$function$;
 -- Extend the existing communications-manager staff queue to donor inquiries.
 CREATE OR REPLACE FUNCTION asc3nd_private.has_route_access(p_organization_id uuid, p_route_key text, p_write boolean DEFAULT false)
  RETURNS boolean
@@ -267,5 +267,5 @@ AS $function$
         or (m.role = 'volunteer' and not p_write)
       )
   );
-$function$
+$function$;
 commit;

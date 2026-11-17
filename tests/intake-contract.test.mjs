@@ -42,3 +42,11 @@ test("notification delivery requires server-only auth and separates staff and vi
   assert.match(caller, /Authorization: `Bearer \$\{triggerSecret\}`/);
   assert.doesNotMatch(caller, /NEXT_PUBLIC_ASC3ND_NOTIFICATION_TRIGGER_SECRET/);
 });
+
+test("public worker health check does not reveal provider configuration", () => {
+  const worker = source("supabase/functions/asc3nd-site-notifications/index.ts");
+  const getBranch = worker.match(/if \(request\.method === "GET"\) \{([\s\S]*?)\n  \}/)?.[1];
+  assert.ok(getBranch, "GET health route must exist");
+  assert.match(getBranch, /return json\(\{ ok: true \}\)/);
+  assert.doesNotMatch(getBranch, /configured|recipient|from_email|missing|RESEND_API_KEY|triggerSecret/);
+});

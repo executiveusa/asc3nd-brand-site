@@ -49,7 +49,7 @@ export const ui = {
     nav: [
       { href: "/story", label: "Story", key: "story" },
       { href: "/events", label: "Events", key: "events" },
-      { href: "/take-part", label: "Take part", key: "take-part" },
+      { href: "/take-part", label: "Get Involved", key: "take-part" },
       { href: "/shop", label: "Shop", key: "shop" },
     ],
     footerNav: "Footer navigation",

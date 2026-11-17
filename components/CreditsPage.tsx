@@ -11,7 +11,7 @@ const copy = {
     title: "Thank you, by name.",
     intro:
       "Fresh Fade, Fresh Grade happened because people gave their time, their skill and their care. This page names them, and it will keep growing as ASC3ND holds more events.",
-    pendingTitle: "Still being gathered.",
+    pendingTitle: "Pending",
     pendingBody: "We are confirming names for these groups. Each person appears here once they have said yes to being listed:",
     missingTitle: "Someone missing?",
     missingBody:
@@ -27,7 +27,7 @@ const copy = {
     title: "Gracias, con nombre y apellido.",
     intro:
       "Fresh Fade, Fresh Grade fue posible porque personas dieron su tiempo, su talento y su cariño. Esta página las nombra y seguirá creciendo a medida que ASC3ND haga más eventos.",
-    pendingTitle: "Aún estamos reuniendo nombres.",
+    pendingTitle: "Pendiente",
     pendingBody: "Estamos confirmando los nombres de estos grupos. Cada persona aparece aquí cuando ha dicho que sí a que la mencionemos:",
     missingTitle: "¿Falta alguien?",
     missingBody:

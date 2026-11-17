@@ -19,9 +19,9 @@ test("standby mode is a server-side rewrite, never user-controlled", () => {
 });
 test("standby retains existing consented signup API", () => {
   const standby = source("app/standby/page.tsx");
-  const signup = source("components/CommunitySignup.tsx");
-  assert.match(standby, /CommunitySignup/);
-  assert.match(standby, /sourcePage="asc3nd.org\/standby"/);
+  const signup = source("app/standby/HoldingSignupForm.tsx");
+  assert.match(standby, /HoldingSignupForm/);
   assert.match(signup, /\/api\/community\/join/);
   assert.match(signup, /consent_accepted/);
+  assert.match(signup, /source_page: "asc3nd.org\/standby"/);
 });

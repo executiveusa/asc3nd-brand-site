@@ -27,7 +27,7 @@ export default function ProjectJoyEsPage() {
       </section>
       <section className="project-evidence shell" aria-labelledby="joy-story-heading">
         <h2 id="joy-story-heading">{c.overviewTitle}</h2>
-        <div className="project-evidence-body"><p>{c.overviewPending}</p></div>
+        <div className="project-evidence-body"><div className="initiative-pending-slot" data-pending="story"><strong>PENDIENTE — Historia / fechas / beneficiarios</strong><p>{c.overviewPending}</p></div></div>
       </section>
       <section className="project-proof shell" aria-labelledby="joy-media-heading">
         <div className="project-proof-heading">
@@ -35,12 +35,12 @@ export default function ProjectJoyEsPage() {
           <h2 id="joy-media-heading">{c.mediaTitle}</h2>
           <p>{c.mediaBody}</p>
         </div>
-        <div className="initiative-media-stage" aria-hidden="true"><span>{projectJoy.title}</span></div>
+        <div className="initiative-media-stage" role="img" aria-label="Espacio para fotografía y video aprobados de Project Joy"><span>{projectJoy.title}</span><small>{c.mediaPending}</small></div>
       </section>
       <section className="project-next shell" aria-labelledby="joy-next-heading">
         <p className="eyebrow">{projectJoy.title}</p>
         <h2 id="joy-next-heading">{c.involvementTitle}</h2>
-        <p className="project-thanks">{c.involvementBody}</p>
+        <div className="initiative-pending-slot" data-pending="participation"><strong>PENDIENTE — Participación / enlace oficial de donación</strong><p className="project-thanks">{c.involvementBody}</p></div>
         <div className="project-next-actions">
           <Link href="/es/eventos">Volver a Eventos <span className="arrow" aria-hidden="true">→</span></Link>
         </div>

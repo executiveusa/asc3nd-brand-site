@@ -4,13 +4,14 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "@/app/take-part/participation.module.css";
 import { participationEs } from "@/lib/participation.es";
 
-type Kind = "family" | "mentor-volunteer" | "partner";
+type Kind = "family" | "mentor-volunteer" | "partner" | "donor";
 type Props = { kind: Kind; locale?: "en" | "es" };
 
 const esSlug: Record<Kind, string> = {
   family: "familia",
   "mentor-volunteer": "mentores-voluntariado",
   partner: "aliados",
+  donor: "donante",
 };
 
 type Draft = {
@@ -34,6 +35,12 @@ const config = {
     title: "Tell us how you want to show up.",
     intro: "Choose mentoring or volunteering and your submission will route to the matching ASC3ND team queue.",
     defaultRoute: "volunteer",
+  },
+  donor: {
+    eyebrow: "Donor inquiries",
+    title: "Tell ASC3ND how you would like to support the mission.",
+    intro: "For giving questions or donor coordination. This is not a payment form; no payment information is collected.",
+    defaultRoute: "donor",
   },
   partner: {
     eyebrow: "Community partners",
@@ -276,6 +283,13 @@ export function ParticipationForm({ kind, locale = "en" }: Props) {
             <label><span>{L("Relevant experience, skills, or interests", t.labels.experience)}</span><textarea name="experience" rows={4} /></label>
             <label><span>{L("General availability", t.labels.availability)}</span><input name="availability" placeholder={L("Weekends, evenings, monthly, event days...", t.labels.availabilityPlaceholder)} /></label>
             <label><span>{L("Why do you want to be involved?", t.labels.whyInvolved)}</span><textarea name="primary_goal" rows={4} /></label>
+          </>
+        ) : null}
+
+        {kind === "donor" ? (
+          <>
+            <label><span>{L("How would you like to help?", "¿Cómo te gustaría apoyar?")}</span><textarea name="primary_goal" rows={4} maxLength={2000} placeholder={L("Giving inquiry, fundraising, recurring support…", "Consulta sobre donaciones, recaudación, apoyo recurrente…")} /></label>
+            <p>{L("Please do not enter card numbers, financial account information, or other sensitive details.", "No ingreses números de tarjeta, información bancaria ni otros datos confidenciales.")}</p>
           </>
         ) : null}
 

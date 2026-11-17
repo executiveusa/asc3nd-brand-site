@@ -1,0 +1,32 @@
+name: ASC3ND intake checks
+on:
+  pull_request:
+    paths:
+      - 'components/ContactForm.tsx'
+      - 'components/ParticipationForm.tsx'
+      - 'components/SupportView.tsx'
+      - 'lib/site-notifications.ts'
+      - 'lib/participation.es.ts'
+      - 'app/take-part/**'
+      - 'app/es/participar/**'
+      - 'supabase/functions/asc3nd-site-notifications/**'
+      - 'supabase/migrations/**'
+      - 'tests/intake-contract.test.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/asc3nd-intake.yml'
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/intake-contract.test.mjs
+      - run: npx tsc --noEmit
+      - run: npm run build

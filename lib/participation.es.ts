@@ -16,6 +16,11 @@ export const participationEs = {
       title: "Cuéntanos cómo quieres participar.",
       intro: "Elige si quieres ser mentor o voluntario, y tu mensaje llegará al equipo de ASC3ND que corresponde.",
     },
+    donor: {
+      eyebrow: "Consultas sobre donaciones",
+      title: "Cuéntanos cómo te gustaría apoyar la misión de ASC3ND.",
+      intro: "Para consultas y coordinación de donaciones. Este no es un formulario de pago y no se recopilan datos de tarjetas.",
+    },
     partner: {
       eyebrow: "Aliados de la comunidad",
       title: "Cuéntanos qué tipo de alianza te gustaría explorar.",

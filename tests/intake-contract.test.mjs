@@ -56,7 +56,7 @@ test("worker authenticates before inspecting delivery configuration", () => {
   const methodIndex = worker.indexOf('if (request.method !== "POST")');
   const authIndex = worker.indexOf('if (!triggerSecret || request.headers.get("authorization")');
   const resendConfigIndex = worker.indexOf('if (!resendKey) return json(');
-  const claimIndex = worker.indexOf('.rpc("claim_site_notifications"');
+  const claimIndex = worker.indexOf('.rpc("asc3nd_claim_site_notifications"');
   assert.ok(methodIndex >= 0 && authIndex > methodIndex);
   assert.ok(resendConfigIndex > authIndex, "do not disclose Resend configuration before auth");
   assert.ok(claimIndex > authIndex, "do not claim queued notifications before auth");

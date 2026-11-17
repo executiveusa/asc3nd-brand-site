@@ -1,0 +1,32 @@
+.standby-page {
+  min-height: 100svh;
+  background: #050505;
+  color: #f7f5ed;
+  display: grid;
+  place-items: center;
+  padding: clamp(36px, 6vw, 80px) 20px;
+}
+.standby-inner { width: min(100%, 600px); text-align: center; }
+.standby-wordmark { width: min(83%, 410px); margin: 0 auto 34px; color: #f7f5ed; }
+.standby-wordmark svg { display: block; width: 100%; }
+.standby-message { display: grid; gap: 4px; font-family: var(--sans); font-size: clamp(29px, 5.7vw, 52px); font-weight: 800; line-height: 1.02; letter-spacing: -.03em; text-transform: uppercase; }
+.standby-thanks { margin: 32px 0 9px; font-weight: 700; font-size: clamp(17px, 2.1vw, 21px); }
+.standby-intro { margin: 0 auto 30px; max-width: 43ch; color: #d3d3ce; line-height: 1.55; }
+.standby-page .community-signup { width: min(100%, 460px); margin: 0 auto; display: block; color: inherit; text-align: left; padding: 0; }
+.standby-page .community-signup-copy { display: none; }
+.standby-page .community-signup-form { display: grid; gap: 14px; }
+.standby-page .community-signup-form label:not(.signup-honeypot) { display: grid; gap: 8px; }
+.standby-page .community-signup-form label > span { text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: .085em; }
+.standby-page .community-signup-form input[type="text"],
+.standby-page .community-signup-form input[type="email"] {
+  width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid #66645c; background: #171717; border-radius: 3px; color: #fff;
+}
+.standby-page .community-signup-form .signup-consent { display: flex; flex-direction: row; align-items: flex-start; gap: 10px; }
+.standby-page .community-signup-form .signup-consent input { flex: none; width: 20px; height: 20px; margin: 0; accent-color: #d9b16c; }
+.standby-page .community-signup-form .signup-consent span { text-transform: none; letter-spacing: normal; line-height: 1.5; font-size: 14px; font-weight: 400; }
+.standby-page .community-signup-form .signup-honeypot { position: absolute; left: -10000px; height: 1px; overflow: hidden; }
+.standby-page .community-signup-form button { display: block; width: 100%; min-height: 48px; border: 1px solid #f6f3ed; background: #f6f3ed; color: #050505; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; }
+.standby-page .community-signup-form button:focus-visible, .standby-page input:focus-visible { outline: 3px solid #d9b16c; outline-offset: 3px; }
+.standby-page .signup-status { min-height: 1.4em; font-size: 14px; }
+@media (max-width: 520px) { .standby-page { padding: 45px 20px; } .standby-wordmark { margin-bottom: 27px; } .standby-thanks { margin-top: 28px; } }
+@media (prefers-reduced-motion: reduce) { .standby-page *, .standby-page *::before, .standby-page *::after { animation: none !important; transition: none !important; } }

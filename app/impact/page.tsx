@@ -8,27 +8,27 @@ const slots = ["arrival", "service", "connection", "next"] as const;
 export default function ImpactPage() {
   return (
     <InteriorPage
-      eyebrow="Community Cuts for Kids, Everett, August 2026"
-      title="Community Cuts is ASC3ND's first public project record."
-      intro="The project page brings together the full event film, 86 approved photographs, and event credits from Community Cuts for Kids in Everett, Washington."
+      eyebrow="Fresh Fade, Fresh Grade, Everett, August 2026"
+      title="Fresh Fade, Fresh Grade is ASC3ND's first community initiative."
+      intro="The project page brings together the full event film, 86 approved photographs, and event credits from Fresh Fade, Fresh Grade in Everett, Washington."
     >
       {getApprovedMedia("hero") ? (
         <section className="interior-section shell">
           <DocumentaryFrame
-            label="Community Cuts for Kids · Everett, Washington · August 2026"
+            label="Fresh Fade, Fresh Grade · Everett, Washington · August 2026"
             slot="hero"
           />
         </section>
       ) : null}
 
       <section className="interior-section shell">
-        <p className="eyebrow">Community Cuts record</p>
+        <p className="eyebrow">Fresh Fade event record</p>
         <div className="interior-list">
           {communityRoll.map(({ index, title, copy }, itemIndex) => (
             <article key={index}>
               {getApprovedMedia(slots[itemIndex]) ? (
                 <DocumentaryFrame
-                  label={`${title} · Community Cuts for Kids`}
+                  label={`${title} · Fresh Fade, Fresh Grade`}
                   slot={slots[itemIndex]}
                 />
               ) : null}

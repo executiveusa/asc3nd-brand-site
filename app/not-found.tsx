@@ -17,7 +17,7 @@ export default function NotFound() {
           <Link href="/" style={{ color: "inherit" }}>Home</Link>
           <Link href="/impact" style={{ color: "inherit" }}>Impact</Link>
           <Link href="/story" style={{ color: "inherit" }}>Story</Link>
-          <Link href="/take-part" style={{ color: "inherit" }}>Take part</Link>
+          <Link href="/take-part" style={{ color: "inherit" }}>Get Involved</Link>
         </nav>
       </div>
     </main>

@@ -59,8 +59,8 @@ export function ProjectProofGallery({
   const activeLabel = activeIndex === null || !active
     ? ""
     : locale === "es"
-      ? `Community Cuts for Kids, foto del evento ${activeIndex + 1} de ${approved.length}: ${active.alt}`
-      : `Community Cuts for Kids event photo ${activeIndex + 1} of ${approved.length}: ${active.alt}`;
+      ? `Fresh Fade, Fresh Grade, foto del evento ${activeIndex + 1} de ${approved.length}: ${active.alt}`
+      : `Fresh Fade, Fresh Grade event photo ${activeIndex + 1} of ${approved.length}: ${active.alt}`;
   const visibleItems = maxVisible
     ? approved.slice(0, maxVisible)
     : !compact && initialVisible && !expanded

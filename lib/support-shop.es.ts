@@ -3,24 +3,12 @@ import type { ShopCopy, SupportCopy } from "@/lib/support-shop.en";
 export const supportEs: SupportCopy = {
   eyebrow: "Apoyo",
   title: "Ayuda a que ASC3ND crezca.",
-  intro: "Puedes donar, dar tu tiempo, hacer alianza con nosotros o compartir lo que tienes. Elige lo que mejor te quede.",
+  intro: "Conoce cómo apoyar económicamente o con donaciones de materiales a ASC3ND Collective. Para voluntariado y alianzas, visita Participa.",
   rows: {
     donate: {
       label: "Donar",
       detail: "Dona en línea a través de Zeffy. Saldrás de este sitio para completar tu donación.",
       action: "Donar",
-    },
-    volunteer: {
-      label: "Ser voluntario",
-      detail: "Cuéntanos cómo te gustaría ayudar. Una persona te responde directamente.",
-      action: "Ser voluntario",
-      href: "/es/participar/mentores-voluntariado",
-    },
-    partner: {
-      label: "Hacer alianza",
-      detail: "Organizaciones, negocios y vecinos que quieran trabajar con ASC3ND.",
-      action: "Ser aliado",
-      href: "/es/participar/aliados",
     },
     supplies: {
       label: "Dar materiales",

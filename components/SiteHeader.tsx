@@ -7,7 +7,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { clientLogoEnabled } from "@/components/ClientBrandLockup";
 import { counterpart, localeOf, ui } from "@/lib/i18n";
 import { navFor } from "@/lib/nav";
-import { ASC3ND_DONATION_URL } from "@/lib/donation-config";
+import { ASC3ND_DONATION_URL, ASC3ND_ZEFFY_DESTINATION } from "@/lib/donation-config";
 
 type Section = "story" | "events" | "take-part" | "shop" | undefined;
 
@@ -52,9 +52,9 @@ export function SiteHeader({ current }: { current?: Section }) {
               {t.donate} <span className="arrow" aria-hidden="true">↗</span>
             </a>
           ) : (
-            <Link className="button button-solid donate-pill" href={locale === "es" ? "/es/apoyo" : "/support"}>
-              {locale === "es" ? "Apoyar" : "Support"} <span className="arrow" aria-hidden="true">→</span>
-            </Link>
+            <a className="button button-solid donate-pill" href={ASC3ND_ZEFFY_DESTINATION} target="_blank" rel="noopener noreferrer" aria-label={locale === "es" ? "Conoce Zeffy (la campaña de ASC3ND aún no está disponible)" : "Visit Zeffy (ASC3ND campaign not yet available)"}>
+              {locale === "es" ? "Zeffy — próximamente" : "Zeffy — coming soon"} <span className="arrow" aria-hidden="true">↗</span>
+            </a>
           )}
           <button
             type="button"

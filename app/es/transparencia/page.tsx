@@ -18,19 +18,18 @@ export default function TransparenciaPage() {
     <section className="transparency-hero shell" aria-labelledby="transparency-title">
       <p className="eyebrow">{t.heroEyebrow}</p>
       <h1 id="transparency-title">Confianza y<br />transparencia.</h1>
-      <p>{t.heroIntro}</p>
     </section>
     <section className="transparency-section shell" aria-labelledby="identity-title">
       <div className="transparency-intro"><p className="eyebrow">{t.org.eyebrow}</p><h2 id="identity-title">Quiénes somos,<br />según el registro.</h2></div>
       <div className="transparency-details"><dl>{t.facts.map(([label, value]) => <div className="transparency-fact" key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="transparency-source">{t.org.source}<a href="https://ccfs.sos.wa.gov/" target="_blank" rel="noreferrer">{t.org.link} <span aria-hidden="true">↗</span></a></p></div>
     </section>
     <section className="transparency-section shell" aria-labelledby="tax-title">
-      <div className="transparency-intro"><p className="eyebrow">{t.tax.eyebrow}</p><h2 id="tax-title">Lo que está<br />confirmado.</h2></div>
+      <div className="transparency-intro"><p className="eyebrow" id="tax-title">{t.tax.eyebrow}</p></div>
       <div className="transparency-details">{t.tax.statuses.map(([label, text]) => <div className="transparency-status" key={label}><h3>{label}</h3><p>{text}</p></div>)}<p className="transparency-source">{t.tax.source}<a href="https://www.irs.gov/charities-non-profits/tax-exempt-organization-search" target="_blank" rel="noreferrer">{t.tax.link} <span aria-hidden="true">↗</span></a></p></div>
     </section>
     <section className="transparency-section shell" aria-labelledby="giving-title">
       <div className="transparency-intro"><p className="eyebrow">{t.giving.eyebrow}</p><h2 id="giving-title">Donar,<br />con claridad.</h2></div>
-      <div className="transparency-details"><p>{t.giving.p1}</p><p>{t.giving.p2}</p><Link className="transparency-cta" href="/es/participar">{t.giving.cta} <span aria-hidden="true">→</span></Link></div>
+      <div className="transparency-details"><p>{t.giving.p1}</p><p>{t.giving.p2}</p><Link className="transparency-cta" href="/es/participar">Explora formas de involucrarte <span aria-hidden="true">→</span></Link></div>
     </section>
     <SiteFooter />
   </main>;

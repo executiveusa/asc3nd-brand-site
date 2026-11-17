@@ -38,11 +38,12 @@ export default function EventosPage() {
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
         <h2 id="current-initiatives-title">Iniciativas actuales y próximas</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
-          <div className="event-record-cover initiative-event-media" aria-hidden="true"><span>PROJECT JOY</span></div>
+          <div className="event-record-cover initiative-event-media" aria-label="Imagen de Project Joy pendiente de aprobación"><span>PROJECT JOY</span><small>{projectJoy.es.mediaPending}</small></div>
           <div className="event-record-copy">
             <p className="eyebrow">{projectJoy.es.type}</p>
             <h3 id="project-joy-title">{projectJoy.title}</h3>
             <p>{projectJoy.es.awaiting}</p>
+            <p className="initiative-pending-note">PENDIENTE — Detalles de participación y donaciones; enlace inactivo hasta su verificación.</p>
             <Link className="event-record-link" href="/es/proyectos/project-joy">{projectJoy.es.linkLabel} <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
         </article>

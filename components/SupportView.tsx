@@ -27,20 +27,6 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
             )}
           </div>
           <div className="ss-row">
-            <h2 className="ss-label">{rows.volunteer.label}</h2>
-            <p className="ss-detail">{rows.volunteer.detail}</p>
-            <Link className="ss-action" href={rows.volunteer.href}>
-              {rows.volunteer.action} <span className="arrow" aria-hidden="true">→</span>
-            </Link>
-          </div>
-          <div className="ss-row">
-            <h2 className="ss-label">{rows.partner.label}</h2>
-            <p className="ss-detail">{rows.partner.detail}</p>
-            <Link className="ss-action" href={rows.partner.href}>
-              {rows.partner.action} <span className="arrow" aria-hidden="true">→</span>
-            </Link>
-          </div>
-          <div className="ss-row">
             <h2 className="ss-label">{rows.supplies.label}</h2>
             <p className="ss-detail">{rows.supplies.detail}</p>
             <a className="ss-action" href="mailto:main@asc3nd.org">{rows.supplies.action}</a>
@@ -53,6 +39,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
         <h2 id="ss-trust-title">{trust.title}</h2>
         <p>{trust.body}</p>
         <p><Link className="text-link" href={trust.href}>{trust.link} <span className="arrow" aria-hidden="true">→</span></Link></p>
+        <p><Link className="text-link" href={copy.eyebrow === "Apoyo" ? "/es/participar" : "/take-part"}>{copy.eyebrow === "Apoyo" ? "Participa: voluntariado, mentoría y alianzas" : "Get Involved: volunteer, mentor, or partner"} <span className="arrow" aria-hidden="true">→</span></Link></p>
       </section>
     </InteriorPage>
   );

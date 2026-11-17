@@ -10,7 +10,7 @@ const copy = {
     eyebrow: "With gratitude",
     title: "Thank you, by name.",
     intro:
-      "Community Cuts for Kids happened because people gave their time, their skill and their care. This page names them, and it will keep growing as ASC3ND holds more events.",
+      "Fresh Fade, Fresh Grade happened because people gave their time, their skill and their care. This page names them, and it will keep growing as ASC3ND holds more events.",
     pendingTitle: "Still being gathered.",
     pendingBody: "We are confirming names for these groups. Each person appears here once they have said yes to being listed:",
     missingTitle: "Someone missing?",
@@ -18,7 +18,7 @@ const copy = {
       "If you helped and your name isn't here, or you would like the way it appears changed or removed, tell us and we will fix it.",
     message: "Send us a message",
     messageHref: "/take-part#direct-contact",
-    eventLink: "See the Community Cuts record",
+    eventLink: "See the Fresh Fade, Fresh Grade event",
     eventHref: "/projects/community-cuts",
     list: (label: string) => `${label}, names`,
   },
@@ -26,7 +26,7 @@ const copy = {
     eyebrow: "Con gratitud",
     title: "Gracias, con nombre y apellido.",
     intro:
-      "Community Cuts for Kids fue posible porque personas dieron su tiempo, su talento y su cariño. Esta página las nombra y seguirá creciendo a medida que ASC3ND haga más eventos.",
+      "Fresh Fade, Fresh Grade fue posible porque personas dieron su tiempo, su talento y su cariño. Esta página las nombra y seguirá creciendo a medida que ASC3ND haga más eventos.",
     pendingTitle: "Aún estamos reuniendo nombres.",
     pendingBody: "Estamos confirmando los nombres de estos grupos. Cada persona aparece aquí cuando ha dicho que sí a que la mencionemos:",
     missingTitle: "¿Falta alguien?",

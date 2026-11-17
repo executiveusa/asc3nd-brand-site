@@ -8,7 +8,7 @@ export const projectJoy = {
   title: "Project Joy: Asc3nd the Joy",
   en: {
     type: "2026 holiday giving initiative",
-    awaiting: "PENDING — Founder-approved campaign description, dates and ways to get involved."
+    awaiting: "PENDING — Founder-approved campaign description, dates and ways to get involved.",
     mediaPending: "PENDING — Campaign image / confirmed consent / photographer credit",
     linkLabel: "Explore Project Joy",
     storyIntro: "A dedicated place for the founders to share the campaign story and participation details.",
@@ -21,7 +21,7 @@ export const projectJoy = {
   },
   es: {
     type: "Iniciativa solidaria de la temporada navideña de 2026",
-    awaiting: "PENDIENTE — Descripción, fechas y formas de participar aprobadas por los fundadores."
+    awaiting: "PENDIENTE — Descripción, fechas y formas de participar aprobadas por los fundadores.",
     mediaPending: "PENDIENTE — Imagen de campaña / autorización / crédito de fotografía",
     linkLabel: "Conoce Project Joy",
     storyIntro: "Un espacio para que los fundadores compartan la historia de la campaña y cómo participar.",

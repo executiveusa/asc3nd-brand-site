@@ -71,3 +71,19 @@ test("migration terminates every SQL function before the next statement", () => 
     assert.ok(!sql.includes("$function$" + String.fromCharCode(10) + nextStatement), "Missing SQL terminator before " + nextStatement);
   }
 });
+
+test("service-only public RPC bridge keeps notification queue private", () => {
+  const sql = source("supabase/migrations/20261117013500_asc3nd_service_only_notification_rpc_bridge.sql");
+  const worker = source("supabase/functions/asc3nd-site-notifications/index.ts");
+  for (const fn of [
+    "asc3nd_claim_site_notifications",
+    "asc3nd_mark_site_notification_sent",
+    "asc3nd_mark_site_notification_failed",
+  ]) {
+    assert.ok(sql.includes("function public." + fn), "Missing migration: " + fn);
+    assert.ok(worker.includes('.rpc("' + fn + '"'), "Worker still calls private schema for: " + fn);
+  }
+  assert.equal(sql.split("revoke all on function public.").length - 1, 3);
+  assert.equal(sql.split("grant execute on function public.").length - 1, 3);
+  assert.ok(!worker.includes('.schema("asc3nd_private")'));
+});

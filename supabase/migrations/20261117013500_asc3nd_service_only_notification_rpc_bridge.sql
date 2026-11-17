@@ -20,7 +20,7 @@ as $fn$
 begin
   perform asc3nd_private.mark_site_notification_sent(p_id);
   return true;
-end
+end;
 $fn$;
 
 create or replace function public.asc3nd_mark_site_notification_failed(p_id uuid, p_error text)
@@ -31,7 +31,7 @@ as $fn$
 begin
   perform asc3nd_private.mark_site_notification_failed(p_id, p_error);
   return true;
-end
+end;
 $fn$;
 
 revoke all on function public.asc3nd_claim_site_notifications(integer) from public, anon, authenticated;

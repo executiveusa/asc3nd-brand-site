@@ -8,8 +8,8 @@ export const projectJoy = {
   title: "Project Joy: Asc3nd the Joy",
   en: {
     type: "2026 holiday giving initiative",
-    awaiting: "Campaign details and ways to participate will be shared after confirmation from the founders.",
-    mediaPending: "Campaign photography to come",
+    awaiting: "PENDING — Founder-approved campaign description, dates and ways to get involved."
+    mediaPending: "PENDING — Campaign image / confirmed consent / photographer credit",
     linkLabel: "Explore Project Joy",
     storyIntro: "A dedicated place for the founders to share the campaign story and participation details.",
     overviewTitle: "The campaign story",
@@ -21,14 +21,14 @@ export const projectJoy = {
   },
   es: {
     type: "Iniciativa solidaria de la temporada navideña de 2026",
-    awaiting: "Los detalles de la campaña y las formas de participar se compartirán cuando los fundadores los confirmen.",
-    mediaPending: "Fotografías de la campaña próximamente",
+    awaiting: "PENDIENTE — Descripción, fechas y formas de participar aprobadas por los fundadores."
+    mediaPending: "PENDIENTE — Imagen de campaña / autorización / crédito de fotografía",
     linkLabel: "Conoce Project Joy",
     storyIntro: "Un espacio para que los fundadores compartan la historia de la campaña y cómo participar.",
     overviewTitle: "La historia de la campaña",
     overviewPending: "PENDIENTE — Historia aprobada, beneficiarios, lugar, fechas y objetivos de la campaña.",
     mediaTitle: "Imágenes y momentos destacados",
-    mediaBody: "Las fotografías y momentos destacados aprobados de la campaña aparecerán aquí cuando estén disponibles.",
+    mediaBody: "PENDIENTE — Fotos y videos aprobados, créditos de autor y permisos de publicación.",
     involvementTitle: "Cómo participar",
     involvementBody: "PENDIENTE — Instrucciones para voluntarios, materiales, aliados y enlace oficial de Zeffy.",
   },

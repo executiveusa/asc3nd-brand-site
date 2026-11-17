@@ -184,6 +184,8 @@
 .initiative-event-media {
   display: grid;
   place-items: center;
+  align-content: center;
+  gap: 18px;
   background: var(--field);
   color: var(--paper);
   padding: 32px;
@@ -228,3 +230,7 @@
 }
 .event-record-proof a:hover { text-underline-offset: 7px; }
 .event-record-proof a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* Explicit, editorial-style pending slots. No invented campaign media or CTA. */
+.initiative-event-media small { display: block; max-width: 31ch; font: 600 11px/1.5 var(--sans); letter-spacing: .06em; text-align: center; text-transform: uppercase; }
+.event-record--upcoming .initiative-pending-note { margin-top: 15px !important; font-size: 12px; letter-spacing: .01em; }

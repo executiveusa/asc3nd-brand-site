@@ -6,7 +6,7 @@ import type { Locale } from "@/lib/i18n";
  *
  * Add a person to the group they belong in:  { name: "Full Name", note: "what they did" }
  * `note` is optional and is shown after the name. Only list someone who has said yes to being named.
- * A group with no names shows as "still being gathered" instead of an empty list.
+ * A group with no names displays Pending until founders approve names and publication permissions.
  */
 export type CreditPerson = { name: string; note?: string };
 
@@ -57,7 +57,7 @@ export const creditLabels: Record<Locale, Record<CreditGroupKey, string>> = {
   },
 };
 
-const placeholder: Record<Locale, string> = { en: "Names to be confirmed", es: "Nombres por confirmar" };
+const placeholder: Record<Locale, string> = { en: "Pending", es: "Pendiente" };
 
 const asText = (p: CreditPerson) => (p.note ? `${p.name}, ${p.note}` : p.name);
 

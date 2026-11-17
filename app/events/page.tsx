@@ -29,11 +29,12 @@ export default function EventsPage() {
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
         <h2 id="current-initiatives-title">Current &amp; Upcoming Initiatives</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
-          <div className="event-record-cover initiative-event-media" aria-hidden="true"><span>PROJECT JOY</span></div>
+          <div className="event-record-cover initiative-event-media" aria-label="Pending approved Project Joy campaign artwork"><span>PROJECT JOY</span><small>{projectJoy.en.mediaPending}</small></div>
           <div className="event-record-copy">
             <p className="eyebrow">{projectJoy.en.type}</p>
             <h3 id="project-joy-title">{projectJoy.title}</h3>
             <p>{projectJoy.en.awaiting}</p>
+            <p className="initiative-pending-note">PENDING — Participation and donation details; link stays inactive until founder verification.</p>
             <Link className="event-record-link" href="/projects/project-joy">{projectJoy.en.linkLabel} <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
         </article>

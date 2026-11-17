@@ -623,7 +623,7 @@ for (const locale of ["en", "es"]) {
     await expect(page.locator(".story-mission")).toBeVisible();
     await assertNoHorizontalOverflow(page);
     const footer = page.locator(".site-footer");
-    await expect(footer.locator(".site-footer-support-cta")).toHaveAttribute("href", es ? "/es/apoyo" : "/support");
+    await expect(footer.locator(".site-footer-support-cta")).toHaveAttribute("href", /^https:\/\/(www\.)?zeffy\.com\//);
     await expect(footer.locator(`a[href="${es ? "/es/participar/mentores-voluntariado" : "/take-part/mentor-volunteer"}"]`)).toBeVisible();
     await expect(footer.locator(`a[href="${es ? "/es/participar/aliados" : "/take-part/partner"}"]`)).toBeVisible();
     await page.screenshot({ path: `test-results/story-footer-design-${locale}-390.png`, fullPage: true });
@@ -662,13 +662,16 @@ for (const locale of ["en", "es"]) {
     const headerCta = page.locator(".site-header-actions .donate-pill");
     await expect(headerCta).toBeVisible();
     const headerHref = await headerCta.getAttribute("href");
-    expect(headerHref).not.toBe("https://www.zeffy.com/");
-    expect(headerHref).not.toBe("https://zeffy.com/");
+    expect(headerHref).toBe("https://www.zeffy.com/");
+    await expect(headerCta).toHaveAttribute("aria-label", es ? /campaña.*no.*disponible/i : /campaign not yet available/i);
     await page.goto(baseURL + support);
     const links = await page.locator("a[href]").evaluateAll((els) =>
       els.map((a) => a.getAttribute("href") || "")
     );
-    expect(links.every((href) => href !== "https://www.zeffy.com/" && href !== "https://zeffy.com/")).toBeTruthy();
+    expect(links).toContain("https://www.zeffy.com/");
+    await expect(page.locator(".ss-row")).toHaveCount(2);
+    await expect(page.locator(".ss-list")).toContainText(es ? "campaña de donaciones" : "donation campaign");
+    await expect(page.getByRole("link", { name: es ? /Participa: voluntariado/i : /Get Involved: volunteer/i })).toHaveAttribute("href", takePart);
     await assertNoHorizontalOverflow(page);
   });
 }

@@ -87,3 +87,13 @@ test("service-only public RPC bridge keeps notification queue private", () => {
   assert.equal(sql.split("grant execute on function public.").length - 1, 3);
   assert.ok(!worker.includes('.schema("asc3nd_private")'));
 });
+
+test("scheduled worker uses Vault token and only runs for queued notifications", () => {
+  const sql = source("supabase/migrations/20261117015000_asc3nd_vault_backed_notification_schedule.sql");
+  assert.ok(sql.includes("asc3nd-notification-outbox-dispatch-v1"));
+  assert.ok(sql.includes("vault.decrypted_secrets"));
+  assert.ok(sql.includes("asc3nd_notification_dispatch_token"));
+  assert.ok(sql.includes("net.http_post"));
+  assert.ok(sql.includes("status in ('pending', 'failed')"));
+  assert.ok(!sql.includes("b94e1e72"), "No runtime token may be committed");
+});

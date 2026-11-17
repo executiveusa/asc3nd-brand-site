@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { InteriorPage } from "@/components/InteriorPage";
-import { ASC3ND_DONATION_URL } from "@/lib/donation-config";
+import { ASC3ND_DONATION_URL, ASC3ND_ZEFFY_DESTINATION } from "@/lib/donation-config";
 import type { SupportCopy } from "@/lib/support-shop.en";
 import "@/app/home.css";
 import "@/app/support-shop.css";
@@ -14,16 +14,16 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
           <div className="ss-row">
             <h2 className="ss-label">{rows.donate.label}</h2>
             <p className="ss-detail">{ASC3ND_DONATION_URL ? rows.donate.detail : copy.eyebrow === "Apoyo"
-              ? "Estamos confirmando el enlace oficial de donaciones de ASC3ND. No enviamos a visitantes a una página genérica."
-              : "We are confirming ASC3ND's official donation campaign link. We will not redirect you to a generic platform."}</p>
+              ? "La campaña de donaciones de ASC3ND aún no está disponible. El enlace lleva a la plataforma Zeffy, no a una página para donar a ASC3ND."
+              : "ASC3ND's donation campaign is not available yet. The link opens the Zeffy platform, not an ASC3ND donation checkout."}</p>
             {ASC3ND_DONATION_URL ? (
               <a className="ss-action" href={ASC3ND_DONATION_URL} target="_blank" rel="noopener noreferrer">
                 {rows.donate.action} <span className="arrow" aria-hidden="true">↗</span>
               </a>
             ) : (
-              <Link className="ss-action" href={copy.eyebrow === "Apoyo" ? "/es/participar/donante" : "/take-part/donor"}>
-                {copy.eyebrow === "Apoyo" ? "Consultar sobre donaciones" : "Ask about giving"} <span className="arrow" aria-hidden="true">→</span>
-              </Link>
+              <a className="ss-action" href={ASC3ND_ZEFFY_DESTINATION} target="_blank" rel="noopener noreferrer">
+                {copy.eyebrow === "Apoyo" ? "Visitar Zeffy (campaña pendiente)" : "Visit Zeffy (campaign pending)"} <span className="arrow" aria-hidden="true">↗</span>
+              </a>
             )}
           </div>
           <div className="ss-row">

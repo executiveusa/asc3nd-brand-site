@@ -62,3 +62,12 @@ test("worker authenticates before inspecting delivery configuration", () => {
   assert.ok(claimIndex > authIndex, "do not claim queued notifications before auth");
   assert.doesNotMatch(worker, /missing:\s*\[\.\.\.\(!resendKey/);
 });
+
+test("migration terminates every SQL function before the next statement", () => {
+  const sql = source("supabase/migrations/20261116180000_asc3nd_categorized_intake_and_ack.sql");
+  assert.equal(sql.split("$function$").length - 1, 6);
+  assert.equal(sql.split("$function$;").length - 1, 3);
+  for (const nextStatement of ["CREATE OR REPLACE", "-- Extend", "commit;"]) {
+    assert.ok(!sql.includes("$function$\\n" + nextStatement), "Missing SQL terminator before " + nextStatement);
+  }
+});

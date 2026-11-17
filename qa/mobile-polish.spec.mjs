@@ -336,7 +336,7 @@ test("Community Cuts lightbox traps focus and restores trigger", async ({ page }
 
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
-  await expect(dialog).toHaveAttribute("aria-label", /Community Cuts for Kids event photo 1/i);
+  await expect(dialog).toHaveAttribute("aria-label", /Fresh Fade, Fresh Grade event photo 1/i);
   const close = page.getByRole("button", { name: "Close gallery" });
   await expect(close).toBeFocused();
 

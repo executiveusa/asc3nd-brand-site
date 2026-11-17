@@ -4,7 +4,7 @@ import { supportEn } from "@/lib/support-shop.en";
 
 export const metadata = pageMetadata({
   title: "Support",
-  description: "Donate, volunteer, partner with ASC3ND, or give supplies. Choose the route that fits you.",
+  description: "Support ASC3ND Collective through financial giving or in-kind supplies. Volunteer and partnership opportunities are under Get Involved.",
   path: "/support",
 });
 

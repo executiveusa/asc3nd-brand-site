@@ -76,8 +76,11 @@ Deno.serve(async (request) => {
   }
 
   if (request.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);
-  if (!resendKey || !triggerSecret) return json({ ok: false, configured: false, missing: [...(!resendKey ? ["RESEND_API_KEY"] : []), ...(!triggerSecret ? ["ASC3ND_NOTIFICATION_TRIGGER_SECRET"] : [])] }, 503);
-  if (request.headers.get("authorization") !== `Bearer ${triggerSecret}`) return json({ ok: false, error: "unauthorized" }, 401);
+  // Check authentication before reporting any configuration state or touching the queue.
+  if (!triggerSecret || request.headers.get("authorization") !== `Bearer ${triggerSecret}`) {
+    return json({ ok: false, error: "unauthorized" }, 401);
+  }
+  if (!resendKey) return json({ ok: false, error: "not_configured" }, 503);
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const key = secretKey();

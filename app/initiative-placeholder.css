@@ -14,3 +14,10 @@
   line-height: 1.03;
   overflow-wrap: anywhere;
 }
+
+/* Reusable initiative slot labels: consistent with the existing project-detail layout. */
+.initiative-pending-slot { margin: 18px 0; padding: clamp(18px, 3vw, 28px); border: 1px dashed var(--line); max-width: 68ch; }
+.initiative-pending-slot > strong { display: block; font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+.initiative-pending-slot > p { margin: 0; line-height: 1.55; }
+.initiative-media-stage { align-content: center; gap: 18px; }
+.initiative-media-stage > small { font-size: 11px; line-height: 1.5; max-width: 32ch; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }

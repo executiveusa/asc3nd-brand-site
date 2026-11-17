@@ -1,0 +1,52 @@
+name: ASC3ND — approved site-mode switch
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'FULL new site, or STANDBY email-collection/maintenance page'
+        required: true
+        type: choice
+        options:
+          - full
+          - standby
+      confirmation:
+        description: 'Enter APPROVE_ASC3ND_MODE_SWITCH only after client approval for a public-facing change'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: asc3nd-site-mode-main
+  cancel-in-progress: false
+
+jobs:
+  switch:
+    if: ${{ github.ref == 'refs/heads/main' && inputs.confirmation == 'APPROVE_ASC3ND_MODE_SWITCH' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Set the reviewed site-mode setting
+        run: node scripts/set-site-mode.mjs "${{ inputs.mode }}" "${{ inputs.confirmation }}"
+      - name: Verify mode guard and intake contracts
+        run: node --test tests/site-mode.test.mjs tests/intake-contract.test.mjs
+      - name: Commit mode transition (existing Netlify Git CD deploys automatically)
+        run: |
+          if git diff --quiet -- config/site-mode.json; then
+            echo "No mode change needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config/site-mode.json
+          git commit -m "chore(asc3nd): switch approved Netlify mode to ${{ inputs.mode }}"
+          git push origin HEAD:main
+      - name: Release boundary reminder
+        run: |
+          echo "Mode commit is complete; wait for Netlify production readiness and independent browser tests."
+          echo "asc3nd.org stays on its current Vercel landing until the separately approved DNS cutover."

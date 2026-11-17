@@ -22,4 +22,6 @@ jobs:
           test -f docs/community-cuts/PHOTO_IMPORT_AUDIT.json
           node -e "const a=require('./docs/community-cuts/PHOTO_IMPORT_AUDIT.json'); if(a.importedCount!==86||a.items?.length!==86) process.exit(1)"
       - run: npm audit --audit-level=high
+      - name: Verify standby switch and signup contracts
+        run: node --test tests/site-mode.test.mjs tests/intake-contract.test.mjs
       - run: npm run build

@@ -68,6 +68,6 @@ test("migration terminates every SQL function before the next statement", () => 
   assert.equal(sql.split("$function$").length - 1, 6);
   assert.equal(sql.split("$function$;").length - 1, 3);
   for (const nextStatement of ["CREATE OR REPLACE", "-- Extend", "commit;"]) {
-    assert.ok(!sql.includes("$function$\\n" + nextStatement), "Missing SQL terminator before " + nextStatement);
+    assert.ok(!sql.includes("$function$" + String.fromCharCode(10) + nextStatement), "Missing SQL terminator before " + nextStatement);
   }
 });

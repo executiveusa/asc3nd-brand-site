@@ -18,7 +18,7 @@ export function CommunityPartnersSummary({ locale = "en" }: { locale?: "en" | "e
       ) : (
         <p>{es
           ? "Los reconocimientos a los aliados y sus contribuciones se añadirán cuando los fundadores los confirmen."
-          : "Partner acknowledgments and contributions will be added after confirmation from the founders."}</p>
+          : "Pending"}</p>
       )}
     </section>
   );

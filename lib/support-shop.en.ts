@@ -6,8 +6,6 @@ export type SupportCopy = {
   intro: string;
   rows: {
     donate: { label: string; detail: string; action: string };
-    volunteer: { label: string; detail: string; action: string; href: string };
-    partner: { label: string; detail: string; action: string; href: string };
     supplies: { label: string; detail: string; action: string };
   };
   trust: { eyebrow: string; title: string; body: string; link: string; href: string };
@@ -25,24 +23,12 @@ export type ShopCopy = {
 export const supportEn: SupportCopy = {
   eyebrow: "Support",
   title: "Help ASC3ND grow.",
-  intro: "Give, show up, partner with us, or share what you have. Choose the route that fits you.",
+  intro: "Explore financial giving and in-kind contributions to support ASC3ND Collective. For volunteering or partnerships, visit Get Involved.",
   rows: {
     donate: {
       label: "Donate",
       detail: "Give online through Zeffy. You will leave this site to finish your gift.",
       action: "Donate",
-    },
-    volunteer: {
-      label: "Volunteer",
-      detail: "Tell us how you would like to help. A person replies directly.",
-      action: "Volunteer",
-      href: "/take-part/mentor-volunteer",
-    },
-    partner: {
-      label: "Partner",
-      detail: "Organizations, businesses and neighbors who want to work with ASC3ND.",
-      action: "Become a partner",
-      href: "/take-part/partner",
     },
     supplies: {
       label: "Give supplies",

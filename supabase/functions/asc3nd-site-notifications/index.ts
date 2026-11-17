@@ -70,15 +70,9 @@ Deno.serve(async (request) => {
   const fromEmail = Deno.env.get("ASC3ND_FROM_EMAIL") || "social@asc3nd.org";
   const triggerSecret = Deno.env.get("ASC3ND_NOTIFICATION_TRIGGER_SECRET");
 
+  // Public health probes must not expose provider configuration, inboxes, or missing secrets.
   if (request.method === "GET") {
-    return json({
-      ok: true,
-      configured: Boolean(resendKey && triggerSecret),
-      provider: "resend",
-      recipient: "main@asc3nd.org",
-      from_email: fromEmail,
-      missing: [...(!resendKey ? ["RESEND_API_KEY"] : []), ...(!triggerSecret ? ["ASC3ND_NOTIFICATION_TRIGGER_SECRET"] : [])],
-    });
+    return json({ ok: true });
   }
 
   if (request.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);

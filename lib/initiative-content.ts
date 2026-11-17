@@ -13,7 +13,7 @@ export const projectJoy = {
     linkLabel: "Explore Project Joy",
     storyIntro: "A dedicated place for the founders to share the campaign story and participation details.",
     overviewTitle: "The campaign story",
-    overviewPending: "The founders' approved campaign description will appear here.",
+    overviewPending: "PENDING — Approved campaign story, beneficiaries, location, dates, and goals.",
     mediaTitle: "Images and highlights",
     mediaBody: "PENDING — Approved event images, captions, photographer credits, consent confirmation, and optional video highlights.",
     involvementTitle: "Ways to Get Involved",

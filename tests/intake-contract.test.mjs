@@ -50,3 +50,15 @@ test("public worker health check does not reveal provider configuration", () => 
   assert.match(getBranch, /return json\(\{ ok: true \}\)/);
   assert.doesNotMatch(getBranch, /configured|recipient|from_email|missing|RESEND_API_KEY|triggerSecret/);
 });
+
+test("worker authenticates before inspecting delivery configuration", () => {
+  const worker = source("supabase/functions/asc3nd-site-notifications/index.ts");
+  const methodIndex = worker.indexOf('if (request.method !== "POST")');
+  const authIndex = worker.indexOf('if (!triggerSecret || request.headers.get("authorization")');
+  const resendConfigIndex = worker.indexOf('if (!resendKey) return json(');
+  const claimIndex = worker.indexOf('.rpc("claim_site_notifications"');
+  assert.ok(methodIndex >= 0 && authIndex > methodIndex);
+  assert.ok(resendConfigIndex > authIndex, "do not disclose Resend configuration before auth");
+  assert.ok(claimIndex > authIndex, "do not claim queued notifications before auth");
+  assert.doesNotMatch(worker, /missing:\s*\[\.\.\.\(!resendKey/);
+});

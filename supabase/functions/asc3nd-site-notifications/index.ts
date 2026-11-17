@@ -91,8 +91,7 @@ Deno.serve(async (request) => {
   });
 
   const { data: rows, error: claimError } = await admin
-    .schema("asc3nd_private")
-    .rpc("claim_site_notifications", { p_limit: 10 });
+    .rpc("asc3nd_claim_site_notifications", { p_limit: 10 });
 
   if (claimError) return json({ ok: false, error: "claim_failed", detail: claimError.message }, 500);
 
@@ -121,7 +120,7 @@ Deno.serve(async (request) => {
 
       const providerBody = await response.json().catch(() => ({}));
       if (!response.ok) {
-        await admin.schema("asc3nd_private").rpc("mark_site_notification_failed", {
+        await admin.rpc("asc3nd_mark_site_notification_failed", {
           p_id: row.id,
           p_error: `resend ${response.status}: ${JSON.stringify(providerBody).slice(0, 700)}`,
         });
@@ -129,11 +128,11 @@ Deno.serve(async (request) => {
         continue;
       }
 
-      await admin.schema("asc3nd_private").rpc("mark_site_notification_sent", { p_id: row.id });
+      await admin.rpc("asc3nd_mark_site_notification_sent", { p_id: row.id });
       results.push({ id: row.id, ok: true, provider_message_id: providerBody?.id || null });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      await admin.schema("asc3nd_private").rpc("mark_site_notification_failed", {
+      await admin.rpc("asc3nd_mark_site_notification_failed", {
         p_id: row.id,
         p_error: message,
       });

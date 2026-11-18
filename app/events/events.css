@@ -234,3 +234,21 @@
 /* Explicit, editorial-style pending slots. No invented campaign media or CTA. */
 .initiative-event-media small { display: block; max-width: 31ch; font: 600 11px/1.5 var(--sans); letter-spacing: .06em; text-align: center; text-transform: uppercase; }
 .event-record--upcoming .initiative-pending-note { margin-top: 15px !important; font-size: 12px; letter-spacing: .01em; }
+
+/* The two Events section headings share one responsive type scale and spacing. */
+.events-next .events-section-heading,
+.events-past-heading-section .events-section-heading {
+  max-width: 920px;
+  margin: 20px 0 0;
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  line-height: .96;
+  letter-spacing: -.022em;
+  text-wrap: balance;
+}
+.events-past-heading-section { padding-bottom: clamp(22px, 4vw, 50px); }
+@media (max-width: 820px) {
+  .events-next .events-section-heading,
+  .events-past-heading-section .events-section-heading {
+    font-size: clamp(2.5rem, 10vw, 4.2rem);
+  }
+}

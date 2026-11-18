@@ -3,12 +3,28 @@
 .site-header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .site-logo { display: block; width: 118px; color: var(--ink); line-height: 0; }
 .brand-logo { display: block; width: 100%; height: auto; overflow: visible; }
-/* Interior light-background header: reuse the original client artwork and its
-   transparent SVG filter (also used in the footer). No color rectangle. */
-.site-logo:has(.site-header-client-logo) { width: 124px; flex: 0 0 124px; }
-.site-header-client-logo { display: block; width: 100%; height: auto; overflow: visible; }
+/* Preview: original uncropped artwork has a tight black-backed 1380x735 raster.
+   Display the exact pixels on matching black so there is no visible rectangle.
+   Header artwork is scaled only: the homepage hero and footer assets are untouched. */
+.site-header--dark-logo { background: #000; color: var(--paper); }
+.site-header--dark-logo .site-header-inner { min-height: 64px; }
+.site-header--dark-logo .site-logo { width: 116px; flex: 0 0 116px; }
+.site-header-client-logo { display: block; width: 100%; height: auto; }
+.site-header--dark-logo .site-nav a,
+.site-header--dark-logo .locale-switch,
+.site-header--dark-logo .locale-switch a,
+.site-header--dark-logo .locale-switch span[aria-current] { color: var(--paper); }
+.site-header--dark-logo .site-nav a[aria-current="page"] { color: var(--marker); }
+.site-header--dark-logo .site-nav a:hover { color: var(--marker); opacity: 1; }
+.site-header--dark-logo .donate-pill { background: var(--marker); border-color: var(--marker); color: #000; }
+.site-header--dark-logo .donate-pill:hover { background: var(--paper); border-color: var(--paper); color: #000; }
+.site-header--dark-logo .site-menu-toggle { color: var(--paper); border-color: rgba(245,242,232,.6); }
+.site-header--dark-logo .site-panel { border-color: rgba(245,242,232,.22); }
+.site-header--dark-logo .site-menu-toggle:focus-visible,
+.site-header--dark-logo a:focus-visible { outline: 2px solid var(--marker); outline-offset: 3px; }
 @media (max-width: 820px) {
-  .site-logo:has(.site-header-client-logo) { width: 104px; flex-basis: 104px; }
+  .site-header--dark-logo .site-header-inner { min-height: 60px; }
+  .site-header--dark-logo .site-logo { width: 100px; flex-basis: 100px; }
 }
 .site-nav { display: flex; gap: clamp(18px, 2.4vw, 36px); }
 .site-nav a { position: relative; min-height: 44px; min-width: 44px; justify-content: center; display: inline-flex; align-items: center; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; }

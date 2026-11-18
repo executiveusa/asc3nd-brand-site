@@ -193,3 +193,50 @@ button:active, a:active { transform: translateY(1px); }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .motion-reveal { opacity: 1; transform: none; }
 }
+
+/* Shared color themes: original logo hero and interior black bar remain untouched. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #151917;
+  --ink: #f5f2e8;
+  --field: #0d1714;
+  --marker: #e8b85f;
+  --muted: rgba(245,242,232,.75);
+  --line: rgba(245,242,232,.24);
+}
+html { scroll-padding-top: 76px; -webkit-tap-highlight-color: transparent; }
+body { transition: color 180ms ease, background-color 180ms ease; }
+html[data-theme="dark"] :is(.site-footer, .home-hero--client-brand, .site-header--dark-logo) {
+  --paper: #f5f2e8;
+  --ink: #120f0b;
+  --line: rgba(245,242,232,.24);
+}
+html[data-theme="dark"] .home-hero--client-brand { background: #120f0b; color: #f5f2e8; }
+html[data-theme="dark"] .site-footer { background: #120f0b; color: #f5f2e8; }
+html[data-theme="dark"] .site-header--dark-logo { background: #000; color: #f5f2e8; }
+html[data-theme="dark"] .home-focus { background: #202723; }
+html[data-theme="dark"] .home-focus-head p,
+html[data-theme="dark"] .home-hero:not(.home-hero--client-brand) .home-hero-explainer { color: rgba(245,242,232,.8); }
+html[data-theme="dark"] .initiative-event-media { --paper: #f5f2e8; color: #f5f2e8; }
+html[data-theme="dark"] .home-hero-media figcaption { color: var(--muted); }
+html[data-theme="dark"] .site-header:not(.site-header--dark-logo) { background: color-mix(in srgb, var(--paper) 94%, transparent); }
+html[data-theme="dark"] input:not([type=checkbox]):not([type=radio]),
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select { color: var(--ink); }
+@media (max-width: 1000px) { html { scroll-padding-top: 68px; } }
+@media (max-width: 820px) {
+  :where(.interior-hero > p:last-child, .events-hero > p:last-child,
+   .project-summary, .event-record-summary, .event-record-copy > p:not(.eyebrow),
+   .story-mission-grid article > p, .home-focus-copy p, .home-focus-head p,
+   .home-essay-head p, .home-hero-explainer,
+   .interior-row-copy p, .interior-pathways p, .community-partners-summary > p:not(.eyebrow)) {
+    font-size: clamp(16px, 4.25vw, 18px);
+    line-height: 1.6;
+  }
+  :where(input, textarea, select) { font-size: max(16px, 1rem); }
+  .eyebrow { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ body { transition: none; }
+}

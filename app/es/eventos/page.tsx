@@ -43,7 +43,6 @@ export default function EventosPage() {
             <p className="eyebrow">{projectJoy.es.type}</p>
             <h3 id="project-joy-title">{projectJoy.title}</h3>
             <p>{projectJoy.es.awaiting}</p>
-            <p className="initiative-pending-note">PENDIENTE — Detalles de participación y donaciones; enlace inactivo hasta su verificación.</p>
             <Link className="event-record-link" href="/es/proyectos/project-joy">{projectJoy.es.linkLabel} <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
         </article>

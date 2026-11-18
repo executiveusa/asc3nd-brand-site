@@ -6,6 +6,7 @@ import { CommunitySignup } from "@/components/CommunitySignup";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { EssayGrid, type EssayEntry } from "@/components/EssayGrid";
+import { HomeHeroMedia } from "@/components/HomeHeroMedia";
 import { RevealInit } from "@/components/RevealInit";
 import { ui } from "@/lib/i18n";
 import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
@@ -72,10 +73,10 @@ export default function HomeEs() {
           </div>
         </section>
 
-        <figure className="home-hero-media">
-          <img data-reveal="" src={photo("060")} srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`} sizes="100vw" style={{ height: "auto" }} alt={t.heroAlt} width={1600} height={1067} fetchPriority="high" />
-          <figcaption className="shell home-proof">{t.proof(photoCount)}</figcaption>
-        </figure>
+        <HomeHeroMedia locale="es" src={photo("060")}
+          srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`}
+          alt={t.heroAlt}
+          caption={t.proof(photoCount)} />
 
         <section className="home-founders shell" id="historia" aria-labelledby="founders-title">
           <h2 id="founders-title" className="home-section-title">{t.foundersTitle}</h2>

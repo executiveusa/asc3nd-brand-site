@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import { Lightbox, galleryEn } from "@/components/Lightbox";
 import { LoopVideo } from "@/components/LoopVideo";
+import { Play } from "lucide-react";
+import { communityCutsProject } from "@/lib/projects";
 import { galleryEs } from "@/lib/site-content.es";
 import { revealRef } from "@/lib/reveal";
 import type { Locale } from "@/lib/i18n";
@@ -17,6 +19,7 @@ export function EssayGrid({ entries, locale = "en" }: { entries: EssayEntry[]; l
   const t = locale === "es" ? galleryEs : galleryEn;
   const photos = entries.filter((e): e is Extract<EssayEntry, { kind: "photo" }> => e.kind === "photo");
   const [active, setActive] = useState<number | null>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
   const triggerRef = useRef<HTMLElement | null>(null);
   let photoIndex = -1;
 
@@ -26,9 +29,12 @@ export function EssayGrid({ entries, locale = "en" }: { entries: EssayEntry[]; l
         {entries.map((entry) => {
           if (entry.kind === "loop") {
             return (
-              <div className="essay-frame essay-loop" key="loop">
+              <button type="button" className="essay-frame essay-loop essay-video-trigger" key="loop"
+                aria-label={locale === "es" ? "Reproducir el video completo del evento" : "Play the full event film"}
+                onClick={event => { triggerRef.current = event.currentTarget; setVideoOpen(true); }}>
                 <LoopVideo src={LOOP_SRC} poster={LOOP_POSTER} />
-              </div>
+                <span className="essay-video-play" aria-hidden="true"><Play size={26} fill="currentColor" /></span>
+              </button>
             );
           }
           photoIndex += 1;
@@ -49,6 +55,17 @@ export function EssayGrid({ entries, locale = "en" }: { entries: EssayEntry[]; l
           );
         })}
       </div>
+      {videoOpen && communityCutsProject.featuredFilm ? (
+        <Lightbox
+          items={[{ type: "video", src: communityCutsProject.featuredFilm.embedSrc,
+            poster: communityCutsProject.featuredFilm.poster,
+            alt: communityCutsProject.featuredFilm.title,
+            caption: locale === "es" ? "Video del evento Fresh Fade, Fresh Grade" : "Fresh Fade, Fresh Grade event film" }]}
+          index={0} onIndexChange={() => {}} onClose={() => setVideoOpen(false)}
+          label={locale === "es" ? "Reproductor de video del evento" : "Event film player"}
+          labels={t} triggerRef={triggerRef}
+        />
+      ) : null}
       {active !== null ? (
         <Lightbox
           items={photos.map((p) => ({ src: p.src, alt: p.alt }))}

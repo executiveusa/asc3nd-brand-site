@@ -159,3 +159,65 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(4px); }
   white-space: normal;
   text-align: left;
 }
+
+
+/* Compact nav controls; retains the approved full-width black interior masthead and original raster. */
+.site-header { z-index: 60; }
+.site-header--dark-logo { backdrop-filter: none; -webkit-backdrop-filter: none; }
+.site-header-inner { position: relative; min-height: 64px; flex-wrap: nowrap; gap: clamp(8px, 1.6vw, 22px); padding-block: 0; }
+.site-header--dark-logo .site-header-inner { min-height: 64px; }
+.site-logo, .site-header--dark-logo .site-logo { flex: 0 0 108px; width: 108px; order: 1; }
+.site-panel { flex: 1 1 auto; min-width: 0; order: 2; margin-left: auto; justify-content: flex-end; gap: clamp(10px, 1.5vw, 24px); }
+.site-nav { gap: clamp(8px, 1.6vw, 24px); }
+.site-header-actions { flex: 0 0 auto; order: 3; margin-left: 0; gap: 6px; }
+.locale-switch { gap: 0; flex: 0 0 auto; }
+.locale-switch a, .locale-switch span[aria-current] { min-width: 40px; }
+.locale-switch span[aria-current] { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+.site-header--dark-logo .locale-switch span[aria-current] { color: var(--marker); }
+.site-desktop-donate { display: block; }
+.site-mobile-donate { display: none; }
+.site-desktop-donate .donate-pill { min-height: 44px; padding-inline: 16px; }
+.theme-toggle { position: relative; flex: 0 0 44px; width: 44px; height: 44px; display: inline-grid; place-items: center; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.theme-toggle svg { grid-area: 1 / 1; transition: transform 220ms cubic-bezier(.2,.7,.2,1), opacity 180ms ease; }
+.theme-toggle .theme-moon { opacity: 0; transform: rotate(-35deg) scale(.6); }
+html[data-theme="dark"] .theme-toggle .theme-sun { opacity: 0; transform: rotate(35deg) scale(.6); }
+html[data-theme="dark"] .theme-toggle .theme-moon { opacity: 1; transform: rotate(0) scale(1); }
+.site-header--dark-logo .theme-toggle { color: #f5f2e8; }
+.theme-toggle:focus-visible, .locale-switch a:focus-visible, .site-menu-toggle:focus-visible { outline: 2px solid var(--marker); outline-offset: 2px; }
+.theme-toggle:active, .site-menu-toggle:active { transform: scale(.96); }
+.site-menu-toggle { border-radius: 50%; min-width: 44px; width: 44px; min-height: 44px; padding: 0; }
+.site-menu-toggle svg { display: block; }
+@media (max-width: 1000px) {
+  .site-header-inner, .site-header--dark-logo .site-header-inner { min-height: 60px; flex-wrap: nowrap; gap: 6px; padding-block: 0; }
+  .site-logo, .site-header--dark-logo .site-logo { width: clamp(82px, 24vw, 96px); flex: 0 0 clamp(82px, 24vw, 96px); order: 1; }
+  .site-header-actions { order: 2; margin-left: auto; gap: 0; flex: 0 0 auto; }
+  .locale-switch a, .locale-switch span[aria-current] { width: 44px; min-width: 44px; min-height: 44px; }
+  .site-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .site-desktop-donate { display: none; }
+  .site-mobile-donate { display: block; order: -1; margin-bottom: 8px; }
+  .site-mobile-donate .donate-pill { width: fit-content; padding-inline: 20px; }
+  .site-panel {
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 61;
+    order: 3; width: auto; min-width: 0; margin: 0; display: none;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 12px 16px 22px; border: 1px solid var(--line);
+    border-radius: 0 0 14px 14px; background: var(--paper); color: var(--ink);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .12);
+  }
+  .site-panel[data-open="true"] { display: flex; }
+  .site-nav { flex-direction: column; gap: 0; }
+  .site-nav a { min-height: 46px; justify-content: flex-start; }
+  .site-header--dark-logo .site-panel { --ink: #f5f2e8; --paper: #000; --line: rgba(245,242,232,.25); background: #000; color: #f5f2e8; }
+  .site-header--dark-logo .site-panel .donate-pill { color: #000; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .theme-toggle svg { transition: none; }
+ .theme-toggle:active, .site-menu-toggle:active { transform: none; }
+}
+
+/* Keep white navigation and high-contrast active state over the original black raster. */
+.site-header--dark-logo .site-panel .site-nav a { color: #f5f2e8; }
+.site-header--dark-logo .site-panel .site-nav a[aria-current="page"] { color: #e8b85f; }
+@media (hover: hover) and (pointer: fine) {
+  .site-header--dark-logo .site-panel .site-nav a:hover { color: #e8b85f; }
+}

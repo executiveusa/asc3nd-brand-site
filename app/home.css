@@ -133,3 +133,24 @@ button.essay-frame:focus-visible { outline: 3px solid var(--ink); outline-offset
   .home-hero--client-brand { padding-inline: clamp(20px, 4.2vw, 72px); }
   .home-hero-client-logo { width: min(100%, 640px); }
 }
+
+/* Original homepage photograph and silent loop retain the approved layout; tapping opens media. */
+.home-hero-photo-trigger { display: block; width: 100%; border: 0; padding: 0; margin: 0; color: inherit; background: transparent; cursor: zoom-in; }
+.home-hero-photo-trigger:focus-visible { outline: 3px solid var(--marker); outline-offset: 4px; }
+.essay-video-trigger { cursor: pointer; isolation: isolate; }
+.essay-video-trigger video { pointer-events: none; }
+.essay-video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: #e8b85f; color: #120f0b; box-shadow: 0 5px 22px rgba(0,0,0,.33); transition: scale 180ms ease; }
+.essay-video-trigger:focus-visible { outline: 3px solid var(--marker); outline-offset: 4px; }
+.essay-video-trigger:active .essay-video-play { scale: .96; }
+@media (hover:hover) and (pointer:fine) { .essay-video-trigger:hover .essay-video-play { scale: 1.06; } }
+@media (max-width: 820px) {
+  .home-founders { padding-block: 74px 64px; }
+  .home-focus { padding-block: 72px; }
+  .home-focus-head { margin-bottom: 44px; }
+  .home-focus-row + .home-focus-row { margin-top: 58px; }
+  .home-essay { padding-block: 76px 64px; }
+  .home-essay-head { margin-bottom: 36px; }
+  .home-join { padding-block: 72px; }
+  .home-hero-media figcaption { font-size: 14px; line-height: 1.55; }
+}
+@media (prefers-reduced-motion: reduce) { .essay-video-play { transition: none; } }

@@ -78,8 +78,8 @@ export const homeEs = {
   ctaSecondary: "Conoce Fresh Fade, Fresh Grade",
   heroAlt:
     "Familias haciendo fila en la carpa de ASC3ND, bajo una pancarta con el lema de la organización (en inglés)",
-  proof: (n: number) =>
-    `El primer evento: Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026. ${n} fotografías en el registro público.`,
+  proof: (_n: number) =>
+    "El primer evento: Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026.",
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que ASC3ND está construyendo.",

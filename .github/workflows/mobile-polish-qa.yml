@@ -43,7 +43,7 @@ jobs:
           echo "Target did not become ready in time: $QA_BASE_URL"
           exit 1
       - name: Run mobile polish tests
-        run: npx playwright test qa/mobile-polish.spec.mjs qa/feedback-layout.spec.mjs --reporter=line
+        run: npx playwright test qa/mobile-polish.spec.mjs qa/feedback-layout.spec.mjs qa/experience-polish.spec.mjs --reporter=line
       - name: Upload QA screenshots and traces
         if: always()
         uses: actions/upload-artifact@v4

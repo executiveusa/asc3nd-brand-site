@@ -27,7 +27,7 @@ export default function ProjectJoyEsPage() {
       </section>
       <section className="project-evidence shell" aria-labelledby="joy-story-heading">
         <h2 id="joy-story-heading">{c.overviewTitle}</h2>
-        <div className="project-evidence-body"><div className="initiative-pending-slot" data-pending="story"><strong>PENDIENTE — Historia / fechas / beneficiarios</strong><p>{c.overviewPending}</p></div></div>
+        <div className="project-evidence-body"><div className="initiative-pending-slot" data-pending="story"><p>{c.overviewPending}</p></div></div>
       </section>
       <section className="project-proof shell" aria-labelledby="joy-media-heading">
         <div className="project-proof-heading">
@@ -37,16 +37,16 @@ export default function ProjectJoyEsPage() {
         </div>
         <div className="initiative-media-stage" role="img" aria-label="Espacio para fotografía y video aprobados de Project Joy"><span>{projectJoy.title}</span><small>{c.mediaPending}</small></div>
       </section>
-      <section className="project-evidence shell" aria-labelledby="joy-outcomes-heading"><h2 id="joy-outcomes-heading">Impacto comunitario</h2><div className="initiative-pending-slot" data-pending="outcomes"><strong>PENDIENTE — Resultados verificados</strong><p>Los resultados del evento se documentarán aquí una vez verificados y aprobados.</p></div></section>
+      <section className="project-evidence shell" aria-labelledby="joy-outcomes-heading"><h2 id="joy-outcomes-heading">Impacto comunitario</h2><div className="initiative-pending-slot" data-pending="outcomes"><p>Los resultados del evento se documentarán aquí una vez verificados y aprobados.</p></div></section>
       <section className="project-next shell" aria-labelledby="joy-next-heading">
         <p className="eyebrow">{projectJoy.title}</p>
         <h2 id="joy-next-heading">{c.involvementTitle}</h2>
-        <div className="initiative-pending-slot" data-pending="participation"><strong>PENDIENTE — Participación / enlace oficial de donación</strong><p className="project-thanks">{c.involvementBody}</p></div>
+        <div className="initiative-pending-slot" data-pending="participation"><p className="project-thanks">{c.involvementBody}</p></div>
         <div className="project-next-actions">
           <Link href="/es/eventos">Volver a Eventos <span className="arrow" aria-hidden="true">→</span></Link>
         </div>
       </section>
-      <section className="project-next shell" aria-labelledby="joy-partners-heading"><h2 id="joy-partners-heading">Aliados comunitarios</h2><div className="initiative-pending-slot" data-pending="partners"><strong>Pendiente</strong><p>Los aliados, patrocinadores y créditos aprobados aparecerán aquí tras la autorización para publicarlos.</p></div></section>
+      <section className="project-next shell" aria-labelledby="joy-partners-heading"><h2 id="joy-partners-heading">Aliados comunitarios</h2><div className="initiative-pending-slot" data-pending="partners"><p>Los aliados, patrocinadores y créditos aprobados aparecerán aquí tras la autorización para publicarlos.</p></div></section>
       <SiteFooter />
     </main>
   );

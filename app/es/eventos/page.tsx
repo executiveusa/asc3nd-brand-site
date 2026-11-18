@@ -36,7 +36,7 @@ export default function EventosPage() {
       </section>
 
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
-        <h2 id="current-initiatives-title">Iniciativas actuales y próximas</h2>
+        <h2 id="current-initiatives-title" className="events-section-heading">Iniciativas actuales y próximas</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
           <div className="event-record-cover initiative-event-media" aria-label="Imagen de Project Joy pendiente de aprobación"><span>PROJECT JOY</span><small>{projectJoy.es.mediaPending}</small></div>
           <div className="event-record-copy">
@@ -48,8 +48,8 @@ export default function EventosPage() {
           </div>
         </article>
       </section>
-      <section className="shell" aria-labelledby="past-impact-title">
-        <h2 id="past-impact-title">Eventos pasados e impacto comunitario</h2>
+      <section className="events-past-heading-section shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title" className="events-section-heading">Eventos pasados e impacto comunitario</h2>
       </section>
 
       <section className="events-list shell" aria-label={t.listLabel}>

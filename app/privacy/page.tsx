@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Privacy",
-  description: "How ASC3ND handles information submitted through its website.",
+  description: "How ASC3ND uses and protects information shared through its website.",
   path: "/privacy",
 });
 
@@ -11,37 +11,45 @@ export default function PrivacyPage() {
   return (
     <InteriorPage
       eyebrow="Privacy"
-      title="What ASC3ND collects and why."
-      intro="ASC3ND collects only the information people choose to submit through this website so the organization can respond, follow up, and send updates when permission is given."
+      title="How we use the information you share."
+      intro="When you contact ASC3ND Collective through our website, we use the information you provide to respond to your request, connect you with the appropriate team, and send community updates only when you separately ask to receive them. We aim to collect only information needed for those purposes."
     >
       <section className="interior-statement shell">
-        <p className="eyebrow">What we collect</p>
-        <h2>Information you choose to send us.</h2>
-        <p>Depending on the form, that can include your name, email address, optional phone number, organization, participation goals, availability, family support requests, free-text responses, preferred language, and consent choices.</p>
+        <h2>Information you choose to share</h2>
+        <p>Depending on the form, we may receive your name, email address, optional phone number, organization, participation interests, availability, family support requests, preferred language, messages, and consent preferences.</p>
+        <p>Please do not include a child&apos;s name, school, medical records, financial credentials, or other sensitive personal information in public website forms.</p>
       </section>
 
       <section className="interior-statement shell">
-        <p className="eyebrow">Why we use it</p>
-        <h2>To respond and route your request.</h2>
-        <p>Participation submissions are used to route follow-up to the appropriate ASC3ND team queue. Email updates are sent only when you separately opt in to receive them.</p>
+        <h2>How your information is used</h2>
+        <p>We use submitted information to respond to inquiries, coordinate participation, and direct requests to the appropriate ASC3ND team.</p>
+        <p>Community updates require a separate subscription choice. Submitting an inquiry does not grant permission to publish your photograph, story, or personal information.</p>
       </section>
 
       <section className="interior-statement shell">
-        <p className="eyebrow">Saved on this device</p>
-        <h2>Draft participation forms can stay in your browser.</h2>
-        <p>Some participation forms save an unfinished draft in your browser's local storage so you can recover your answers on the same device. ASC3ND does not receive that draft until you submit the form.</p>
+        <h2>Technology and service providers</h2>
+        <p>Our website uses service providers for hosting, secure form processing, data storage, and email delivery. These providers process information as needed to operate the services.</p>
+        <p>Technical information may also be processed to maintain website security and functionality.</p>
       </section>
 
       <section className="interior-statement shell">
-        <p className="eyebrow">Retention</p>
-        <h2>No fixed public retention period is posted yet.</h2>
-        <p>ASC3ND has not published a fixed website-data retention schedule. This page will be updated when a formal retention period is adopted.</p>
+        <h2>Drafts saved on your device</h2>
+        <p>Some participation forms can save unfinished drafts in your browser so you can return to them later.</p>
+        <p>ASC3ND does not receive those drafts unless you submit the form. You can remove locally saved drafts by clearing this website&apos;s browser data.</p>
       </section>
 
       <section className="interior-statement shell">
-        <p className="eyebrow">Questions</p>
-        <h2>Contact ASC3ND directly.</h2>
-        <p>For questions about information you submitted through this website, email <a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a>.</p>
+        <h2>How long information is retained</h2>
+        <p>We retain submitted information for the purposes for which it was collected and for additional periods required by applicable law, legitimate recordkeeping obligations, or an active legal hold.</p>
+        <p>Website inquiries are managed separately from organizational, financial, and charitable-solicitation records.</p>
+        <p>You may contact us to request access to, correction of, or deletion of information you submitted. Some records may need to be retained where legally required.</p>
+      </section>
+
+      <section className="interior-statement shell">
+        <h2>Questions and privacy requests</h2>
+        <p>For privacy questions or requests concerning information you submitted, contact:</p>
+        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
+        <p>Please do not include sensitive information about a child in your initial email.</p>
       </section>
     </InteriorPage>
   );

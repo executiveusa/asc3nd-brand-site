@@ -3,6 +3,13 @@
 .site-header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .site-logo { display: block; width: 118px; color: var(--ink); line-height: 0; }
 .brand-logo { display: block; width: 100%; height: auto; overflow: visible; }
+/* Interior light-background header: reuse the original client artwork and its
+   transparent SVG filter (also used in the footer). No color rectangle. */
+.site-logo:has(.site-header-client-logo) { width: 124px; flex: 0 0 124px; }
+.site-header-client-logo { display: block; width: 100%; height: auto; overflow: visible; }
+@media (max-width: 820px) {
+  .site-logo:has(.site-header-client-logo) { width: 104px; flex-basis: 104px; }
+}
 .site-nav { display: flex; gap: clamp(18px, 2.4vw, 36px); }
 .site-nav a { position: relative; min-height: 44px; min-width: 44px; justify-content: center; display: inline-flex; align-items: center; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; }
 .site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 10px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 260ms cubic-bezier(.2,.7,.2,1); }

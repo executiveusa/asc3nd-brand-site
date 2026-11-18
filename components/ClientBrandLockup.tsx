@@ -12,7 +12,7 @@ export const clientLogoEnabled = process.env.NEXT_PUBLIC_ASC3ND_CLIENT_LOGO !== 
 type Props = {
   className?: string;
   priority?: boolean;
-  placement?: "hero" | "footer";
+  placement?: "hero" | "footer" | "header";
 };
 
 export function ClientBrandLockup({ className = "", placement = "footer" }: Props) {

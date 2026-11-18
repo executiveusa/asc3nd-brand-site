@@ -142,7 +142,7 @@ export function Lightbox({ items, index, onIndexChange, onClose, label, labels, 
       ) : null}
       <figure>
         {active.type === "video" ? (
-          <video src={active.src} poster={active.poster} controls autoPlay playsInline />
+          <video src={active.src} poster={active.poster} controls autoPlay playsInline preload="metadata" aria-label={active.alt} />
         ) : (
           <img
             src={active.src}

@@ -27,7 +27,7 @@ export default function EventsPage() {
       </section>
 
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
-        <h2 id="current-initiatives-title">Current &amp; Upcoming Initiatives</h2>
+        <h2 id="current-initiatives-title" className="events-section-heading">Current &amp; Upcoming Initiatives</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
           <div className="event-record-cover initiative-event-media" aria-label="Pending approved Project Joy campaign artwork"><span>PROJECT JOY</span><small>{projectJoy.en.mediaPending}</small></div>
           <div className="event-record-copy">
@@ -39,8 +39,8 @@ export default function EventsPage() {
           </div>
         </article>
       </section>
-      <section className="shell" aria-labelledby="past-impact-title">
-        <h2 id="past-impact-title">Past Events &amp; Community Impact</h2>
+      <section className="events-past-heading-section shell" aria-labelledby="past-impact-title">
+        <h2 id="past-impact-title" className="events-section-heading">Past Events &amp; Community Impact</h2>
       </section>
 
       <section className="events-list shell" aria-label="ASC3ND community events and impact">

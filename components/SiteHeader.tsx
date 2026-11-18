@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
-import { ClientBrandLockup, clientLogoEnabled } from "@/components/ClientBrandLockup";
+import { clientLogoEnabled } from "@/components/ClientBrandLockup";
 
 /** Disable without reverting via NEXT_PUBLIC_ASC3ND_INTERIOR_HEADER_LOGO=off. */
 const interiorClientWordmarkEnabled = clientLogoEnabled && process.env.NEXT_PUBLIC_ASC3ND_INTERIOR_HEADER_LOGO !== "off";
@@ -41,12 +42,12 @@ export function SiteHeader({ current }: { current?: Section }) {
   }, [open]);
 
   return (
-    <header className="site-header">
+    <header className={interiorClientWordmarkEnabled && !hideHomeWordmark ? "site-header site-header--dark-logo" : "site-header"}>
       <div className="shell site-header-inner">
         {!hideHomeWordmark ? (
           <Link className="site-logo" href={locale === "es" ? "/es" : "/"} aria-label={t.homeLabel}>
             {interiorClientWordmarkEnabled ? (
-              <ClientBrandLockup placement="header" className="site-header-client-logo" />
+              <Image src="/brand/asc3nd-collective-logo.webp" width={1380} height={735} className="site-header-client-logo" alt="" priority />
             ) : (
               <BrandLogo />
             )}

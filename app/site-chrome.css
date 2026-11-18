@@ -214,3 +214,10 @@ html[data-theme="dark"] .theme-toggle .theme-moon { opacity: 1; transform: rotat
  .theme-toggle svg { transition: none; }
  .theme-toggle:active, .site-menu-toggle:active { transform: none; }
 }
+
+/* Keep white navigation and high-contrast active state over the original black raster. */
+.site-header--dark-logo .site-panel .site-nav a { color: #f5f2e8; }
+.site-header--dark-logo .site-panel .site-nav a[aria-current="page"] { color: #e8b85f; }
+@media (hover: hover) and (pointer: fine) {
+  .site-header--dark-logo .site-panel .site-nav a:hover { color: #e8b85f; }
+}

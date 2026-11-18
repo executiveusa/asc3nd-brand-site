@@ -4,7 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
-import { clientLogoEnabled } from "@/components/ClientBrandLockup";
+import { ClientBrandLockup, clientLogoEnabled } from "@/components/ClientBrandLockup";
+
+/** Disable without reverting via NEXT_PUBLIC_ASC3ND_INTERIOR_HEADER_LOGO=off. */
+const interiorClientWordmarkEnabled = clientLogoEnabled && process.env.NEXT_PUBLIC_ASC3ND_INTERIOR_HEADER_LOGO !== "off";
 import { counterpart, localeOf, ui } from "@/lib/i18n";
 import { navFor } from "@/lib/nav";
 import { ASC3ND_DONATION_URL, ASC3ND_ZEFFY_DESTINATION } from "@/lib/donation-config";
@@ -42,7 +45,11 @@ export function SiteHeader({ current }: { current?: Section }) {
       <div className="shell site-header-inner">
         {!hideHomeWordmark ? (
           <Link className="site-logo" href={locale === "es" ? "/es" : "/"} aria-label={t.homeLabel}>
-            <BrandLogo />
+            {interiorClientWordmarkEnabled ? (
+              <ClientBrandLockup placement="header" className="site-header-client-logo" />
+            ) : (
+              <BrandLogo />
+            )}
           </Link>
         ) : null}
 

@@ -45,7 +45,7 @@ export default function CommunityCutsEsPage() {
             <h2 id="project-film-title">{t.film.title}</h2>
             <p>{t.film.lead}</p>
           </div>
-          <ProjectFilm film={film} />
+          <ProjectFilm film={film} locale="es" />
         </section>
       ) : null}
 

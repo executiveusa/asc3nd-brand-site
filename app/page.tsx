@@ -6,6 +6,7 @@ import { CommunitySignup } from "@/components/CommunitySignup";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { EssayGrid, type EssayEntry } from "@/components/EssayGrid";
+import { HomeHeroMedia } from "@/components/HomeHeroMedia";
 import { RevealInit } from "@/components/RevealInit";
 import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
 import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
@@ -68,10 +69,10 @@ export default function Home() {
           </div>
         </section>
 
-        <figure className="home-hero-media">
-          <img data-reveal="" src={photo("060")} srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`} sizes="100vw" style={{ height: "auto" }} alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community" width={1600} height={1067} fetchPriority="high" />
-          <figcaption className="shell home-proof">The first event: Fresh Fade, Fresh Grade, Everett, Washington, August 2026.</figcaption>
-        </figure>
+        <HomeHeroMedia locale="en" src={photo("060")}
+          srcSet={`${photo("060").replace(".jpg", "-640.webp")} 640w, ${photo("060").replace(".jpg", "-1024.webp")} 1024w, ${photo("060").replace(".jpg", "-1600.webp")} 1600w`}
+          alt="Families lining up at the ASC3ND tent, under a banner reading Empower youth, Elevating futures, Build community"
+          caption="The first event: Fresh Fade, Fresh Grade, Everett, Washington, August 2026." />
 
         <section className="home-founders shell" id="story" aria-labelledby="founders-title">
           <h2 id="founders-title" className="home-section-title">Founded by Otha and Elisha Minnifield.</h2>

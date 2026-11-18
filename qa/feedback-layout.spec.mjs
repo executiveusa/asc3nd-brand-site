@@ -64,3 +64,17 @@ test("Contact form reports accepted submission without claiming email delivery",
   await form.getByRole("button", { name: "Send message" }).click();
   await expect(form.locator('[role="status"]')).toContainText("Your message was received.");
 });
+
+for (const width of [390, 1440]) {
+  test(`Spanish Events headings match at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({width,height:844});
+    await page.goto(base + "/es/eventos", {waitUntil:"domcontentloaded"});
+    const headings = [page.locator("#current-initiatives-title"),page.locator("#past-impact-title")];
+    for (const h of headings) await expect(h).toBeVisible();
+    const styles = await Promise.all(headings.map(h=>h.evaluate(el=>{
+      const c = getComputedStyle(el);
+      return [c.fontSize,c.lineHeight,c.letterSpacing,c.fontWeight];
+    })));
+    expect(styles[0]).toEqual(styles[1]);
+  });
+}

@@ -45,7 +45,6 @@ export default function YouthSafetyPage() {
       <section className="interior-statement shell">
         <h2>Safeguarding responsibilities</h2>
         <p>Youth-serving activities require appropriate supervision, screening where applicable, clear adult conduct standards, and procedures for responding to concerns.</p>
-        <p>ASC3ND&apos;s program-specific safeguards must be documented and maintained separately from this public website notice.</p>
       </section>
 
       <section className="interior-statement shell">

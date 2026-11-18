@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { EssayGrid, type EssayEntry } from "@/components/EssayGrid";
 import { RevealInit } from "@/components/RevealInit";
 import { participationRoutes, pathways, siteStory } from "@/lib/site-content";
+import { communityCutsProject, getApprovedProjectMedia } from "@/lib/projects";
 import "./home.css";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -42,6 +43,7 @@ export const metadata = pageMetadata({
 });
 
 export default function Home() {
+  const photoCount = getApprovedProjectMedia(communityCutsProject).length;
   return (
     <>
       <SiteHeader />

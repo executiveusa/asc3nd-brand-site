@@ -111,3 +111,28 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(4px); }
 }
 .site-footer-support-cta:hover { background: var(--paper); color: var(--ink); }
 .site-footer-support-cta:focus-visible { outline: 3px solid var(--marker); outline-offset: 4px; }
+
+/* Footer inquiry email and external giving CTA must never collide or overlap. */
+.site-footer-lead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(20px, 2.8vw, 34px);
+  min-width: 0;
+}
+.site-footer-lead .site-footer-promise { margin-bottom: 0; }
+.site-footer-lead .site-footer-mail {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.site-footer-lead .site-footer-support-cta {
+  margin-top: 0;
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+  text-align: left;
+}

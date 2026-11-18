@@ -659,11 +659,16 @@ for (const locale of ["en", "es"]) {
     const rows = page.locator(".home-join-row");
     await expect(rows).toHaveCount(4);
     await expect(rows.last()).toHaveAttribute("href", support);
-    const headerCta = page.locator(".site-header-actions .donate-pill");
+    // On narrow screens the verified-safe Donate / Donar CTA lives in the menu.
+    // It never links to Zeffy's general homepage as a misleading donation checkout.
+    await page.locator(".site-menu-toggle").click();
+    const headerCta = page.locator(".site-mobile-donate .donate-pill");
     await expect(headerCta).toBeVisible();
-    const headerHref = await headerCta.getAttribute("href");
-    expect(headerHref).toBe("https://www.zeffy.com/");
-    await expect(headerCta).toHaveAttribute("aria-label", es ? /campaña.*no.*disponible/i : /campaign not yet available/i);
+    await expect(headerCta).toHaveText(es ? "Donar" : "Donate");
+    await expect(headerCta).toHaveAttribute("href", support);
+    await expect(page.locator(".site-header-actions .donate-pill")).toBeHidden();
+    await page.keyboard.press("Escape");
+    await expect(headerCta).toBeHidden();
     await page.goto(baseURL + support);
     const links = await page.locator("a[href]").evaluateAll((els) =>
       els.map((a) => a.getAttribute("href") || "")

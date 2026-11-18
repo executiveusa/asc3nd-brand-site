@@ -673,9 +673,15 @@ for (const locale of ["en", "es"]) {
     const links = await page.locator("a[href]").evaluateAll((els) =>
       els.map((a) => a.getAttribute("href") || "")
     );
-    expect(links).toContain("https://www.zeffy.com/");
+    expect(links).not.toContain("https://www.zeffy.com/");
     await expect(page.locator(".ss-row")).toHaveCount(2);
-    await expect(page.locator(".ss-list")).toContainText(es ? "campaña de donaciones" : "donation campaign");
+    await expect(page.locator(".ss-list")).toContainText(es ? "Las donaciones en línea" : "Online donations");
+    await expect(page.getByRole("link", { name: es ? "Consultar cómo donar" : "Ask about giving" }))
+      .toHaveAttribute("href", "mailto:main@asc3nd.org?subject=ASC3ND%20Giving%20Inquiry");
+    const footerDonate = page.locator(".site-footer-support-cta");
+    await expect(footerDonate).toHaveAttribute("href", support);
+    await expect(footerDonate).toContainText(es ? "Apoya nuestra misión" : "Support Our Mission");
+    await expect(page.locator("body")).not.toContainText(/Zeffy — campaign pending|Zeffy — campaña pendiente|Visit Zeffy \(campaign pending\)|Visitar Zeffy \(campaña pendiente\)/);
     await expect(page.getByRole("link", { name: es ? /Participa: voluntariado/i : /Get Involved: volunteer/i })).toHaveAttribute("href", takePart);
     await assertNoHorizontalOverflow(page);
   });

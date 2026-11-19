@@ -15,7 +15,7 @@ export const projectJoy = {
   artworkUrl: "https://res.cloudinary.com/hxn9dbuhd/image/upload/f_auto,c_limit,w_1200,q_auto/v1794586114/organizations/9/1/5/c/915c0c16-b2ec-4015-a226-7d0ebcafad29/0d168de4-c35a-492d-a00a-7772cfc8d64d.png",
   en: {
     type: "2026 Holiday Toy Drive",
-    awaiting: "Help ASC3ND provide holiday toys, gifts, and essential items for children and youth in our community.",
+    awaiting: "We are collecting gifts and essential items for children, teens, and families in our community.",
     mediaPending: "Official Project Joy Toy Drive artwork",
     linkLabel: "Explore Project Joy",
     storyIntro: "We are collecting gifts and essential items for children, teens, and families in our community.",
@@ -54,7 +54,7 @@ export const projectJoy = {
   },
   es: {
     type: "Colecta de juguetes navideña 2026",
-    awaiting: "Ayuda a ASC3ND a llevar juguetes, regalos y artículos esenciales a niñas, niños y jóvenes de nuestra comunidad.",
+    awaiting: "Estamos reuniendo regalos y artículos esenciales para niñas, niños, adolescentes y familias de nuestra comunidad.",
     mediaPending: "Imagen oficial de la campaña Project Joy",
     linkLabel: "Conoce Project Joy",
     storyIntro: "Estamos reuniendo regalos y artículos esenciales para niñas, niños, adolescentes y familias de nuestra comunidad.",

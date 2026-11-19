@@ -37,4 +37,4 @@ jobs:
           curl -fS http://127.0.0.1:3001/standby -o /dev/null
           curl -fS http://127.0.0.1:3001/projects/project-joy -o /dev/null
           curl -fS http://127.0.0.1:3001/es/proyectos/project-joy -o /dev/null
-          docker inspect --format='{{ "{{" }}.State.Health.Status{{ "}}" }}' asc3nd-hostinger-ci
+          docker inspect --format='{{.State.Health.Status}}' asc3nd-hostinger-ci

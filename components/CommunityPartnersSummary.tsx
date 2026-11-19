@@ -1,11 +1,7 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
-
 /**
  * Founder-confirmed community appreciation from Otha and Elisha.
  * The first-party logo files are client-supplied, not sourced from the web.
- * On preview branches without the attached images, accessible organization
- * names remain visible, rather than broken thumbnails.
+ * All 13 optimized original-source logo images are now committed on this branch.
  * An organization appearing here is NOT an asserted sponsor of a specific event.
  */
 const organizations = [
@@ -36,16 +32,11 @@ export function CommunityPartnersSummary({ locale = "en" }: { locale?: "en" | "e
         ? "Agradecemos a las organizaciones que han colaborado con ASC3ND de distintas maneras."
         : "We appreciate the organizations that have partnered with ASC3ND in different ways."}</p>
       <ul className="community-partners-names">
-        {organizations.map(({ name, file }) => {
-          const available = existsSync(path.join(process.cwd(), "public", "images", "partners", file));
-          return (
-            <li key={name} className={available ? "community-partner-with-logo" : undefined}>
-              {available ? (
-                <img src={`/images/partners/${file}`} alt={name} width={260} height={120} loading="lazy" decoding="async" />
-              ) : <span>{name}</span>}
-            </li>
-          );
-        })}
+        {organizations.map(({ name, file }) => (
+          <li key={name} className="community-partner-with-logo">
+            <img src={`/images/partners/${file}`} alt={name} width={260} height={120} loading="lazy" decoding="async" />
+          </li>
+        ))}
       </ul>
       <p className="community-partners-thanks">{es
         ? "Gracias a todas las organizaciones, empresas y personas que han apoyado nuestra misión."

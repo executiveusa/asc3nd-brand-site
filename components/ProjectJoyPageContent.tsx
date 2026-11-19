@@ -27,7 +27,6 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
           <p className="eyebrow">{c.type}</p>
           <h1 id="joy-title">{projectJoy.title}</h1>
           <p className="project-summary">{c.storyIntro}</p>
-          <p className="joy-tagline">{c.tagline}</p>
           <div className="joy-primary-actions">
             <a className="joy-donate-button" href={projectJoy.donationUrl}
               target="_blank" rel="noopener noreferrer">
@@ -50,7 +49,6 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
           <p>{c.purpose}</p>
           <p>{c.recipientNeeds}</p>
           <p>{c.donationImpact}</p>
-          <p className="joy-tagline joy-tagline-small">{c.tagline}</p>
         </div>
       </section>
 

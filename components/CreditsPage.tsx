@@ -12,8 +12,6 @@ const copy = {
     title: "Thank you, by name.",
     intro:
       "Fresh Fade, Fresh Grade happened because people gave their time, their skill and their care. This page names them, and it will keep growing as ASC3ND holds more events.",
-    pendingTitle: "Pending",
-    pendingBody: "We are confirming names for these groups. Each person appears here once they have said yes to being listed:",
     missingTitle: "Someone missing?",
     missingBody:
       "If you helped and your name isn't here, or you would like the way it appears changed or removed, tell us and we will fix it.",
@@ -28,8 +26,6 @@ const copy = {
     title: "Gracias, con nombre y apellido.",
     intro:
       "Fresh Fade, Fresh Grade fue posible porque personas dieron su tiempo, su talento y su cariño. Esta página las nombra y seguirá creciendo a medida que ASC3ND haga más eventos.",
-    pendingTitle: "Pendiente",
-    pendingBody: "Estamos confirmando los nombres de estos grupos. Cada persona aparece aquí cuando ha dicho que sí a que la mencionemos:",
     missingTitle: "¿Falta alguien?",
     missingBody:
       "Si ayudaste y tu nombre no está aquí, o quieres cambiar o quitar cómo aparece, avísanos y lo corregimos.",
@@ -45,7 +41,6 @@ export function CreditsPage({ locale = "en" }: { locale?: Locale }) {
   const t = copy[locale];
   const groups = creditGroupsForPage(locale);
   const named = groups.filter((g) => g.people.length > 0);
-  const pending = groups.filter((g) => g.people.length === 0);
 
   return (
     <main id="main-content" tabIndex={-1} lang={locale}>
@@ -72,16 +67,6 @@ export function CreditsPage({ locale = "en" }: { locale?: Locale }) {
       ))}
 
       <CommunityPartnersSummary locale={locale} />
-
-      {pending.length > 0 ? (
-        <section className="credits-pending shell" aria-labelledby="credits-pending-title">
-          <h2 id="credits-pending-title">{t.pendingTitle}</h2>
-          <div>
-            <p>{t.pendingBody}</p>
-            <p>{pending.map((g) => g.label).join(" · ")}</p>
-          </div>
-        </section>
-      ) : null}
 
       <section className="credits-missing shell" aria-labelledby="credits-missing-title">
         <h2 id="credits-missing-title">{t.missingTitle}</h2>

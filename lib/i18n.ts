@@ -88,7 +88,7 @@ export const ui = {
       { href: "/es/tienda", label: "Tienda", key: "shop" },
     ],
     footerNav: "Navegación del pie de página",
-    promise: ["Empoderar a la juventud.", "Elevar futuros.", "Construir comunidad."],
+    promise: ["Impulsar a la juventud.", "Construir futuros.", "Fortalecer la comunidad."],
     columns: {
       asc3nd: "ASC3ND",
       trust: "Confianza",

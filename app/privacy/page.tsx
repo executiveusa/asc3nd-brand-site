@@ -48,7 +48,7 @@ export default function PrivacyPage() {
       <section className="interior-statement shell">
         <h2>Questions and privacy requests</h2>
         <p>For privacy questions or requests concerning information you submitted, contact:</p>
-        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
+        <p><a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a></p>
         <p>Please do not include sensitive information about a child in your initial email.</p>
       </section>
     </InteriorPage>

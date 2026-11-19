@@ -558,7 +558,7 @@ for (const locale of ["en", "es"]) {
     await expect(page.locator(".story-founder-commentary")).toHaveCount(0);
     await expect(page.locator('[data-slot="founder-elisha"]')).toHaveCount(0);
     await expect(page.locator("main")).not.toContainText(spanish ? "Quiero que cualquier joven" : "I want any youth");
-    await expect(page.locator(`a[href="${joyPath}"]`)).toBeVisible();
+    await expect(page.locator(`.event-record--upcoming .event-record-link[href="${joyPath}"]`)).toBeVisible();
     await page.goto(baseURL + eventsPath);
     await expect(page.locator(".event-record--upcoming")).toContainText("Project Joy: Asc3nd the Joy");
     await expect(page.locator(".community-partners-summary")).toBeVisible();
@@ -566,10 +566,12 @@ for (const locale of ["en", "es"]) {
     await page.goto(baseURL + joyPath);
     await expect(page.locator("h1")).toHaveText("Project Joy: Asc3nd the Joy");
     await expect(page.locator("#joy-story-heading")).toBeVisible();
-    await expect(page.locator("#joy-media-heading")).toBeVisible();
-    await expect(page.locator("#joy-next-heading")).toBeVisible();
-    // No unconfirmed campaign donation destination is published.
-    await expect(page.locator('.project-next a[href*="zeffy"]')).toHaveCount(0);
+    await expect(page.locator(".joy-brand-art img")).toBeVisible();
+    await expect(page.locator("#joy-support-heading")).toBeVisible();
+    await expect(page.locator("#joy-final-heading")).toBeVisible();
+    // The founders confirmed the campaign Zeffy destination; keep it distinct from general giving.
+    await expect(page.locator(`.joy-final a[href="https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy"]`)).toBeVisible();
+    await expect(page.locator(`.joy-final a[href*="amazon.com/hz/wishlist/ls/24DFHCXA6J5RC"]`)).toBeVisible();
     await page.goto(baseURL + takePartPath);
     await expect(page.locator(".interior-hero-supporting")).toContainText(
       spanish ? "Cada acto de bondad" : "Every act of kindness",
@@ -664,8 +666,8 @@ for (const locale of ["en", "es"]) {
     await page.locator(".site-menu-toggle").click();
     const headerCta = page.locator(".site-mobile-donate .donate-pill");
     await expect(headerCta).toBeVisible();
-    await expect(headerCta).toHaveText(es ? "Donar" : "Donate");
-    await expect(headerCta).toHaveAttribute("href", support);
+    await expect(headerCta).toHaveAttribute("aria-label", es ? "Donar (se abre en una pestaña nueva)" : "Donate (opens in a new tab)");
+    await expect(headerCta).toHaveAttribute("href", "https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
     await expect(page.locator(".site-header-actions .donate-pill")).toBeHidden();
     await page.keyboard.press("Escape");
     await expect(headerCta).toBeHidden();

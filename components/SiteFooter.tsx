@@ -7,7 +7,7 @@ import { CrownMark } from "@/components/CrownMark";
 import { ClientBrandLockup, clientLogoEnabled } from "@/components/ClientBrandLockup";
 import { SocialLinks } from "@/components/SocialLinks";
 import { localeOf, ui } from "@/lib/i18n";
-import { ASC3ND_DONATION_URL, ASC3ND_ZEFFY_DESTINATION } from "@/lib/donation-config";
+import { ASC3ND_DONATION_URL } from "@/lib/donation-config";
 import { shopLink } from "@/lib/nav";
 
 export function SiteFooter() {
@@ -32,9 +32,9 @@ export function SiteFooter() {
       <div className="shell site-footer-inner">
         <div className="site-footer-lead">
           <p className="site-footer-promise">{t.promise[0]}<br />{t.promise[1]}<br />{t.promise[2]}</p>
-          <a className="site-footer-mail" href="mailto:main@asc3nd.org?subject=ASC3ND%20Website%20Inquiry" aria-label="Email ASC3ND Collective">main@asc3nd.org</a>
-          <a className="site-footer-support-cta" href={ASC3ND_ZEFFY_DESTINATION} target="_blank" rel="noopener noreferrer" aria-label={ASC3ND_DONATION_URL ? (locale === "es" ? "Donar a ASC3ND" : "Donate to ASC3ND") : (locale === "es" ? "Visitar Zeffy; donaciones a ASC3ND aún no disponibles" : "Visit Zeffy; ASC3ND donations not yet available")}>
-            {ASC3ND_DONATION_URL ? (locale === "es" ? "Apoya nuestra misión" : "Support Our Mission") : (locale === "es" ? "Zeffy — campaña pendiente" : "Zeffy — campaign pending")} <span className="arrow" aria-hidden="true">↗</span>
+          <a className="site-footer-mail" href="mailto:main@asc3ndcollective.com?subject=ASC3ND%20Website%20Inquiry" aria-label="Email ASC3ND Collective">main@asc3ndcollective.com</a>
+          <a className="site-footer-support-cta" href={ASC3ND_DONATION_URL ?? (locale === "es" ? "/es/apoyo" : "/support")} target="_blank" rel="noopener noreferrer" aria-label={ASC3ND_DONATION_URL ? (locale === "es" ? "Donar a ASC3ND" : "Donate to ASC3ND") : (locale === "es" ? "Visitar Zeffy; donaciones a ASC3ND aún no disponibles" : "Visit Zeffy; ASC3ND donations not yet available")}>
+            {ASC3ND_DONATION_URL ? (locale === "es" ? "Apoya nuestra misión" : "Support Our Mission") : (locale === "es" ? "Donar" : "Donate")} <span className="arrow" aria-hidden="true">↗</span>
           </a>
         </div>
 

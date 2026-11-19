@@ -1,6 +1,6 @@
 /**
- * A link is publishable only after a human verifies that the target is the
- * ASC3ND Collective's actual campaign and sets NEXT_PUBLIC_ASC3ND_ZEFFY_URL.
+ * Client-approved campaign URL received from ASC3ND on 2026-11-18.
+ * NEXT_PUBLIC_ASC3ND_ZEFFY_URL may override it with another valid campaign.
  *
  * Zeffy's homepage is NOT a donation checkout. Never silently send visitors
  * to the generic platform or invent a campaign URL.
@@ -21,7 +21,7 @@ function verifiedCampaignShape(input: string): string | null {
 }
 
 export const ASC3ND_DONATION_URL = verifiedCampaignShape(
-  process.env.NEXT_PUBLIC_ASC3ND_ZEFFY_URL ?? "",
+  process.env.NEXT_PUBLIC_ASC3ND_ZEFFY_URL?.trim() || "https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective",
 );
 /** One destination for all donation CTAs. Replace via the verified campaign env var. */
 export const ASC3ND_ZEFFY_DESTINATION = ASC3ND_DONATION_URL ?? "https://www.zeffy.com/";

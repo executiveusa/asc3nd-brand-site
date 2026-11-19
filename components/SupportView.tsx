@@ -29,7 +29,7 @@ export function SupportView({ copy }: { copy: SupportCopy }) {
           <div className="ss-row">
             <h2 className="ss-label">{rows.supplies.label}</h2>
             <p className="ss-detail">{rows.supplies.detail}</p>
-            <a className="ss-action" href="mailto:main@asc3nd.org">{rows.supplies.action}</a>
+            <a className="ss-action" href="mailto:main@asc3ndcollective.com">{rows.supplies.action}</a>
           </div>
         </div>
       </section>

@@ -715,9 +715,14 @@ for (const locale of ["en", "es"]) {
       await page.goto(baseURL + (locale === "es" ? "/es/eventos" : "/events"));
       const images = page.locator(".community-partners-names img");
       await expect(images).toHaveCount(13);
-      await expect.poll(async () => images.evaluateAll(els =>
-        els.every(img => img.complete && img.naturalWidth > 0 && !!img.alt.trim())
-      )).toBe(true);
+      // The partner marks are intentionally lazy-loaded below the fold.
+      // Bring each image into view before requiring its pixels to decode.
+      for (const image of await images.all()) {
+        await image.scrollIntoViewIfNeeded();
+        await expect.poll(() => image.evaluate(el =>
+          el.complete && el.naturalWidth > 0 && !!el.alt.trim()
+        )).toBe(true);
+      }
       await assertNoHorizontalOverflow(page);
       await page.screenshot({ path: `test-results/partner-logos-${locale}-${width}.png`, fullPage: true });
     });

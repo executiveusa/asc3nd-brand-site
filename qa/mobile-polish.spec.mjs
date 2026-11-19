@@ -561,7 +561,7 @@ for (const locale of ["en", "es"]) {
     await expect(page.locator(`a[href="${joyPath}"]`).first()).toBeVisible();
     await page.goto(baseURL + eventsPath);
     await expect(page.locator(".event-record--upcoming")).toContainText("Project Joy: Asc3nd the Joy");
-    await expect(page.locator(".community-partners-summary")).toBeVisible();
+    await expect(page.locator(".community-partners-summary")).toHaveCount(0);
     await expect(page.locator(`.event-record--upcoming .event-record-link[href="${joyPath}"]`)).toBeVisible();
     await page.goto(baseURL + joyPath);
     await expect(page.locator("h1")).toHaveText("Project Joy: Asc3nd the Joy");
@@ -700,6 +700,10 @@ for (const locale of ["en", "es"]) {
       await expect(main.locator('.joy-primary-actions a[href*="amazon.com/hz/wishlist/ls/24DFHCXA6J5RC"]').first()).toBeVisible();
       await expect(main.locator('.joy-primary-actions a[href="https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy"]').first()).toBeVisible();
       await expect(main.locator(".joy-partners li")).toHaveCount(3);
+      await expect(main).not.toContainText(es ? "Apoya con artículos" : "Give what is needed");
+      await expect(main).not.toContainText(es
+        ? "No se han confirmado sus funciones específicas dentro de Project Joy."
+        : "Their specific roles in Project Joy have not been confirmed.");
       await expect(main).not.toContainText("Small toys. BIG dreams. Even BIGGER impact!");
       await assertNoHorizontalOverflow(page);
     });
@@ -712,8 +716,11 @@ for (const locale of ["en", "es"]) {
   for (const width of [390, 1440]) {
     test(`13 client logos visible and loaded ${locale} at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 844 });
-      await page.goto(baseURL + (locale === "es" ? "/es/eventos" : "/events"));
-      const images = page.locator(".community-partners-names img");
+      await page.goto(baseURL + (locale === "es" ? "/es/creditos" : "/credits"));
+      const appreciation = page.locator(".community-partners-summary");
+      await expect(appreciation).toHaveCount(1);
+      await expect(appreciation).toBeVisible();
+      const images = appreciation.locator(".community-partners-names img");
       await expect(images).toHaveCount(13);
       // The partner marks are intentionally lazy-loaded below the fold.
       // Bring each image into view before requiring its pixels to decode.

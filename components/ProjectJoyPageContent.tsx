@@ -95,7 +95,6 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
             <li><strong>Friends of Youth</strong> — {es ? "Ofrece refugio, vivienda, asesoramiento y servicios de acogida para jóvenes." : "Provides youth shelter, housing, counseling, and foster care services."}</li>
             <li><strong>New Beginnings — Ending Domestic Violence</strong> — {es ? "Brinda servicios a sobrevivientes de violencia doméstica." : "Provides services for domestic violence survivors."}</li>
           </ul>
-          <p>{c.partnerContext}</p>
         </div>
       </section>
 

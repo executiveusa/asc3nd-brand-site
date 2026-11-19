@@ -41,7 +41,6 @@ export function ProjectJoyNeeds({ locale }: { locale: Locale }) {
   const c = projectJoy[locale];
   return (
     <section className="project-evidence shell joy-needs" aria-labelledby="joy-needs-heading">
-      <p className="eyebrow">{locale === "es" ? "Apoya con artículos" : "Give what is needed"}</p>
       <h2 id="joy-needs-heading">{c.needsTitle}</h2>
       <p className="joy-needs-intro">{c.needsIntro}</p>
       <div className="joy-needs-grid">

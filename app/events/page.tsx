@@ -6,7 +6,6 @@ import "./events.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { projectJoy } from "@/lib/initiative-content";
-import { CommunityPartnersSummary } from "@/components/CommunityPartnersSummary";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -81,9 +80,6 @@ export default function EventsPage() {
         })}
       </section>
 
-
-
-      <CommunityPartnersSummary />
       <SiteFooter />
     </main>
   );

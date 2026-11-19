@@ -96,7 +96,7 @@ export const participationEs = {
 
 export const signupEs = {
   title: "Entérate de lo que sigue en ASC3ND.",
-  intro: "Te escribiremos de vez en cuando, cuando se confirme un programa, un evento o una necesidad de voluntarios. Puedes darte de baja cuando quieras.",
+  intro: "Te escribiremos de vez en cuando, cuando se confirme un programa o un evento, o cuando necesitemos voluntarios. Puedes darte de baja en cualquier momento.",
   name: "Nombre",
   email: "Correo electrónico",
   consent: "Acepto recibir novedades de ASC3ND por correo. Puedo darme de baja cuando quiera.",

@@ -29,7 +29,7 @@ export default function EventsPage() {
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
         <h2 id="current-initiatives-title" className="events-section-heading">Current &amp; Upcoming Initiatives</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
-          <div className="event-record-cover initiative-event-media" aria-label="Pending approved Project Joy campaign artwork"><span>PROJECT JOY</span><small>{projectJoy.en.mediaPending}</small></div>
+          <Link className="event-record-cover initiative-event-media" href="/projects/project-joy" aria-label="Explore Project Joy"><img src={projectJoy.artworkUrl} alt="Official ASC3ND Project Joy Toy Drive artwork" width={800} height={800} loading="lazy" decoding="async" /></Link>
           <div className="event-record-copy">
             <p className="eyebrow">{projectJoy.en.type}</p>
             <h3 id="project-joy-title">{projectJoy.title}</h3>

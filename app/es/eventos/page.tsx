@@ -38,7 +38,7 @@ export default function EventosPage() {
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
         <h2 id="current-initiatives-title" className="events-section-heading">Iniciativas actuales y próximas</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
-          <div className="event-record-cover initiative-event-media" aria-label="Imagen de Project Joy pendiente de aprobación"><span>PROJECT JOY</span><small>{projectJoy.es.mediaPending}</small></div>
+          <Link className="event-record-cover initiative-event-media" href="/es/proyectos/project-joy" aria-label="Conoce Project Joy"><img src={projectJoy.artworkUrl} alt="Logo oficial de Project Joy Toy Drive de ASC3ND" width={800} height={800} loading="lazy" decoding="async" /></Link>
           <div className="event-record-copy">
             <p className="eyebrow">{projectJoy.es.type}</p>
             <h3 id="project-joy-title">{projectJoy.title}</h3>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CommunityPartnersSummary } from "@/components/CommunityPartnersSummary";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { creditGroupsForPage } from "@/lib/credits";
@@ -69,6 +70,8 @@ export function CreditsPage({ locale = "en" }: { locale?: Locale }) {
           </ul>
         </section>
       ))}
+
+      <CommunityPartnersSummary locale={locale} />
 
       {pending.length > 0 ? (
         <section className="credits-pending shell" aria-labelledby="credits-pending-title">

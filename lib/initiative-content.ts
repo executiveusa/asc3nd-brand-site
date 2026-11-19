@@ -3,12 +3,13 @@
  * Campaign source: https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy
  * Client supplied the campaign-branded QR and final artwork on 2026-11-19.
  * No unconfirmed collection dates, locations, partner endorsement levels,
- * outcome totals, Amazon wishlist URL, or distribution promises.
+ * outcome totals or distribution promises.
  */
 export const projectJoy = {
   slug: "project-joy",
   title: "Project Joy: Asc3nd the Joy",
   donationUrl: "https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy",
+  wishlistUrl: "https://www.amazon.com/hz/wishlist/ls/24DFHCXA6J5RC?ref_=wl_share",
   // Exact image backing the client's official Zeffy page. Kept separate from
   // ASC3ND's general donation logo and link.
   artworkUrl: "https://res.cloudinary.com/hxn9dbuhd/image/upload/f_auto,c_limit,w_1200,q_auto/v1794586114/organizations/9/1/5/c/915c0c16-b2ec-4015-a226-7d0ebcafad29/0d168de4-c35a-492d-a00a-7772cfc8d64d.png",
@@ -24,6 +25,13 @@ export const projectJoy = {
     recipientNeeds: "Contributions will help purchase items selected for the needs and age groups identified by ASC3ND's community partners, including New Beginnings — Ending Domestic Violence and Friends of Youth.",
     donationImpact: "Gifts of any size help children and young people feel recognized, supported, and valued.",
     donateAction: "Donate to Project Joy",
+    wishlistAction: "Shop the Amazon Wish List",
+    wishlistNote: "You will continue to Amazon to view the wish list.",
+    needsTitle: "Our most-needed items",
+    needsIntro: "We are collecting gifts and essential items for children, teens, and families in our community.",
+    needsFootnote: "All other toys and gift options are on the Amazon wish list.",
+    qrTitle: "Scan to shop the wish list",
+    qrCopy: "Use your phone camera to open the Amazon wish list, or choose the direct link.",
     learnAction: "Discover the mission",
     checkoutNote: "You will continue to Project Joy's official Zeffy donation form to complete your gift.",
     supportEyebrow: "Join the effort",
@@ -56,6 +64,13 @@ export const projectJoy = {
     recipientNeeds: "Las aportaciones ayudarán a comprar artículos según las necesidades y edades identificadas por los aliados comunitarios de ASC3ND, entre ellos New Beginnings — Ending Domestic Violence y Friends of Youth.",
     donationImpact: "Cada contribución, grande o pequeña, ayuda a que los jóvenes se sientan vistos, valorados y acompañados.",
     donateAction: "Donar a Project Joy",
+    wishlistAction: "Comprar en la lista de deseos de Amazon",
+    wishlistNote: "Continuarás a Amazon para ver la lista de deseos.",
+    needsTitle: "Artículos que más necesitamos",
+    needsIntro: "Estamos reuniendo regalos y artículos esenciales para niñas, niños, adolescentes y familias de nuestra comunidad.",
+    needsFootnote: "Los demás juguetes y opciones de regalo están en la lista de deseos de Amazon.",
+    qrTitle: "Escanea para abrir la lista",
+    qrCopy: "Usa la cámara de tu teléfono para abrir la lista de Amazon o utiliza el enlace directo.",
     learnAction: "Conoce la iniciativa",
     checkoutNote: "Continuarás al formulario oficial de donación de Project Joy en Zeffy.",
     supportEyebrow: "Participa",

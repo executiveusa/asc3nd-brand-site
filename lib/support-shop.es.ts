@@ -13,7 +13,7 @@ export const supportEs: SupportCopy = {
     supplies: {
       label: "Dar materiales",
       detail: "¿Tienes materiales que quieras dar? Escríbenos antes de reunir nada, para decirte si responden a una necesidad actual.",
-      action: "main@asc3nd.org",
+      action: "main@asc3ndcollective.com",
     },
   },
   trust: {

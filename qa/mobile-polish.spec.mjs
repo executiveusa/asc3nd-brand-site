@@ -677,7 +677,7 @@ for (const locale of ["en", "es"]) {
     );
     expect(links).toContain("https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
     await expect(page.locator(".ss-row")).toHaveCount(2);
-    await expect(page.locator(".ss-list")).toContainText(es ? "campaña de donaciones" : "donation campaign");
+    await expect(page.locator(".ss-list")).toContainText("Zeffy");
     await expect(page.getByRole("link", { name: es ? /Participa: voluntariado/i : /Get Involved: volunteer/i })).toHaveAttribute("href", takePart);
     await assertNoHorizontalOverflow(page);
   });

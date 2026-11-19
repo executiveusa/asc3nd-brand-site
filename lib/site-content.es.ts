@@ -23,7 +23,7 @@ export const founderQuotesEs = [
     name: "Elisha Minnifield",
     role: "fundadora",
     quote:
-      "Quiero que cualquier joven que se acerque a mí, aunque sea un momento, se vaya sintiéndose mejor persona por haber encontrado cariño, respeto y alguien que lo escuche.",
+      "Quiero que cualquier joven que se acerque a mí, aunque sea un momento, se vaya sintiendo mejor persona por haber encontrado cariño, respeto y alguien que lo escuche.",
   },
 ] as const;
 

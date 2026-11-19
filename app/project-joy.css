@@ -59,3 +59,6 @@
   .project-joy-page .joy-needs-grid { grid-template-columns:minmax(0,1fr); gap:14px; }
   .project-joy-page .joy-wishlist-qr { grid-template-columns:minmax(0,1fr); justify-items:start; }
 }
+
+/* Override the legacy two-column evidence shell for this four-category guide. */
+.project-joy-page .joy-needs { grid-template-columns:minmax(0,1fr); gap:0; }

@@ -705,3 +705,21 @@ for (const locale of ["en", "es"]) {
     });
   }
 }
+
+
+/* Founder-provided partner logos must be actual, decodable images at all layouts. */
+for (const locale of ["en", "es"]) {
+  for (const width of [390, 1440]) {
+    test(`13 client logos visible and loaded ${locale} at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto(baseURL + (locale === "es" ? "/es/eventos" : "/events"));
+      const images = page.locator(".community-partners-names img");
+      await expect(images).toHaveCount(13);
+      await expect.poll(async () => images.evaluateAll(els =>
+        els.every(img => img.complete && img.naturalWidth > 0 && !!img.alt.trim())
+      )).toBe(true);
+      await assertNoHorizontalOverflow(page);
+      await page.screenshot({ path: `test-results/partner-logos-${locale}-${width}.png`, fullPage: true });
+    });
+  }
+}

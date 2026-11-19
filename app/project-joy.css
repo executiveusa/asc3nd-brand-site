@@ -7,7 +7,7 @@
 .project-joy-page .joy-tagline { font-size:clamp(1.1rem,2vw,1.5rem); line-height:1.4; font-weight:750; margin:24px 0; }
 .project-joy-page .joy-primary-actions { display:flex; align-items:center; flex-wrap:wrap; gap:14px 24px; margin:30px 0 12px; }
 .project-joy-page .joy-donate-button { min-height:52px; display:inline-flex; align-items:center; justify-content:center; gap:18px; padding:12px 24px; background:var(--ink); color:var(--paper); border:1px solid var(--ink); border-radius:999px; font-size:16px; font-weight:700; text-decoration:none; transition:background-color 180ms ease; }
-.project-joy-page .joy-donate-button:hover { background:var(--field); }
+.project-joy-page .joy-donate-button:hover { opacity:.84; }
 .project-joy-page .joy-secondary-link { min-height:48px; display:inline-flex; align-items:center; gap:12px; font-size:15px; font-weight:600; color:var(--ink); text-decoration:underline; text-underline-offset:5px; }
 .project-joy-page .joy-link-note { max-width:45ch; font-size:13px; line-height:1.5; color:var(--muted); }
 .project-joy-page .joy-story { scroll-margin-top:88px; }
@@ -25,7 +25,7 @@
 .project-joy-page .joy-partners li { padding:4px 0; }
 .project-joy-page .joy-final { padding-bottom:clamp(76px,10vw,148px); }
 .project-joy-page .joy-final h2 { max-width:14ch; }
-.project-joy-page :is(a,button):focus-visible { outline:3px solid var(--marker); outline-offset:4px; }
+.project-joy-page :is(a,button):focus-visible { outline:3px solid var(--ink); outline-offset:4px; }
 @media (max-width:820px) {
   .project-joy-page .joy-hero { grid-template-columns:minmax(0,1fr); gap:26px; }
   .project-joy-page .joy-hero h1 { font-size:clamp(3rem,11vw,5.8rem); }

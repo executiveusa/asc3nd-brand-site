@@ -14,9 +14,11 @@ const qrHex = [
 "104723d7d9","1fdbbe5cd7",
 ];
 const qrPath = qrHex.flatMap((row, y) => {
-  const bits = BigInt("0x" + row);
+  // 37-bit QR rows fit safely in a JavaScript number; avoid BigInt literals
+  // because the existing repository TypeScript target is ES2017.
+  const bits = Number.parseInt(row, 16).toString(2).padStart(37, "0");
   return Array.from({ length: 37 }, (_, x) =>
-    (bits & (1n << BigInt(36 - x))) ? `M${x + 4} ${y + 4}h1v1h-1z` : ""
+    bits[x] === "1" ? `M${x + 4} ${y + 4}h1v1h-1z` : ""
   ).filter(Boolean);
 }).join("");
 

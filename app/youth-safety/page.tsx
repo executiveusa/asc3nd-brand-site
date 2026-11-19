@@ -50,7 +50,7 @@ export default function YouthSafetyPage() {
       <section className="interior-statement shell">
         <h2>Questions about website safety</h2>
         <p>For questions about website information, photographs, or non-emergency follow-up, contact:</p>
-        <p><a className="text-link" href="mailto:main@asc3nd.org">main@asc3nd.org</a></p>
+        <p><a className="text-link" href="mailto:main@asc3ndcollective.com">main@asc3ndcollective.com</a></p>
         <p>This email address is not an emergency reporting service.</p>
       </section>
     </InteriorPage>

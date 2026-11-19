@@ -558,11 +558,11 @@ for (const locale of ["en", "es"]) {
     await expect(page.locator(".story-founder-commentary")).toHaveCount(0);
     await expect(page.locator('[data-slot="founder-elisha"]')).toHaveCount(0);
     await expect(page.locator("main")).not.toContainText(spanish ? "Quiero que cualquier joven" : "I want any youth");
-    await expect(page.locator(`.event-record--upcoming .event-record-link[href="${joyPath}"]`)).toBeVisible();
+    await expect(page.locator(`a[href="${joyPath}"]`).first()).toBeVisible();
     await page.goto(baseURL + eventsPath);
     await expect(page.locator(".event-record--upcoming")).toContainText("Project Joy: Asc3nd the Joy");
     await expect(page.locator(".community-partners-summary")).toBeVisible();
-    await expect(page.locator(`a[href="${joyPath}"]`)).toBeVisible();
+    await expect(page.locator(`.event-record--upcoming .event-record-link[href="${joyPath}"]`)).toBeVisible();
     await page.goto(baseURL + joyPath);
     await expect(page.locator("h1")).toHaveText("Project Joy: Asc3nd the Joy");
     await expect(page.locator("#joy-story-heading")).toBeVisible();
@@ -675,7 +675,7 @@ for (const locale of ["en", "es"]) {
     const links = await page.locator("a[href]").evaluateAll((els) =>
       els.map((a) => a.getAttribute("href") || "")
     );
-    expect(links).toContain("https://www.zeffy.com/");
+    expect(links).toContain("https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
     await expect(page.locator(".ss-row")).toHaveCount(2);
     await expect(page.locator(".ss-list")).toContainText(es ? "campaña de donaciones" : "donation campaign");
     await expect(page.getByRole("link", { name: es ? /Participa: voluntariado/i : /Get Involved: volunteer/i })).toHaveAttribute("href", takePart);

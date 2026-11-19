@@ -17,7 +17,7 @@ for (const vp of sizes) {
     await expect(page.locator(".home-founder blockquote")).toHaveCount(2);
     const mail = page.locator(".site-footer-mail");
     const cta = page.locator(".site-footer-support-cta");
-    await expect(mail).toHaveAttribute("href", /^mailto:main@asc3nd\.org\?subject=/);
+    await expect(mail).toHaveAttribute("href", /^mailto:main@asc3ndcollective\.com\?subject=/);
     const emailBox = await mail.boundingBox();
     const ctaBox = await cta.boundingBox();
     expect(emailBox).not.toBeNull();

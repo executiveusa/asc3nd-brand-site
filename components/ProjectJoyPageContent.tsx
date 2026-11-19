@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { projectJoy } from "@/lib/initiative-content";
+import { ProjectJoyNeeds } from "@/components/ProjectJoyNeeds";
 import "@/app/projects/community-cuts/project.css";
 import "@/app/project-joy.css";
 
@@ -26,13 +27,12 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
           <p className="eyebrow">{c.type}</p>
           <h1 id="joy-title">{projectJoy.title}</h1>
           <p className="project-summary">{c.storyIntro}</p>
-          <p className="joy-tagline">{c.tagline}</p>
           <div className="joy-primary-actions">
             <a className="joy-donate-button" href={projectJoy.donationUrl}
               target="_blank" rel="noopener noreferrer">
               {c.donateAction} <span aria-hidden="true">↗</span>
             </a>
-            <a className="joy-secondary-link" href="#joy-story">{c.learnAction} <span aria-hidden="true">↓</span></a>
+            <a className="joy-secondary-link" href={projectJoy.wishlistUrl} target="_blank" rel="noopener noreferrer">{c.wishlistAction} <span aria-hidden="true">↗</span></a>
           </div>
           <p className="joy-link-note">{c.checkoutNote}</p>
         </div>
@@ -49,7 +49,6 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
           <p>{c.purpose}</p>
           <p>{c.recipientNeeds}</p>
           <p>{c.donationImpact}</p>
-          <p className="joy-tagline joy-tagline-small">{c.tagline}</p>
         </div>
       </section>
 
@@ -68,10 +67,10 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
           </article>
           <article>
             <span className="joy-support-number">02</span>
-            <h3>{c.toysTitle}</h3>
-            <p>{c.toysText}</p>
-            <a className="joy-support-link" href={inquiry}>
-              {c.askAboutToys} <span aria-hidden="true">↗</span>
+            <h3>{es ? "Regala artículos esenciales" : "Give essentials"}</h3>
+            <p>{es ? "Elige un artículo de la lista de deseos de Amazon para apoyar a niños, adolescentes y familias." : "Choose an item from the Amazon wish list to support children, teens, and families."}</p>
+            <a className="joy-support-link" href={projectJoy.wishlistUrl} target="_blank" rel="noopener noreferrer">
+              {c.wishlistAction} <span aria-hidden="true">↗</span>
             </a>
           </article>
           <article>
@@ -85,13 +84,16 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
         </div>
       </section>
 
+      <ProjectJoyNeeds locale={locale} />
+
       <section className="project-evidence shell joy-partners" aria-labelledby="joy-partners-heading">
         <h2 id="joy-partners-heading">{c.partnersTitle}</h2>
         <div className="project-evidence-body joy-copy">
           <p>{c.partnersIntro}</p>
           <ul>
-            <li><strong>New Beginnings — Ending Domestic Violence</strong></li>
-            <li><strong>Friends of Youth</strong></li>
+            <li><strong>Dawson Place Child Advocacy Center</strong> — {es ? "Apoya a niños y familias afectados por el abuso." : "Supports children and families impacted by abuse."}</li>
+            <li><strong>Friends of Youth</strong> — {es ? "Ofrece refugio, vivienda, asesoramiento y servicios de acogida para jóvenes." : "Provides youth shelter, housing, counseling, and foster care services."}</li>
+            <li><strong>New Beginnings — Ending Domestic Violence</strong> — {es ? "Brinda servicios a sobrevivientes de violencia doméstica." : "Provides services for domestic violence survivors."}</li>
           </ul>
           <p>{c.partnerContext}</p>
         </div>
@@ -104,6 +106,7 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
           <a className="joy-donate-button" href={projectJoy.donationUrl} target="_blank" rel="noopener noreferrer">
             {c.donateAction} <span aria-hidden="true">↗</span>
           </a>
+          <a className="joy-secondary-link" href={projectJoy.wishlistUrl} target="_blank" rel="noopener noreferrer">{c.wishlistAction} <span aria-hidden="true">↗</span></a>
           <Link className="joy-secondary-link" href={events}>
             {c.backToEvents} <span aria-hidden="true">→</span>
           </Link>

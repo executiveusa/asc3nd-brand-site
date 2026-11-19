@@ -17,8 +17,8 @@ for (const width of [320, 360, 390, 430, 768]) {
     const overflowing = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
     expect(overflowing).toBe(false);
     await header.locator(".site-menu-toggle").click();
-    await expect(header.locator(".site-mobile-donate a")).toHaveText("Donate");
-    await expect(header.locator(".site-mobile-donate a")).toHaveAttribute("href", "/support");
+    await expect(header.locator(".site-mobile-donate a")).toHaveAttribute("aria-label", "Donate (opens in a new tab)");
+    await expect(header.locator(".site-mobile-donate a")).toHaveAttribute("href", "https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
     await page.keyboard.press("Escape");
     await expect(header.locator(".site-panel")).toBeHidden();
   });
@@ -78,8 +78,8 @@ test("Spanish full film and donor link are accessible",async ({ page }) => {
   await expect(page.getByRole("dialog").locator("video[controls]")).toHaveCount(1);
   await page.keyboard.press("Escape");
   await page.locator(".site-menu-toggle").click();
-  await expect(page.locator(".site-mobile-donate a")).toHaveText("Donar");
-  await expect(page.locator(".site-mobile-donate a")).toHaveAttribute("href","/es/apoyo");
+  await expect(page.locator(".site-mobile-donate a")).toHaveAttribute("aria-label", "Donar (se abre en una pestaña nueva)");
+  await expect(page.locator(".site-mobile-donate a")).toHaveAttribute("href","https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
 });
 
 test("event pages use natural copy and retain native scrolling",async ({ page }) => {

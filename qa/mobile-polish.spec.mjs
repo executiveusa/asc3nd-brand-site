@@ -558,18 +558,20 @@ for (const locale of ["en", "es"]) {
     await expect(page.locator(".story-founder-commentary")).toHaveCount(0);
     await expect(page.locator('[data-slot="founder-elisha"]')).toHaveCount(0);
     await expect(page.locator("main")).not.toContainText(spanish ? "Quiero que cualquier joven" : "I want any youth");
-    await expect(page.locator(`a[href="${joyPath}"]`)).toBeVisible();
+    await expect(page.locator(`a[href="${joyPath}"]`).first()).toBeVisible();
     await page.goto(baseURL + eventsPath);
     await expect(page.locator(".event-record--upcoming")).toContainText("Project Joy: Asc3nd the Joy");
     await expect(page.locator(".community-partners-summary")).toBeVisible();
-    await expect(page.locator(`a[href="${joyPath}"]`)).toBeVisible();
+    await expect(page.locator(`.event-record--upcoming .event-record-link[href="${joyPath}"]`)).toBeVisible();
     await page.goto(baseURL + joyPath);
     await expect(page.locator("h1")).toHaveText("Project Joy: Asc3nd the Joy");
     await expect(page.locator("#joy-story-heading")).toBeVisible();
-    await expect(page.locator("#joy-media-heading")).toBeVisible();
-    await expect(page.locator("#joy-next-heading")).toBeVisible();
-    // No unconfirmed campaign donation destination is published.
-    await expect(page.locator('.project-next a[href*="zeffy"]')).toHaveCount(0);
+    await expect(page.locator(".joy-brand-art img")).toBeVisible();
+    await expect(page.locator("#joy-support-heading")).toBeVisible();
+    await expect(page.locator("#joy-final-heading")).toBeVisible();
+    // The founders confirmed the campaign Zeffy destination; keep it distinct from general giving.
+    await expect(page.locator(`.joy-final a[href="https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy"]`)).toBeVisible();
+    await expect(page.locator(`.joy-final a[href*="amazon.com/hz/wishlist/ls/24DFHCXA6J5RC"]`)).toBeVisible();
     await page.goto(baseURL + takePartPath);
     await expect(page.locator(".interior-hero-supporting")).toContainText(
       spanish ? "Cada acto de bondad" : "Every act of kindness",
@@ -664,8 +666,8 @@ for (const locale of ["en", "es"]) {
     await page.locator(".site-menu-toggle").click();
     const headerCta = page.locator(".site-mobile-donate .donate-pill");
     await expect(headerCta).toBeVisible();
-    await expect(headerCta).toHaveText(es ? "Donar" : "Donate");
-    await expect(headerCta).toHaveAttribute("href", support);
+    await expect(headerCta).toHaveAttribute("aria-label", es ? "Donar (se abre en una pestaña nueva)" : "Donate (opens in a new tab)");
+    await expect(headerCta).toHaveAttribute("href", "https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
     await expect(page.locator(".site-header-actions .donate-pill")).toBeHidden();
     await page.keyboard.press("Escape");
     await expect(headerCta).toBeHidden();
@@ -673,10 +675,56 @@ for (const locale of ["en", "es"]) {
     const links = await page.locator("a[href]").evaluateAll((els) =>
       els.map((a) => a.getAttribute("href") || "")
     );
-    expect(links).toContain("https://www.zeffy.com/");
+    expect(links).toContain("https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective");
     await expect(page.locator(".ss-row")).toHaveCount(2);
-    await expect(page.locator(".ss-list")).toContainText(es ? "campaña de donaciones" : "donation campaign");
+    await expect(page.locator(".ss-list")).toContainText("Zeffy");
     await expect(page.getByRole("link", { name: es ? /Participa: voluntariado/i : /Get Involved: volunteer/i })).toHaveAttribute("href", takePart);
     await assertNoHorizontalOverflow(page);
   });
+}
+
+
+/* Release gate: official campaign content and mobile donation actions remain correct. */
+for (const locale of ["en", "es"]) {
+  for (const width of [320, 390, 430, 768, 1440]) {
+    test(`Project Joy giving guide ${locale} at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 844 });
+      const es = locale === "es";
+      await page.goto(baseURL + (es ? "/es/proyectos/project-joy" : "/projects/project-joy"));
+      const main = page.locator(".project-joy-page");
+      await expect(main.locator("#joy-title")).toBeVisible();
+      await expect(main.locator("#joy-needs-heading")).toBeVisible();
+      await expect(main.locator(".joy-needs-group")).toHaveCount(4);
+      await expect(main.locator(".joy-needs-group li")).toHaveCount(14);
+      await expect(main.locator(".joy-wishlist-qr svg")).toBeVisible();
+      await expect(main.locator('.joy-primary-actions a[href*="amazon.com/hz/wishlist/ls/24DFHCXA6J5RC"]').first()).toBeVisible();
+      await expect(main.locator('.joy-primary-actions a[href="https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy"]').first()).toBeVisible();
+      await expect(main.locator(".joy-partners li")).toHaveCount(3);
+      await expect(main).not.toContainText("Small toys. BIG dreams. Even BIGGER impact!");
+      await assertNoHorizontalOverflow(page);
+    });
+  }
+}
+
+
+/* Founder-provided partner logos must be actual, decodable images at all layouts. */
+for (const locale of ["en", "es"]) {
+  for (const width of [390, 1440]) {
+    test(`13 client logos visible and loaded ${locale} at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto(baseURL + (locale === "es" ? "/es/eventos" : "/events"));
+      const images = page.locator(".community-partners-names img");
+      await expect(images).toHaveCount(13);
+      // The partner marks are intentionally lazy-loaded below the fold.
+      // Bring each image into view before requiring its pixels to decode.
+      for (const image of await images.all()) {
+        await image.scrollIntoViewIfNeeded();
+        await expect.poll(() => image.evaluate(el =>
+          el.complete && el.naturalWidth > 0 && !!el.alt.trim()
+        )).toBe(true);
+      }
+      await assertNoHorizontalOverflow(page);
+      await page.screenshot({ path: `test-results/partner-logos-${locale}-${width}.png`, fullPage: true });
+    });
+  }
 }

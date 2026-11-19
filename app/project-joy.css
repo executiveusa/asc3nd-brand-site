@@ -40,3 +40,25 @@
   .project-joy-page .joy-donate-button { width:100%; text-align:center; }
 }
 @media (prefers-reduced-motion:reduce) { .project-joy-page .joy-donate-button { transition:none; } }
+
+/* Client-supplied giving guide; deliberately scoped to Project Joy. */
+.project-joy-page .joy-needs h2 { max-width:17ch; }
+.project-joy-page .joy-needs-intro { max-width:65ch; font-size:clamp(17px,1.8vw,21px); line-height:1.55; }
+.project-joy-page .joy-needs-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px clamp(28px,5vw,80px); margin:42px 0 28px; }
+.project-joy-page .joy-needs-group { min-width:0; padding-top:22px; border-top:1px solid var(--line); }
+.project-joy-page .joy-needs-group h3 { margin:0 0 16px; font-family:var(--serif); font-size:clamp(22px,2.8vw,32px); line-height:1.15; }
+.project-joy-page .joy-needs-group ul { margin:0; padding-left:21px; line-height:1.75; color:var(--ink); }
+.project-joy-page .joy-needs-footnote { font-size:16px; font-weight:600; line-height:1.5; }
+.project-joy-page .joy-wishlist-qr { display:grid; grid-template-columns:160px minmax(0,1fr); gap:28px; align-items:center; padding:30px 0; margin:42px 0 0; border-top:1px solid var(--line); }
+.project-joy-page .joy-wishlist-qr-art { background:#fff; border:1px solid #dedede; width:160px; max-width:100%; padding:10px; }
+.project-joy-page .joy-wishlist-qr-art svg { display:block; width:100%; height:auto; shape-rendering:crispEdges; }
+.project-joy-page .joy-wishlist-qr h3 { font-family:var(--serif); font-size:clamp(24px,2.8vw,36px); margin:0 0 10px; }
+.project-joy-page .joy-wishlist-qr p { max-width:55ch; line-height:1.6; margin:0 0 12px; }
+.project-joy-page .joy-wishlist-qr .joy-support-link { min-height:48px; display:inline-flex; align-items:center; gap:8px; text-underline-offset:5px; }
+@media (max-width:690px) {
+  .project-joy-page .joy-needs-grid { grid-template-columns:minmax(0,1fr); gap:14px; }
+  .project-joy-page .joy-wishlist-qr { grid-template-columns:minmax(0,1fr); justify-items:start; }
+}
+
+/* Override the legacy two-column evidence shell for this four-category guide. */
+.project-joy-page .joy-needs { grid-template-columns:minmax(0,1fr); gap:0; }

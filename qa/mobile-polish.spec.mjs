@@ -682,3 +682,26 @@ for (const locale of ["en", "es"]) {
     await assertNoHorizontalOverflow(page);
   });
 }
+
+
+/* Release gate: official campaign content and mobile donation actions remain correct. */
+for (const locale of ["en", "es"]) {
+  for (const width of [320, 390, 430, 768, 1440]) {
+    test(`Project Joy giving guide ${locale} at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 844 });
+      const es = locale === "es";
+      await page.goto(baseURL + (es ? "/es/proyectos/project-joy" : "/projects/project-joy"));
+      const main = page.locator(".project-joy-page");
+      await expect(main.locator("#joy-title")).toBeVisible();
+      await expect(main.locator("#joy-needs-heading")).toBeVisible();
+      await expect(main.locator(".joy-needs-group")).toHaveCount(4);
+      await expect(main.locator(".joy-needs-group li")).toHaveCount(14);
+      await expect(main.locator(".joy-wishlist-qr svg")).toBeVisible();
+      await expect(main.locator('.joy-primary-actions a[href*="amazon.com/hz/wishlist/ls/24DFHCXA6J5RC"]').first()).toBeVisible();
+      await expect(main.locator('.joy-primary-actions a[href="https://www.zeffy.com/en-US/donation-form/project-joy-asc3nd-the-joy"]').first()).toBeVisible();
+      await expect(main.locator(".joy-partners li")).toHaveCount(3);
+      await expect(main).not.toContainText("Small toys. BIG dreams. Even BIGGER impact!");
+      await assertNoHorizontalOverflow(page);
+    });
+  }
+}

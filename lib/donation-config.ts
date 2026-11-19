@@ -21,7 +21,7 @@ function verifiedCampaignShape(input: string): string | null {
 }
 
 export const ASC3ND_DONATION_URL = verifiedCampaignShape(
-  process.env.NEXT_PUBLIC_ASC3ND_ZEFFY_URL ?? "https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective",
+  process.env.NEXT_PUBLIC_ASC3ND_ZEFFY_URL?.trim() || "https://www.zeffy.com/en-US/donation-form/the-asc3nd-collective",
 );
 /** One destination for all donation CTAs. Replace via the verified campaign env var. */
 export const ASC3ND_ZEFFY_DESTINATION = ASC3ND_DONATION_URL ?? "https://www.zeffy.com/";

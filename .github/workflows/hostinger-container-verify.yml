@@ -1,0 +1,40 @@
+name: Hostinger standby container verification
+
+on:
+  pull_request:
+    paths:
+      - "Dockerfile"
+      - ".dockerignore"
+      - "compose.hostinger.yml"
+      - "docs/HOSTINGER_STANDBY_RUNBOOK.md"
+      - ".github/workflows/hostinger-container-verify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Docker Compose syntax
+        run: docker compose -f compose.hostinger.yml config --quiet
+      - name: Build independent host image
+        run: docker build --tag asc3nd-hostinger-ci:${{ github.sha }} .
+      - name: Smoke-test the container's holding and brand routes
+        run: |
+          set -euo pipefail
+          docker run -d --rm --name asc3nd-hostinger-ci -p 127.0.0.1:3001:3000 asc3nd-hostinger-ci:${{ github.sha }}
+          trap 'docker stop asc3nd-hostinger-ci || true' EXIT
+          for i in $(seq 1 60); do
+            if curl --fail --silent --output /dev/null http://127.0.0.1:3001/standby; then
+              break
+            fi
+            sleep 2
+          done
+          curl -fS http://127.0.0.1:3001/standby -o /dev/null
+          curl -fS http://127.0.0.1:3001/projects/project-joy -o /dev/null
+          curl -fS http://127.0.0.1:3001/es/proyectos/project-joy -o /dev/null
+          docker inspect --format='{{ "{{" }}.State.Health.Status{{ "}}" }}' asc3nd-hostinger-ci

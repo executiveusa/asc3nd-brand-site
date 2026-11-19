@@ -10,37 +10,37 @@ export const esDateLabel = "agosto de 2026";
 export const esProjectName = "Fresh Fade, Fresh Grade";
 
 /** Shown once beside translated founder quotes. */
-export const translationNote = "Traducción del testimonio original en inglés.";
+export const translationNote = "Traducción de los testimonios originales en inglés.";
 
 export const founderQuotesEs = [
   {
     name: "Otha Minnifield",
     role: "fundador",
     quote:
-      "Es poderoso cuando hay alguien que puede sentarse a hablar con un joven, apoyarse en lo que esa persona quiere para su vida y hacerle saber de qué puede ser parte, que es el futuro.",
+      "Es muy valioso cuando alguien puede sentarse a hablar con un joven, entender lo que quiere para su vida y hacerle ver todo aquello de lo que puede formar parte: su futuro.",
   },
   {
     name: "Elisha Minnifield",
     role: "fundadora",
     quote:
-      "Quiero que cualquier joven que se me acerque, aunque sea un poco, se vaya sintiéndose mejor persona por haber encontrado amor, trato y comunicación conmigo.",
+      "Quiero que cualquier joven que se acerque a mí, aunque sea un momento, se vaya sintiéndose mejor persona por haber encontrado cariño, respeto y alguien que lo escuche.",
   },
 ] as const;
 
 export const pathwaysEs = [
   {
-    title: "Orientación de confianza",
-    copy: "Creemos que cada joven merece contar con alguien que lo apoye. Mediante la mentoría, el ánimo y las relaciones significativas, buscamos conectar a los jóvenes con modelos positivos que inspiren confianza, ofrezcan orientación y les ayuden a aprovechar las oportunidades de la vida.",
+    title: "Acompañamiento de confianza",
+    copy: "Creemos que todo joven merece tener a alguien que lo apoye. A través de mentorías, ánimo y relaciones que de verdad cuentan, acercamos a los jóvenes a modelos a seguir que les inspiren confianza, los orienten y los ayuden a aprovechar las oportunidades que la vida les ofrece.",
     status: "En desarrollo",
   },
   {
     title: "Habilidades para la vida y crecimiento personal",
-    copy: "Empoderar a la próxima generación va más allá del aula. Queremos crear oportunidades para desarrollar la confianza, las habilidades prácticas para la vida y la comunicación, y ofrecer herramientas para prosperar.",
+    copy: "Preparar a la nueva generación va mucho más allá del salón de clases. Queremos crear espacios donde los jóvenes desarrollen confianza en sí mismos, habilidades prácticas para la vida y mejores formas de comunicarse: herramientas para salir adelante.",
     status: "En desarrollo",
   },
   {
-    title: "Conexiones comunitarias y oportunidades",
-    copy: "Las comunidades fuertes crean futuros más sólidos. Mediante iniciativas de apoyo, alianzas y experiencias comunitarias, buscamos conectar a jóvenes y familias con recursos, oportunidades y el apoyo que marque una diferencia duradera.",
+    title: "Comunidad y oportunidades",
+    copy: "Las comunidades fuertes construyen mejores futuros. Con iniciativas de apoyo, alianzas y actividades comunitarias, acercamos a jóvenes y familias a recursos, oportunidades y un apoyo que marque la diferencia a largo plazo.",
     status: "En desarrollo",
   },
 ] as const;
@@ -68,28 +68,28 @@ export const participationRoutesEs = [
 
 export const homeEs = {
   meta: {
-    title: "Empoderar a la juventud. Elevar futuros. Construir comunidad.",
+    title: "Impulsar a la juventud. Construir futuros. Fortalecer la comunidad.",
     description:
-      "ASC3ND ayuda a los jóvenes a encontrar guía de confianza, practicar habilidades para la vida y conectarse con oportunidades en su comunidad.",
+      "En Asc3nd acompañamos a los jóvenes: los orientamos, les enseñamos habilidades para la vida y los acercamos a las oportunidades de su comunidad.",
   },
   explainer:
-    "ASC3ND ayuda a los jóvenes a encontrar guía de confianza, practicar habilidades para la vida y conectarse con oportunidades en su comunidad.",
+    "En Asc3nd acompañamos a los jóvenes: los orientamos, les enseñamos habilidades para la vida y los acercamos a las oportunidades de su comunidad.",
   ctaPrimary: "Cómo participar",
   ctaSecondary: "Conoce Fresh Fade, Fresh Grade",
   heroAlt:
     "Familias haciendo fila en la carpa de ASC3ND, bajo una pancarta con el lema de la organización (en inglés)",
   proof: (_n: number) =>
-    "El primer evento: Fresh Fade, Fresh Grade, Everett, Washington, agosto de 2026.",
+    "Nuestro primer evento: Fresh Fade, Fresh Grade, en Everett, Washington, agosto de 2026.",
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
-  focusTitle: "Lo que ASC3ND está construyendo.",
-  focusIntro: "A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.",
+  focusTitle: "Lo que estamos construyendo.",
+  focusIntro: "A medida que Asc3nd Collective sigue creciendo, buscamos sumar iniciativas y alianzas para hacer realidad estas tres prioridades.",
   focusPhotoAlts: [
     "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Fresh Fade, Fresh Grade",
     "Un barbero voluntario con camiseta de ASC3ND cortándole el pelo a un niño",
     "Familias y voluntarios en la mesa de ASC3ND, bajo la carpa del evento",
   ],
-  essayIntro: "Cortes de pelo y útiles escolares para niños que regresan a clases.",
+  essayIntro: "Cortes de pelo y útiles escolares para niños de regreso a clases.",
   essayLink: (n: number) => `Mira las ${n} fotos y el video`,
   essayAlts: [
     "Voluntarios de ASC3ND riéndose mientras organizan mochilas frente a un letrero de regreso a clases",
@@ -306,7 +306,7 @@ export const transparencyEs = {
 export const signupEs = {
   title: "Entérate de lo que sigue en ASC3ND.",
   intro:
-    "Te escribiremos de vez en cuando, cuando se confirme un programa, un evento o una necesidad de voluntarios. Puedes cancelar la suscripción cuando quieras.",
+    "Te escribiremos de vez en cuando, cuando se confirme un programa o un evento, o cuando necesitemos voluntarios. Puedes darte de baja en cualquier momento.",
   name: "Nombre",
   email: "Correo electrónico",
   consent:

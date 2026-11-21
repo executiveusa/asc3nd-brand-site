@@ -25,7 +25,7 @@ const labels = {
   },
   es: {
     eyebrow: "Momentos reales, comunidad real",
-    heading: "Nuestra comunidad en acción.",
+    heading: "Nuestra comunidad en acción",
     intro: "Algunos momentos de las iniciativas que dan vida a nuestra misión.",
     previous: "Foto anterior",
     next: "Foto siguiente",

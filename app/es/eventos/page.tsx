@@ -37,7 +37,7 @@ export default function EventosPage() {
       <section className="events-next shell" aria-labelledby="current-initiatives-title">
         <h2 id="current-initiatives-title" className="events-section-heading">Iniciativas actuales y próximas</h2>
         <article className="event-record event-record--upcoming" aria-labelledby="project-joy-title">
-          <Link className="event-record-cover initiative-event-media" href="/es/proyectos/project-joy" aria-label="Conoce Project Joy"><img src={projectJoy.artworkUrl} alt="Logo oficial de Project Joy Toy Drive de ASC3ND" width={800} height={800} loading="lazy" decoding="async" /></Link>
+          <Link className="event-record-cover initiative-event-media" href="/es/proyectos/project-joy" aria-label="Conoce Project Joy"><img src={projectJoy.artworkUrl} alt="Logo oficial de Project Joy, la colecta navideña de juguetes de ASC3ND" width={800} height={800} loading="lazy" decoding="async" /></Link>
           <div className="event-record-copy">
             <p className="eyebrow">{projectJoy.es.type}</p>
             <h3 id="project-joy-title">{projectJoy.title}</h3>
@@ -66,7 +66,7 @@ export default function EventosPage() {
 
               <Link className="event-record-cover" href={href} aria-label={t.openLabel(copy.title)}>
                 {cover?.src ? (
-                  <img src={cover.src} alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+                  <img src={cover.src} alt={cover.altEs ?? cover.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
                 ) : (
                   <span className="event-record-empty">{t.emptyCover}</span>
                 )}

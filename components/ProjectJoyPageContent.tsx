@@ -38,7 +38,7 @@ export function ProjectJoyPageContent({ locale }: { locale: Locale }) {
         </div>
         <div className="joy-brand-art">
           <img src={projectJoy.artworkUrl}
-            alt="Official Project Joy Toy Drive artwork from ASC3ND Collective"
+            alt={es ? "Arte oficial de Project Joy, la colecta navideña de juguetes de ASC3ND" : "Official Project Joy Toy Drive artwork from ASC3ND Collective"}
             width={1200} height={1200} loading="eager" decoding="async"/>
         </div>
       </section>

@@ -15,7 +15,7 @@ const routes = [
   {
     label: "Familias y jóvenes",
     action: "Mantente al tanto",
-    detail: "Entérate de los programas y eventos para tu joven.",
+    detail: "Entérate de los programas y eventos para los jóvenes de tu familia.",
     href: "/es/participar/familia",
   },
   {
@@ -43,14 +43,15 @@ export default function ParticiparPage() {
     <InteriorPage
       eyebrow="Participa"
       title="Sé parte de algo más grande."
-      supporting="Cada acto de bondad, cada conexión y cada contribución tienen el poder de marcar la diferencia. Ya seas parte de una familia, voluntario o aliado comunitario, hay un lugar para ti en Asc3nd Collective."
-      intro="En Asc3nd Collective creemos que el cambio significativo ocurre cuando las personas se unen con un propósito común. Ya sea que busques oportunidades para tu familia, quieras ofrecer tu tiempo y talento como voluntario o representes a una organización interesada en colaborar, te invitamos a formar parte de nuestro colectivo en crecimiento. Juntos podemos crear experiencias significativas, fortalecer los vínculos comunitarios y ayudar a la próxima generación a prosperar."
+      supporting="Cada acto de bondad, cada conexión y cada contribución tienen el poder de marcar la diferencia. Ya seas parte de una familia, voluntario o aliado comunitario, hay un lugar para ti en ASC3ND Collective."
+      intro="En ASC3ND Collective creemos que el cambio que de verdad importa ocurre cuando las personas se unen con un mismo propósito. Ya sea que busques oportunidades para tu familia, quieras ofrecer tu tiempo y talento como voluntario o representes a una organización interesada en colaborar, te invitamos a formar parte de nuestro colectivo en crecimiento. Juntos podemos crear experiencias que dejan huella, fortalecer los vínculos comunitarios y ayudar a la próxima generación a prosperar."
     >
       {getApprovedMedia("take-part") ? (
         <section className="interior-section shell">
           <DocumentaryFrame
             label="Las familias, los mentores, los voluntarios y los aliados de la comunidad son bienvenidos aquí."
             slot="take-part"
+            locale="es"
           />
         </section>
       ) : null}

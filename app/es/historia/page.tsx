@@ -5,7 +5,7 @@ import { CollectiveLogo } from "@/components/CollectiveLogo";
 import { projectJoy } from "@/lib/initiative-content";
 import { DocumentaryFrame } from "@/components/DocumentaryFrame";
 import { InteriorPage } from "@/components/InteriorPage";
-import { founderQuotesEs, pathwaysEs, storyEs as t, translationNote } from "@/lib/site-content.es";
+import { founderQuotesEs, pathwaysEs, storyEs as t, translationNoteSingular } from "@/lib/site-content.es";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -20,14 +20,14 @@ export default function HistoriaPage() {
   return (
     <InteriorPage eyebrow={t.eyebrow} title={t.title} intro={t.intro}>
       <section className="story shell interior-story story-founder-feature">
-        <DocumentaryFrame label={otha.name} slot="founder-otha" className="portrait-placeholder" />
+        <DocumentaryFrame label={otha.name} slot="founder-otha" className="portrait-placeholder" locale="es" />
         <div className="story-copy">
           <p className="eyebrow">{otha.name}, {otha.role}</p>
           <blockquote>“{otha.quote}”</blockquote>
           <p>— {otha.name}</p>
-          <p className="translation-note">{translationNote}</p>
+          <p className="translation-note">{translationNoteSingular}</p>
         </div>
-        <p>A medida que Asc3nd Collective sigue creciendo, trabajamos para ampliar nuestras iniciativas y alianzas y hacer realidad estas áreas de enfoque.</p>
+        <p>A medida que ASC3ND Collective sigue creciendo, buscamos sumar iniciativas y alianzas para hacer realidad estas tres prioridades.</p>
       </section>
 
 

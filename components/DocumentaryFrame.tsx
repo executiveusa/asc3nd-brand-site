@@ -5,6 +5,7 @@ type DocumentaryFrameProps = {
   slot?: MediaSlot;
   variant?: "light" | "dark";
   className?: string;
+  locale?: "en" | "es";
 };
 
 export function DocumentaryFrame({
@@ -12,6 +13,7 @@ export function DocumentaryFrame({
   slot,
   variant = "light",
   className = "",
+  locale = "en",
 }: DocumentaryFrameProps) {
   const classes = [
     "media-placeholder",
@@ -22,6 +24,7 @@ export function DocumentaryFrame({
     .join(" ");
 
   const media = slot ? getApprovedMedia(slot) : undefined;
+  const mediaAlt = locale === "es" && media?.altEs ? media.altEs : media?.alt;
 
   if (media?.src) {
     return (
@@ -34,7 +37,7 @@ export function DocumentaryFrame({
             autoPlay={media.autoplay}
             loop={media.loop}
             muted={media.autoplay || media.muted}
-            aria-label={media.alt}
+            aria-label={mediaAlt}
           >
             {media.mobileSrc ? (
               <source media="(max-width: 820px)" src={media.mobileSrc} />
@@ -46,7 +49,7 @@ export function DocumentaryFrame({
             {media.mobileSrc ? (
               <source media="(max-width: 820px)" srcSet={media.mobileSrc} />
             ) : null}
-            <img src={media.src} alt={media.alt} loading="lazy" />
+            <img src={media.src} alt={mediaAlt} loading="lazy" />
           </picture>
         )}
         {media.caption || media.credit ? (

@@ -11,6 +11,7 @@ export const esProjectName = "Fresh Fade, Fresh Grade";
 
 /** Shown once beside translated founder quotes. */
 export const translationNote = "Traducción de los testimonios originales en inglés.";
+export const translationNoteSingular = "Traducción del testimonio original en inglés.";
 
 export const founderQuotesEs = [
   {
@@ -70,10 +71,10 @@ export const homeEs = {
   meta: {
     title: "Impulsar a la juventud. Construir futuros. Fortalecer la comunidad.",
     description:
-      "En Asc3nd acompañamos a los jóvenes: los orientamos, les enseñamos habilidades para la vida y los acercamos a las oportunidades de su comunidad.",
+      "En ASC3ND acompañamos a los jóvenes: los orientamos, les enseñamos habilidades para la vida y los acercamos a las oportunidades de su comunidad.",
   },
   explainer:
-    "En Asc3nd acompañamos a los jóvenes: los orientamos, les enseñamos habilidades para la vida y los acercamos a las oportunidades de su comunidad.",
+    "En ASC3ND acompañamos a los jóvenes: los orientamos, les enseñamos habilidades para la vida y los acercamos a las oportunidades de su comunidad.",
   ctaPrimary: "Cómo participar",
   ctaSecondary: "Conoce Fresh Fade, Fresh Grade",
   heroAlt:
@@ -83,7 +84,7 @@ export const homeEs = {
   foundersTitle: "Fundada por Otha y Elisha Minnifield.",
   founderAlt: (name: string, role: string) => `${name}, ${role} de ASC3ND Collective`,
   focusTitle: "Lo que estamos construyendo.",
-  focusIntro: "A medida que Asc3nd Collective sigue creciendo, buscamos sumar iniciativas y alianzas para hacer realidad estas tres prioridades.",
+  focusIntro: "A medida que ASC3ND Collective sigue creciendo, buscamos sumar iniciativas y alianzas para hacer realidad estas tres prioridades.",
   focusPhotoAlts: [
     "Otha Minnifield, con una camiseta de ASC3ND, conversando con un joven en Fresh Fade, Fresh Grade",
     "Un barbero voluntario con camiseta de ASC3ND cortándole el pelo a un niño",
@@ -109,9 +110,9 @@ export const storyEs = {
       "ASC3ND nació con Fresh Fade, Fresh Grade en Everett, Washington, en agosto de 2026. Conoce cómo la organización sigue creciendo a partir de esa base.",
   },
   eyebrow: "Por qué existe ASC3ND",
-  title: "Comenzó con una visión. Está creciendo hasta convertirse en un movimiento.",
+  title: "Empezó con una visión. Hoy crece hasta convertirse en un movimiento.",
   intro:
-    "Asc3nd Collective nació de una pasión compartida por contribuir a la comunidad, apoyar a los demás y crear oportunidades significativas para la próxima generación. Lo que comenzó como una visión de servicio a jóvenes y familias tomó forma con nuestra primera iniciativa, Fresh Fade, Fresh Grade, en Everett, Washington, en agosto de 2026. Pero nuestra misión va mucho más allá de un solo evento. Creemos que cada joven merece sentirse visto, apoyado, alentado y capaz de alcanzar su máximo potencial. Mediante alianzas comunitarias, mentoría, actividades y experiencias significativas, construimos un colectivo donde pequeños actos de bondad generan un impacto duradero.",
+    "ASC3ND Collective nació de una pasión compartida por contribuir a la comunidad, apoyar a los demás y crear oportunidades que de verdad importen para la próxima generación. Lo que comenzó como una visión de servicio a jóvenes y familias tomó forma con nuestra primera iniciativa, Fresh Fade, Fresh Grade, en Everett, Washington, en agosto de 2026. Pero nuestra misión va mucho más allá de un solo evento. Creemos que cada joven merece sentirse visto, apoyado, alentado y capaz de alcanzar su máximo potencial. Mediante alianzas comunitarias, mentoría, actividades y experiencias que dejan huella, construimos un colectivo donde pequeños actos de bondad generan un impacto duradero.",
   nextEyebrow: "Lo que viene",
   nextTitle: "Tres pilares. Un propósito. Posibilidades infinitas.",
 };
@@ -120,11 +121,11 @@ export const eventsEs = {
   meta: {
     title: "Eventos",
     description:
-      "Descubre las iniciativas comunitarias de Asc3nd Collective, los eventos anteriores y las oportunidades para participar.",
+      "Descubre las iniciativas comunitarias de ASC3ND Collective, los eventos anteriores y las oportunidades para participar.",
   },
   eyebrow: "Nuestro impacto en acción",
   title: "Donde el propósito se convierte en acción.",
-  intro: "Desde actividades comunitarias e iniciativas centradas en la juventud hasta alianzas significativas, cada evento de Asc3nd Collective es una oportunidad para contribuir, crear vínculos y marcar una diferencia.",
+  intro: "De actividades comunitarias e iniciativas para jóvenes a alianzas que suman, cada evento de ASC3ND Collective es una oportunidad para aportar, crear vínculos y marcar la diferencia.",
   listLabel: "Eventos e impacto comunitario de ASC3ND",
   openLabel: (title: string) => `Abrir el registro del evento ${title}`,
   emptyCover: "Material aprobado del evento",
@@ -143,7 +144,7 @@ export const communityCutsEs = {
   },
   eyebrow: "Proyecto comunitario",
   summary:
-    "Cortes frescos. Más confianza. Futuros más brillantes. Nuestra primera iniciativa Fresh Fade, Fresh Grade reunió a nuestra comunidad para ayudar a los jóvenes a prepararse para el nuevo año escolar con confianza y entusiasmo. A través de la colaboración comunitaria, la generosidad y las conexiones significativas, celebramos la importancia de apoyar a nuestra juventud y recordarles que cuentan con respaldo, que son valiosos y que pueden alcanzar grandes cosas. Más que un evento de regreso a clases, esta iniciativa marcó el comienzo del compromiso de Asc3nd Collective de apoyar a la próxima generación, una experiencia significativa a la vez.",
+    "Cortes frescos. Más confianza. Futuros más brillantes. Nuestra primera iniciativa Fresh Fade, Fresh Grade reunió a nuestra comunidad para ayudar a los jóvenes a prepararse para el nuevo año escolar con confianza y entusiasmo. A través de la colaboración comunitaria, la generosidad y los lazos que nos unen, celebramos la importancia de apoyar a nuestra juventud y recordarles que cuentan con respaldo, que son valiosos y que pueden alcanzar grandes cosas. Más que un evento de regreso a clases, esta iniciativa marcó el comienzo del compromiso de ASC3ND Collective de apoyar a la próxima generación, paso a paso y con experiencias que dejan huella.",
   film: {
     eyebrow: "El video",
     title: "Fresh Fade, Fresh Grade, Everett.",

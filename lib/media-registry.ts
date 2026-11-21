@@ -24,6 +24,8 @@ export type DocumentaryMedia = {
   mobileSrc?: string;
   poster?: string;
   alt: string;
+  /** Spanish alt text; Spanish pages fall back to `alt` when it is missing. */
+  altEs?: string;
   caption?: string;
   credit?: string;
   status: MediaStatus;
@@ -93,6 +95,7 @@ export const documentaryMedia: DocumentaryMedia[] = [
     kind: "image",
     src: "/media/founders/otha.webp",
     alt: "Otha Minnifield, founder of THE ASC3ND COLLECTIVE",
+    altEs: "Otha Minnifield, fundador de ASC3ND Collective",
     status: "approved",
     consent: "confirmed",
   },

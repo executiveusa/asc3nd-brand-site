@@ -1,0 +1,31 @@
+# Independent Hostinger VPS standby: intentionally binds loopback only.
+# Put behind an operator-managed HTTPS reverse proxy and a private staging hostname.
+# Do not point asc3nd.org here until separately reviewed and approved.
+services:
+  asc3nd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: asc3nd-brand-site:standby
+    container_name: asc3nd-hostinger-standby
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      # Supply project-specific secret env vars through a root-owned server .env only.
+      # Do not copy Netlify or Vercel credentials blindly.
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/standby').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 8s
+      start_period: 60s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    security_opt:
+      - no-new-privileges:true
